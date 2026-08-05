@@ -69,19 +69,21 @@ const steps = [
 
 const diferenciais = [
   {
-    title: 'Tecnologia de Ponta',
+    title: 'Tecnologia Integrada',
     description:
-      'Sistemas de monitoramento e controle de acesso de última geração.',
+      'Plataforma únida de monitoramento, controle de acesso e gestão em tempo real — tudo conectado.',
     icon: SERVICE_ICONS.shield,
   },
   {
-    title: 'Profissionais Qualificados',
-    description: 'Equipe treinada e certificada para cada segmento de serviço.',
+    title: 'Profissionais Especializados',
+    description:
+      'Equipe certificada e continuamente treinada para cada segmento de serviço.',
     icon: FEATURE_ICONS.users,
   },
   {
     title: 'Garantia de Qualidade',
-    description: 'Processos rigorosos e conformidade com as normas do setor.',
+    description:
+      'Gestão de performance com SLA, KPIs e compliance total das normas do setor.',
     icon: SERVICE_ICONS.sparkles,
   },
 ];
@@ -164,7 +166,7 @@ export default function Home() {
                 className="bg-primary/10 text-primary mb-6 inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium"
               >
                 <Shield className="h-4 w-4" />
-                <span>Excelência em Terceirização desde 2010</span>
+                <span>Gestão de Terceirização desde 2010</span>
               </motion.div>
 
               <motion.h1
@@ -174,8 +176,8 @@ export default function Home() {
                 className="text-foreground text-4xl leading-tight font-bold tracking-tight sm:text-5xl lg:text-6xl"
               >
                 Segurança, Zeladoria e{' '}
-                <span className="text-primary">Facilities</span> para empresas
-                que exigem excelência.
+                <span className="text-primary">Facilities</span> com tecnologia
+                e <span className="text-primary">excelência operacional</span>.
               </motion.h1>
 
               <motion.p
@@ -184,9 +186,10 @@ export default function Home() {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="text-muted-foreground mt-6 max-w-xl text-lg leading-relaxed"
               >
-                Soluções completas em terceirização de serviços para
-                condomínios, empresas e indústrias. Profissionais treinados,
-                atendimento 24 horas e cobertura regional.
+                Plataforma integrada para gestão de serviços de terceirização.
+                Proteja seu patrimônio, otimize suas instalações e eleve o
+                padrão de vida dos seus condôminos ou colaboradores com soluções
+                end-to-end.
               </motion.p>
 
               <motion.div
@@ -634,8 +637,8 @@ export default function Home() {
                 Solicite um Orçamento Agora
               </h2>
               <p className="text-muted-foreground mx-auto mt-4 max-w-xl text-lg">
-                Preencha o formulário e receba uma proposta personalizada em até
-                24 horas.
+                Solicite uma proposta gratuita e descubra como podemos elevar o
+                padrão dos seus serviços.
               </p>
               <div className="mt-8 flex flex-wrap justify-center gap-4">
                 <Link to="/clientes">
