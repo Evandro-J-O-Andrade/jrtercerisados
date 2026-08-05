@@ -21,12 +21,16 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
           <div className="space-y-4">
-            <Link to="/" className="flex items-center">
+            <Link to="/" className="flex items-center gap-4">
               <img
                 src={IMAGES.logo.dark}
                 alt={COMPANY.name}
-                className="h-28 w-auto"
+                className="h-20 w-auto"
               />
+              <h2 className="text-3xl font-bold">
+                <span className="text-primary">JS</span>{' '}
+                <span className="text-foreground">Tercerizados</span>
+              </h2>
             </Link>
             <p className="text-muted-foreground text-sm">
               {COMPANY.description}

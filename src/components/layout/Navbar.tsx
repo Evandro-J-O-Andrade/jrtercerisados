@@ -80,10 +80,14 @@ export function Navbar() {
           <motion.img
             src={IMAGES.logo.dark}
             alt={COMPANY.name}
-            className="h-24 w-auto"
+            className="h-16 w-auto"
             whileHover={{ scale: 1.05 }}
             loading="eager"
           />
+          <h1 className="text-2xl font-bold">
+            <span className="text-primary">JS</span>{' '}
+            <span className="text-foreground">Tercerizados</span>
+          </h1>
         </Link>
 
         <nav className="hidden items-center gap-8 lg:flex">
