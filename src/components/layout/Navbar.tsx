@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Sun, Moon, Shield } from 'lucide-react';
 import { cn } from '@/utils';
@@ -27,10 +28,13 @@ export function Navbar() {
   }, [location.pathname]);
 
   return (
-    <header
+    <motion.header
+      initial={{ y: -20, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6, ease: [0.25, 0.4, 0.25, 1] }}
       className={cn(
         'fixed top-0 right-0 left-0 z-50 transition-all duration-300',
-        scrolled ? 'bg-card/90 shadow-md backdrop-blur-md' : 'bg-transparent',
+        scrolled ? 'bg-card/85 shadow-lg backdrop-blur-xl' : 'bg-transparent',
       )}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
@@ -132,6 +136,6 @@ export function Navbar() {
           </div>
         </div>
       )}
-    </header>
+    </motion.header>
   );
 }

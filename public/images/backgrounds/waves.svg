@@ -1,0 +1,4 @@
+<svg viewBox="0 0 1200 300" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 100 Q300 50 600 80 T1200 60 V300 H0 Z" fill="hsl(43, 74%, 40%)" fill-opacity="0.03"/>
+  <path d="M0 120 Q300 70 600 100 T1200 80 V300 H0 Z" fill="hsl(43, 74%, 40%)" fill-opacity="0.05"/>
+</svg>
