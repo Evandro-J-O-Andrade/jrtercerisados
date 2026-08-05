@@ -1,1 +1,12 @@
-<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="20" fill="hsl(215,35%,20%)"/><text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-family="Inter, sans-serif" font-size="28.571428571428573" font-weight="700" fill="hsl(43,74%,40%)">JS</text><text x="50%" y="58%" dy="0.3em" font-family="Inter, sans-serif" font-size="28.571428571428573" font-weight="700" fill="white">Terceirizados</text></svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="goldGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="hsl(43, 90%, 55%)"/>
+      <stop offset="100%" stop-color="hsl(43, 74%, 40%)"/>
+    </linearGradient>
+  </defs>
+  <polygon points="2,75 10,5 75,5 78,75" fill="hsl(215,35%,15%)" stroke="url(#goldGrad)" stroke-width="2"/>
+  <text x="30" y="48" font-family="Inter, sans-serif" font-size="32" font-weight="800" fill="url(#goldGrad)">J</text>
+  <text x="48" y="48" font-family="Inter, sans-serif" font-size="32" font-weight="800" fill="hsl(0,0%,97%)">S</text>
+</svg>

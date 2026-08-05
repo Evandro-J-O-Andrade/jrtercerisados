@@ -1,1 +1,13 @@
-<svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="hsl(43,74%,40%)"/><stop offset="100%" stop-color="hsl(43,74%,35%)"/></linearGradient></defs><rect width="600" height="400" fill="url(#g)"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Inter, sans-serif" font-size="24" font-weight="600" fill="white" opacity="0.8">Limpeza</text></svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="hsl(215, 33%, 20%)"/><stop offset="100%" stop-color="hsl(215, 35%, 10%)"/></linearGradient></defs><rect width="800" height="600" fill="url(#g)"/><text x="400" y="450" text-anchor="middle" font-family="Inter, sans-serif" font-size="0" font-weight="500" fill="hsl(0, 0%, 97%)"></text>
+    <path d="M200 250 Q300 200 400 250 T600 250" stroke="hsl(215, 35%, 35%)" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M250 300 Q350 270 400 300 T550 300" stroke="hsl(215, 35%, 35%)" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <circle cx="200" cy="320" r="40" fill="hsl(215, 35%, 35%)" opacity="0.3"/>
+    <circle cx="350" cy="320" r="30" fill="hsl(43, 74%, 40%)" opacity="0.15"/>
+    <circle cx="550" cy="320" r="50" fill="hsl(215, 35%, 35%)" opacity="0.25"/>
+    <path d="M550 300 L550 340 M535 320 L565 320" stroke="hsl(43, 74%, 40%)" stroke-width="2" stroke-linecap="round"/>
+    <path d="M350 300 L350 340 M335 320 L365 320" stroke="hsl(43, 74%, 40%)" stroke-width="2" stroke-linecap="round"/>
+    <path d="M200 300 L200 360 M185 330 L215 330" stroke="hsl(43, 74%, 40%)" stroke-width="2" stroke-linecap="round"/>
+    <text x="400" y="80" text-anchor="middle" font-family="Inter, sans-serif" font-size="20" font-weight="500" fill="hsl(0, 0%, 97%)">Limpeza Profissional</text>
+    <text x="400" y="110" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="400" fill="hsl(215, 35%, 35%)">Higiene • Conservação • Produtos Ecológicos</text>
+  </svg>

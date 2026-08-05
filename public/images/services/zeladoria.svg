@@ -1,1 +1,12 @@
-<svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="hsl(43,74%,40%)"/><stop offset="100%" stop-color="hsl(43,74%,35%)"/></linearGradient></defs><rect width="600" height="400" fill="url(#g)"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Inter, sans-serif" font-size="24" font-weight="600" fill="white" opacity="0.8">Zeladoria</text></svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="hsl(215, 33%, 20%)"/><stop offset="100%" stop-color="hsl(215, 35%, 10%)"/></linearGradient></defs><rect width="800" height="600" fill="url(#g)"/>
+    <rect x="300" y="200" width="200" height="140" rx="15" fill="hsl(215, 33%, 20%)" stroke="hsl(43, 74%, 40%)" stroke-width="2"/>
+    <rect x="320" y="240" width="20" height="60" fill="hsl(43, 74%, 40%)" opacity="0.3"/>
+    <rect x="420" y="240" width="20" height="60" fill="hsl(43, 74%, 40%)" opacity="0.3"/>
+    <rect x="340" y="250" width="80" height="15" rx="3" fill="hsl(215, 35%, 35%)" opacity="0.2"/>
+    <rect x="340" y="280" width="80" height="15" rx="3" fill="hsl(215, 35%, 35%)" opacity="0.2"/>
+    <circle cx="380" cy="340" r="30" fill="hsl(43, 74%, 40%)" opacity="0.1"/>
+    <path d="M370 330 L390 350 L410 330" stroke="hsl(43, 74%, 40%)" stroke-width="2" fill="none"/>
+    <text x="400" y="80" text-anchor="middle" font-family="Inter, sans-serif" font-size="20" font-weight="500" fill="hsl(0, 0%, 97%)">Zeladoria</text>
+    <text x="400" y="110" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="400" fill="hsl(215, 35%, 35%)">Manutenção • Jardinagem • Pequenos Reparos</text>
+  </svg>

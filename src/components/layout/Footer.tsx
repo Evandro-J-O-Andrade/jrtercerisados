@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Shield, MapPin, Phone, Mail, Clock } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 import { COMPANY, SOCIAL_LINKS, CONTACTS, NAVIGATION_LINKS } from '@/config';
 
 export function Footer() {
@@ -10,13 +10,12 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
           <div className="space-y-4">
-            <Link to="/" className="flex items-center gap-3">
-              <div className="bg-primary flex h-10 w-10 items-center justify-center rounded-lg">
-                <Shield className="text-primary-foreground h-6 w-6" />
-              </div>
-              <span className="text-foreground text-xl font-bold tracking-tight">
-                JS<span className="text-primary">Terceirizados</span>
-              </span>
+            <Link to="/" className="flex items-center">
+              <img
+                src="/images/brand/logo-dark.svg"
+                alt={COMPANY.name}
+                className="h-8 w-auto"
+              />
             </Link>
             <p className="text-muted-foreground text-sm">
               {COMPANY.description}
