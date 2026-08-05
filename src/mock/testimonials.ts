@@ -4,7 +4,7 @@ export const TESTIMONIALS_DEMO = [
     name: 'Carlos Silva',
     role: 'Diretor de Segurança',
     company: 'Empresa Alpha',
-    image: '/images/team/carlos-silva.jpg',
+    image: '/images/team/carlos-silva.svg',
     quote:
       'A JSTerceirizados transformou nossa operação de segurança. Redução de 80% em incidentes.',
     rating: 5,
@@ -14,7 +14,7 @@ export const TESTIMONIALS_DEMO = [
     name: 'Ana Costa',
     role: 'Gerente de Facilities',
     company: 'Corp Epslon',
-    image: '/images/team/ana-costa.jpg',
+    image: '/images/team/ana-costa.svg',
     quote:
       'Profissionais altamente capacitados e tecnologia de ponta. Recomendamos sem hesitar.',
     rating: 5,
@@ -24,7 +24,7 @@ export const TESTIMONIALS_DEMO = [
     name: 'Marcos Lima',
     role: 'Sindico',
     company: 'Conjunto Zeta',
-    image: '/images/team/marcos-lima.jpg',
+    image: '/images/team/marcos-lima.svg',
     quote:
       'Excelente serviço de portaria e zeladoria. Nossa comunidade nunca esteve tão segura.',
     rating: 5,
@@ -34,7 +34,7 @@ export const TESTIMONIALS_DEMO = [
     name: 'Patrícia Rocha',
     role: 'Diretora Administrativa',
     company: 'Shopping Delta',
-    image: '/images/team/patricia-rocha.jpg',
+    image: '/images/team/patricia-rocha.svg',
     quote:
       'A equipe de limpeza mantém nosso shopping impecável. Excelente padrão de qualidade.',
     rating: 5,

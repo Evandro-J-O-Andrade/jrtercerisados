@@ -105,7 +105,7 @@ export default function Home() {
           className="absolute inset-0"
         >
           <img
-            src="/images/hero/hero-main.webp"
+            src="/images/hero/hero-main.svg"
             alt="Profissionais de segurança em ação"
             className="h-full w-full object-cover"
             loading="eager"
@@ -251,7 +251,7 @@ export default function Home() {
                   className="bg-muted/50 border-border relative aspect-[4/3] overflow-hidden rounded-3xl border"
                 >
                   <img
-                    src="/images/hero/hero-security.webp"
+                    src="/images/hero/hero-security.svg"
                     alt="Equipe de segurança patrimonial"
                     className="h-full w-full object-cover opacity-80"
                     loading="lazy"

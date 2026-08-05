@@ -15,7 +15,7 @@ export const mockServices: Service[] = [
       'Comunicação integrada',
       'Relatórios detalhados',
     ],
-    image: '/images/services/seguranca.webp',
+    image: '/images/services/seguranca-patrimonial.svg',
     icon: 'shield',
   },
   {
@@ -32,7 +32,7 @@ export const mockServices: Service[] = [
       'Alertas em tempo real',
       'Integração com câmeras',
     ],
-    image: '/images/services/controle-acesso.webp',
+    image: '/images/services/controle-acesso.svg',
     icon: 'lock',
   },
   {
@@ -49,7 +49,7 @@ export const mockServices: Service[] = [
       'Comunicação com moradores',
       'Monitoramento de entregas',
     ],
-    image: '/images/services/portaria.webp',
+    image: '/images/services/portaria.svg',
     icon: 'door-open',
   },
   {
@@ -66,7 +66,7 @@ export const mockServices: Service[] = [
       'Acolhimento de clientes',
       'Suporte multimídia',
     ],
-    image: '/images/services/recepcao.webp',
+    image: '/images/services/recepcao.svg',
     icon: 'user-check',
   },
   {
@@ -83,7 +83,7 @@ export const mockServices: Service[] = [
       'Controle de qualidade',
       'Relatórios de limpeza',
     ],
-    image: '/images/services/limpeza.webp',
+    image: '/images/services/limpeza.svg',
     icon: 'sparkles',
   },
   {
@@ -100,7 +100,7 @@ export const mockServices: Service[] = [
       'Gestão de áreas comuns',
       'Inspeções regulares',
     ],
-    image: '/images/services/zeladoria.webp',
+    image: '/images/services/zeladoria.svg',
     icon: 'wrench',
   },
   {
@@ -117,7 +117,7 @@ export const mockServices: Service[] = [
       'Indicadores de desempenho',
       'Relatórios gerenciais',
     ],
-    image: '/images/services/facilities.webp',
+    image: '/images/services/facilities.svg',
     icon: 'building',
   },
   {
@@ -134,7 +134,7 @@ export const mockServices: Service[] = [
       'Alertas instantâneos',
       'Acesso remoto',
     ],
-    image: '/images/services/monitoramento.webp',
+    image: '/images/services/monitoramento.svg',
     icon: 'monitor',
   },
 ];

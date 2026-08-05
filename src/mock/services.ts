@@ -12,7 +12,7 @@ export const SERVICES_DEMO = [
       'Monitoramento 24/7',
       'Relatórios de segurança',
     ],
-    image: '/images/services/seguranca-patrimonial.webp',
+    image: '/images/services/seguranca-patrimonial.svg',
   },
   {
     id: 'controle-acesso',
@@ -27,7 +27,7 @@ export const SERVICES_DEMO = [
       'Controle de visitantes',
       'Dashboard de fluxo',
     ],
-    image: '/images/services/controle-acesso.webp',
+    image: '/images/services/controle-acesso.svg',
   },
   {
     id: 'portaria',
@@ -42,7 +42,7 @@ export const SERVICES_DEMO = [
       'Gravação de veículos',
       'Emergências 24h',
     ],
-    image: '/images/services/portaria.webp',
+    image: '/images/services/portaria.svg',
   },
   {
     id: 'limpeza',
@@ -57,7 +57,7 @@ export const SERVICES_DEMO = [
       'Equipe multiativada',
       'Certificação Qualidade',
     ],
-    image: '/images/services/limpeza.webp',
+    image: '/images/services/limpeza.svg',
   },
   {
     id: 'zeladoria',
@@ -72,7 +72,7 @@ export const SERVICES_DEMO = [
       'Pintura e pequenos consertos',
       'Limpeza de calhas e telhados',
     ],
-    image: '/images/services/zeladoria.webp',
+    image: '/images/services/zeladoria.svg',
   },
   {
     id: 'facilities',
@@ -87,7 +87,7 @@ export const SERVICES_DEMO = [
       'Manutenção predial',
       'Suporte técnico',
     ],
-    image: '/images/services/facilities.webp',
+    image: '/images/services/facilities.svg',
   },
 ] as const;
 
@@ -115,10 +115,10 @@ export const SERVICES_FEATURES = [
 ] as const;
 
 export const SERVICES_GRID = [
-  '/images/services/seguranca-patrimonial.webp',
-  '/images/services/controle-acesso.webp',
-  '/images/services/portaria.webp',
-  '/images/services/limpeza.webp',
-  '/images/services/zeladoria.webp',
-  '/images/services/facilities.webp',
+  '/images/services/seguranca-patrimonial.svg',
+  '/images/services/controle-acesso.svg',
+  '/images/services/portaria.svg',
+  '/images/services/limpeza.svg',
+  '/images/services/zeladoria.svg',
+  '/images/services/facilities.svg',
 ] as const;
