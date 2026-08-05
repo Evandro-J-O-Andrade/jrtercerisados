@@ -11,6 +11,7 @@ import {
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { COMPANY, SOCIAL_LINKS, CONTACTS, NAVIGATION_LINKS } from '@/config';
+import { IMAGES } from '@/config/images';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -22,9 +23,9 @@ export function Footer() {
           <div className="space-y-4">
             <Link to="/" className="flex items-center">
               <img
-                src="/images/brand/logo-dark.svg"
+                src={IMAGES.logo.dark}
                 alt={COMPANY.name}
-                className="h-24 w-auto"
+                className="h-28 w-auto"
               />
             </Link>
             <p className="text-muted-foreground text-sm">

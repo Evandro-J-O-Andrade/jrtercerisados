@@ -16,6 +16,7 @@ import { Button } from '@/components/ui/Button';
 import { useTheme } from '@/contexts/ThemeContext';
 import { useAuth } from '@/contexts/AuthContext';
 import { NAVIGATION_LINKS } from '@/config/navigation';
+import { IMAGES } from '@/config/images';
 import {
   COMPANY,
   SOCIAL_LINKS,
@@ -77,13 +78,9 @@ export function Navbar() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
         <Link to="/" className="flex items-center gap-3">
           <motion.img
-            src={
-              resolvedTheme === 'dark'
-                ? '/images/brand/logo-white.svg'
-                : '/images/brand/logo.svg'
-            }
+            src={IMAGES.logo.dark}
             alt={COMPANY.name}
-            className="h-20 w-auto"
+            className="h-24 w-auto"
             whileHover={{ scale: 1.05 }}
             loading="eager"
           />
