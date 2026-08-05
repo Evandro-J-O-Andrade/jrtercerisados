@@ -65,5 +65,8 @@
     "*.{json,md,css,html}": [
       "prettier --write"
     ]
+  },
+  "engines": {
+    "node": ">=20"
   }
 }
