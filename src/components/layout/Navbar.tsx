@@ -83,7 +83,7 @@ export function Navbar() {
                 : '/images/brand/logo.svg'
             }
             alt={COMPANY.name}
-            className="h-16 w-auto"
+            className="h-20 w-auto"
             whileHover={{ scale: 1.05 }}
             loading="eager"
           />

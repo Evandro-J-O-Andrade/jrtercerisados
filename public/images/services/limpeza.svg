@@ -1,13 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="hsl(215, 33%, 20%)"/><stop offset="100%" stop-color="hsl(215, 35%, 10%)"/></linearGradient></defs><rect width="800" height="600" fill="url(#g)"/><text x="400" y="450" text-anchor="middle" font-family="Inter, sans-serif" font-size="0" font-weight="500" fill="hsl(0, 0%, 97%)"></text>
-    <path d="M200 250 Q300 200 400 250 T600 250" stroke="hsl(215, 35%, 35%)" stroke-width="3" fill="none" stroke-linecap="round"/>
-    <path d="M250 300 Q350 270 400 300 T550 300" stroke="hsl(215, 35%, 35%)" stroke-width="2" fill="none" stroke-linecap="round"/>
-    <circle cx="200" cy="320" r="40" fill="hsl(215, 35%, 35%)" opacity="0.3"/>
-    <circle cx="350" cy="320" r="30" fill="hsl(43, 74%, 40%)" opacity="0.15"/>
-    <circle cx="550" cy="320" r="50" fill="hsl(215, 35%, 35%)" opacity="0.25"/>
-    <path d="M550 300 L550 340 M535 320 L565 320" stroke="hsl(43, 74%, 40%)" stroke-width="2" stroke-linecap="round"/>
-    <path d="M350 300 L350 340 M335 320 L365 320" stroke="hsl(43, 74%, 40%)" stroke-width="2" stroke-linecap="round"/>
-    <path d="M200 300 L200 360 M185 330 L215 330" stroke="hsl(43, 74%, 40%)" stroke-width="2" stroke-linecap="round"/>
-    <text x="400" y="80" text-anchor="middle" font-family="Inter, sans-serif" font-size="20" font-weight="500" fill="hsl(0, 0%, 97%)">Limpeza Profissional</text>
-    <text x="400" y="110" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="400" fill="hsl(215, 35%, 35%)">Higiene • Conservação • Produtos Ecológicos</text>
-  </svg>
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="hsl(215,35%,12%)"/>
+      <stop offset="100%" stop-color="hsl(215,35%,8%)"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="hsl(43,90%,55%)"/>
+      <stop offset="100%" stop-color="hsl(43,74%,40%)"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <rect x="250" y="200" width="300" height="200" rx="15" fill="hsl(215,35%,18%)" stroke="hsl(43,74%,40%)" stroke-width="2"/>
+  <path d="M250 240 Q320 220 400 220 Q480 220 550 240" stroke="hsl(215,35%,30%)" stroke-width="2" fill="none"/>
+  <circle cx="320" cy="300" r="30" fill="url(#goldGrad)" opacity="0.15"/>
+  <path d="M310 295 L320 305 L330 295" stroke="url(#goldGrad)" stroke-width="2" fill="none"/>
+  <path d="M400 260 L400 340 M375 300 L425 300" stroke="hsl(215,35%,50%)" stroke-width="1.5" stroke-linecap="round"/>
+  <circle cx="480" cy="290" r="25" fill="url(#goldGrad)" opacity="0.1"/>
+  <path d="M470 285 L480 295 L490 285" stroke="url(#goldGrad)" stroke-width="2" fill="none"/>
+  <rect x="280" y="360" width="240" height="30" rx="8" fill="hsl(215,35%,20%)"/>
+  <rect x="300" y="375" width="40" height="10" rx="5" fill="hsl(43,74%,40%)"/>
+  <rect x="360" y="375" width="160" height="10" rx="5" fill="hsl(215,35%,40%)"/>
+  <circle cx="600" cy="320" r="40" fill="hsl(215,35%,15%)"/>
+  <path d="M590 315 L600 325 L610 315" stroke="hsl(43,74%,40%)" stroke-width="2" fill="none"/>
+  <text x="400" y="540" text-anchor="middle" font-family="Inter, sans-serif" font-size="24" font-weight="600" fill="hsl(0,0%,97%)">Limpeza Profissional</text>
+  <text x="400" y="565" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="400" fill="hsl(215,35%,65%)">Higiene • Produtos Ecológicos • Equipe Treinada</text>
+</svg>

@@ -24,7 +24,7 @@ export function Footer() {
               <img
                 src="/images/brand/logo-dark.svg"
                 alt={COMPANY.name}
-                className="h-20 w-auto"
+                className="h-24 w-auto"
               />
             </Link>
             <p className="text-muted-foreground text-sm">
