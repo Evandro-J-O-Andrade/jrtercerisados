@@ -25,10 +25,10 @@ export function Footer() {
               <img
                 src={IMAGES.logo.dark}
                 alt={COMPANY.name}
-                className="h-20 w-auto"
+                className="drop-shadow-glow h-28 w-auto"
               />
-              <h2 className="text-3xl font-bold">
-                <span className="text-primary">JS</span>{' '}
+              <h2 className="text-4xl font-extrabold tracking-tight">
+                <span className="text-primary drop-shadow-glow">JS</span>{' '}
                 <span className="text-foreground">Tercerizados</span>
               </h2>
             </Link>

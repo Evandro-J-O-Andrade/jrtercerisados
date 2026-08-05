@@ -288,4 +288,8 @@
     );
     animation: shimmer 2s infinite;
   }
+
+  .drop-shadow-glow {
+    filter: drop-shadow(0 0 8px hsla(43, 74%, 40%, 0.6));
+  }
 }

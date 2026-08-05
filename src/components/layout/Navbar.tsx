@@ -76,16 +76,16 @@ export function Navbar() {
       )}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-        <Link to="/" className="flex items-center gap-3">
+        <Link to="/" className="flex items-center gap-4">
           <motion.img
             src={IMAGES.logo.dark}
             alt={COMPANY.name}
-            className="h-16 w-auto"
+            className="drop-shadow-glow h-24 w-auto"
             whileHover={{ scale: 1.05 }}
             loading="eager"
           />
-          <h1 className="text-2xl font-bold">
-            <span className="text-primary">JS</span>{' '}
+          <h1 className="text-3xl font-extrabold tracking-tight">
+            <span className="text-primary drop-shadow-glow">JS</span>{' '}
             <span className="text-foreground">Tercerizados</span>
           </h1>
         </Link>
