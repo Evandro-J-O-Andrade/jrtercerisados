@@ -121,31 +121,9 @@ export default function Home() {
         </motion.div>
 
         {/* Floating decorative elements */}
-        <motion.div
-          className="bg-primary/20 absolute top-20 left-10 hidden h-3 w-3 rounded-full md:block"
-          animate={{ y: [0, -10, 0], opacity: [0.3, 0.6, 0.3] }}
-          transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-        />
-        <motion.div
-          className="bg-primary/20 absolute top-40 right-20 hidden h-4 w-4 rounded-full md:block"
-          animate={{ y: [0, 10, 0], opacity: [0.2, 0.5, 0.2] }}
-          transition={{
-            duration: 5,
-            delay: 0.5,
-            repeat: Infinity,
-            ease: 'easeInOut',
-          }}
-        />
-        <motion.div
-          className="bg-primary/15 absolute bottom-32 left-40 hidden h-5 w-5 rounded-full md:block"
-          animate={{ y: [0, 15, 0], opacity: [0.15, 0.4, 0.15] }}
-          transition={{
-            duration: 7,
-            delay: 1,
-            repeat: Infinity,
-            ease: 'easeInOut',
-          }}
-        />
+        <motion.div className="bg-primary/20 animate-float-slow absolute top-20 left-10 hidden h-3 w-3 rounded-full md:block" />
+        <motion.div className="bg-primary/20 animate-float-medium absolute top-40 right-20 hidden h-4 w-4 rounded-full md:block" />
+        <motion.div className="bg-primary/15 animate-float-fast absolute bottom-32 left-40 hidden h-5 w-5 rounded-full md:block" />
 
         <div className="relative mx-auto max-w-7xl px-4 py-32 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
@@ -237,15 +215,7 @@ export default function Home() {
               }}
               className="hidden lg:block"
             >
-              <motion.div
-                className="relative"
-                animate={{ y: [0, -5, 0] }}
-                transition={{
-                  duration: 6,
-                  repeat: Infinity,
-                  ease: 'easeInOut',
-                }}
-              >
+              <motion.div className="animate-float-medium relative">
                 <motion.div
                   whileHover={{ scale: 1.02 }}
                   className="bg-muted/50 border-border relative aspect-[4/3] overflow-hidden rounded-3xl border"
@@ -262,7 +232,7 @@ export default function Home() {
                 </motion.div>
 
                 <motion.div
-                  className="bg-card shadow-elevated absolute -bottom-8 -left-8 rounded-2xl p-6"
+                  className="bg-card shadow-elevated animate-float-fast absolute -bottom-8 -left-8 rounded-2xl p-6"
                   whileHover={{ scale: 1.03, y: -2 }}
                 >
                   <div className="flex items-center gap-3">
@@ -469,7 +439,7 @@ export default function Home() {
                 key={item.title}
                 variants={staggerItem('up')}
                 whileHover={{ y: -6, scale: 1.02 }}
-                className="bg-card shadow-premium group relative overflow-hidden rounded-3xl p-8 text-center transition-all duration-300"
+                className="bg-card shadow-premium group relative rounded-3xl p-8 pt-14 text-center transition-all duration-300"
               >
                 <div className="bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground absolute -top-8 left-1/2 flex h-16 w-16 -translate-x-1/2 items-center justify-center rounded-full transition-all duration-300">
                   <item.icon className="h-8 w-8 transition-transform group-hover:scale-110" />
@@ -622,9 +592,9 @@ export default function Home() {
             transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
             className="relative overflow-hidden rounded-3xl p-8 text-center sm:p-12"
           >
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,hsla(var(--primary),0.1),transparent_60%)]" />
-            <div className="bg-primary/5 absolute -top-20 -right-20 h-60 w-60 rounded-full blur-3xl" />
-            <div className="bg-primary/5 absolute -bottom-20 -left-20 h-60 w-60 rounded-full blur-3xl" />
+            <div className="animate-pulse-glow absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,hsla(var(--primary),0.15),transparent_60%)]" />
+            <div className="bg-primary/5 animate-float-slow absolute -top-20 -right-20 h-60 w-60 rounded-full blur-3xl" />
+            <div className="bg-primary/5 animate-float-medium absolute -bottom-20 -left-20 h-60 w-60 rounded-full blur-3xl" />
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}

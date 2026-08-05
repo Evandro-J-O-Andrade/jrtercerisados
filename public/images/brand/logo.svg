@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg viewBox="0 0 300 80" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 200 280" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="goldGrad" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="hsl(43, 90%, 55%)"/>
       <stop offset="100%" stop-color="hsl(43, 74%, 40%)"/>
     </linearGradient>
   </defs>
-  <polygon points="5,75 25,5 215,5 295,75" fill="hsl(215,35%,15%)" stroke="url(#goldGrad)" stroke-width="2"/>
-  <text x="75" y="50" font-family="Inter, sans-serif" font-size="42" font-weight="800" fill="url(#goldGrad)">J</text>
-  <text x="120" y="50" font-family="Inter, sans-serif" font-size="42" font-weight="800" fill="hsl(0,0%,97%)">S</text>
-  <text x="165" y="50" font-family="Inter, sans-serif" font-size="20" font-weight="600" fill="hsl(0,0%,80%)">Terceirizados</text>
+  <polygon points="20,270 40,40 160,40 180,270" fill="hsl(215,35%,15%)" stroke="url(#goldGrad)" stroke-width="3"/>
+  <text x="100" y="160" text-anchor="middle" font-family="Inter, sans-serif" font-size="110" font-weight="800" fill="url(#goldGrad)">J</text>
+  <text x="100" y="240" text-anchor="middle" font-family="Inter, sans-serif" font-size="110" font-weight="800" fill="hsl(0,0%,97%)">S</text>
+  <text x="100" y="270" text-anchor="middle" font-family="Inter, sans-serif" font-size="24" font-weight="600" fill="hsl(0,0%,97%)">Terceirizados</text>
 </svg>

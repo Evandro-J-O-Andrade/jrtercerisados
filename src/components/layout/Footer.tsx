@@ -1,5 +1,15 @@
 import { Link } from 'react-router-dom';
-import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+import {
+  MapPin,
+  Phone,
+  Mail,
+  Clock,
+  Instagram,
+  Facebook,
+  Send,
+  Linkedin,
+} from 'lucide-react';
+import { motion } from 'framer-motion';
 import { COMPANY, SOCIAL_LINKS, CONTACTS, NAVIGATION_LINKS } from '@/config';
 
 export function Footer() {
@@ -14,29 +24,63 @@ export function Footer() {
               <img
                 src="/images/brand/logo-dark.svg"
                 alt={COMPANY.name}
-                className="h-8 w-auto"
+                className="h-20 w-auto"
               />
             </Link>
             <p className="text-muted-foreground text-sm">
               {COMPANY.description}
             </p>
-            <div className="flex gap-4">
-              <a
+            <div className="flex flex-wrap gap-2">
+              <motion.a
                 href={SOCIAL_LINKS.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-muted text-muted-foreground hover:bg-primary hover:text-primary-foreground rounded-full p-3 transition-colors"
+                whileHover={{ scale: 1.1 }}
+                className="bg-muted text-muted-foreground hover:bg-primary hover:text-primary-foreground rounded-full p-2.5 transition-colors"
                 aria-label="WhatsApp"
               >
-                <Phone className="h-5 w-5" />
-              </a>
-              <a
-                href={SOCIAL_LINKS.email}
-                className="bg-muted text-muted-foreground hover:bg-primary hover:text-primary-foreground rounded-full p-3 transition-colors"
-                aria-label="E-mail"
+                <Phone className="h-4 w-4" />
+              </motion.a>
+              <motion.a
+                href={SOCIAL_LINKS.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.1 }}
+                className="bg-muted text-muted-foreground hover:bg-primary hover:text-primary-foreground rounded-full p-2.5 transition-colors"
+                aria-label="Instagram"
               >
-                <Mail className="h-5 w-5" />
-              </a>
+                <Instagram className="h-4 w-4" />
+              </motion.a>
+              <motion.a
+                href={SOCIAL_LINKS.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.1 }}
+                className="bg-muted text-muted-foreground hover:bg-primary hover:text-primary-foreground rounded-full p-2.5 transition-colors"
+                aria-label="Facebook"
+              >
+                <Facebook className="h-4 w-4" />
+              </motion.a>
+              <motion.a
+                href={SOCIAL_LINKS.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.1 }}
+                className="bg-muted text-muted-foreground hover:bg-primary hover:text-primary-foreground rounded-full p-2.5 transition-colors"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="h-4 w-4" />
+              </motion.a>
+              <motion.a
+                href={SOCIAL_LINKS.tiktok}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.1 }}
+                className="bg-muted text-muted-foreground hover:bg-primary hover:text-primary-foreground rounded-full p-2.5 transition-colors"
+                aria-label="TikTok"
+              >
+                <Send className="h-4 w-4" />
+              </motion.a>
             </div>
           </div>
 

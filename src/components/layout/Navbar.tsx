@@ -1,7 +1,16 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Sun, Moon, Phone } from 'lucide-react';
+import {
+  Menu,
+  X,
+  Sun,
+  Moon,
+  Phone,
+  Instagram,
+  Facebook,
+  Send,
+} from 'lucide-react';
 import { cn } from '@/utils';
 import { Button } from '@/components/ui/Button';
 import { useTheme } from '@/contexts/ThemeContext';
@@ -74,7 +83,7 @@ export function Navbar() {
                 : '/images/brand/logo.svg'
             }
             alt={COMPANY.name}
-            className="h-10 w-auto"
+            className="h-16 w-auto"
             whileHover={{ scale: 1.05 }}
             loading="eager"
           />
@@ -183,9 +192,9 @@ export function Navbar() {
                   className="border-border mt-4 border-t pt-4"
                 >
                   <p className="text-muted-foreground mb-3 text-xs font-semibold uppercase">
-                    Fale Conosco
+                    Redes Sociais
                   </p>
-                  <div className="flex gap-3">
+                  <div className="flex flex-wrap gap-3">
                     <motion.a
                       href={getWhatsAppUrl(
                         COMPANY.whatsapp,
@@ -199,16 +208,36 @@ export function Navbar() {
                     >
                       <Phone className="h-5 w-5" />
                     </motion.a>
-                    {SOCIAL_LINKS.email && (
-                      <motion.a
-                        href={SOCIAL_LINKS.email}
-                        whileHover={{ scale: 1.1 }}
-                        className="bg-muted text-muted-foreground hover:bg-primary hover:text-primary-foreground flex h-9 w-9 items-center justify-center rounded-full transition-colors"
-                        aria-label="E-mail"
-                      >
-                        <span className="text-xs">@</span>
-                      </motion.a>
-                    )}
+                    <motion.a
+                      href={SOCIAL_LINKS.instagram}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.1 }}
+                      className="bg-muted text-muted-foreground hover:bg-primary hover:text-primary-foreground flex h-9 w-9 items-center justify-center rounded-full transition-colors"
+                      aria-label="Instagram"
+                    >
+                      <Instagram className="h-5 w-5" />
+                    </motion.a>
+                    <motion.a
+                      href={SOCIAL_LINKS.facebook}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.1 }}
+                      className="bg-muted text-muted-foreground hover:bg-primary hover:text-primary-foreground flex h-9 w-9 items-center justify-center rounded-full transition-colors"
+                      aria-label="Facebook"
+                    >
+                      <Facebook className="h-5 w-5" />
+                    </motion.a>
+                    <motion.a
+                      href={SOCIAL_LINKS.tiktok}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.1 }}
+                      className="bg-muted text-muted-foreground hover:bg-primary hover:text-primary-foreground flex h-9 w-9 items-center justify-center rounded-full transition-colors"
+                      aria-label="TikTok"
+                    >
+                      <Send className="h-5 w-5" />
+                    </motion.a>
                   </div>
                 </motion.div>
 
