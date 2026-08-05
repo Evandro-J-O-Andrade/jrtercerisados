@@ -2,12 +2,17 @@ export const IMAGES = {
   logo: {
     light: '/images/logos/jslogomarca.png',
     dark: '/images/logos/jslogomarca.png',
+    sidebar: '/images/logos/sidebar-logo.svg',
+    sidebarIcon: '/images/logos/sidebar-icon.svg',
     favicon: '/images/favicons/favicon.svg',
   },
   hero: {
-    background: '/images/hero/hero-main.svg',
+    background: '/images/hero/hero-profissional.svg',
     security: '/images/hero/hero-security.svg',
     overlay: '/images/hero/hero-overlay.svg',
+    watermark: '/images/brand/watermark-logo.svg',
+    grid: '/images/backgrounds/hero-grid.svg',
+    lines: '/images/backgrounds/hero-lines.svg',
   },
   services: {
     seguranca: '/images/services/seguranca-patrimonial.svg',
@@ -23,6 +28,8 @@ export const IMAGES = {
     hero: '/images/backgrounds/waves.svg',
     pattern: '/images/backgrounds/pattern.svg',
     texture: '/images/backgrounds/grid.svg',
+    heroGrid: '/images/backgrounds/hero-grid.svg',
+    heroLines: '/images/backgrounds/hero-lines.svg',
   },
 } as const;
 

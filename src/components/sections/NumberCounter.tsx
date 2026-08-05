@@ -42,7 +42,7 @@ export function NumberCounter({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, ease: [0.25, 0.4, 0.25, 1] }}
-      className="bg-card shadow-premium group relative overflow-hidden rounded-3xl p-8 text-center transition-all duration-500 hover:-translate-y-2"
+      className="bg-card/30 shadow-glass group border-border/20 hover:shadow-glow-lg relative overflow-hidden rounded-3xl border p-8 text-center transition-all duration-500 hover:-translate-y-2"
     >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,hsla(var(--primary),0.05),transparent_60%)]" />
 

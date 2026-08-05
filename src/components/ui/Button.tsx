@@ -3,7 +3,7 @@ import { cn } from '@/utils';
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'danger';
-  size?: 'sm' | 'md' | 'lg' | 'icon';
+  size?: 'sm' | 'md' | 'lg' | 'xl' | 'icon';
   loading?: boolean;
   leftIcon?: ReactNode;
   rightIcon?: ReactNode;
@@ -41,6 +41,7 @@ export function Button({
           'h-9 px-3 text-sm': size === 'sm',
           'h-11 px-5 text-base': size === 'md',
           'h-13 px-7 text-lg': size === 'lg',
+          'h-14 px-8 text-base': size === 'xl',
           'h-10 w-10 p-0': size === 'icon',
         },
         className,

@@ -97,17 +97,17 @@ export default function Home() {
   return (
     <div>
       {/* Hero Premium */}
-      <section className="relative flex min-h-screen items-center overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,hsla(var(--primary),0.1),transparent_50%)]" />
+      <section className="relative flex min-h-[90vh] items-center overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_50%,hsla(215,35%,25%,0.3),transparent_70%)]" />
 
         <motion.div
           style={{ y: parallaxY, opacity: parallaxOpacity, scale: heroScale }}
           className="absolute inset-0"
         >
           <img
-            src="/images/hero/hero-main.svg"
+            src="/images/hero/hero-profissional.svg"
             alt="Profissionais de segurança em ação"
-            className="h-full w-full object-cover"
+            className="h-full w-full object-cover object-center"
             loading="eager"
             width="1920"
             height="1080"
@@ -115,15 +115,46 @@ export default function Home() {
           <img
             src="/images/hero/hero-overlay.svg"
             alt=""
-            className="absolute inset-0 h-full w-full object-cover opacity-70"
+            className="absolute inset-0 h-full w-full object-cover opacity-60"
             aria-hidden="true"
           />
         </motion.div>
 
-        {/* Floating decorative elements */}
-        <motion.div className="bg-primary/20 animate-float-slow absolute top-20 left-10 hidden h-3 w-3 rounded-full md:block" />
-        <motion.div className="bg-primary/20 animate-float-medium absolute top-40 right-20 hidden h-4 w-4 rounded-full md:block" />
-        <motion.div className="bg-primary/15 animate-float-fast absolute bottom-32 left-40 hidden h-5 w-5 rounded-full md:block" />
+        <img
+          src="/images/backgrounds/hero-grid.svg"
+          alt=""
+          className="absolute inset-0 h-full w-full opacity-10"
+          aria-hidden="true"
+        />
+
+        <img
+          src="/images/backgrounds/hero-lines.svg"
+          alt=""
+          className="absolute inset-0 h-full w-full opacity-5"
+          aria-hidden="true"
+        />
+
+        <img
+          src="/images/brand/watermark-logo.svg"
+          alt=""
+          className="absolute right-0 bottom-0 h-[500px] w-[500px] opacity-[0.04] blur-[1px]"
+          aria-hidden="true"
+        />
+
+        <motion.div className="bg-primary/10 animate-pulse-glow absolute top-1/4 left-1/4 hidden h-2 w-2 rounded-full md:block" />
+        <motion.div
+          className="bg-primary/10 animate-pulse-glow absolute top-1/3 right-1/4 hidden h-3 w-3 rounded-full md:block"
+          style={{ animationDelay: '0.5s' }}
+        />
+        <motion.div
+          className="bg-primary/10 animate-pulse-glow absolute top-1/2 left-1/3 hidden h-2 w-2 rounded-full md:block"
+          style={{ animationDelay: '1s' }}
+        />
+        <motion.div
+          className="bg-primary/20 animate-pulse-glow absolute top-40 left-1/2 hidden h-4 w-4 rounded-full md:block"
+          style={{ animationDelay: '0.3s' }}
+        />
+        <motion.div className="bg-primary/15 animate-float-slow absolute right-1/3 bottom-1/3 hidden h-5 w-5 rounded-full opacity-70 md:block" />
 
         <div className="relative mx-auto max-w-7xl px-4 py-32 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
@@ -141,7 +172,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="bg-primary/10 text-primary mb-6 inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium"
+                className="bg-primary/10 text-primary border-primary/20 mb-6 inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium backdrop-blur"
               >
                 <Shield className="h-4 w-4" />
                 <span>Gestão de Terceirização desde 2010</span>
@@ -151,7 +182,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
-                className="text-foreground text-4xl leading-tight font-bold tracking-tight sm:text-5xl lg:text-6xl"
+                className="text-foreground text-4xl leading-tight font-extrabold tracking-tight sm:text-5xl lg:text-6xl"
               >
                 Segurança, Zeladoria e{' '}
                 <span className="text-primary">Facilities</span> com tecnologia
@@ -181,7 +212,11 @@ export default function Home() {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
-                    <Button variant="secondary" size="lg">
+                    <Button
+                      variant="secondary"
+                      size="xl"
+                      className="shadow-glow-lg h-14 rounded-[18px] px-8 py-4 text-base"
+                    >
                       Solicitar Proposta
                       <ArrowRight className="ml-2 h-5 w-5" />
                     </Button>
@@ -194,8 +229,8 @@ export default function Home() {
                   >
                     <Button
                       variant="outline"
-                      size="lg"
-                      className="border-border/30 text-foreground hover:bg-muted"
+                      size="xl"
+                      className="border-border/30 text-foreground hover:bg-muted h-14 rounded-[18px] px-8 py-4 text-base backdrop-blur"
                     >
                       Trabalhe Conosco
                     </Button>
@@ -213,30 +248,41 @@ export default function Home() {
                 delay: 0.2,
                 ease: [0.25, 0.4, 0.25, 1],
               }}
-              className="hidden lg:block"
+              className="relative hidden lg:block"
             >
-              <motion.div className="animate-float-medium relative">
+              <motion.div
+                animate={{
+                  y: [0, -8, 0],
+                  rotate: [0, 0.3, 0],
+                }}
+                transition={{
+                  duration: 8,
+                  repeat: Infinity,
+                  ease: 'easeInOut',
+                }}
+              >
                 <motion.div
                   whileHover={{ scale: 1.02 }}
-                  className="bg-muted/50 border-border relative aspect-[4/3] overflow-hidden rounded-3xl border"
+                  className="bg-card/20 border-border relative aspect-[4/3] overflow-hidden rounded-3xl border"
                 >
                   <img
-                    src="/images/hero/hero-security.svg"
+                    src="/images/services/seguranca-patrimonial.svg"
                     alt="Equipe de segurança patrimonial"
-                    className="h-full w-full object-cover opacity-80"
+                    className="h-full w-full object-cover opacity-90"
                     loading="lazy"
                     width="600"
                     height="450"
                   />
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,hsla(var(--primary),0.15),transparent_60%)]" />
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,hsla(var(--primary),0.15),transparent_70%)]" />
+                  <div className="from-background/60 absolute inset-0 bg-gradient-to-t via-transparent to-transparent" />
                 </motion.div>
 
                 <motion.div
-                  className="bg-card shadow-elevated animate-float-fast absolute -bottom-8 -left-8 rounded-2xl p-6"
+                  className="bg-card/40 shadow-glass animate-float-fast border-border/20 absolute -bottom-8 -left-8 rounded-2xl border p-6 backdrop-blur"
                   whileHover={{ scale: 1.03, y: -2 }}
                 >
                   <div className="flex items-center gap-3">
-                    <div className="bg-primary flex h-12 w-12 items-center justify-center rounded-full">
+                    <div className="bg-primary shadow-glow flex h-12 w-12 items-center justify-center rounded-full">
                       <Shield className="text-primary-foreground h-6 w-6" />
                     </div>
                     <div>
@@ -253,6 +299,23 @@ export default function Home() {
             </motion.div>
           </div>
         </div>
+
+        <motion.div
+          className="absolute bottom-8 left-1/2 flex -translate-x-1/2 flex-col items-center"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1, duration: 0.8 }}
+        >
+          <span className="text-muted-foreground mb-2 text-xs font-medium">
+            Role para descer
+          </span>
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+          >
+            <ArrowRight className="text-muted-foreground h-5 w-5 rotate-90" />
+          </motion.div>
+        </motion.div>
       </section>
 
       {/* Stats Counter */}

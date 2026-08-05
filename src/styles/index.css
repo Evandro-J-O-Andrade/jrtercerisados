@@ -292,4 +292,18 @@
   .drop-shadow-glow {
     filter: drop-shadow(0 0 8px hsla(43, 74%, 40%, 0.6));
   }
+
+  .shadow-glow {
+    box-shadow: 0 0 20px hsla(43, 74%, 40%, 0.4);
+  }
+
+  .shadow-glow-lg {
+    box-shadow:
+      0 0 30px hsla(43, 74%, 40%, 0.5),
+      0 4px 20px hsla(215, 35%, 10%, 0.3);
+  }
+
+  .shadow-glass {
+    box-shadow: 0 8px 32px hsla(215, 35%, 10%, 0.2);
+  }
 }
