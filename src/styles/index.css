@@ -1,0 +1,182 @@
+@import 'tailwindcss';
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/fonts/inter.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/fonts/jetbrains-mono.woff2') format('woff2');
+}
+
+@layer base {
+  :root {
+    /* Palette */
+    --navy-50: 215 82% 97%;
+    --navy-100: 215 45% 93%;
+    --navy-200: 215 30% 85%;
+    --navy-300: 215 22% 73%;
+    --navy-400: 215 14% 62%;
+    --navy-500: 215 9% 52%;
+    --navy-600: 215 16% 45%;
+    --navy-700: 215 23% 37%;
+    --navy-800: 215 28% 28%;
+    --navy-900: 215 33% 20%;
+    --navy-950: 215 35% 10%;
+
+    --gold-50: 43 97% 95%;
+    --gold-100: 43 90% 85%;
+    --gold-300: 43 85% 60%;
+    --gold-400: 43 80% 50%;
+    --gold-500: 43 74% 40%;
+    --gold-600: 43 70% 33%;
+    --gold-700: 43 65% 27%;
+    --gold-800: 43 60% 20%;
+    --gold-900: 43 55% 14%;
+
+    --green-500: 140 60% 45%;
+    --red-500: 0 84% 60%;
+    --yellow-500: 43 90% 50%;
+
+    /* Semantic tokens */
+    --background: 215 82% 97%;
+    --foreground: 215 33% 20%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 33% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 33% 20%;
+
+    --primary: 43 74% 40%;
+    --primary-foreground: 215 35% 10%;
+
+    --secondary: 215 30% 85%;
+    --secondary-foreground: 215 33% 20%;
+
+    --muted: 215 45% 93%;
+    --muted-foreground: 215 9% 52%;
+
+    --accent: 43 74% 40%;
+    --accent-foreground: 215 35% 10%;
+
+    --success: 140 60% 45%;
+    --success-foreground: 0 0% 100%;
+    --warning: 43 90% 50%;
+    --warning-foreground: 215 35% 10%;
+    --danger: 0 84% 60%;
+    --danger-foreground: 0 0% 100%;
+
+    --border: 215 30% 85%;
+    --input: 215 30% 85%;
+    --ring: 43 74% 40%;
+
+    --surface: 0 0% 100%;
+    --surface-alt: 215 45% 93%;
+  }
+
+  .dark {
+    --background: 215 35% 10%;
+    --foreground: 0 0% 97%;
+
+    --card: 215 33% 20%;
+    --card-foreground: 0 0% 97%;
+
+    --popover: 215 33% 20%;
+    --popover-foreground: 0 0% 97%;
+
+    --primary: 43 74% 40%;
+    --primary-foreground: 215 35% 10%;
+
+    --secondary: 215 28% 28%;
+    --secondary-foreground: 0 0% 97%;
+
+    --muted: 215 28% 28%;
+    --muted-foreground: 215 8% 60%;
+
+    --accent: 215 28% 28%;
+    --accent-foreground: 0 0% 97%;
+
+    --success: 140 60% 55%;
+    --success-foreground: 215 35% 10%;
+    --warning: 43 90% 60%;
+    --warning-foreground: 215 35% 10%;
+    --danger: 0 70% 60%;
+    --danger-foreground: 0 0% 97%;
+
+    --border: 215 28% 30%;
+    --input: 215 28% 30%;
+    --ring: 43 80% 50%;
+
+    --surface: 215 33% 20%;
+    --surface-alt: 215 28% 28%;
+  }
+
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: hsl(var(--foreground));
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  button {
+    font-family: inherit;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .bg-primary {
+    background-color: hsl(var(--primary));
+  }
+
+  .bg-primary\/10 {
+    background-color: hsl(var(--primary) / 0.1);
+  }
+
+  .bg-primary\/20 {
+    background-color: hsl(var(--primary) / 0.2);
+  }
+
+  .bg-accent {
+    background-color: hsl(var(--accent));
+  }
+}
