@@ -13,6 +13,8 @@ import {
   Clock,
   Award,
   Users,
+  Computer,
+  Briefcase,
 } from 'lucide-react';
 
 export const SERVICE_ICONS: Record<
@@ -27,6 +29,7 @@ export const SERVICE_ICONS: Record<
   wrench: Wrench,
   building: Building,
   monitor: Monitor,
+  briefcase: Briefcase,
 };
 
 export const FEATURE_ICONS: Record<
@@ -40,4 +43,5 @@ export const FEATURE_ICONS: Record<
   phone: Phone,
   mail: Mail,
   clock: Clock,
+  computer: Computer,
 };

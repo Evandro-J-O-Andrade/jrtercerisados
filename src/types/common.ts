@@ -91,6 +91,27 @@ export interface Service {
   icon: string;
 }
 
+export interface Vaga {
+  id: string;
+  slug: string;
+  titulo: string;
+  empresa: string;
+  cidade: string;
+  estado: string;
+  tipoContrato:
+    'CLT' | 'ESTAGIO' | 'TEMPORARIO' | 'FREELA' | 'TERCEIRIZADO' | 'CD';
+  nivel: 'ESTAGIO' | 'JUNIOR' | 'PLENO' | 'SENIOR' | 'MASTER' | 'LIDERANCA';
+  salarioMin?: number;
+  salarioMax?: number;
+  modalidade: 'PRESENCIAL' | 'HIBRIDO' | 'REMOTO';
+  beneficios: string[];
+  requisitos: string;
+  descricao: string;
+  vagas: number;
+  status: 'BORRAR' | 'ATIVA' | 'ARQUIVADA' | 'CONTRATADA';
+  dataPublicacao: string;
+}
+
 export interface Testimonial {
   id: string;
   name: string;

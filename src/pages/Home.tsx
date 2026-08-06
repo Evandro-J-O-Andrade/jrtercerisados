@@ -22,53 +22,47 @@ import { staggerItem } from '@/animations/fade';
 import { mockServices } from '@/services/mock/services';
 import { TESTIMONIALS_DEMO } from '@/mock/testimonials';
 import { PARTNERS_LOGOS } from '@/mock/partners';
-import { COMPANY, WHATSAPP_MESSAGES, getWhatsAppUrl } from '@/config';
+import { COMPANY } from '@/config';
 import { SERVICE_ICONS, FEATURE_ICONS } from '@/constants/icons';
 import { IMAGES } from '@/config/images';
 
 const heroSlides: HeroSlide[] = [
   {
-    id: 'security',
-    title: (
-      <>
-        Segurança, Zeladoria e <span className="text-primary">Facilities</span>{' '}
-        com tecnologia e{' '}
-        <span className="text-primary">excelência operacional</span>.
-      </>
-    ),
+    id: 'rh',
+    title: <>Conectando talentos às melhores oportunidades.</>,
     subtitle:
-      'Plataforma integrada para gestão de serviços de terceirização. Proteja seu patrimônio, otimize suas instalações e eleve o padrão de vida dos seus colaboradores.',
+      'Agência de Empregos e Assessoria em Recursos Humanos. Encontramos o profissional certo para sua empresa e ajudamos candidatos a conquistar novas oportunidades.',
     image: IMAGES.hero.home.slides[0],
     fallback: IMAGES.hero.home.fallback,
-    alt: 'Segurança e facilities corporativos',
+    alt: 'Conectando talentos às melhores oportunidades',
   },
   {
-    id: 'cleaning',
+    id: 'banco',
     title: (
       <>
-        Soluções de <span className="text-primary">Limpeza Profissional</span>{' '}
-        para seu negócio.
+        <span className="text-primary">Banco de Talentos</span> atualizado com
+        profissionais qualificados.
       </>
     ),
     subtitle:
-      'Equipes certificadas, produtos ecológicos e monitoramento em tempo real. Qualidade que você pode ver e comprovar.',
+      'Cadastre seu currículo e faça parte do nosso banco de talentos. Sua próxima oportunidade está a um clique de distância.',
     image: IMAGES.hero.home.slides[1],
     fallback: IMAGES.hero.home.fallback,
-    alt: 'Equipe de limpeza corporativa profissional',
+    alt: 'Banco de talentos de profissionais qualificados',
   },
   {
-    id: 'portaria',
+    id: 'empresas',
     title: (
       <>
-        <span className="text-primary">Portaria Inteligente</span> e Controle de
-        Acesso 24h.
+        <span className="text-primary">Contrate</span> os profissionais certos
+        para sua empresa.
       </>
     ),
     subtitle:
-      'Controle total de acesso, fluxo de visitantes e integração com sua plataforma. Tecnologia de ponta ao seu serviço.',
+      'Recrutamento, seleção e mão de obra temporária. Soluções sob medida para sua necessidade.',
     image: IMAGES.hero.home.slides[2],
     fallback: IMAGES.hero.home.fallback,
-    alt: 'Controlador de acesso e portaria 24h',
+    alt: 'Contratação de profissionais qualificados',
   },
 ];
 
@@ -81,7 +75,7 @@ function HeroSlideBadge() {
       className="bg-primary/10 text-primary border-primary/20 mb-6 inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium backdrop-blur"
     >
       <Shield className="h-4 w-4" />
-      <span>Gestão de Terceirização desde 2010</span>
+      <span>Agência de Empregos desde 2010</span>
     </motion.div>
   );
 }
@@ -94,19 +88,19 @@ const stats = [
     icon: Award,
   },
   {
-    label: 'Clientes Atendidos',
+    label: 'Empresas Parceiras',
     value: COMPANY.clientsServed,
     suffix: '+',
     icon: Users,
   },
   {
-    label: 'Profissionais',
+    label: 'Profissionais no Banco',
     value: COMPANY.professionals,
     suffix: '+',
     icon: Shield,
   },
   {
-    label: 'Cidades Atendidas',
+    label: 'Vagas Preenchidas',
     value: COMPANY.citiesCovered,
     suffix: '+',
     icon: MapPin,
@@ -116,47 +110,54 @@ const stats = [
 const steps = [
   {
     step: '01',
-    title: 'Solicite Orçamento',
+    title: 'Cadastre seu currículo',
     description:
-      'Preencha o formulário com suas necessidades e dados de contato.',
+      'Preencha seus dados profissionais e faça upload do seu currículo em poucos minutos.',
   },
   {
     step: '02',
-    title: 'Nossa Equipe Analisa',
+    title: 'Candidate-se às vagas',
     description:
-      'Avaliamos seu perfil e preparamos uma proposta personalizada.',
+      'Escolha as oportunidades que combinam com seu perfil e envie sua candidatura.',
   },
   {
     step: '03',
-    title: 'Elaboramos a Proposta',
-    description: 'Apresentamos a solução ideal com custos e prazos detalhados.',
+    title: 'Processo seletivo',
+    description:
+      'Nossa equipe de RH entra em contato para avaliar seu perfil e agendar etapas.',
   },
   {
     step: '04',
-    title: 'Implantação',
+    title: 'Contratação',
     description:
-      'Iniciamos a operação com profissionais treinados e equipados.',
+      'Você recebe a proposta e inicia sua nova oportunidade profissional.',
   },
 ];
 
 const diferenciais = [
   {
-    title: 'Tecnologia Integrada',
+    title: 'Banco de Talentos Atualizado',
     description:
-      'Plataforma únida de monitoramento, controle de acesso e gestão em tempo real — tudo conectado.',
+      'Milhares de profissionais qualificados prontos para novas oportunidades, cadastrados e pré-avaliados.',
+    icon: SERVICE_ICONS.users,
+  },
+  {
+    title: 'WhatsApp First',
+    description:
+      'Atendimento ágil via WhatsApp. Você recebe atualizações em tempo real sobre suas candidaturas e vagas.',
+    icon: FEATURE_ICONS.phone,
+  },
+  {
+    title: 'Processo Seletivo Especializado',
+    description:
+      'Avaliação técnica, comportamental e cultural para garantir a contratação certa.',
     icon: SERVICE_ICONS.shield,
   },
   {
-    title: 'Profissionais Especializados',
+    title: 'Tecnologia Integrada',
     description:
-      'Equipe certificada e continuamente treinada para cada segmento de serviço.',
-    icon: FEATURE_ICONS.users,
-  },
-  {
-    title: 'Garantia de Qualidade',
-    description:
-      'Gestão de performance com SLA, KPIs e compliance total das normas do setor.',
-    icon: SERVICE_ICONS.sparkles,
+      'Plataforma digital para candidaturas, acompanhamento de processos e gestão de talentos.',
+    icon: FEATURE_ICONS.computer,
   },
 ];
 
@@ -170,44 +171,26 @@ export default function Home() {
           badge: <HeroSlideBadge />,
           cta: (
             <>
-              <motion.a
-                href={getWhatsAppUrl(
-                  COMPANY.whatsapp,
-                  WHATSAPP_MESSAGES.home.proposal,
-                )}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
+              <Link to="/trabalhe-conosco">
                 <Button
                   variant="secondary"
                   size="xl"
                   className="shadow-glow-lg h-14 rounded-[18px] px-8 py-4 text-base"
                 >
-                  Solicitar Proposta
+                  Quero uma Vaga
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
-              </motion.a>
-              <motion.a
-                href={getWhatsAppUrl(
-                  COMPANY.whatsapp,
-                  WHATSAPP_MESSAGES.home.whatsapp,
-                )}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
+              </Link>
+              <Link to="/empresas">
                 <Button
                   variant="outline"
                   size="xl"
                   className="border-border/30 text-foreground hover:bg-muted h-14 rounded-[18px] px-8 py-4 text-base backdrop-blur"
                 >
                   <Phone className="mr-2 h-5 w-5" />
-                  WhatsApp
+                  Contratar Funcionários
                 </Button>
-              </motion.a>
+              </Link>
             </>
           ),
         }))}
@@ -274,14 +257,14 @@ export default function Home() {
               variants={revealUp}
               className="text-foreground text-3xl font-bold sm:text-4xl"
             >
-              Nossos Serviços
+              Soluções para Empresas e Candidatos
             </motion.h2>
             <motion.p
               variants={revealUp}
               className="text-muted-foreground mx-auto mt-4 max-w-2xl text-lg"
             >
-              Soluções completas para a gestão de suas instalações e segurança
-              patrimonial.
+              Recrutamento, seleção, banco de talentos e mão de obra temporária
+              para conectar empresas aos profissionais certos.
             </motion.p>
           </motion.div>
 
@@ -292,7 +275,7 @@ export default function Home() {
             variants={staggerReveal(0.1)}
             className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4"
           >
-            {mockServices.map((service, index) => (
+            {mockServices.slice(0, 4).map((service, index) => (
               <ServiceCard key={service.id} service={service} index={index} />
             ))}
           </motion.div>
@@ -303,7 +286,7 @@ export default function Home() {
             viewport={{ once: true }}
             className="mt-10 text-center"
           >
-            <Link to="/servicos">
+            <Link to="/servicos#para-empresas">
               <Button variant="secondary" size="lg">
                 Ver Todos os Serviços
                 <ArrowRight className="ml-2 h-5 w-5" />
@@ -333,7 +316,8 @@ export default function Home() {
               variants={revealUp}
               className="text-muted-foreground mx-auto mt-4 max-w-2xl text-lg"
             >
-              Processo simples e eficiente para contratar nossos serviços.
+              Cadastre seu currículo, candidate-se às vagas e conquiste sua nova
+              oportunidade.
             </motion.p>
           </motion.div>
 
@@ -453,13 +437,13 @@ export default function Home() {
               variants={revealUp}
               className="text-foreground text-3xl font-bold sm:text-4xl"
             >
-              O que nossos clientes dizem
+              Depoimentos
             </motion.h2>
             <motion.p
               variants={revealUp}
               className="text-muted-foreground mx-auto mt-4 max-w-2xl text-lg"
             >
-              Depoimentos de empresas que confiam nosso trabalho.
+              O que empresas e candidatos dizem sobre a nossa agência.
             </motion.p>
           </motion.div>
 
@@ -522,14 +506,14 @@ export default function Home() {
               variants={revealUp}
               className="text-foreground text-3xl font-bold sm:text-4xl"
             >
-              Empresas Atendidas
+              Empresas Parceiras
             </motion.h2>
             <motion.p
               variants={revealUp}
               className="text-muted-foreground mx-auto mt-4 max-w-2xl text-lg"
             >
-              Mais de {COMPANY.clientsServed} clientes confiam em nosso
-              trabalho.
+              Mais de {COMPANY.clientsServed} empresas confiam no nosso
+              recrutamento.
             </motion.p>
           </motion.div>
 
@@ -597,47 +581,29 @@ export default function Home() {
               className="relative"
             >
               <h2 className="text-foreground text-3xl font-bold sm:text-4xl">
-                Solicite um Orçamento Agora
+                Encontre profissionais ou sua nova oportunidade
               </h2>
               <p className="text-muted-foreground mx-auto mt-4 max-w-xl text-lg">
-                Solicite uma proposta gratuita e descubra como podemos elevar o
-                padrão dos seus serviços.
+                Cadastre seu currículo ou solicite profissionais para sua
+                empresa. Estamos conectando talentos desde 2010.
               </p>
               <div className="mt-8 flex flex-wrap justify-center gap-4">
-                <motion.a
-                  href={getWhatsAppUrl(
-                    COMPANY.whatsapp,
-                    WHATSAPP_MESSAGES.home.proposal,
-                  )}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
+                <Link to="/trabalhe-conosco">
                   <Button variant="secondary" size="lg">
                     <Phone className="mr-2 h-5 w-5" />
-                    Solicitar Orçamento no WhatsApp
+                    Cadastrar Currículo
                   </Button>
-                </motion.a>
-                <motion.a
-                  href={getWhatsAppUrl(
-                    COMPANY.whatsapp,
-                    WHATSAPP_MESSAGES.home.whatsapp,
-                  )}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
+                </Link>
+                <Link to="/empresas">
                   <Button
                     variant="outline"
                     size="lg"
                     className="border-border/30 text-foreground hover:bg-muted"
                   >
-                    <Phone className="mr-2 h-5 w-5" />
-                    Falar no WhatsApp
+                    <ArrowRight className="mr-2 h-5 w-5" />
+                    Contratar Funcionários
                   </Button>
-                </motion.a>
+                </Link>
               </div>
             </motion.div>
           </motion.div>

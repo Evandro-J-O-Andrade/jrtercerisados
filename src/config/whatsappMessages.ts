@@ -1,48 +1,69 @@
 export const WHATSAPP_MESSAGES = {
   home: {
-    proposal:
-      'Olá! Visitei o site da JSTerceirizados e gostaria de solicitar um orçamento. Poderiam me passar mais informações sobre os serviços oferecidos?',
-    whatsapp:
-      'Olá! Visitei o site da JSTerceirizados e gostaria de conversar sobre os serviços oferecidos. É possível me atender?',
+    candidate:
+      'Olá! Visitei o site da JR Agência de Empregos e gostaria de me cadastrar no banco de talentos. Pode me orientar?',
+    company:
+      'Olá! Visitei o site da JR Agência de Empregos e gostaria de contratar profissionais para minha empresa. Como posso solicitar?',
   },
   comercial:
-    'Olá! Gostaria de solicitar um orçamento. Qual serviço de seu interesse?',
-  suporte: 'Olá! Preciso de atendimento da JSTerceirizados. Já sou cliente.',
-  security:
-    'Olá! Tenho interesse no serviço de Segurança Patrimonial e gostaria de receber uma proposta comercial.',
-  accessControl:
-    'Olá! Tenho interesse no serviço de Controle de Acesso e gostaria de receber uma proposta comercial.',
+    'Olá! Gostaria de solicitar profissionais para minha empresa. Qual serviço de seu interesse?',
+  suporte:
+    'Olá! Preciso de atendimento da JR Agência de Empregos. Já sou cliente.',
+  recrutamento:
+    'Olá! Tenho interesse no serviço de Recrutamento e Seleção e gostaria de uma proposta comercial.',
+  banco:
+    'Olá! Tenho interesse no Banco de Talentos e gostaria de conhecer a solução.',
+  maoObraTemporaria:
+    'Olá! Tenho interesse no serviço de Mão de Obra Temporária e gostaria de uma proposta comercial.',
+  terceirizacao:
+    'Olá! Tenho interesse no serviço de Terceirização de Serviços e gostaria de uma proposta comercial.',
+  hunting:
+    'Olá! Tenho interesse no serviço de Hunting de Executivos e gostaria de uma proposta comercial.',
+  avaliacao:
+    'Olá! Tenho interesse no serviço de Avaliação de Perfil e gostaria de uma proposta comercial.',
+  seguranca:
+    'Olá! Tenho interesse no serviço de Segurança Patrimonial e gostaria de uma proposta comercial.',
+  controleAcesso:
+    'Olá! Tenho interesse no serviço de Controle de Acesso e gostaria de uma proposta comercial.',
   portaria:
-    'Olá! Tenho interesse no serviço de Portaria e gostaria de receber uma proposta comercial.',
+    'Olá! Tenho interesse no serviço de Portaria Inteligente e gostaria de uma proposta comercial.',
   limpeza:
-    'Olá! Tenho interesse no serviço de Limpeza Profissional e gostaria de receber uma proposta comercial.',
+    'Olá! Tenho interesse no serviço de Limpeza Profissional e gostaria de uma proposta comercial.',
   zeladoria:
-    'Olá! Tenho interesse no serviço de Zeladoria e gostaria de receber uma proposta comercial.',
+    'Olá! Tenho interesse no serviço de Zeladoria Preventiva e gostaria de uma proposta comercial.',
   facilities:
-    'Olá! Tenho interesse no serviço de Facilities e gostaria de receber uma proposta comercial.',
-  recepcao:
-    'Olá! Tenho interesse no serviço de Recepção e gostaria de receber uma proposta comercial.',
-  monitoramento:
-    'Olá! Tenho interesse no serviço de Monitoramento e gostaria de receber uma proposta comercial.',
-  about:
-    'Olá! Gostaria de saber mais sobre a JSTerceirizados e nossos serviços de terceirização.',
+    'Olá! Tenho interesse no serviço de Facilities e gostaria de uma proposta comercial.',
+  sobre:
+    'Olá! Gostaria de saber mais sobre a JR Agência de Empregos e nossos serviços de recrutamento e RH.',
+  servicos:
+    'Olá! Visitei o site da JR Agência de Empregos e gostaria de conhecer melhor os serviços oferecidos.',
   services:
-    'Olá! Visitei o site da JSTerceirizados e gostaria de conhecer melhor os serviços oferecidos.',
+    'Olá! Visitei o site da JR Agência de Empregos e gostaria de conhecer melhor os serviços oferecidos.',
   clients:
-    'Olá! Tenho interesse em saber mais sobre os clientes atendidos pela JSTerceirizados.',
+    'Olá! Tenho interesse em saber mais sobre as empresas atendidas pela JR Agência de Empregos.',
+  clientes:
+    'Olá! Tenho interesse em saber mais sobre as empresas atendidas pela JR Agência de Empregos.',
+  parceiros:
+    'Olá! Tenho interesse em ser parceiro da JR Agência de Empregos e gostaria de receber mais informações.',
   partners:
-    'Olá! Tenho interesse em ser parceiro da JSTerceirizados e gostaria de receber mais informações.',
+    'Olá! Tenho interesse em ser parceiro da JR Agência de Empregos e gostaria de receber mais informações.',
+  fornecedores:
+    'Olá! Tenho interesse em fornecer serviços para a JR Agência de Empregos.',
   suppliers:
-    'Olá! Tenho interesse em fornecer serviços para a JSTerceirizados.',
+    'Olá! Tenho interesse em fornecer serviços para a JR Agência de Empregos.',
   careers:
-    'Olá! Tenho interesse em trabalhar na JSTerceirizados e gostaria de saber mais sobre as oportunidades.',
+    'Olá! Tenho interesse em trabalhar na JR Agência de Empregos e gostaria de saber mais sobre as oportunidades.',
   process:
-    'Olá! Tenho interesse no Processo Seletivo da JSTerceirizados e gostaria de me candidatar.',
-  faq: 'Olá! Tenho algumas dúvidas sobre os serviços da JSTerceirizados e gostaria de obter mais informações.',
+    'Olá! Tenho interesse no Processo Seletivo da JR Agência de Empregos e gostaria de me candidatar.',
+  faq: 'Olá! Tenho algumas dúvidas sobre a JR Agência de Empregos e gostaria de obter mais informações.',
   contact:
-    'Olá! Entrei em contato pelo site e gostaria de receber mais informações sobre os serviços.',
+    'Olá! Entrei em contato pelo site da JR Agência de Empregos e gostaria de receber mais informações.',
   contactForm:
-    'Olá! Preenchi o formulário de contato no site da JSTerceirizados e gostaria de ser atendido.',
+    'Olá! Preenchi o formulário de contato no site da JR Agência de Empregos e gostaria de ser atendido.',
   whatsappButton:
-    'Olá! Vi o botão de WhatsApp no site e gostaria de conversar sobre os serviços da JSTerceirizados.',
+    'Olá! Vi o botão de WhatsApp no site da JR Agência de Empregos e gostaria de conversar sobre recrutamento ou oportidades.',
+  budgetForm:
+    'Olá! Preenchi o formulário no site e gostaria de solicitar profissionais para minha empresa.',
+  candidateForm:
+    'Olá! Acabei de enviar meu currículo pelo site da JR Agência de Empregos. Gostaria de saber mais sobre o processo de recrutamento.',
 } as const;

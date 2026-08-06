@@ -7,12 +7,20 @@ import { PageLoader } from '@/components/ui/PageLoader';
 import { ScrollToTop } from '@/components/ui/ScrollToTop';
 
 const Home = lazy(() => import('@/pages/Home'));
+const Sobre = lazy(() => import('@/pages/Sobre'));
 const Servicos = lazy(() => import('@/pages/Servicos'));
 const ServicoDetalhe = lazy(() => import('@/pages/ServicoDetalhe'));
 const Vagas = lazy(() => import('@/pages/Vagas'));
 const VagaDetalhe = lazy(() => import('@/pages/VagaDetalhe'));
 const Empresas = lazy(() => import('@/pages/Empresas'));
+const Candidatos = lazy(() => import('@/pages/Candidatos'));
+const Blog = lazy(() => import('@/pages/Blog'));
+const Parceiros = lazy(() => import('@/pages/Parceiros'));
+const Fornecedores = lazy(() => import('@/pages/Fornecedores'));
+const Clientes = lazy(() => import('@/pages/Clientes'));
+const ProcessoSeletivo = lazy(() => import('@/pages/ProcessoSeletivo'));
 const TrabalheConosco = lazy(() => import('@/pages/TrabalheConosco'));
+const Suporte = lazy(() => import('@/pages/Suporte'));
 const FAQ = lazy(() => import('@/pages/FAQ'));
 const Contato = lazy(() => import('@/pages/Contato'));
 const Login = lazy(() => import('@/pages/Login'));
@@ -30,9 +38,18 @@ function App() {
             <Route path="/vagas" element={<Vagas />} />
             <Route path="/vagas/:slug" element={<VagaDetalhe />} />
             <Route path="/empresas" element={<Empresas />} />
+            <Route path="/candidatos" element={<Candidatos />} />
             <Route path="/servicos" element={<Servicos />} />
             <Route path="/servicos/:slug" element={<ServicoDetalhe />} />
+            <Route path="/clientes" element={<Clientes />} />
+            <Route path="/parceiros" element={<Parceiros />} />
+            <Route path="/fornecedores" element={<Fornecedores />} />
             <Route path="/trabalhe-conosco" element={<TrabalheConosco />} />
+            <Route path="/processo-seletivo" element={<ProcessoSeletivo />} />
+            <Route path="/sobre" element={<Sobre />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<Blog />} />
+            <Route path="/suporte" element={<Suporte />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/contato" element={<Contato />} />
             <Route path="/login" element={<Login />} />

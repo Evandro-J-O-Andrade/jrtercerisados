@@ -26,6 +26,7 @@ export {
   mockUpdateCandidateStatus,
   mockDeleteCandidate,
 } from './curriculos';
+export { mockGetVagas, mockGetVagaBySlug, mockVagas } from './vagas';
 export { mockSubmitContact, mockGetContacts } from './contatos';
 export { mockGetServices, mockGetServiceBySlug } from './services';
 export { mockLogin, mockLogout } from './auth';
