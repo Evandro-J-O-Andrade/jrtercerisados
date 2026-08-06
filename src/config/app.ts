@@ -12,7 +12,7 @@ export const APP_CONFIG = {
 export const APP_ENV = {
   supabaseUrl: import.meta.env.VITE_SUPABASE_URL ?? '',
   supabaseAnonKey: import.meta.env.VITE_SUPABASE_ANON_KEY ?? '',
-  whatsappNumber: import.meta.env.VITE_WHATSAPP_NUMBER ?? '+5511910669810',
+  whatsappNumber: import.meta.env.VITE_WHATSAPP_NUMBER ?? '+5511968380592',
   gaTrackingId: import.meta.env.VITE_GA_TRACKING_ID ?? '',
   googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY ?? '',
   appUrl: import.meta.env.VITE_APP_URL ?? 'http://localhost:3000',
