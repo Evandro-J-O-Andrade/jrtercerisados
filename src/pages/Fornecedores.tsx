@@ -10,7 +10,7 @@ import { Input } from '@/components/ui/Input';
 import { Section } from '@/components/sections/Section';
 import { Container } from '@/components/common/Container';
 import { mockSubmitSupplier } from '@/services/mock/fornecedores';
-import { COMPANY, getWhatsAppUrl, getWhatsAppMessage } from '@/config';
+import { COMPANY, WHATSAPP_MESSAGES, getWhatsAppUrl } from '@/config';
 
 const supplierSchema = z.object({
   company: z.string().min(2, 'Nome da empresa é obrigatório'),
@@ -69,7 +69,7 @@ export default function Fornecedores() {
             <a
               href={getWhatsAppUrl(
                 COMPANY.whatsapp,
-                getWhatsAppMessage({ Origem: 'Cadastro de fornecedor' }),
+                WHATSAPP_MESSAGES.suppliers,
               )}
               target="_blank"
               rel="noopener noreferrer"

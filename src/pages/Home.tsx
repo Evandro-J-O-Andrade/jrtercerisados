@@ -19,7 +19,7 @@ import { staggerItem } from '@/animations/fade';
 import { mockServices } from '@/services/mock/services';
 import { TESTIMONIALS_DEMO } from '@/mock/testimonials';
 import { PARTNERS_LOGOS } from '@/mock/partners';
-import { COMPANY, getWhatsAppUrl, getWhatsAppMessage } from '@/config';
+import { COMPANY, WHATSAPP_MESSAGES, getWhatsAppUrl } from '@/config';
 import { SERVICE_ICONS, FEATURE_ICONS } from '@/constants/icons';
 
 const stats = [
@@ -232,9 +232,7 @@ export default function Home() {
                 <motion.a
                   href={getWhatsAppUrl(
                     COMPANY.whatsapp,
-                    getWhatsAppMessage({
-                      Origem: 'Botão Solicitar Proposta na Hero',
-                    }),
+                    WHATSAPP_MESSAGES.home.proposal,
                   )}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -253,9 +251,7 @@ export default function Home() {
                 <motion.a
                   href={getWhatsAppUrl(
                     COMPANY.whatsapp,
-                    getWhatsAppMessage({
-                      Origem: 'Botão WhatsApp na Hero',
-                    }),
+                    WHATSAPP_MESSAGES.home.whatsapp,
                   )}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -713,9 +709,7 @@ export default function Home() {
                 <motion.a
                   href={getWhatsAppUrl(
                     COMPANY.whatsapp,
-                    getWhatsAppMessage({
-                      Origem: 'CTA Solicitar Orçamento na Home',
-                    }),
+                    WHATSAPP_MESSAGES.home.proposal,
                   )}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -730,9 +724,7 @@ export default function Home() {
                 <motion.a
                   href={getWhatsAppUrl(
                     COMPANY.whatsapp,
-                    getWhatsAppMessage({
-                      Origem: 'Falar no WhatsApp CTA Home',
-                    }),
+                    WHATSAPP_MESSAGES.home.whatsapp,
                   )}
                   target="_blank"
                   rel="noopener noreferrer"

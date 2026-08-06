@@ -17,7 +17,7 @@ import { Button } from '@/components/ui/Button';
 import { Section } from '@/components/sections/Section';
 import { Container } from '@/components/common/Container';
 import { mockGetServiceBySlug } from '@/services/mock/services';
-import { COMPANY, getWhatsAppUrl, getWhatsAppMessage } from '@/config';
+import { COMPANY, WHATSAPP_MESSAGES, getWhatsAppUrl } from '@/config';
 import { staggerReveal, revealUp } from '@/animations/scroll';
 import { staggerItem } from '@/animations/fade';
 
@@ -190,10 +190,7 @@ export default function ServicoDetalhe() {
                 <motion.a
                   href={getWhatsAppUrl(
                     COMPANY.whatsapp,
-                    getWhatsAppMessage({
-                      Serviço: service.title,
-                      Origem: 'Página de serviço',
-                    }),
+                    WHATSAPP_MESSAGES.services,
                   )}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -376,10 +373,7 @@ export default function ServicoDetalhe() {
                 <motion.a
                   href={getWhatsAppUrl(
                     COMPANY.whatsapp,
-                    getWhatsAppMessage({
-                      Serviço: service.title,
-                      Origem: 'Página de detalhes do serviço',
-                    }),
+                    WHATSAPP_MESSAGES.services,
                   )}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -762,10 +756,7 @@ export default function ServicoDetalhe() {
                 <motion.a
                   href={getWhatsAppUrl(
                     COMPANY.whatsapp,
-                    getWhatsAppMessage({
-                      Serviço: service.title,
-                      Origem: 'CTA Final página de serviço',
-                    }),
+                    WHATSAPP_MESSAGES.services,
                   )}
                   target="_blank"
                   rel="noopener noreferrer"

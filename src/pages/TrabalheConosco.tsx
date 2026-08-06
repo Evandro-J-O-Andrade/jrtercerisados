@@ -11,7 +11,7 @@ import { Textarea } from '@/components/ui/Textarea';
 import { Section } from '@/components/sections/Section';
 import { Container } from '@/components/common/Container';
 import { mockSubmitCandidate } from '@/services/mock/curriculos';
-import { COMPANY, getWhatsAppUrl, getWhatsAppMessage } from '@/config';
+import { COMPANY, WHATSAPP_MESSAGES, getWhatsAppUrl } from '@/config';
 import { cn } from '@/utils';
 
 const positionOptions = [
@@ -174,10 +174,7 @@ export default function TrabalheConosco() {
           </p>
           <div className="flex flex-col justify-center gap-4 sm:flex-row">
             <a
-              href={getWhatsAppUrl(
-                COMPANY.whatsapp,
-                getWhatsAppMessage({ Origem: 'Candidatura pelo site' }),
-              )}
+              href={getWhatsAppUrl(COMPANY.whatsapp, WHATSAPP_MESSAGES.careers)}
               target="_blank"
               rel="noopener noreferrer"
             >

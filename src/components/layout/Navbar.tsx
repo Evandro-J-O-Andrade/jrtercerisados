@@ -22,8 +22,8 @@ import { IMAGES } from '@/config/images';
 import {
   COMPANY,
   SOCIAL_LINKS,
+  WHATSAPP_MESSAGES,
   getWhatsAppUrl,
-  getWhatsAppMessage,
 } from '@/config';
 
 export function Navbar() {
@@ -244,7 +244,7 @@ export function Navbar() {
                   <motion.a
                     href={getWhatsAppUrl(
                       COMPANY.whatsapp,
-                      getWhatsAppMessage({ Serviço: 'Contato pelo site' }),
+                      WHATSAPP_MESSAGES.whatsappButton,
                     )}
                     target="_blank"
                     rel="noopener noreferrer"

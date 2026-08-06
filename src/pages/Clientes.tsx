@@ -12,7 +12,7 @@ import { Textarea } from '@/components/ui/Textarea';
 import { Section } from '@/components/sections/Section';
 import { Container } from '@/components/common/Container';
 import { mockSubmitBudget } from '@/services/mock/clientes';
-import { COMPANY, getWhatsAppUrl, getWhatsAppMessage } from '@/config';
+import { COMPANY, WHATSAPP_MESSAGES, getWhatsAppUrl } from '@/config';
 
 const budgetSchema = z.object({
   name: z.string().min(2, 'Nome deve ter pelo menos 2 caracteres'),
@@ -74,7 +74,7 @@ export default function Clientes() {
             <a
               href={getWhatsAppUrl(
                 COMPANY.whatsapp,
-                getWhatsAppMessage({ Origem: 'Solicitação de orçamento' }),
+                WHATSAPP_MESSAGES.contactForm,
               )}
               target="_blank"
               rel="noopener noreferrer"

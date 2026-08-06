@@ -11,12 +11,7 @@ import { Textarea } from '@/components/ui/Textarea';
 import { Section } from '@/components/sections/Section';
 import { Container } from '@/components/common/Container';
 import { mockSubmitContact } from '@/services/mock/contatos';
-import {
-  COMPANY,
-  CONTACTS,
-  getWhatsAppUrl,
-  getWhatsAppMessage,
-} from '@/config';
+import { COMPANY, CONTACTS, WHATSAPP_MESSAGES, getWhatsAppUrl } from '@/config';
 
 const contactSchema = z.object({
   name: z.string().min(2, 'Nome é obrigatório'),
@@ -78,7 +73,7 @@ export default function Contato() {
             <a
               href={getWhatsAppUrl(
                 COMPANY.whatsapp,
-                getWhatsAppMessage({ Origem: 'Formulário de contato do site' }),
+                WHATSAPP_MESSAGES.contactForm,
               )}
               target="_blank"
               rel="noopener noreferrer"

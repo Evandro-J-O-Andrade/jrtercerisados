@@ -11,7 +11,7 @@ import {
 } from 'lucide-react';
 import { Section } from '@/components/sections/Section';
 import { Container } from '@/components/common/Container';
-import { COMPANY, getWhatsAppUrl, getWhatsAppMessage } from '@/config';
+import { COMPANY, WHATSAPP_MESSAGES, getWhatsAppUrl } from '@/config';
 
 const steps = [
   {
@@ -242,9 +242,7 @@ export default function ProcessoSeletivo() {
               <a
                 href={getWhatsAppUrl(
                   COMPANY.whatsapp,
-                  getWhatsAppMessage({
-                    Origem: 'Página de Processo Seletivo',
-                  }),
+                  WHATSAPP_MESSAGES.process,
                 )}
                 target="_blank"
                 rel="noopener noreferrer"

@@ -5,7 +5,7 @@ import { ChevronDown, Phone, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Section } from '@/components/sections/Section';
 import { Container } from '@/components/common/Container';
-import { COMPANY, getWhatsAppUrl, getWhatsAppMessage } from '@/config';
+import { COMPANY, WHATSAPP_MESSAGES, getWhatsAppUrl } from '@/config';
 import { staggerReveal, revealUp } from '@/animations/scroll';
 import { staggerItem } from '@/animations/fade';
 
@@ -158,12 +158,7 @@ export default function FAQ() {
               </p>
               <div className="mt-8 flex flex-wrap justify-center gap-4">
                 <motion.a
-                  href={getWhatsAppUrl(
-                    COMPANY.whatsapp,
-                    getWhatsAppMessage({
-                      Origem: 'FAQ - Falar no WhatsApp',
-                    }),
-                  )}
+                  href={getWhatsAppUrl(COMPANY.whatsapp, WHATSAPP_MESSAGES.faq)}
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.02 }}

@@ -11,7 +11,7 @@ import { Select } from '@/components/ui/Select';
 import { Section } from '@/components/sections/Section';
 import { Container } from '@/components/common/Container';
 import { mockSubmitPartner } from '@/services/mock/parceiros';
-import { COMPANY, getWhatsAppUrl, getWhatsAppMessage } from '@/config';
+import { COMPANY, WHATSAPP_MESSAGES, getWhatsAppUrl } from '@/config';
 
 const partnerSchema = z.object({
   company: z.string().min(2, 'Nome da empresa é obrigatório'),
@@ -71,7 +71,7 @@ export default function Parceiros() {
             <a
               href={getWhatsAppUrl(
                 COMPANY.whatsapp,
-                getWhatsAppMessage({ Origem: 'Cadastro de parceiro' }),
+                WHATSAPP_MESSAGES.partners,
               )}
               target="_blank"
               rel="noopener noreferrer"
