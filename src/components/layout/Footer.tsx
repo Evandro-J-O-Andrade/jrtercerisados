@@ -11,7 +11,6 @@ import {
   Youtube,
   Heart,
   Globe,
-  Map,
 } from 'lucide-react';
 import { COMPANY, SOCIAL_LINKS } from '@/config';
 import { IMAGES } from '@/config/images';
@@ -28,33 +27,27 @@ const TikTokIcon = (props: React.SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-const footerEcosystem = [
-  {
-    label: 'Empresa',
-    links: [
-      { label: 'Sobre Nós', href: '/sobre' },
-      { label: 'Clientes', href: '/clientes' },
-      { label: 'Parceiros', href: '/parceiros' },
-      { label: 'Fornecedores', href: '/fornecedores' },
-    ],
-  },
-  {
-    label: 'Atendimento',
-    links: [
-      { label: 'Suporte', href: '/suporte' },
-      { label: 'FAQ', href: '/faq' },
-      { label: 'WhatsApp', href: SOCIAL_LINKS.whatsapp },
-      { label: 'E-mail', href: `mailto:${COMPANY.email}` },
-    ],
-  },
-  {
-    label: 'Trabalhe Conosco',
-    links: [
-      { label: 'Cadastro Profissional', href: '/trabalhe-conosco' },
-      { label: 'Processo Seletivo', href: '/processo-seletivo' },
-    ],
-  },
-];
+const footerLinks = {
+  empresa: [
+    { label: 'Sobre Nós', href: '/sobre' },
+    { label: 'Clientes', href: '/clientes' },
+    { label: 'Parceiros', href: '/parceiros' },
+    { label: 'Fornecedores', href: '/fornecedores' },
+  ],
+  servicos: [
+    { label: 'Segurança Patrimonial', href: '/servicos/seguranca' },
+    { label: 'Controle de Acesso', href: '/servicos/controle-acesso' },
+    { label: 'Portaria', href: '/servicos/portaria' },
+    { label: 'Limpeza', href: '/servicos/limpeza' },
+    { label: 'Zeladoria', href: '/servicos/zeladoria' },
+  ],
+  atendimento: [
+    { label: 'Suporte', href: '/suporte' },
+    { label: 'FAQ', href: '/faq' },
+    { label: 'WhatsApp', href: SOCIAL_LINKS.whatsapp },
+    { label: 'E-mail', href: `mailto:${COMPANY.email}` },
+  ],
+};
 
 const socialLinks = [
   {
@@ -101,19 +94,49 @@ const socialLinks = [
   },
 ];
 
+const contactItems = [
+  {
+    type: 'phone',
+    label: 'Comercial',
+    value: COMPANY.phone,
+    href: `tel:${COMPANY.phone.replace(/\D/g, '')}`,
+    icon: Phone,
+  },
+  {
+    type: 'email',
+    label: 'E-mail Comercial',
+    value: COMPANY.email,
+    href: `mailto:${COMPANY.email}`,
+    icon: Mail,
+  },
+  {
+    type: 'address',
+    label: 'Endereço',
+    value: `${COMPANY.address.street}, ${COMPANY.address.number}`,
+    subvalue: `${COMPANY.address.neighborhood}, ${COMPANY.address.city} - ${COMPANY.address.state}`,
+    href: `https://maps.google.com/?q=${encodeURIComponent(`${COMPANY.address.street}, ${COMPANY.address.number}, ${COMPANY.address.city}, ${COMPANY.address.state}`)}`,
+    icon: MapPin,
+  },
+  {
+    type: 'map',
+    label: 'Ver no Mapa',
+    value: `${COMPANY.address.city} - SP`,
+    href: `https://maps.google.com/?q=${encodeURIComponent(`${COMPANY.address.street}, ${COMPANY.address.number}, ${COMPANY.address.city}, ${COMPANY.address.state}`)}`,
+    icon: Globe,
+  },
+];
+
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
     <footer className="border-border/50 bg-surface relative border-t dark:bg-[#050914]">
-      {/* Decorative top glow */}
-      <div className="via-primary/40 via-primary/40 dark:via-primary/40 absolute -top-px right-0 left-0 h-px bg-gradient-to-r from-transparent to-transparent" />
+      <div className="via-primary/40 dark:via-primary/40 absolute -top-px right-0 left-0 h-px bg-gradient-to-r from-transparent to-transparent" />
 
       <div className="mx-auto max-w-[1600px] px-4 py-16 sm:px-6 lg:px-8">
-        {/* Top section with brand, ecosystem, and contact */}
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
-          {/* Brand Column */}
-          <div className="space-y-5 lg:col-span-3">
+          {/* ─── Brand ───────────────────────────── */}
+          <div className="space-y-6 lg:col-span-3">
             <Link to="/" className="flex items-center gap-4">
               <div className="border-border/50 shadow-glow bg-primary/10 relative rounded-2xl border p-2 dark:border-white/10 dark:bg-white/5">
                 <img
@@ -136,15 +159,12 @@ export function Footer() {
               {COMPANY.description}
             </p>
 
-            {/* Social Section */}
-            <div className="mt-6">
-              <h4 className="text-foreground mb-2 text-sm font-bold">
+            {/* Social */}
+            <div className="pt-2">
+              <h4 className="text-foreground mb-3 text-sm font-bold">
                 Siga a JS Terceirizados
               </h4>
-              <p className="text-muted-foreground mb-4 text-xs leading-relaxed">
-                Acompanhe nossas soluções, bastidores e novidades.
-              </p>
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-wrap gap-3">
                 {socialLinks.map((social) => (
                   <motion.a
                     key={social.label}
@@ -158,11 +178,11 @@ export function Footer() {
                     }}
                     whileTap={{ scale: 0.95 }}
                     transition={{ type: 'spring', stiffness: 300 }}
-                    className="light:border-black/10 light:bg-black/5 relative flex h-14 w-14 items-center justify-center rounded-full border border-white/10 bg-white/5 backdrop-blur-xl transition-all duration-300 hover:border-white/20 dark:border-white/10 dark:bg-white/5"
+                    className="light:border-black/10 light:bg-black/5 relative flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 backdrop-blur-xl transition-all duration-300 hover:border-white/20"
                     aria-label={social.label}
                   >
                     <social.icon
-                      className="h-6 w-6 transition-colors duration-300"
+                      className="h-5 w-5 transition-colors duration-300"
                       style={{ color: social.color }}
                     />
                   </motion.a>
@@ -171,124 +191,116 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Ecosystem Map */}
-          <div className="lg:col-span-5">
-            <h4 className="text-primary mb-6 text-sm font-bold tracking-wider uppercase">
-              Mapa do Ecossistema
+          {/* ─── Empresa ─────────────────────────── */}
+          <div className="lg:col-span-2">
+            <h4 className="text-primary mb-5 text-xs font-bold tracking-wider uppercase">
+              Empresa
             </h4>
-            <div className="space-y-6">
-              {footerEcosystem.map((section) => (
-                <div key={section.label}>
-                  <h5 className="text-foreground mb-3 text-sm font-semibold">
-                    {section.label}
-                  </h5>
-                  <div className="grid grid-cols-2 gap-2">
-                    {section.links.map((link) => (
-                      <Link
-                        key={link.label}
-                        to={link.href}
-                        className="text-muted-foreground hover:text-primary flex items-center gap-2 text-sm transition-colors duration-200"
-                      >
-                        <span className="text-primary/50 h-1.5 w-1.5 rounded-full bg-current" />
-                        {link.label}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
+            <div className="space-y-3">
+              {footerLinks.empresa.map((link) => (
+                <Link
+                  key={link.label}
+                  to={link.href}
+                  className="text-muted-foreground hover:text-primary flex items-center gap-2 text-sm transition-colors duration-200"
+                >
+                  <span className="text-primary/50 h-1 w-1 rounded-full bg-current" />
+                  {link.label}
+                </Link>
               ))}
             </div>
           </div>
 
-          {/* Contact Column */}
-          <div className="lg:col-span-4">
-            <h4 className="text-primary mb-6 text-sm font-bold tracking-wider uppercase">
+          {/* ─── Serviços ───────────────────────── */}
+          <div className="lg:col-span-2">
+            <h4 className="text-primary mb-5 text-xs font-bold tracking-wider uppercase">
+              Serviços
+            </h4>
+            <div className="space-y-3">
+              {footerLinks.servicos.map((link) => (
+                <Link
+                  key={link.label}
+                  to={link.href}
+                  className="text-muted-foreground hover:text-primary flex items-center gap-2 text-sm transition-colors duration-200"
+                >
+                  <span className="text-primary/50 h-1 w-1 rounded-full bg-current" />
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* ─── Atendimento ─────────────────────── */}
+          <div className="lg:col-span-2">
+            <h4 className="text-primary mb-5 text-xs font-bold tracking-wider uppercase">
+              Atendimento
+            </h4>
+            <div className="space-y-3">
+              {footerLinks.atendimento.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target={
+                    link.label === 'WhatsApp' || link.label === 'E-mail'
+                      ? '_blank'
+                      : undefined
+                  }
+                  rel={
+                    link.label === 'WhatsApp' || link.label === 'E-mail'
+                      ? 'noopener noreferrer'
+                      : undefined
+                  }
+                  className="text-muted-foreground hover:text-primary flex items-center gap-2 text-sm transition-colors duration-200"
+                >
+                  <span className="text-primary/50 h-1 w-1 rounded-full bg-current" />
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* ─── Contato ─────────────────────────── */}
+          <div className="lg:col-span-3">
+            <h4 className="text-primary mb-5 text-xs font-bold tracking-wider uppercase">
               Fale Conosco
             </h4>
-
-            {/* Contact Cards */}
             <div className="space-y-4">
-              <a
-                href={`tel:${COMPANY.phone.replace(/\D/g, '')}`}
-                className="border-border/50 bg-primary/5 hover:border-primary/30 group flex items-center gap-4 rounded-xl border p-4 transition-all duration-300"
-              >
-                <div className="bg-primary/10 text-primary flex h-10 w-10 items-center justify-center rounded-lg">
-                  <Phone className="h-5 w-5" />
-                </div>
-                <div>
-                  <p className="text-foreground text-sm font-semibold">
-                    Comercial
-                  </p>
-                  <p className="text-muted-foreground text-xs">
-                    {COMPANY.phone}
-                  </p>
-                </div>
-              </a>
-
-              <a
-                href={`mailto:${COMPANY.email}`}
-                className="border-border/50 bg-primary/5 hover:border-primary/30 group flex items-center gap-4 rounded-xl border p-4 transition-all duration-300"
-              >
-                <div className="bg-primary/10 text-primary flex h-10 w-10 items-center justify-center rounded-lg">
-                  <Mail className="h-5 w-5" />
-                </div>
-                <div>
-                  <p className="text-foreground text-sm font-semibold">
-                    E-mail Comercial
-                  </p>
-                  <p className="text-muted-foreground text-xs">
-                    {COMPANY.email}
-                  </p>
-                </div>
-              </a>
-
-              <div className="border-border/50 bg-primary/5 flex items-center gap-4 rounded-xl border p-4">
-                <div className="bg-primary/10 text-primary flex h-10 w-10 items-center justify-center rounded-lg">
-                  <MapPin className="h-5 w-5" />
-                </div>
-                <div>
-                  <p className="text-foreground text-sm font-semibold">
-                    Endereço
-                  </p>
-                  <p className="text-muted-foreground text-xs">
-                    {COMPANY.address.street}, {COMPANY.address.number}
-                  </p>
-                  <p className="text-muted-foreground text-xs">
-                    {COMPANY.address.neighborhood}, {COMPANY.address.city}
-                    /SP
-                    {COMPANY.address.complement &&
-                      `, ${COMPANY.address.complement}`}
-                  </p>
-                </div>
-              </div>
-
-              {/* Map Card */}
-              <a
-                href={`https://maps.google.com/?q=${encodeURIComponent(`${COMPANY.address.street}, ${COMPANY.address.number}, ${COMPANY.address.city}, ${COMPANY.address.state}`)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="border-border/50 bg-primary/5 hover:border-primary/30 group flex items-center gap-4 rounded-xl border p-4 transition-all duration-300"
-              >
-                <div className="bg-primary/10 text-primary flex h-10 w-10 items-center justify-center rounded-lg">
-                  <Map className="h-5 w-5" />
-                </div>
-                <div className="flex-1">
-                  <p className="text-foreground text-sm font-semibold">
-                    Ver no Mapa
-                  </p>
-                  <p className="text-muted-foreground text-xs">
-                    {COMPANY.address.city} - SP
-                  </p>
-                </div>
-                <Globe className="text-primary h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </a>
+              {contactItems.map((item) => (
+                <a
+                  key={item.type}
+                  href={item.href}
+                  target={item.type === 'map' ? '_blank' : undefined}
+                  rel={item.type === 'map' ? 'noopener noreferrer' : undefined}
+                  className="border-border/50 hover:border-primary/30 group bg-primary/5 flex items-center gap-4 rounded-xl border p-4 transition-all duration-300"
+                >
+                  <div className="text-primary bg-primary/10 flex h-10 w-10 items-center justify-center rounded-lg">
+                    <item.icon className="h-5 w-5" />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <p className="text-foreground text-sm font-semibold">
+                      {item.label}
+                    </p>
+                    <p className="text-muted-foreground truncate text-xs">
+                      {item.value}
+                    </p>
+                    {item.subvalue && (
+                      <p className="text-muted-foreground text-xs">
+                        {item.subvalue}
+                      </p>
+                    )}
+                  </div>
+                  {item.type === 'map' && (
+                    <Globe className="text-primary h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  )}
+                </a>
+              ))}
             </div>
 
-            {/* Hours */}
-            <div className="border-border/50 bg-primary/5 mt-6 rounded-xl border p-4">
-              <h5 className="text-foreground mb-3 text-sm font-bold">
+            {/* ─── Horário ───────────────────────── */}
+            <div className="border-border/50 bg-primary/5 mt-8 rounded-xl border p-5">
+              <h5 className="text-foreground mb-4 text-sm font-bold">
                 Horário de Atendimento
               </h5>
-              <div className="space-y-2">
+              <div className="space-y-3">
                 <div className="flex items-center gap-2 text-sm">
                   <Clock className="text-primary h-4 w-4" />
                   <span className="text-muted-foreground">
@@ -310,7 +322,7 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Bottom bar */}
+        {/* ─── Bottom Bar ──────────────────────── */}
         <div className="border-border mt-16 flex flex-col items-center justify-between gap-6 border-t pt-10 sm:flex-row">
           <div className="text-muted-foreground flex items-center gap-2 text-xs">
             <Heart className="text-primary h-3.5 w-3.5" />
@@ -347,7 +359,6 @@ export function Footer() {
         </div>
       </div>
 
-      {/* Decorative SVG wave at bottom */}
       <div className="absolute right-0 bottom-0 left-0">
         <svg
           viewBox="0 0 1440 20"
