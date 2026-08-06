@@ -35,7 +35,7 @@ const heroSlides: HeroSlide[] = [
         com tecnologia e{' '}
         <span className="text-primary">excelência operacional</span>.
       </>
-    ) as any,
+    ),
     subtitle:
       'Plataforma integrada para gestão de serviços de terceirização. Proteja seu patrimônio, otimize suas instalações e eleve o padrão de vida dos seus colaboradores.',
     image: IMAGES.hero.home.slides[0],
@@ -49,7 +49,7 @@ const heroSlides: HeroSlide[] = [
         Soluções de <span className="text-primary">Limpeza Profissional</span>{' '}
         para seu negócio.
       </>
-    ) as any,
+    ),
     subtitle:
       'Equipes certificadas, produtos ecológicos e monitoramento em tempo real. Qualidade que você pode ver e comprovar.',
     image: IMAGES.hero.home.slides[1],
@@ -63,7 +63,7 @@ const heroSlides: HeroSlide[] = [
         <span className="text-primary">Portaria Inteligente</span> e Controle de
         Acesso 24h.
       </>
-    ) as any,
+    ),
     subtitle:
       'Controle total de acesso, fluxo de visitantes e integração com sua plataforma. Tecnologia de ponta ao seu serviço.',
     image: IMAGES.hero.home.slides[2],

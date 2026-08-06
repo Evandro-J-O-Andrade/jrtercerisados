@@ -1,4 +1,4 @@
-import { useState, useEffect, type ReactNode } from 'react';
+import { type ReactNode, useState, useEffect } from 'react';
 import {
   motion,
   AnimatePresence,
@@ -10,7 +10,7 @@ import { staggerContainer } from '@/animations/fade';
 
 export interface HeroSlide {
   id: string;
-  title: string;
+  title: ReactNode;
   subtitle: string;
   description?: string;
   badge?: ReactNode;
