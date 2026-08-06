@@ -33,7 +33,10 @@ VALUES
   ('CANDIDATO_APROVADO',     'Candidato Aprovado',           'Candidate approved',                                   'candidatos', 'status = APROVADO'),
   ('PARCEIRO_VALIDADO',      'Parceiro Validado',            'Partner approved',                                     'parceiros',  'status = ATIVO'),
   ('MENSAGEM_RECEITA',       'Nova Mensagem WhatsApp',       'New inbound WhatsApp message',                      'mensagens',  'tipo = ENTRADA'),
-  ('AUTOMACAO_DIARIA',       'Tarefa Diária',                'Daily scheduled task (e.g. report generation)',      'fila_automacao', 'evento = AUTOMACAO_DIARIA');
+  ('AUTOMACAO_DIARIA',       'Tarefa Diária',                'Daily scheduled task (e.g. report generation)',      'fila_automacao', 'evento = AUTOMACAO_DIARIA'),
+  ('VAGA_PUBLICADA',         'Nova Vaga Publicada',          'New job listing published',                          'vagas',       'status = ATIVA'),
+  ('CANDIDATURA_NOVA',       'Nova Candidatura',             'Candidate applied to a job',                         'candidaturas', 'status = ENVIADO'),
+  ('ENTREVISTA_AGENDADA',    'Entrevista Agendada',          'Interview scheduled for candidate',                  'entrevistas', 'status = AGENDADA');
 
 
 -- -----------------------------------------------------------------------------
