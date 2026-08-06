@@ -49,6 +49,10 @@ export const IMAGES = {
       src: '/images/hero/contato/hero.svg',
       fallback: '/images/hero/home/fallback.svg',
     },
+    login: {
+      src: '/images/hero/login/hero.svg',
+      fallback: '/images/hero/home/fallback.svg',
+    },
   },
   services: {
     seguranca: '/images/services/seguranca-patrimonial.svg',

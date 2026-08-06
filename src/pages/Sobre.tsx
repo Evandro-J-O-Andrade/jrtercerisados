@@ -2,7 +2,8 @@
 import { Shield, Award, Users, Target } from 'lucide-react';
 import { Section } from '@/components/sections/Section';
 import { Container } from '@/components/common/Container';
-import { COMPANY } from '@/config';
+import { SafeImage } from '@/components/ui/SafeImage';
+import { COMPANY, IMAGES } from '@/config';
 import { staggerReveal, revealUp } from '@/animations/scroll';
 import { staggerItem } from '@/animations/fade';
 
@@ -70,12 +71,12 @@ export default function Sobre() {
             className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2"
           >
             <motion.div variants={staggerItem('left')}>
-              <div className="bg-card shadow-premium relative overflow-hidden rounded-3xl">
-                <img
-                  src="/images/about/team.svg"
+              <div className="bg-card shadow-glass border-border/40 relative overflow-hidden rounded-3xl border">
+                <SafeImage
+                  src={IMAGES.hero.sobre.src}
+                  fallbackSrc={IMAGES.hero.sobre.fallback}
                   alt="Equipe JSTerceirizados"
                   className="h-full w-full object-cover opacity-80"
-                  loading="lazy"
                 />
                 <div className="from-background/80 absolute inset-0 bg-gradient-to-t via-transparent to-transparent" />
               </div>
@@ -194,12 +195,12 @@ export default function Sobre() {
             className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2"
           >
             <motion.div variants={staggerItem('left')}>
-              <div className="bg-card shadow-premium relative overflow-hidden rounded-3xl">
-                <img
-                  src="/images/about/mission.svg"
+              <div className="bg-card shadow-glass border-border/40 relative overflow-hidden rounded-3xl border">
+                <SafeImage
+                  src={IMAGES.hero.sobre.src}
+                  fallbackSrc={IMAGES.hero.sobre.fallback}
                   alt="Missão JSTerceirizados"
                   className="h-full w-full object-cover opacity-80"
-                  loading="lazy"
                 />
                 <div className="from-background/80 absolute inset-0 bg-gradient-to-t via-transparent to-transparent" />
               </div>

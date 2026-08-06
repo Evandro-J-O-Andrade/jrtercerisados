@@ -8,10 +8,17 @@ import { z } from 'zod';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
 import { Textarea } from '@/components/ui/Textarea';
+import { SafeImage } from '@/components/ui/SafeImage';
 import { Section } from '@/components/sections/Section';
 import { Container } from '@/components/common/Container';
 import { mockSubmitContact } from '@/services/mock/contatos';
-import { COMPANY, CONTACTS, WHATSAPP_MESSAGES, getWhatsAppUrl } from '@/config';
+import {
+  COMPANY,
+  CONTACTS,
+  WHATSAPP_MESSAGES,
+  getWhatsAppUrl,
+  IMAGES,
+} from '@/config';
 
 const contactSchema = z.object({
   name: z.string().min(2, 'Nome é obrigatório'),
@@ -115,11 +122,11 @@ export default function Contato() {
                 viewport={{ once: true }}
                 className="relative overflow-hidden rounded-2xl"
               >
-                <img
-                  src="/images/contact/contact.svg"
+                <SafeImage
+                  src={IMAGES.hero.contato.src}
+                  fallbackSrc={IMAGES.hero.contato.fallback}
                   alt="Contato JSTerceirizados"
                   className="h-full w-full object-cover opacity-70"
-                  loading="lazy"
                 />
                 <div className="from-background/80 absolute inset-0 bg-gradient-to-t via-transparent to-transparent" />
               </motion.div>

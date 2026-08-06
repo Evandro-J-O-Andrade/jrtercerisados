@@ -7,7 +7,9 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
+import { SafeImage } from '@/components/ui/SafeImage';
 import { useAuth } from '@/contexts/AuthContext';
+import { IMAGES } from '@/config/images';
 
 const loginSchema = z.object({
   email: z.string().email('E-mail inválido'),
@@ -69,19 +71,27 @@ export default function Login() {
   }
 
   return (
-    <div className="flex min-h-[80vh] items-center justify-center">
+    <div className="relative flex min-h-screen items-center justify-center overflow-hidden">
+      {/* Background image */}
+      <SafeImage
+        src={IMAGES.hero.login.src}
+        fallbackSrc={IMAGES.hero.login.fallback}
+        className="absolute inset-0 h-full w-full"
+      />
+      <div className="absolute inset-0 bg-[hsl(215,35%,8%)]/85 backdrop-blur-sm" />
+
       <motion.div
         initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="w-full max-w-md"
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: [0.25, 0.4, 0.25, 1] }}
+        className="relative z-10 w-full max-w-md"
       >
-        <div className="bg-card shadow-elevated rounded-2xl p-8">
+        <div className="border-border/40 bg-card/70 shadow-glass rounded-3xl border p-8 backdrop-blur-xl">
           <div className="mb-8 text-center">
-            <div className="bg-primary mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-xl">
-              <Shield className="text-primary-foreground h-8 w-8" />
+            <div className="bg-primary/20 text-primary mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl backdrop-blur-sm">
+              <Shield className="h-8 w-8" />
             </div>
-            <h1 className="text-foreground text-2xl font-bold">
+            <h1 className="text-foreground text-3xl font-bold">
               Painel Administrativo
             </h1>
             <p className="text-muted-foreground mt-2 text-sm">
@@ -89,9 +99,9 @@ export default function Login() {
             </p>
           </div>
 
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
             {error && (
-              <div className="bg-destructive/10 text-destructive rounded-lg p-3 text-sm">
+              <div className="bg-destructive/10 text-destructive rounded-xl p-4 text-sm">
                 {error}
               </div>
             )}
@@ -147,7 +157,7 @@ export default function Login() {
             <Button
               type="submit"
               variant="primary"
-              size="lg"
+              size="xl"
               className="w-full"
               loading={isSubmitting}
               leftIcon={<LogIn className="h-5 w-5" />}
@@ -157,7 +167,7 @@ export default function Login() {
           </form>
 
           <div className="mt-6 text-center">
-            <p className="text-muted-foreground text-xs">
+            <p className="text-muted-foreground/80 text-xs">
               Área restrita — Acesso autorizado apenas.
             </p>
           </div>

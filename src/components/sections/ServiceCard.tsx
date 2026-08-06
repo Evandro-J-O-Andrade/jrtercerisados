@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import type { Service } from '@/types/common';
 import { SERVICE_ICONS } from '@/constants/icons';
+import { SafeImage } from '@/components/ui/SafeImage';
 
 interface ServiceCardProps {
   service: Service;
@@ -28,20 +29,20 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
     >
       <Link
         to={`/servicos/${service.slug}`}
-        className="group bg-card shadow-premium hover:shadow-elevated border-border/50 hover:border-primary/30 relative block h-full overflow-hidden rounded-2xl border transition-all duration-300"
+        className="group bg-card/80 shadow-glass hover:shadow-glow border-border/60 hover:border-primary/30 relative block h-full overflow-hidden rounded-3xl border backdrop-blur transition-all duration-300"
       >
         {/* Top gradient accent */}
-        <div className="bg-primary/5 absolute inset-x-0 top-0 h-1 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+        <div className="bg-primary/10 absolute inset-x-0 top-0 h-1 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
         {/* Image area */}
-        <div className="bg-surface-alt relative h-48 overflow-hidden">
-          <img
+        <div className="relative h-52 overflow-hidden">
+          <SafeImage
             src={service.image}
             alt={service.title}
-            className="h-full w-full object-cover opacity-60 transition-opacity duration-500 group-hover:opacity-80"
-            loading="lazy"
+            className="h-full w-full object-cover opacity-70 transition-all duration-500 group-hover:scale-105 group-hover:opacity-90"
+            fallbackSrc="/images/placeholders/service-fallback.svg"
           />
-          <div className="from-card via-card/50 absolute inset-0 bg-gradient-to-t to-transparent" />
+          <div className="from-card/90 via-card/40 absolute inset-0 bg-gradient-to-t to-transparent" />
           <div className="from-primary/10 absolute inset-0 bg-gradient-to-br to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
           {/* Icon overlay */}
