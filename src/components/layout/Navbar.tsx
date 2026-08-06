@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
 import {
@@ -29,19 +29,56 @@ import {
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const drawerRef = useRef<HTMLDivElement>(null);
+  const previousFocusRef = useRef<HTMLButtonElement | null>(null);
   const { resolvedTheme, toggleTheme } = useTheme();
   const { isAuthenticated } = useAuth();
   const location = useLocation();
 
   useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent): void => {
-      if (e.key === 'Escape' && isOpen) {
-        setIsOpen(false);
-      }
+    if (isOpen) {
+      previousFocusRef.current = document.activeElement as HTMLButtonElement;
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+      previousFocusRef.current?.focus();
+    }
+    return () => {
+      document.body.style.overflow = '';
     };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isOpen]);
+
+  useEffect(() => {
+    if (isOpen) {
+      setTimeout(() => {
+        document.getElementById('mobile-drawer-close')?.focus();
+      }, 0);
+    }
+  }, [isOpen]);
+
+  const handleDrawerKeyDown = useCallback(
+    (e: React.KeyboardEvent<HTMLDivElement>): void => {
+      if (e.key !== 'Tab' || !drawerRef.current) return;
+      const focusable = drawerRef.current.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])',
+      );
+      if (focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey) {
+        if (document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        }
+      } else {
+        if (document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    },
+    [],
+  );
 
   useEffect(() => {
     const handleScroll = (): void => {
@@ -187,17 +224,21 @@ export function Navbar() {
             />
             <motion.div
               key="mobile-drawer"
+              ref={drawerRef}
+              onKeyDown={handleDrawerKeyDown}
               variants={drawerVariants}
               initial="hidden"
               animate="visible"
               exit="exit"
               className="bg-card/95 fixed top-0 right-0 z-50 h-full w-[85%] max-w-md shadow-2xl backdrop-blur-xl lg:hidden"
+              style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
             >
               <div className="flex items-center justify-between p-4">
                 <span className="text-foreground text-lg font-semibold">
                   Menu
                 </span>
                 <Button
+                  id="mobile-drawer-close"
                   variant="ghost"
                   size="icon"
                   onClick={() => setIsOpen(false)}
