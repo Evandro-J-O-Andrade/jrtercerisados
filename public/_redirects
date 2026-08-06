@@ -1,6 +1,3 @@
-# Cloudflare Pages SPA Redirects
-# Static assets are served directly; all other paths redirect to index.html
-
 /assets/* /assets/* 200
 /fonts/* /fonts/* 200
 /images/* /images/* 200
