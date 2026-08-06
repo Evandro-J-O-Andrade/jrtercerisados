@@ -6,15 +6,13 @@ export interface NavLink {
 
 export const NAVIGATION_LINKS: NavLink[] = [
   { label: 'Início', href: '/' },
-  { label: 'Sobre', href: '/sobre' },
+  { label: 'Vagas', href: '/vagas' },
+  { label: 'Empresas', href: '/empresas' },
+  { label: 'Candidatos', href: '/candidatos' },
   { label: 'Serviços', href: '/servicos' },
-  { label: 'Clientes', href: '/clientes' },
-  { label: 'Parceiros', href: '/parceiros' },
-  { label: 'Fornecedores', href: '/fornecedores' },
-  { label: 'Trabalhe Conosco', href: '/trabalhe-conosco' },
-  { label: 'Processo Seletivo', href: '/processo-seletivo' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'Sobre Nós', href: '/sobre' },
   { label: 'FAQ', href: '/faq' },
-  { label: 'Suporte', href: '/suporte' },
   { label: 'Contato', href: '/contato' },
 ];
 
@@ -22,18 +20,58 @@ export interface DashboardLink {
   label: string;
   href: string;
   icon: string;
+  requireAuth?: boolean;
 }
 
 export const DASHBOARD_LINKS: DashboardLink[] = [
   { label: 'Visão Geral', href: '/dashboard', icon: 'layout-dashboard' },
-  { label: 'Clientes', href: '/dashboard/clientes', icon: 'users' },
-  { label: 'Parceiros', href: '/dashboard/parceiros', icon: 'handshake' },
-  { label: 'Fornecedores', href: '/dashboard/fornecedores', icon: 'truck' },
-  { label: 'Currículos', href: '/dashboard/curriculos', icon: 'file-text' },
-  { label: 'Usuários', href: '/dashboard/usuarios', icon: 'user-cog' },
+  {
+    label: 'Empresas',
+    href: '/dashboard/empresas',
+    icon: 'building',
+    requireAuth: true,
+  },
+  {
+    label: 'Vagas',
+    href: '/dashboard/vagas',
+    icon: 'briefcase',
+    requireAuth: true,
+  },
+  {
+    label: 'Candidatos',
+    href: '/dashboard/candidatos',
+    icon: 'users',
+    requireAuth: true,
+  },
+  {
+    label: 'Currículos',
+    href: '/dashboard/curriculos',
+    icon: 'file-text',
+    requireAuth: true,
+  },
+  {
+    label: 'Processos',
+    href: '/dashboard/processos',
+    icon: 'git-pull-request',
+    requireAuth: true,
+  },
+  { label: 'Blog', href: '/dashboard/blog', icon: 'pen', requireAuth: true },
+  {
+    label: 'FAQ',
+    href: '/dashboard/faq',
+    icon: 'help-circle',
+    requireAuth: true,
+  },
+  {
+    label: 'Usuários',
+    href: '/dashboard/usuarios',
+    icon: 'user-cog',
+    requireAuth: true,
+  },
   {
     label: 'Configurações',
     href: '/dashboard/configuracoes',
     icon: 'settings',
+    requireAuth: true,
   },
 ];

@@ -170,13 +170,25 @@ export function Navbar() {
               <Sun className="h-5 w-5" />
             )}
           </Button>
+          <Button
+            to="/cadastro/candidato"
+            variant="outline"
+            size="sm"
+            className="text-xs font-medium"
+          >
+            Cadastrar Currículo
+          </Button>
           {isAuthenticated ? (
             <Link to="/dashboard">
-              <Button variant="primary">Painel</Button>
+              <Button variant="primary" size="sm">
+                Painel
+              </Button>
             </Link>
           ) : (
-            <Link to="/login">
-              <Button variant="primary">Login</Button>
+            <Link to="/cadastro/empresa">
+              <Button variant="primary" size="sm">
+                Divulgar Vaga
+              </Button>
             </Link>
           )}
         </nav>
@@ -266,13 +278,22 @@ export function Navbar() {
                   </motion.div>
                 ))}
 
-                <motion.div variants={itemVariants} className="mt-2">
+                <motion.div variants={itemVariants}>
                   <Link
-                    to="/login"
+                    to="/cadastro/candidato"
+                    onClick={() => setIsOpen(false)}
+                    className="bg-primary text-primary-foreground rounded-lg px-4 py-3 text-center text-base font-medium"
+                  >
+                    Cadastrar Currículo
+                  </Link>
+                </motion.div>
+                <motion.div variants={itemVariants}>
+                  <Link
+                    to={isAuthenticated ? '/dashboard' : '/cadastro/empresa'}
                     onClick={() => setIsOpen(false)}
                     className="text-muted-foreground hover:bg-muted hover:text-foreground block rounded-lg px-4 py-3 text-base font-medium transition-colors"
                   >
-                    {isAuthenticated ? 'Painel' : 'Login'}
+                    {isAuthenticated ? 'Painel' : 'Divulgar Vaga'}
                   </Link>
                 </motion.div>
               </nav>

@@ -10,14 +10,14 @@ const Home = lazy(() => import('@/pages/Home'));
 const Sobre = lazy(() => import('@/pages/Sobre'));
 const Servicos = lazy(() => import('@/pages/Servicos'));
 const ServicoDetalhe = lazy(() => import('@/pages/ServicoDetalhe'));
-const Clientes = lazy(() => import('@/pages/Clientes'));
-const Parceiros = lazy(() => import('@/pages/Parceiros'));
-const Fornecedores = lazy(() => import('@/pages/Fornecedores'));
-const TrabalheConosco = lazy(() => import('@/pages/TrabalheConosco'));
+const Vagas = lazy(() => import('@/pages/Vagas'));
+const VagaDetalhe = lazy(() => import('@/pages/VagaDetalhe'));
+const Empresas = lazy(() => import('@/pages/Empresas'));
+const Candidatos = lazy(() => import('@/pages/Candidatos'));
+const Cadastro = lazy(() => import('@/pages/Cadastro'));
 const FAQ = lazy(() => import('@/pages/FAQ'));
-const Suporte = lazy(() => import('@/pages/Suporte'));
-const ProcessoSeletivo = lazy(() => import('@/pages/ProcessoSeletivo'));
 const Contato = lazy(() => import('@/pages/Contato'));
+const Blog = lazy(() => import('@/pages/Blog'));
 const Login = lazy(() => import('@/pages/Login'));
 const Dashboard = lazy(() => import('@/pages/Dashboard'));
 
@@ -30,19 +30,20 @@ function App() {
         <Suspense fallback={<PageLoader />}>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/vagas" element={<Vagas />} />
+            <Route path="/vagas/:slug" element={<VagaDetalhe />} />
+            <Route path="/empresas" element={<Empresas />} />
+            <Route path="/candidatos" element={<Candidatos />} />
+            <Route path="/cadastro" element={<Cadastro />} />
+            <Route path="/blog" element={<Blog />} />
             <Route path="/sobre" element={<Sobre />} />
             <Route path="/servicos" element={<Servicos />} />
             <Route path="/servicos/:slug" element={<ServicoDetalhe />} />
-            <Route path="/clientes" element={<Clientes />} />
-            <Route path="/parceiros" element={<Parceiros />} />
-            <Route path="/fornecedores" element={<Fornecedores />} />
-            <Route path="/trabalhe-conosco" element={<TrabalheConosco />} />
-            <Route path="/processo-seletivo" element={<ProcessoSeletivo />} />
             <Route path="/faq" element={<FAQ />} />
-            <Route path="/suporte" element={<Suporte />} />
             <Route path="/contato" element={<Contato />} />
             <Route path="/login" element={<Login />} />
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/dashboard/*" element={<Dashboard />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </Suspense>
