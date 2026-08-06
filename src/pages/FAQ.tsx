@@ -84,9 +84,9 @@ const FAQ_CATEGORIES = [
     icon: '🏢',
     items: [
       {
-        question: 'Quem é a JSTerceirizados?',
+        question: 'Quem é a JR Agência de Empregos?',
         answer:
-          'Somos uma empresa de terceirização de serviços com mais de 15 anos de experiência, atuando em segurança patrimonial, portaria, zeladoria, limpeza e facilities.',
+          'Somos uma agência de empregos e assessoria em Recursos Humanos com mais de 15 anos de experiência, conectando empresas aos profissionais certos.',
       },
       {
         question: 'Quantos profissionais vocês possuem?',
@@ -261,8 +261,9 @@ export default function FAQ() {
               Fique por dentro
             </h2>
             <p className="text-muted-foreground mx-auto mt-4 max-w-xl text-lg">
-              Receba novidades, dicas e conteúdos exclusivos sobre terceirização
-              e gestão de serviços diretamente no seu e-mail.
+              Receba novidades, dicas e conteúdos exclusivos sobre recrutamento,
+              RH e oportunidades de emprego e gestão de serviços diretamente no
+              seu e-mail.
             </p>
             <form
               className="mt-8 flex flex-col gap-3 sm:flex-row"

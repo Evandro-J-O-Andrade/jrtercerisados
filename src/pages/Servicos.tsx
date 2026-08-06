@@ -36,8 +36,8 @@ export default function Servicos() {
               variants={revealUp}
               className="text-muted-foreground mx-auto mt-4 max-w-2xl text-lg"
             >
-              Da captação de talentos à terceirização de serviços — tudo em um
-              só lugar.
+              Da captação de talentos à gestão de profissionais — tudo em um só
+              lugar.
             </motion.p>
           </motion.div>
 
@@ -186,7 +186,8 @@ export default function Servicos() {
               variants={revealUp}
               className="text-muted-foreground mt-2 mb-6 max-w-2xl text-sm"
             >
-              Terceirização de serviços operacionais como solução complementar.
+              Como solução complementar, oferecemos terceirização de serviços
+              operacionais: limpeza, segurança, portaria e zeladoria.
             </motion.p>
 
             <motion.div

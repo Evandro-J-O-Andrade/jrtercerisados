@@ -9,27 +9,27 @@ import { staggerItem } from '@/animations/fade';
 
 const valores = [
   {
-    title: 'Excelência Operacional',
+    title: 'Excelência em Recrutamento',
     description:
-      'Processos rigorosos de gestão de qualidade para garantir resultados consistentes em cada serviço entregue.',
+      'Processos rigorosos de triagem e seleção para encontrar o profissional certo para cada vaga.',
     icon: Award,
   },
   {
-    title: 'Inovação Contínua',
+    title: 'Inovação em RH',
     description:
-      'Investimento constante em tecnologia e metodologias para elevar a eficiência dos nossos serviços.',
+      'Investimento constante em tecnologia e metodologias para otimizar o recrutamento.',
     icon: Shield,
   },
   {
     title: 'Foco no Resultado',
     description:
-      'Alinhamento total com os objetivos do cliente: segurança, conforto e operacionalidade.',
+      'Alinhamento total com os objetivos da empresa: encontrar talentos e elevar padrões.',
     icon: Target,
   },
   {
     title: 'Equipe Qualificada',
     description:
-      'Profissionais seletos, certificados e em constante atualização de conhecimentos.',
+      'Especialistas em recrutamento, seleção e gestão de pessoas com certificações reconhecidas.',
     icon: Users,
   },
 ];
@@ -50,16 +50,16 @@ export default function Sobre() {
               variants={revealUp}
               className="text-foreground text-4xl font-bold sm:text-5xl"
             >
-              Sobre a JSTerceirizados
+              Sobre a JR Agência de Empregos
             </motion.h1>
             <motion.p
               variants={revealUp}
               className="text-muted-foreground mx-auto mt-4 max-w-3xl text-lg"
             >
-              Há mais de {COMPANY.yearsOfExperience} anos, transformamos a
-              gestão de serviços de terceirização para empresas e condomínios.
-              Nossa plataforma combina tecnologia, pessoas e processos para
-              elevar padrões de segurança, operacionalidade e experiência.
+              Há mais de {COMPANY.yearsOfExperience} anos, conectamos empresas
+              aos melhores profissionais do mercado. Somos uma agência de
+              empregos e assessoria em Recursos Humanos que transforma talentos
+              em oportunidades.
             </motion.p>
           </motion.div>
 
@@ -75,7 +75,7 @@ export default function Sobre() {
                 <SafeImage
                   src={IMAGES.hero.sobre.src}
                   fallbackSrc={IMAGES.hero.sobre.fallback}
-                  alt="Equipe JSTerceirizados"
+                  alt="Equipe JR Agência de Empregos"
                   className="h-full w-full object-cover opacity-80"
                 />
                 <div className="from-background/80 absolute inset-0 bg-gradient-to-t via-transparent to-transparent" />
@@ -87,19 +87,18 @@ export default function Sobre() {
                 Nossa Missão
               </h2>
               <p className="text-muted-foreground leading-relaxed">
-                Oferecer soluções integradas de terceirização que protegem o
-                patrimônio, otimizam instalações e elevam o padrão de vida,
-                utilizando tecnologia de ponta e profissionais altamente
-                capacitados.
+                Conectar empresas aos profissionais certos e ajudar candidatos a
+                conquistarem novas oportunidades, por meio de recrutamento,
+                seleção e um banco de talentos sempre atualizado.
               </p>
 
               <h3 className="text-foreground mt-8 mb-4 text-2xl font-bold">
                 Nossa Visão
               </h3>
               <p className="text-muted-foreground leading-relaxed">
-                Ser a referência nacional em serviços de terceirização,
-                reconhecida pela excelência operacional, inovação e resultados
-                mensuráveis para nossos clientes.
+                Ser a referência em agência de empregos e assessoria de RH,
+                reconhecida pela excelência no recrutamento e pela conexão
+                humanizada entre empresas e talentos.
               </p>
             </motion.div>
           </motion.div>
@@ -199,7 +198,7 @@ export default function Sobre() {
                 <SafeImage
                   src={IMAGES.hero.sobre.src}
                   fallbackSrc={IMAGES.hero.sobre.fallback}
-                  alt="Missão JSTerceirizados"
+                  alt="Missão JR Agência de Empregos"
                   className="h-full w-full object-cover opacity-80"
                 />
                 <div className="from-background/80 absolute inset-0 bg-gradient-to-t via-transparent to-transparent" />
@@ -208,12 +207,12 @@ export default function Sobre() {
 
             <motion.div variants={staggerItem('right')}>
               <h2 className="text-foreground mb-6 text-3xl font-bold">
-                Atendimento Regional
+                Cobertura Regional
               </h2>
               <p className="text-muted-foreground mb-4 leading-relaxed">
-                Operamos em mais de {COMPANY.citiesCovered} cidades, com
-                cobertura completa para garantir agilidade e presença onde você
-                precisa.
+                Atendemos empresas e candidatos em mais de{' '}
+                {COMPANY.citiesCovered} cidades, com cobertura completa para
+                garantir agilidade e presença onde você precisa.
               </p>
               <div className="space-y-3">
                 <div className="flex items-center gap-3">

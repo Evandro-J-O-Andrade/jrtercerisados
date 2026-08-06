@@ -200,11 +200,11 @@ export default function TrabalheConosco() {
         <Container>
           <div className="mb-12 text-center">
             <h1 className="text-foreground text-3xl font-bold sm:text-4xl">
-              Trabalhe Conosco
+              Banco de Talentos
             </h1>
             <p className="text-muted-foreground mx-auto mt-4 max-w-2xl text-lg">
-              Escolha a vaga desejada, envie seu currículo e faça parte da nossa
-              equipe.
+              Cadastre seu currículo, escolha a vaga de interesse e faça parte
+              do nosso banco de talentos para futuras oportunidades.
             </p>
           </div>
 

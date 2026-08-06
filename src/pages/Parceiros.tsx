@@ -111,8 +111,9 @@ export default function Parceiros() {
                   Cadastro de Parceiros
                 </h1>
                 <p className="text-muted-foreground mt-4">
-                  Empresas interessadas em terceirização e alianças comerciais
-                  podem se cadastrar para avaliar oportunidades de parceria.
+                  Empresas interessadas em recrutamento, seleção e alianças
+                  comerciais podem se cadastrar para avaliar oportunidades de
+                  parceria.
                 </p>
               </motion.div>
             </div>

@@ -108,10 +108,10 @@ export default function Clientes() {
               >
                 <div className="bg-primary/10 text-primary mb-4 inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium">
                   <Shield className="h-4 w-4" />
-                  Solicitar Orçamento
+                  Solicitar Profissionais
                 </div>
                 <h1 className="text-foreground text-3xl font-bold sm:text-4xl">
-                  Solicite seu Orçamento
+                  Solicite Profissionais para sua Empresa
                 </h1>
                 <p className="text-muted-foreground mt-4">
                   Preencha o formulário com seus dados e necessidades. Nossa
@@ -224,11 +224,16 @@ export default function Clientes() {
                       <option value="zeladoria">Zeladoria</option>
                       <option value="facilities">Facilities</option>
                       <option value="monitoramento">Monitoramento</option>
+                      <option value="recrutamento">
+                        Recrutamento e Seleção
+                      </option>
+                      <option value="banco-talentos">Banco de Talentos</option>
+                      <option value="hunting">Hunting de Executivos</option>
                     </Select>
                   </div>
                   <div>
                     <Input
-                      label="Quantidade de Postos *"
+                      label="Quantidade de Vagas *"
                       type="number"
                       min={1}
                       placeholder="1"

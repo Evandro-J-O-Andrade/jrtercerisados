@@ -11,6 +11,7 @@ import {
 } from 'lucide-react';
 import { Section } from '@/components/sections/Section';
 import { Container } from '@/components/common/Container';
+import { Button } from '@/components/ui/Button';
 import { COMPANY, WHATSAPP_MESSAGES, getWhatsAppUrl } from '@/config';
 
 const steps = [
@@ -131,7 +132,7 @@ export default function ProcessoSeletivo() {
               }}
               className="text-foreground text-3xl font-bold sm:text-4xl"
             >
-              Vagas Abertas
+              Vagas em Destaque
             </motion.h2>
             <motion.p
               variants={{
@@ -144,8 +145,28 @@ export default function ProcessoSeletivo() {
               }}
               className="text-muted-foreground mx-auto mt-4 max-w-2xl text-lg"
             >
-              Escolha a vaga desejada e envie seu currículo.
+              Confira as oportunidades disponíveis e candidate-se agora.
             </motion.p>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              hidden: {},
+              visible: {
+                transition: { staggerChildren: 0.1 },
+              },
+            }}
+            className="mb-8 flex justify-center"
+          >
+            <Link to="/vagas">
+              <Button variant="primary" size="lg">
+                Ver todas as vagas
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
           </motion.div>
 
           <motion.div
@@ -162,36 +183,20 @@ export default function ProcessoSeletivo() {
           >
             {[
               {
+                title: 'Analista Administrativo',
+                desc: 'CLT · São Paulo, SP · Híbrido',
+              },
+              {
+                title: 'Operador de Empilhadeira',
+                desc: 'CLT · Arujá, SP · Presencial',
+              },
+              {
+                title: 'Auxiliar de Produção',
+                desc: 'CLT · São Paulo, SP · 24h',
+              },
+              {
                 title: 'Auxiliar de Limpeza',
-                desc: 'Manutenção e higienização de ambientes corporativos.',
-              },
-              {
-                title: 'Controlador de Acesso',
-                desc: 'Controle de entrada e saída de veículos e pedestres.',
-              },
-              {
-                title: 'Zelador',
-                desc: 'Manutenção preventiva e conservação de instalações.',
-              },
-              {
-                title: 'Porteiro',
-                desc: 'Recepção, controle de visitantes e segurança do acesso.',
-              },
-              {
-                title: 'Vigilante',
-                desc: 'Rondas, monitoramento e proteção patrimonial.',
-              },
-              {
-                title: 'Recepcionista',
-                desc: 'Atendimento cordial e organização de agenda.',
-              },
-              {
-                title: 'Supervisor',
-                desc: 'Gestão de equipe e controle operacional.',
-              },
-              {
-                title: 'Fiscal de Piso',
-                desc: 'Fiscalização e conformidade dos serviços.',
+                desc: 'Terç. · São Paulo, SP · Noturno',
               },
             ].map((job) => (
               <motion.div
