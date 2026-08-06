@@ -128,8 +128,9 @@ export default function Home() {
         </motion.div>
 
         {/* Gradient overlays for text contrast */}
-        <div className="from-background/95 via-background/70 absolute inset-0 bg-gradient-to-r to-transparent" />
-        <div className="from-background via-background/50 to-background/20 absolute inset-0 bg-gradient-to-t" />
+        <div className="from-background/95 via-background/80 to-background/40 absolute inset-0 bg-gradient-to-r" />
+        <div className="from-background via-background/60 to-background/30 absolute inset-0 bg-gradient-to-t" />
+        <div className="from-background/80 to-background/60 absolute inset-0 bg-gradient-to-b via-transparent" />
 
         {/* Grid and lines */}
         <img

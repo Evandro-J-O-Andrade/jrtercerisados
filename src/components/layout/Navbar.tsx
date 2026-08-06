@@ -81,8 +81,8 @@ export function Navbar() {
         scrolled ? 'bg-card/85 shadow-lg backdrop-blur-xl' : 'bg-transparent',
       )}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-        <Link to="/" className="flex items-center gap-4">
+      <div className="mx-auto flex max-w-[1600px] items-center justify-between px-6 py-3 sm:px-8 lg:px-12">
+        <Link to="/" className="flex items-center gap-4 pl-2">
           <motion.img
             src={IMAGES.logo.dark}
             alt={COMPANY.name}
