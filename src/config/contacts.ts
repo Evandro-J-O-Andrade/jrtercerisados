@@ -1,7 +1,7 @@
 export const CONTACTS = {
-  phone: '(11) 91066-9810',
+  phone: '(11) 96838-0592',
   email: 'contato@jstercerizados.com.br',
-  whatsapp: '5511910669810',
+  whatsapp: '5511968380592',
   address: 'São Paulo, SP — Brasil',
   businessHours: {
     weekday: 'Segunda a Sexta, 08h–18h',

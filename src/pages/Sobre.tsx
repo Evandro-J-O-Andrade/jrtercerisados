@@ -2,7 +2,7 @@
 import { Shield, Award, Users, Target } from 'lucide-react';
 import { Section } from '@/components/sections/Section';
 import { Container } from '@/components/common/Container';
-import { COMPANY, CONTACTS } from '@/config';
+import { COMPANY } from '@/config';
 import { staggerReveal, revealUp } from '@/animations/scroll';
 import { staggerItem } from '@/animations/fade';
 
@@ -67,9 +67,21 @@ export default function Sobre() {
             whileInView="visible"
             viewport={{ once: true, margin: '-100px' }}
             variants={staggerReveal(0.15)}
-            className="grid grid-cols-1 gap-8 md:grid-cols-2"
+            className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2"
           >
             <motion.div variants={staggerItem('left')}>
+              <div className="bg-card shadow-premium relative overflow-hidden rounded-3xl">
+                <img
+                  src="/images/about/team.svg"
+                  alt="Equipe JSTerceirizados"
+                  className="h-full w-full object-cover opacity-80"
+                  loading="lazy"
+                />
+                <div className="from-background/80 absolute inset-0 bg-gradient-to-t via-transparent to-transparent" />
+              </div>
+            </motion.div>
+
+            <motion.div variants={staggerItem('right')}>
               <h2 className="text-foreground mb-4 text-2xl font-bold">
                 Nossa Missão
               </h2>
@@ -89,32 +101,41 @@ export default function Sobre() {
                 mensuráveis para nossos clientes.
               </p>
             </motion.div>
+          </motion.div>
 
-            <motion.div variants={staggerItem('right')} className="space-y-6">
-              <h2 className="text-foreground mb-4 text-2xl font-bold">
-                Nossos Valores
-              </h2>
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                {valores.map((valor) => (
-                  <motion.div
-                    key={valor.title}
-                    variants={staggerItem('up')}
-                    whileHover={{ scale: 1.03, y: -4 }}
-                    className="bg-card shadow-premium rounded-2xl p-6 text-center transition-all"
-                  >
-                    <div className="bg-primary/10 text-primary mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full">
-                      <valor.icon className="h-6 w-6" />
-                    </div>
-                    <h3 className="text-foreground mb-2 text-lg font-semibold">
-                      {valor.title}
-                    </h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">
-                      {valor.description}
-                    </p>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-100px' }}
+            variants={staggerReveal(0.2)}
+            className="mt-16"
+          >
+            <motion.h2
+              variants={revealUp}
+              className="text-foreground mb-8 text-center text-3xl font-bold"
+            >
+              Nossos Valores
+            </motion.h2>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {valores.map((valor) => (
+                <motion.div
+                  key={valor.title}
+                  variants={staggerItem('up')}
+                  whileHover={{ scale: 1.03, y: -4 }}
+                  className="bg-card shadow-premium rounded-2xl p-6 text-center transition-all"
+                >
+                  <div className="bg-primary/10 text-primary mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full">
+                    <valor.icon className="h-6 w-6" />
+                  </div>
+                  <h3 className="text-foreground mb-2 text-lg font-semibold">
+                    {valor.title}
+                  </h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    {valor.description}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
 
           <motion.div
@@ -173,6 +194,18 @@ export default function Sobre() {
             className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2"
           >
             <motion.div variants={staggerItem('left')}>
+              <div className="bg-card shadow-premium relative overflow-hidden rounded-3xl">
+                <img
+                  src="/images/about/mission.svg"
+                  alt="Missão JSTerceirizados"
+                  className="h-full w-full object-cover opacity-80"
+                  loading="lazy"
+                />
+                <div className="from-background/80 absolute inset-0 bg-gradient-to-t via-transparent to-transparent" />
+              </div>
+            </motion.div>
+
+            <motion.div variants={staggerItem('right')}>
               <h2 className="text-foreground mb-6 text-3xl font-bold">
                 Atendimento Regional
               </h2>
@@ -193,29 +226,6 @@ export default function Sobre() {
                   <span className="text-foreground font-medium">
                     Equipe 24/7
                   </span>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              variants={staggerItem('right')}
-              className="bg-card shadow-premium rounded-3xl p-8"
-            >
-              <h3 className="text-foreground mb-4 text-lg font-semibold">
-                Contato Comercial
-              </h3>
-              <div className="space-y-4">
-                <div className="text-muted-foreground flex items-center gap-3">
-                  <span className="text-primary font-semibold">Telefone:</span>
-                  <span>{CONTACTS.phone}</span>
-                </div>
-                <div className="text-muted-foreground flex items-center gap-3">
-                  <span className="text-primary font-semibold">E-mail:</span>
-                  <span>{COMPANY.email}</span>
-                </div>
-                <div className="text-muted-foreground flex items-center gap-3">
-                  <span className="text-primary font-semibold">Horário:</span>
-                  <span>{CONTACTS.businessHours.weekday}</span>
                 </div>
               </div>
             </motion.div>

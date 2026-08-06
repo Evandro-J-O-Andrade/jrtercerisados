@@ -2,9 +2,9 @@ export const COMPANY = {
   name: 'JSTerceirizados',
   tradingName: 'JS Terceirização',
   cnpj: '00.000.000/0001-00',
-  phone: '(11) 91066-9810',
+  phone: '(11) 96838-0592',
   email: 'contato@jstercerizados.com.br',
-  whatsapp: '5511910669810',
+  whatsapp: '5511968380592',
   description:
     'Plataforma SaaS para empresas de prestação de serviços de segurança patrimonial, controle de acesso, portaria, zeladoria, limpeza e facilities.',
   address: {
@@ -39,6 +39,6 @@ export const SOCIAL_LINKS = {
   linkedin: 'https://linkedin.com/company/jstercerizados',
   youtube: 'https://youtube.com/@jstercerizados',
   twitter: 'https://twitter.com/jstercerizados',
-  whatsapp: 'https://wa.me/5511910669810',
+  whatsapp: 'https://wa.me/5511968380592',
   email: 'mailto:contato@jstercerizados.com.br',
 } as const;
