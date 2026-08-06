@@ -71,8 +71,8 @@ const socialLinks = [
     label: 'TikTok',
     href: SOCIAL_LINKS.tiktok,
     icon: Send,
-    color: '#000000',
-    glow: 'rgba(0,0,0,0.3)',
+    color: '#FE2C55',
+    glow: 'rgba(254,44,85,0.4)',
   },
   {
     label: 'LinkedIn',
