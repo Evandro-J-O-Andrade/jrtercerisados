@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <defs>
+    <linearGradient id="gs" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050914" />
+      <stop offset="100%" stop-color="#0a0f23" />
+    </linearGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#gs)" />
+  <g opacity="0.14">
+    <rect x="200" y="150" width="600" height="320" rx="12" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" stroke-width="1" />
+    <rect x="1120" y="150" width="600" height="320" rx="12" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" stroke-width="1" />
+    <rect x="200" y="530" width="1520" height="320" rx="12" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" stroke-width="1" />
+  </g>
+  <g transform="translate(960 540)" text-anchor="middle">
+    <text x="0" y="-230" fill="rgba(255,255,255,0.9)" font-family="system-ui" font-size="64" font-weight="700">SUPORTE</text>
+    <text x="0" y="-200" fill="hsl(43,74%,50%)" font-family="system-ui" font-size="32" font-weight="400">Canais de atendimento e ajuda</text>
+    <text x="0" y="-150" fill="rgba(180,180,180,0.3)" font-family="system-ui" font-size="16">Placeholder Hero — 1920 × 1080</text>
+  </g>
+</svg>

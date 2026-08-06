@@ -13,6 +13,42 @@ export const IMAGES = {
     watermark: '/images/brand/watermark-logo.svg',
     grid: '/images/backgrounds/hero-grid.svg',
     lines: '/images/backgrounds/hero-lines.svg',
+    home: {
+      slides: [
+        '/images/hero/home/hero-01.svg',
+        '/images/hero/home/hero-02.svg',
+        '/images/hero/home/hero-03.svg',
+      ],
+      fallback: '/images/hero/home/fallback.svg',
+    },
+    servicos: {
+      src: '/images/hero/servicos/hero.svg',
+      fallback: '/images/hero/home/fallback.svg',
+    },
+    sobre: {
+      src: '/images/hero/sobre/hero.svg',
+      fallback: '/images/hero/home/fallback.svg',
+    },
+    trabalheConosco: {
+      src: '/images/hero/trabalhe-conosco/hero.svg',
+      fallback: '/images/hero/home/fallback.svg',
+    },
+    parceiros: {
+      src: '/images/hero/parceiros/hero.svg',
+      fallback: '/images/hero/home/fallback.svg',
+    },
+    fornecedores: {
+      src: '/images/hero/fornecedores/hero.svg',
+      fallback: '/images/hero/home/fallback.svg',
+    },
+    suporte: {
+      src: '/images/hero/suporte/hero.svg',
+      fallback: '/images/hero/home/fallback.svg',
+    },
+    contato: {
+      src: '/images/hero/contato/hero.svg',
+      fallback: '/images/hero/home/fallback.svg',
+    },
   },
   services: {
     seguranca: '/images/services/seguranca-patrimonial.svg',

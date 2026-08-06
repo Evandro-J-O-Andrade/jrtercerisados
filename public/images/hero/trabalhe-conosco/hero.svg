@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <defs>
+    <linearGradient id="gtc" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050914" />
+      <stop offset="100%" stop-color="#0a0f23" />
+    </linearGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#gtc)" />
+  <g opacity="0.14">
+    <circle cx="400" cy="300" r="90" fill="hsl(43,74%,40%)" opacity="0.5" />
+    <circle cx="1520" cy="350" r="70" fill="hsl(43,74%,40%)" opacity="0.4" />
+    <circle cx="1700" cy="800" r="120" fill="hsl(43,74%,40%)" opacity="0.3" />
+    <rect x="200" y="750" width="800" height="50" rx="10" fill="rgba(255,255,255,0.04)" />
+  </g>
+  <g transform="translate(960 540)" text-anchor="middle">
+    <text x="0" y="-30" fill="rgba(255,255,255,0.9)" font-family="system-ui" font-size="64" font-weight="700">TRABALHE CONOSCO</text>
+    <text x="0" y="10" fill="hsl(43,74%,50%)" font-family="system-ui" font-size="32" font-weight="400">Junte-se à nossa equipe de profissionais</text>
+    <text x="0" y="80" fill="rgba(180,180,180,0.3)" font-family="system-ui" font-size="16">Placeholder Hero — 1920 × 1080</text>
+  </g>
+</svg>

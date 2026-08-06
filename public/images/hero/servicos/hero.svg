@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <defs>
+    <linearGradient id="gs" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050914" />
+      <stop offset="100%" stop-color="#0a0f23" />
+    </linearGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#gs)" />
+  <g opacity="0.15">
+    <path d="M0 0 L1920 0 C1920 360 1560 540 1080 540 C600 540 0 360 0 0 Z" fill="hsl(43,74%,40%)" />
+  </g>
+  <g transform="translate(960 540)" text-anchor="middle">
+    <text x="0" y="-30" fill="rgba(255,255,255,0.9)" font-family="system-ui" font-size="64" font-weight="700">SERVIÇOS</text>
+    <text x="0" y="10" fill="hsl(43,74%,50%)" font-family="system-ui" font-size="32" font-weight="400">Segurança · Limpeza · Portaria · Zeladoria</text>
+    <text x="0" y="80" fill="rgba(180,180,180,0.3)" font-family="system-ui" font-size="16">Placeholder Hero — 1920 × 1080</text>
+  </g>
+</svg>

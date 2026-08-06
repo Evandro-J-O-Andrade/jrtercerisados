@@ -1,8 +1,14 @@
-import { type ImgHTMLAttributes, type ReactNode, useState } from 'react';
+import {
+  type ImgHTMLAttributes,
+  type ReactNode,
+  useEffect,
+  useState,
+} from 'react';
 import { cn } from '@/utils';
 
 interface SafeImageProps extends ImgHTMLAttributes<HTMLImageElement> {
   fallback?: ReactNode;
+  fallbackSrc?: string;
   skeleton?: boolean;
 }
 
@@ -30,12 +36,29 @@ export function SafeImage({
   alt = '',
   className,
   fallback,
+  fallbackSrc,
   skeleton = true,
   loading = 'lazy',
   ...props
 }: SafeImageProps) {
+  const [imgSrc, setImgSrc] = useState(src);
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
+
+  useEffect(() => {
+    setImgSrc(src);
+    setIsLoading(true);
+    setHasError(false);
+  }, [src]);
+
+  const handleError = () => {
+    if (imgSrc !== fallbackSrc && fallbackSrc) {
+      setImgSrc(fallbackSrc);
+    } else {
+      setIsLoading(false);
+      setHasError(true);
+    }
+  };
 
   return (
     <div className={cn('relative overflow-hidden', className)}>
@@ -50,10 +73,7 @@ export function SafeImage({
           alt={alt}
           loading={loading}
           onLoad={() => setIsLoading(false)}
-          onError={() => {
-            setIsLoading(false);
-            setHasError(true);
-          }}
+          onError={handleError}
           className={cn(
             'h-full w-full object-cover transition-opacity duration-300',
             isLoading ? 'opacity-0' : 'opacity-100',

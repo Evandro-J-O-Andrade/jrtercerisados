@@ -1,5 +1,11 @@
 @import 'tailwindcss';
 
+@custom-variant light {
+  html:not(.dark) & {
+    /* styles that should only apply in light mode */
+  }
+}
+
 @font-face {
   font-family: 'Inter';
   font-style: normal;
