@@ -17,8 +17,6 @@ import {
   getWhatsAppUrl,
   getWhatsAppMessage,
 } from '@/config';
-import { staggerReveal, revealUp } from '@/animations/scroll';
-import { staggerItem } from '@/animations/fade';
 
 const contactSchema = z.object({
   name: z.string().min(2, 'Nome é obrigatório'),
