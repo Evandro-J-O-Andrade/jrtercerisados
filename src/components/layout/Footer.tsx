@@ -7,107 +7,97 @@ import {
   Clock,
   Instagram,
   Facebook,
-  Send,
   Linkedin,
   Youtube,
-  Briefcase,
-  Shield,
-  Users,
-  Wrench,
   Heart,
+  Globe,
+  Map,
 } from 'lucide-react';
 import { COMPANY, SOCIAL_LINKS } from '@/config';
 import { IMAGES } from '@/config/images';
 
-const footerServices = [
-  { label: 'Segurança Patrimonial', icon: Shield, href: '/servicos' },
-  { label: 'Controle de Acesso', icon: Shield, href: '/servicos' },
-  { label: 'Portaria', icon: Users, href: '/servicos' },
-  { label: 'Limpeza', icon: Wrench, href: '/servicos' },
-  { label: 'Zeladoria', icon: Wrench, href: '/servicos' },
-  { label: 'Facilities', icon: Briefcase, href: '/servicos' },
-  { label: 'Recepção', icon: Users, href: '/servicos' },
-  { label: 'Monitoramento', icon: Shield, href: '/servicos' },
-];
-
-const footerCompany = [
-  { label: 'Sobre Nós', href: '/sobre' },
-  { label: 'Nossos Serviços', href: '/servicos' },
-  { label: 'Carreira', href: '/trabalhe-conosco' },
-  { label: 'Processo Seletivo', href: '/processo-seletivo' },
-  { label: 'Blog', href: '/blog' },
-  { label: 'Contato', href: '/contato' },
-];
-
-const footerContact = [
+const footerEcosystem = [
   {
-    icon: MapPin,
-    text: `${COMPANY.address.city}, ${COMPANY.address.state} — Brasil`,
+    label: 'Empresa',
+    links: [
+      { label: 'Sobre Nós', href: '/sobre' },
+      { label: 'Clientes', href: '/clientes' },
+      { label: 'Parceiros', href: '/parceiros' },
+      { label: 'Fornecedores', href: '/fornecedores' },
+    ],
   },
-  { icon: Phone, text: COMPANY.phone, href: `tel:${COMPANY.phone}` },
-  { icon: Mail, text: COMPANY.email, href: `mailto:${COMPANY.email}` },
-  { icon: Clock, text: 'Seg a Sex, 08h às 18h' },
+  {
+    label: 'Atendimento',
+    links: [
+      { label: 'Suporte', href: '/suporte' },
+      { label: 'FAQ', href: '/faq' },
+      { label: 'WhatsApp', href: SOCIAL_LINKS.whatsapp },
+      { label: 'E-mail', href: `mailto:${COMPANY.email}` },
+    ],
+  },
+  {
+    label: 'Trabalhe Conosco',
+    links: [
+      { label: 'Cadastro Profissional', href: '/trabalhe-conosco' },
+      { label: 'Processo Seletivo', href: '/processo-seletivo' },
+    ],
+  },
 ];
 
 const socialLinks = [
-  { label: 'WhatsApp', href: SOCIAL_LINKS.whatsapp, icon: Phone },
-  { label: 'Instagram', href: SOCIAL_LINKS.instagram, icon: Instagram },
-  { label: 'Facebook', href: SOCIAL_LINKS.facebook, icon: Facebook },
-  { label: 'LinkedIn', href: SOCIAL_LINKS.linkedin, icon: Linkedin },
-  { label: 'YouTube', href: SOCIAL_LINKS.youtube, icon: Youtube },
-  { label: 'TikTok', href: SOCIAL_LINKS.tiktok, icon: Send },
+  {
+    label: 'WhatsApp',
+    href: SOCIAL_LINKS.whatsapp,
+    icon: Phone,
+    color: '#25D366',
+  },
+  {
+    label: 'Instagram',
+    href: SOCIAL_LINKS.instagram,
+    icon: Instagram,
+    color: '#E4405F',
+  },
+  {
+    label: 'Facebook',
+    href: SOCIAL_LINKS.facebook,
+    icon: Facebook,
+    color: '#1877F2',
+  },
+  {
+    label: 'LinkedIn',
+    href: SOCIAL_LINKS.linkedin,
+    icon: Linkedin,
+    color: '#0A66C2',
+  },
+  {
+    label: 'YouTube',
+    href: SOCIAL_LINKS.youtube,
+    icon: Youtube,
+    color: '#FF0000',
+  },
 ];
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-card border-border relative border-t">
-      {/* SVG decorative top border */}
-      <div className="absolute -top-px right-0 left-0">
-        <svg
-          viewBox="0 0 1440 4"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-full"
-        >
-          <defs>
-            <linearGradient id="ftg" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stopColor="hsl(43,74%,40%)" stopOpacity="0" />
-              <stop
-                offset="30%"
-                stopColor="hsl(43,74%,40%)"
-                stopOpacity="0.6"
-              />
-              <stop offset="50%" stopColor="hsl(43,74%,40%)" stopOpacity="1" />
-              <stop
-                offset="70%"
-                stopColor="hsl(43,74%,40%)"
-                stopOpacity="0.6"
-              />
-              <stop offset="100%" stopColor="hsl(43,74%,40%)" stopOpacity="0" />
-            </linearGradient>
-          </defs>
-          <path
-            d="M0 2 Q360 0 720 2 Q1080 4 1440 2"
-            stroke="url(#ftg)"
-            strokeWidth="2"
-            fill="none"
-          />
-        </svg>
-      </div>
+    <footer className="border-border/50 relative border-t bg-[#050914]">
+      {/* Decorative top glow */}
+      <div className="via-primary/40 absolute -top-px right-0 left-0 h-px bg-gradient-to-r from-transparent to-transparent" />
 
       <div className="mx-auto max-w-[1600px] px-4 py-16 sm:px-6 lg:px-8">
-        {/* Top section with brand and 4 columns */}
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-5">
+        {/* Top section with brand, ecosystem, and contact */}
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
           {/* Brand Column */}
-          <div className="space-y-5 lg:col-span-2">
+          <div className="space-y-5 lg:col-span-3">
             <Link to="/" className="flex items-center gap-4">
-              <img
-                src={IMAGES.logo.dark}
-                alt={COMPANY.name}
-                className="drop-shadow-glow h-20 w-auto"
-              />
+              <div className="bg-primary/10 border-border/50 shadow-glow relative rounded-2xl border p-2">
+                <img
+                  src={IMAGES.logo.dark}
+                  alt={COMPANY.name}
+                  className="drop-shadow-glow h-14 w-auto"
+                />
+              </div>
               <div>
                 <h2 className="text-3xl font-extrabold tracking-tight">
                   <span className="text-primary drop-shadow-glow">JS</span>{' '}
@@ -121,97 +111,167 @@ export function Footer() {
             <p className="text-muted-foreground max-w-sm text-sm leading-relaxed">
               {COMPANY.description}
             </p>
-            <div className="flex flex-wrap gap-2">
+
+            {/* Social Icons - Larger with color */}
+            <div className="flex flex-wrap gap-3">
               {socialLinks.map((social) => (
                 <motion.a
                   key={social.label}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  whileHover={{ scale: 1.1, y: -2 }}
+                  whileHover={{ scale: 1.15, y: -3, rotate: 2 }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-muted text-muted-foreground hover:bg-primary hover:text-primary-foreground rounded-full p-2.5 shadow-sm transition-all duration-300"
+                  transition={{ type: 'spring', stiffness: 300 }}
+                  className="rounded-xl p-3 shadow-sm transition-all duration-300"
+                  style={{
+                    backgroundColor: `${social.color}15`,
+                    color: social.color,
+                    border: `1px solid ${social.color}30`,
+                  }}
                   aria-label={social.label}
                 >
-                  <social.icon className="h-4 w-4" />
+                  <social.icon className="h-5 w-5" />
                 </motion.a>
               ))}
             </div>
           </div>
 
-          {/* Services Column */}
-          <div>
-            <h4 className="text-primary mb-5 text-sm font-bold tracking-wider uppercase">
-              Serviços
+          {/* Ecosystem Map */}
+          <div className="lg:col-span-5">
+            <h4 className="text-primary mb-6 text-sm font-bold tracking-wider uppercase">
+              Mapa do Ecossistema
             </h4>
-            <ul className="space-y-3">
-              {footerServices.map((service) => (
-                <li key={service.label}>
-                  <Link
-                    to={service.href}
-                    className="text-muted-foreground hover:text-primary flex items-center gap-2 text-sm transition-colors duration-200"
-                  >
-                    <service.icon className="h-3.5 w-3.5 flex-shrink-0" />
-                    {service.label}
-                  </Link>
-                </li>
+            <div className="space-y-6">
+              {footerEcosystem.map((section) => (
+                <div key={section.label}>
+                  <h5 className="text-foreground mb-3 text-sm font-semibold">
+                    {section.label}
+                  </h5>
+                  <div className="grid grid-cols-2 gap-2">
+                    {section.links.map((link) => (
+                      <Link
+                        key={link.label}
+                        to={link.href}
+                        className="text-muted-foreground hover:text-primary flex items-center gap-2 text-sm transition-colors duration-200"
+                      >
+                        <span className="text-primary/50 h-1.5 w-1.5 rounded-full bg-current" />
+                        {link.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
               ))}
-            </ul>
-          </div>
-
-          {/* Company Column */}
-          <div>
-            <h4 className="text-primary mb-5 text-sm font-bold tracking-wider uppercase">
-              Empresa
-            </h4>
-            <ul className="space-y-3">
-              {footerCompany.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    to={link.href}
-                    className="text-muted-foreground hover:text-primary text-sm transition-colors duration-200"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            </div>
           </div>
 
           {/* Contact Column */}
-          <div>
-            <h4 className="text-primary mb-5 text-sm font-bold tracking-wider uppercase">
-              Contato
+          <div className="lg:col-span-4">
+            <h4 className="text-primary mb-6 text-sm font-bold tracking-wider uppercase">
+              Fale Conosco
             </h4>
-            <ul className="space-y-4">
-              {footerContact.map((item) => (
-                <li key={item.text} className="flex items-start gap-3 text-sm">
-                  <item.icon className="text-primary mt-0.5 h-4 w-4 flex-shrink-0" />
-                  {item.href ? (
-                    <a
-                      href={item.href}
-                      className="text-muted-foreground hover:text-primary transition-colors"
-                    >
-                      {item.text}
-                    </a>
-                  ) : (
-                    <span className="text-muted-foreground">{item.text}</span>
-                  )}
-                </li>
-              ))}
-            </ul>
 
-            <div className="mt-6">
+            {/* Contact Cards */}
+            <div className="space-y-4">
+              <a
+                href={`tel:${COMPANY.phone.replace(/\D/g, '')}`}
+                className="bg-primary/5 border-border/50 hover:border-primary/30 group flex items-center gap-4 rounded-xl border p-4 transition-all duration-300"
+              >
+                <div className="bg-primary/10 text-primary flex h-10 w-10 items-center justify-center rounded-lg">
+                  <Phone className="h-5 w-5" />
+                </div>
+                <div>
+                  <p className="text-foreground text-sm font-semibold">
+                    Comercial
+                  </p>
+                  <p className="text-muted-foreground text-xs">
+                    {COMPANY.phone}
+                  </p>
+                </div>
+              </a>
+
+              <a
+                href={`mailto:${COMPANY.email}`}
+                className="bg-primary/5 border-border/50 hover:border-primary/30 group flex items-center gap-4 rounded-xl border p-4 transition-all duration-300"
+              >
+                <div className="bg-primary/10 text-primary flex h-10 w-10 items-center justify-center rounded-lg">
+                  <Mail className="h-5 w-5" />
+                </div>
+                <div>
+                  <p className="text-foreground text-sm font-semibold">
+                    E-mail Comercial
+                  </p>
+                  <p className="text-muted-foreground text-xs">
+                    {COMPANY.email}
+                  </p>
+                </div>
+              </a>
+
+              <div className="bg-primary/5 border-border/50 flex items-center gap-4 rounded-xl border p-4">
+                <div className="bg-primary/10 text-primary flex h-10 w-10 items-center justify-center rounded-lg">
+                  <MapPin className="h-5 w-5" />
+                </div>
+                <div>
+                  <p className="text-foreground text-sm font-semibold">
+                    Endereço
+                  </p>
+                  <p className="text-muted-foreground text-xs">
+                    {COMPANY.address.street}, {COMPANY.address.number}
+                  </p>
+                  <p className="text-muted-foreground text-xs">
+                    {COMPANY.address.neighborhood}, {COMPANY.address.city}
+                    /SP
+                    {COMPANY.address.complement &&
+                      `, ${COMPANY.address.complement}`}
+                  </p>
+                </div>
+              </div>
+
+              {/* Map Card */}
+              <a
+                href={`https://maps.google.com/?q=${encodeURIComponent(`${COMPANY.address.street}, ${COMPANY.address.number}, ${COMPANY.address.city}, ${COMPANY.address.state}`)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-primary/5 border-border/50 hover:border-primary/30 group flex items-center gap-4 rounded-xl border p-4 transition-all duration-300"
+              >
+                <div className="bg-primary/10 text-primary flex h-10 w-10 items-center justify-center rounded-lg">
+                  <Map className="h-5 w-5" />
+                </div>
+                <div className="flex-1">
+                  <p className="text-foreground text-sm font-semibold">
+                    Ver no Mapa
+                  </p>
+                  <p className="text-muted-foreground text-xs">
+                    {COMPANY.address.city} - SP
+                  </p>
+                </div>
+                <Globe className="text-primary h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </a>
+            </div>
+
+            {/* Hours */}
+            <div className="border-border/50 bg-primary/5 mt-6 rounded-xl border p-4">
               <h5 className="text-foreground mb-3 text-sm font-bold">
-                Atendimento
+                Horário de Atendimento
               </h5>
-              <p className="text-muted-foreground text-sm">
-                Segunda a Sexta, 08h às 18h
-              </p>
-              <p className="text-muted-foreground text-sm">
-                Sábado, 08h às 12h
-              </p>
-              <p className="text-muted-foreground text-sm">Domingo — Fechado</p>
+              <div className="space-y-2">
+                <div className="flex items-center gap-2 text-sm">
+                  <Clock className="text-primary h-4 w-4" />
+                  <span className="text-muted-foreground">
+                    Seg a Sex, 08h às 18h
+                  </span>
+                </div>
+                <div className="flex items-center gap-2 text-sm">
+                  <Clock className="text-primary h-4 w-4" />
+                  <span className="text-muted-foreground">Sáb, 08h às 12h</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm">
+                  <Clock className="text-muted-foreground h-4 w-4" />
+                  <span className="text-muted-foreground">
+                    Domingo — Fechado
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
