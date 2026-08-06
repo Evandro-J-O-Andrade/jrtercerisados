@@ -687,7 +687,7 @@ export default function Suporte() {
         </Container>
       </Section>
 
-      {/* FAQ */}
+      {/* Before Opening a Ticket */}
       <Section>
         <Container>
           <motion.div
@@ -698,10 +698,11 @@ export default function Suporte() {
             className="text-center"
           >
             <h2 className="text-foreground text-3xl font-bold sm:text-4xl">
-              Perguntas Frequentes
+              Antes de abrir um chamado
             </h2>
             <p className="text-muted-foreground mx-auto mt-4 max-w-2xl text-lg">
-              Respostas rápidas para as dúvidas mais comuns.
+              Sua dúvida pode ser resolvida rapidamente. Confira nossas
+              categorias de ajuda.
             </p>
           </motion.div>
 
@@ -710,59 +711,50 @@ export default function Suporte() {
             whileInView="visible"
             viewport={{ once: true }}
             variants={staggerReveal(0.1)}
-            className="mx-auto mt-12 max-w-3xl space-y-4"
+            className="mx-auto mt-12 grid max-w-4xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
           >
             {[
               {
-                question: 'Como solicitar um orçamento?',
-                answer:
-                  'Preencha o formulário de atendimento acima ou entre em contato pelo WhatsApp. Nossa equipe responde em até 24 horas úteis com uma proposta personalizada.',
+                icon: '🔐',
+                title: 'Acesso e Login',
+                description: 'Esqueceu sua senha? Problemas para entrar?',
+                link: '/faq',
+                linkLabel: 'Ver perguntas',
               },
               {
-                question: 'Qual o tempo de resposta?',
-                answer:
-                  'Nosso tempo médio de resposta é de até 15 minutos durante o horário de atendimento. Fora do horário, respondemos no próximo dia útil.',
+                icon: '⚙️',
+                title: 'Configurações',
+                description: 'Como ajustar preferências e dados da conta.',
+                link: '/faq',
+                linkLabel: 'Ver perguntas',
               },
               {
-                question: 'Vocês atendem emergências?',
-                answer:
-                  'Sim. Para situações urgentes, utilize o canal de WhatsApp e selecione a prioridade "Urgente". nossa equipe de plantão será acionada imediatamente.',
+                icon: '💳',
+                title: 'Serviços e Contratos',
+                description: 'Informações sobre planos e faturamento.',
+                link: '/faq',
+                linkLabel: 'Ver perguntas',
               },
-              {
-                question: 'Qual a área de atendimento?',
-                answer: `Atendemos em mais de ${COMPANY.citiesCovered} cidades. Consulte sua região pelo formulário ou WhatsApp.`,
-              },
-              {
-                question: 'Como acompanhar minha solicitação?',
-                answer:
-                  'Após o envio do formulário, você receberá um número de protocolo por e-mail. Use-o para acompanhar o status da sua solicitação.',
-              },
-            ].map((faq, index) => (
+            ].map((item) => (
               <motion.div
-                key={faq.question}
+                key={item.title}
                 variants={staggerItem('up')}
-                className="bg-card border-border overflow-hidden rounded-2xl border"
+                className="bg-card border-border hover:border-primary/30 group rounded-2xl border p-6 transition-all duration-300"
               >
-                <button
-                  className="flex w-full items-center justify-between p-6 text-left"
-                  onClick={() => {
-                    const el = document.getElementById(`faq-suporte-${index}`);
-                    if (el) {
-                      el.classList.toggle('hidden');
-                    }
-                  }}
-                  aria-expanded="false"
+                <span className="text-2xl">{item.icon}</span>
+                <h4 className="text-foreground mt-3 text-lg font-bold">
+                  {item.title}
+                </h4>
+                <p className="text-muted-foreground mt-2 text-sm">
+                  {item.description}
+                </p>
+                <a
+                  href={item.link}
+                  className="text-primary mt-4 inline-flex items-center gap-2 text-sm font-semibold transition-colors hover:gap-3"
                 >
-                  <span className="text-foreground text-sm font-semibold">
-                    {faq.question}
-                  </span>
-                  <ChevronDown className="text-primary h-5 w-5 flex-shrink-0 transition-transform" />
-                </button>
-                <div id={`faq-suporte-${index}`} className="hidden px-6 pb-6">
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    {faq.answer}
-                  </p>
-                </div>
+                  {item.linkLabel}
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </a>
               </motion.div>
             ))}
           </motion.div>

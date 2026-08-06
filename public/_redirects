@@ -1,0 +1,10 @@
+# SPA Redirects for Cloudflare Pages
+# Serve static assets directly, redirect all other paths to index.html
+
+/assets/*
+  /assets/*
+
+/fonts/*
+  /fonts/*
+
+/*    /index.html   200
