@@ -86,7 +86,7 @@ export function Navbar() {
           <motion.img
             src={IMAGES.logo.dark}
             alt={COMPANY.name}
-            className="drop-shadow-glow h-24 w-auto"
+            className="drop-shadow-glow h-12 w-auto"
             whileHover={{ scale: 1.05 }}
             loading="eager"
           />

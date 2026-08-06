@@ -1,7 +1,7 @@
 export const IMAGES = {
   logo: {
-    light: '/images/logos/jslogomarca.png',
-    dark: '/images/logos/jslogomarca.png',
+    light: '/images/brand/logo.svg',
+    dark: '/images/brand/logo.svg',
     sidebar: '/images/logos/sidebar-logo.svg',
     sidebarIcon: '/images/logos/sidebar-icon.svg',
     favicon: '/images/favicons/favicon.svg',
