@@ -7,6 +7,7 @@ import {
   Clock,
   Instagram,
   Facebook,
+  Send,
   Linkedin,
   Youtube,
   Heart,
@@ -50,30 +51,42 @@ const socialLinks = [
     href: SOCIAL_LINKS.whatsapp,
     icon: Phone,
     color: '#25D366',
+    glow: 'rgba(37,211,102,0.4)',
   },
   {
     label: 'Instagram',
     href: SOCIAL_LINKS.instagram,
     icon: Instagram,
     color: '#E4405F',
+    glow: 'rgba(228,64,95,0.4)',
   },
   {
     label: 'Facebook',
     href: SOCIAL_LINKS.facebook,
     icon: Facebook,
     color: '#1877F2',
+    glow: 'rgba(24,119,242,0.4)',
+  },
+  {
+    label: 'TikTok',
+    href: SOCIAL_LINKS.tiktok,
+    icon: Send,
+    color: '#000000',
+    glow: 'rgba(0,0,0,0.3)',
   },
   {
     label: 'LinkedIn',
     href: SOCIAL_LINKS.linkedin,
     icon: Linkedin,
     color: '#0A66C2',
+    glow: 'rgba(10,102,194,0.4)',
   },
   {
     label: 'YouTube',
     href: SOCIAL_LINKS.youtube,
     icon: Youtube,
     color: '#FF0000',
+    glow: 'rgba(255,0,0,0.4)',
   },
 ];
 
@@ -112,28 +125,38 @@ export function Footer() {
               {COMPANY.description}
             </p>
 
-            {/* Social Icons - Larger with color */}
-            <div className="flex flex-wrap gap-3">
-              {socialLinks.map((social) => (
-                <motion.a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.15, y: -3, rotate: 2 }}
-                  whileTap={{ scale: 0.95 }}
-                  transition={{ type: 'spring', stiffness: 300 }}
-                  className="rounded-xl p-3 shadow-sm transition-all duration-300"
-                  style={{
-                    backgroundColor: `${social.color}15`,
-                    color: social.color,
-                    border: `1px solid ${social.color}30`,
-                  }}
-                  aria-label={social.label}
-                >
-                  <social.icon className="h-5 w-5" />
-                </motion.a>
-              ))}
+            {/* Social Section */}
+            <div className="mt-6">
+              <h4 className="text-foreground mb-2 text-sm font-bold">
+                Siga a JS Terceirizados
+              </h4>
+              <p className="text-muted-foreground mb-4 text-xs leading-relaxed">
+                Acompanhe nossas soluções, bastidores e novidades.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                {socialLinks.map((social) => (
+                  <motion.a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{
+                      scale: 1.15,
+                      y: -6,
+                      boxShadow: `0 0 30px ${social.glow}`,
+                    }}
+                    whileTap={{ scale: 0.95 }}
+                    transition={{ type: 'spring', stiffness: 300 }}
+                    className="relative flex h-14 w-14 items-center justify-center rounded-full border border-white/10 bg-white/5 backdrop-blur-xl transition-all duration-300 hover:border-white/20"
+                    aria-label={social.label}
+                  >
+                    <social.icon
+                      className="h-6 w-6 transition-colors duration-300"
+                      style={{ color: social.color }}
+                    />
+                  </motion.a>
+                ))}
+              </div>
             </div>
           </div>
 
