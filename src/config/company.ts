@@ -8,13 +8,14 @@ export const COMPANY = {
   description:
     'Plataforma SaaS para empresas de prestação de serviços de segurança patrimonial, controle de acesso, portaria, zeladoria, limpeza e facilities.',
   address: {
-    street: 'Rua Exemplo',
-    number: '123',
-    neighborhood: 'Centro',
-    city: 'São Paulo',
+    street: 'Rodovia João Afonso de Souza Castellano',
+    number: '411',
+    complement: 'Sala n° 04',
+    neighborhood: 'Poá',
+    city: 'Poá',
     state: 'SP',
     country: 'Brasil',
-    zip: '01000-000',
+    zip: '',
   },
   businessAreas: [
     'Segurança Patrimonial',

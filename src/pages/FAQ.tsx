@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ChevronDown, Phone, Mail } from 'lucide-react';
+import { ChevronDown, Phone, Mail, Send } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
+import { Input } from '@/components/ui/Input';
 import { Section } from '@/components/sections/Section';
 import { Container } from '@/components/common/Container';
 import { COMPANY, WHATSAPP_MESSAGES, getWhatsAppUrl } from '@/config';
@@ -132,6 +133,57 @@ export default function FAQ() {
                 </motion.div>
               </motion.div>
             ))}
+          </motion.div>
+        </Container>
+      </Section>
+
+      {/* Newsletter */}
+      <Section className="bg-surface-alt">
+        <Container>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mx-auto max-w-2xl text-center"
+          >
+            <h2 className="text-foreground text-3xl font-bold sm:text-4xl">
+              Fique por dentro
+            </h2>
+            <p className="text-muted-foreground mx-auto mt-4 max-w-xl text-lg">
+              Receba novidades, dicas e conteúdos exclusivos sobre terceirização
+              e gestão de serviços diretamente no seu e-mail.
+            </p>
+            <form
+              className="mt-8 flex flex-col gap-3 sm:flex-row"
+              onSubmit={(e) => {
+                e.preventDefault();
+                const form = e.currentTarget;
+                const email = (
+                  form.elements.namedItem(
+                    'newsletter-email',
+                  ) as HTMLInputElement
+                ).value;
+                if (email) {
+                  form.reset();
+                }
+              }}
+            >
+              <Input
+                type="email"
+                name="newsletter-email"
+                placeholder="Seu melhor e-mail"
+                required
+                className="flex-1"
+              />
+              <Button type="submit" variant="primary" size="lg">
+                <Send className="mr-2 h-5 w-5" />
+                Inscrever-se
+              </Button>
+            </form>
+            <p className="text-muted-foreground mt-4 text-xs">
+              Sem spam. Cancele quando quiser.
+            </p>
           </motion.div>
         </Container>
       </Section>
