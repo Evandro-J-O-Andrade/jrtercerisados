@@ -8,10 +8,9 @@ export const NAVIGATION_LINKS: NavLink[] = [
   { label: 'Início', href: '/' },
   { label: 'Vagas', href: '/vagas' },
   { label: 'Empresas', href: '/empresas' },
-  { label: 'Candidatos', href: '/candidatos' },
   { label: 'Serviços', href: '/servicos' },
-  { label: 'Blog', href: '/blog' },
-  { label: 'Sobre Nós', href: '/sobre' },
+  { label: 'Trabalhe Conosco', href: '/trabalhe-conosco' },
+  { label: 'Sobre', href: '/sobre' },
   { label: 'FAQ', href: '/faq' },
   { label: 'Contato', href: '/contato' },
 ];

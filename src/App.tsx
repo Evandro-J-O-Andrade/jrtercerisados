@@ -7,17 +7,14 @@ import { PageLoader } from '@/components/ui/PageLoader';
 import { ScrollToTop } from '@/components/ui/ScrollToTop';
 
 const Home = lazy(() => import('@/pages/Home'));
-const Sobre = lazy(() => import('@/pages/Sobre'));
 const Servicos = lazy(() => import('@/pages/Servicos'));
 const ServicoDetalhe = lazy(() => import('@/pages/ServicoDetalhe'));
 const Vagas = lazy(() => import('@/pages/Vagas'));
 const VagaDetalhe = lazy(() => import('@/pages/VagaDetalhe'));
 const Empresas = lazy(() => import('@/pages/Empresas'));
-const Candidatos = lazy(() => import('@/pages/Candidatos'));
-const Cadastro = lazy(() => import('@/pages/Cadastro'));
+const TrabalheConosco = lazy(() => import('@/pages/TrabalheConosco'));
 const FAQ = lazy(() => import('@/pages/FAQ'));
 const Contato = lazy(() => import('@/pages/Contato'));
-const Blog = lazy(() => import('@/pages/Blog'));
 const Login = lazy(() => import('@/pages/Login'));
 const Dashboard = lazy(() => import('@/pages/Dashboard'));
 
@@ -33,12 +30,9 @@ function App() {
             <Route path="/vagas" element={<Vagas />} />
             <Route path="/vagas/:slug" element={<VagaDetalhe />} />
             <Route path="/empresas" element={<Empresas />} />
-            <Route path="/candidatos" element={<Candidatos />} />
-            <Route path="/cadastro" element={<Cadastro />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/sobre" element={<Sobre />} />
             <Route path="/servicos" element={<Servicos />} />
             <Route path="/servicos/:slug" element={<ServicoDetalhe />} />
+            <Route path="/trabalhe-conosco" element={<TrabalheConosco />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/contato" element={<Contato />} />
             <Route path="/login" element={<Login />} />

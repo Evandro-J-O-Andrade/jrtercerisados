@@ -1,8 +1,79 @@
 import type { Service } from '@/types/common';
 
 export const mockServices: Service[] = [
+  // ── Recursos Humanos ───────────────────────────────────
   {
     id: '1',
+    slug: 'recrutamento-selecao',
+    title: 'Recrutamento & Seleção',
+    description:
+      'Serviço completo de recrutamento e seleção de profissionais qualificados para sua empresa. Encontramos os melhores talentos para as posições estratégicas da sua organização.',
+    benefits: [
+      'Acesso ao nosso banco de talentos',
+      'Triagem inicial qualificada',
+      'Avaliação de competências técnicas',
+      'Processo seletivo agile',
+      'Garantia de contratação',
+      'Suporte até a contratação',
+    ],
+    image: '/images/services/recrutamento.svg',
+    icon: 'users',
+  },
+  {
+    id: '2',
+    slug: 'banco-de-talentos',
+    title: 'Banco de Talentos',
+    description:
+      'Base de currículos qualificados disponíveis para suas vagas. Acesso a profissionais pré-selecionados e prontos para novos desafios.',
+    benefits: [
+      'Currículos pré-qualificados',
+      'Busca por competências',
+      'Filtragem avançada',
+      'Contato direto com candidatos',
+      'Agilidade no recrutamento',
+      'Redução de custos',
+    ],
+    image: '/images/services/banco-talentos.svg',
+    icon: 'database',
+  },
+  {
+    id: '3',
+    slug: 'avaliacao-perfil',
+    title: 'Avaliação de Perfil',
+    description:
+      'Avaliação psicométrica, testes técnicos e entrevistas estruturadas para garantir que o candidato certo esteja no lugar certo.',
+    benefits: [
+      'Testes técnicos online',
+      'Avaliação comportamental',
+      'Entrevistas estruturadas',
+      'Análise de competências',
+      'Score de adequação',
+      'Recomendações personalizadas',
+    ],
+    image: '/images/services/avaliacao-perfil.svg',
+    icon: 'target',
+  },
+  {
+    id: '4',
+    slug: 'hunting',
+    title: 'Executive Search (Hunting)',
+    description:
+      'Busca discreta e direcionada para cargos de alta performance e liderança. Encontramos profissionais que não estão no mercado, mas que são ideais para sua vaga.',
+    benefits: [
+      'Busca discreta e confidencial',
+      'Headhunting especializado',
+      'Acesso a perfis raros',
+      'Validação de competências',
+      'Oferta personalizada',
+      'Garantia de resultado',
+    ],
+    image: '/images/services/hunting.svg',
+    icon: 'search',
+  },
+
+  // ── Terceirização (mantida) ─────────────────────────────
+  {
+    id: '5',
     slug: 'seguranca-patrimonial',
     title: 'Segurança Patrimonial',
     description:
@@ -19,65 +90,14 @@ export const mockServices: Service[] = [
     icon: 'shield',
   },
   {
-    id: '2',
-    slug: 'controle-de-acesso',
-    title: 'Controle de Acesso',
-    description:
-      'Sistema completo de controle de acesso com biometria, catracas inteligentes e gestão digital para garantir a segurança das suas instalações.',
-    benefits: [
-      'Biometria facial e digital',
-      'Catracas inteligentes',
-      'Gestão digital de acessos',
-      'Registro de entrada e saída',
-      'Alertas em tempo real',
-      'Integração com câmeras',
-    ],
-    image: '/images/services/controle-acesso.svg',
-    icon: 'lock',
-  },
-  {
-    id: '3',
-    slug: 'portaria',
-    title: 'Portaria',
-    description:
-      'Serviço de portaria profissional com recepção, controle de visitantes, gestão de correspondências e atendimento personalizado.',
-    benefits: [
-      'Recepção 24/7',
-      'Controle de visitantes',
-      'Gestão de correspondências',
-      'Atendimento personalizado',
-      'Comunicação com moradores',
-      'Monitoramento de entregas',
-    ],
-    image: '/images/services/portaria.svg',
-    icon: 'door-open',
-  },
-  {
-    id: '4',
-    slug: 'recepcao',
-    title: 'Recepção',
-    description:
-      'Serviço de recepção executiva com atendimento cordial, organização de agenda e suporte administrativo para sua empresa.',
-    benefits: [
-      'Atendimento cordial e profissional',
-      'Organização de agenda',
-      'Suporte administrativo',
-      'Gestão de salas de reunião',
-      'Acolhimento de clientes',
-      'Suporte multimídia',
-    ],
-    image: '/images/services/recepcao.svg',
-    icon: 'user-check',
-  },
-  {
-    id: '5',
+    id: '6',
     slug: 'limpeza',
-    title: 'Limpeza',
+    title: 'Limpeza Profissional',
     description:
-      'Serviço de limpeza profissional com equipe treinada, produtos adequados e metodologia que garante a higiene e conservação do seu ambiente.',
+      'Serviço de limpeza profissional com equipe treinada, produtos ecológicos e metodologia que garante higiene e conservação do seu ambiente.',
     benefits: [
       'Equipe treinada e uniformizada',
-      'Produtos profissionais',
+      'Produtos ecológicos',
       'Limpeza diária e periódica',
       'Conservação de ambientes',
       'Controle de qualidade',
@@ -87,9 +107,26 @@ export const mockServices: Service[] = [
     icon: 'sparkles',
   },
   {
-    id: '6',
+    id: '7',
+    slug: 'portaria',
+    title: 'Portaria Inteligente',
+    description:
+      'Serviço de portaria profissional com recepção, controle de visitantes, gestão de correspondências e atendimento personalizado com tecnologia de ponta.',
+    benefits: [
+      'Recepção 24/7',
+      'Controle de visitantes digital',
+      'Gestão de correspondências',
+      'Atendimento personalizado',
+      'Integração com controle de acesso',
+      'Monitoramento de entregas',
+    ],
+    image: '/images/services/portaria.svg',
+    icon: 'door-open',
+  },
+  {
+    id: '8',
     slug: 'zeladoria',
-    title: 'Zeladoria',
+    title: 'Zeladoria Preventiva',
     description:
       'Serviço de zeladoria com manutenção preventiva, conservação de instalações e suporte operacional para condomínios e empresas.',
     benefits: [
@@ -102,40 +139,6 @@ export const mockServices: Service[] = [
     ],
     image: '/images/services/zeladoria.svg',
     icon: 'wrench',
-  },
-  {
-    id: '7',
-    slug: 'facilities',
-    title: 'Facilities',
-    description:
-      'Gestão completa de facilities com manutenção predial, gestão de contratos, monitoramento de indicadores e otimização de custos.',
-    benefits: [
-      'Gestão completa de instalações',
-      'Manutenção predial',
-      'Otimização de custos',
-      'Gestão de contratos',
-      'Indicadores de desempenho',
-      'Relatórios gerenciais',
-    ],
-    image: '/images/services/facilities.svg',
-    icon: 'building',
-  },
-  {
-    id: '8',
-    slug: 'monitoramento',
-    title: 'Monitoramento',
-    description:
-      'Sistema de monitoramento 24h com câmeras, sensores e centro de comando para vigilância em tempo real do seu patrimônio.',
-    benefits: [
-      'Câmeras HD e IP',
-      'Sensores de presença',
-      'Centro de comando 24h',
-      'Gravação em nuvem',
-      'Alertas instantâneos',
-      'Acesso remoto',
-    ],
-    image: '/images/services/monitoramento.svg',
-    icon: 'monitor',
   },
 ];
 
