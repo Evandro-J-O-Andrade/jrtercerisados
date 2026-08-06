@@ -14,6 +14,7 @@ export const NAVIGATION_LINKS: NavLink[] = [
   { label: 'Trabalhe Conosco', href: '/trabalhe-conosco' },
   { label: 'Processo Seletivo', href: '/processo-seletivo' },
   { label: 'FAQ', href: '/faq' },
+  { label: 'Suporte', href: '/suporte' },
   { label: 'Contato', href: '/contato' },
 ];
 

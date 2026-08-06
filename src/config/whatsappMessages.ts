@@ -5,6 +5,9 @@ export const WHATSAPP_MESSAGES = {
     whatsapp:
       'Olá! Visitei o site da JSTerceirizados e gostaria de conversar sobre os serviços oferecidos. É possível me atender?',
   },
+  comercial:
+    'Olá! Gostaria de solicitar um orçamento. Qual serviço de seu interesse?',
+  suporte: 'Olá! Preciso de atendimento da JSTerceirizados. Já sou cliente.',
   security:
     'Olá! Tenho interesse no serviço de Segurança Patrimonial e gostaria de receber uma proposta comercial.',
   accessControl:
