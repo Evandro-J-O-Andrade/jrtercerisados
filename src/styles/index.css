@@ -1,5 +1,14 @@
 @import 'tailwindcss';
 
+@theme {
+  --color-social-whatsapp: #25d366;
+  --color-social-instagram: #e4405f;
+  --color-social-facebook: #1877f2;
+  --color-social-tiktok: #fe2c55;
+  --color-social-linkedin: #0a66c2;
+  --color-social-youtube: #ff0000;
+}
+
 @custom-variant light {
   html:not(.dark) & {
     /* styles that should only apply in light mode */

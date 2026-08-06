@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import { COMPANY, SOCIAL_LINKS } from '@/config';
 import { IMAGES } from '@/config/images';
+import { cn } from '@/utils';
 
 const TikTokIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
@@ -54,42 +55,42 @@ const socialLinks = [
     label: 'WhatsApp',
     href: SOCIAL_LINKS.whatsapp,
     icon: Phone,
-    color: '#25D366',
+    color: 'text-social-whatsapp',
     glow: 'rgba(37,211,102,0.4)',
   },
   {
     label: 'Instagram',
     href: SOCIAL_LINKS.instagram,
     icon: Instagram,
-    color: '#E4405F',
+    color: 'text-social-instagram',
     glow: 'rgba(228,64,95,0.4)',
   },
   {
     label: 'Facebook',
     href: SOCIAL_LINKS.facebook,
     icon: Facebook,
-    color: '#1877F2',
+    color: 'text-social-facebook',
     glow: 'rgba(24,119,242,0.4)',
   },
   {
     label: 'TikTok',
     href: SOCIAL_LINKS.tiktok,
     icon: TikTokIcon,
-    color: '#FE2C55',
+    color: 'text-social-tiktok',
     glow: 'rgba(254,44,85,0.4)',
   },
   {
     label: 'LinkedIn',
     href: SOCIAL_LINKS.linkedin,
     icon: Linkedin,
-    color: '#0A66C2',
+    color: 'text-social-linkedin',
     glow: 'rgba(10,102,194,0.4)',
   },
   {
     label: 'YouTube',
     href: SOCIAL_LINKS.youtube,
     icon: Youtube,
-    color: '#FF0000',
+    color: 'text-social-youtube',
     glow: 'rgba(255,0,0,0.4)',
   },
 ];
@@ -182,8 +183,11 @@ export function Footer() {
                     aria-label={social.label}
                   >
                     <social.icon
-                      className="h-5 w-5 transition-colors duration-300"
-                      style={{ color: social.color }}
+                      className={cn(
+                        'h-5 w-5 transition-colors duration-300',
+                        social.color,
+                      )}
+                      aria-hidden="true"
                     />
                   </motion.a>
                 ))}
