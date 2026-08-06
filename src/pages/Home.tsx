@@ -651,27 +651,29 @@ export default function Home() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="flex flex-wrap items-center justify-center gap-8"
+            className="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6"
             variants={staggerReveal(0.1)}
           >
             {PARTNERS_LOGOS.map((partner) => (
-              <motion.a
+              <motion.div
                 key={partner.name}
-                href={partner.link}
-                target="_blank"
-                rel="noopener noreferrer"
                 variants={staggerItem('up')}
-                whileHover={{ scale: 1.1, opacity: 1 }}
-                className="flex h-12 w-36 items-center justify-center opacity-60 grayscale transition-all hover:grayscale-0"
-                aria-label={partner.name}
+                whileHover={{ y: -8, scale: 1.05 }}
+                transition={{ type: 'spring', stiffness: 300 }}
+                className="group bg-card border-border shadow-premium hover:shadow-elevated relative flex flex-col items-center justify-center gap-3 rounded-2xl border p-4 transition-all duration-300"
               >
-                <img
-                  src={partner.logo}
-                  alt={partner.name}
-                  className="max-h-10 max-w-full object-contain"
-                  loading="lazy"
-                />
-              </motion.a>
+                <div className="relative flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-full border-2 border-white/10 bg-white/5">
+                  <img
+                    src={partner.photo}
+                    alt={partner.name}
+                    className="h-full w-full object-cover object-center"
+                    loading="lazy"
+                  />
+                </div>
+                <span className="text-foreground group-hover:text-primary text-xs font-semibold transition-colors">
+                  {partner.name}
+                </span>
+              </motion.div>
             ))}
           </motion.div>
         </Container>

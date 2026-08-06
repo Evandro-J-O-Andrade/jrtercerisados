@@ -94,9 +94,9 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-border/50 relative border-t bg-[#050914]">
+    <footer className="border-border/50 bg-surface relative border-t dark:bg-[#050914]">
       {/* Decorative top glow */}
-      <div className="via-primary/40 absolute -top-px right-0 left-0 h-px bg-gradient-to-r from-transparent to-transparent" />
+      <div className="via-primary/40 via-primary/40 dark:via-primary/40 absolute -top-px right-0 left-0 h-px bg-gradient-to-r from-transparent to-transparent" />
 
       <div className="mx-auto max-w-[1600px] px-4 py-16 sm:px-6 lg:px-8">
         {/* Top section with brand, ecosystem, and contact */}
@@ -104,11 +104,11 @@ export function Footer() {
           {/* Brand Column */}
           <div className="space-y-5 lg:col-span-3">
             <Link to="/" className="flex items-center gap-4">
-              <div className="bg-primary/10 border-border/50 shadow-glow relative rounded-2xl border p-2">
+              <div className="border-border/50 shadow-glow bg-primary/10 relative rounded-2xl border p-2 dark:border-white/10 dark:bg-white/5">
                 <img
                   src={IMAGES.logo.dark}
                   alt={COMPANY.name}
-                  className="drop-shadow-glow h-14 w-auto"
+                  className="drop-shadow-glow dark:drop-shadow-glow h-14 w-auto"
                 />
               </div>
               <div>
@@ -147,7 +147,7 @@ export function Footer() {
                     }}
                     whileTap={{ scale: 0.95 }}
                     transition={{ type: 'spring', stiffness: 300 }}
-                    className="relative flex h-14 w-14 items-center justify-center rounded-full border border-white/10 bg-white/5 backdrop-blur-xl transition-all duration-300 hover:border-white/20"
+                    className="light:border-black/10 light:bg-black/5 relative flex h-14 w-14 items-center justify-center rounded-full border border-white/10 bg-white/5 backdrop-blur-xl transition-all duration-300 hover:border-white/20 dark:border-white/10 dark:bg-white/5"
                     aria-label={social.label}
                   >
                     <social.icon
@@ -198,7 +198,7 @@ export function Footer() {
             <div className="space-y-4">
               <a
                 href={`tel:${COMPANY.phone.replace(/\D/g, '')}`}
-                className="bg-primary/5 border-border/50 hover:border-primary/30 group flex items-center gap-4 rounded-xl border p-4 transition-all duration-300"
+                className="border-border/50 bg-primary/5 hover:border-primary/30 group flex items-center gap-4 rounded-xl border p-4 transition-all duration-300"
               >
                 <div className="bg-primary/10 text-primary flex h-10 w-10 items-center justify-center rounded-lg">
                   <Phone className="h-5 w-5" />
@@ -215,7 +215,7 @@ export function Footer() {
 
               <a
                 href={`mailto:${COMPANY.email}`}
-                className="bg-primary/5 border-border/50 hover:border-primary/30 group flex items-center gap-4 rounded-xl border p-4 transition-all duration-300"
+                className="border-border/50 bg-primary/5 hover:border-primary/30 group flex items-center gap-4 rounded-xl border p-4 transition-all duration-300"
               >
                 <div className="bg-primary/10 text-primary flex h-10 w-10 items-center justify-center rounded-lg">
                   <Mail className="h-5 w-5" />
@@ -230,7 +230,7 @@ export function Footer() {
                 </div>
               </a>
 
-              <div className="bg-primary/5 border-border/50 flex items-center gap-4 rounded-xl border p-4">
+              <div className="border-border/50 bg-primary/5 flex items-center gap-4 rounded-xl border p-4">
                 <div className="bg-primary/10 text-primary flex h-10 w-10 items-center justify-center rounded-lg">
                   <MapPin className="h-5 w-5" />
                 </div>
@@ -255,7 +255,7 @@ export function Footer() {
                 href={`https://maps.google.com/?q=${encodeURIComponent(`${COMPANY.address.street}, ${COMPANY.address.number}, ${COMPANY.address.city}, ${COMPANY.address.state}`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-primary/5 border-border/50 hover:border-primary/30 group flex items-center gap-4 rounded-xl border p-4 transition-all duration-300"
+                className="border-border/50 bg-primary/5 hover:border-primary/30 group flex items-center gap-4 rounded-xl border p-4 transition-all duration-300"
               >
                 <div className="bg-primary/10 text-primary flex h-10 w-10 items-center justify-center rounded-lg">
                   <Map className="h-5 w-5" />
