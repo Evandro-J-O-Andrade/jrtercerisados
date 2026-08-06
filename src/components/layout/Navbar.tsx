@@ -34,6 +34,16 @@ export function Navbar() {
   const location = useLocation();
 
   useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent): void => {
+      if (e.key === 'Escape' && isOpen) {
+        setIsOpen(false);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen]);
+
+  useEffect(() => {
     const handleScroll = (): void => {
       setScrolled(window.scrollY > 20);
     };
