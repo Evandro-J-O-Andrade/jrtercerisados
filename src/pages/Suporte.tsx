@@ -12,6 +12,13 @@ import {
   Send,
   ChevronDown,
   CheckCircle2,
+  Shield,
+  Zap,
+  Globe,
+  Mail,
+  MapPin,
+  ArrowRight,
+  Sparkles,
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
@@ -28,6 +35,7 @@ const SUPPORT_CARDS = [
     icon: MessageSquare,
     title: 'Comercial',
     description: 'Solicitar orçamento ou conhecer nossos serviços.',
+    response: 'Até 15 minutos',
     color: 'gold',
     message: WHATSAPP_MESSAGES.comercial,
   },
@@ -35,6 +43,7 @@ const SUPPORT_CARDS = [
     icon: Wrench,
     title: 'Suporte ao Cliente',
     description: 'Para quem já é cliente. Abra um atendimento.',
+    response: 'Até 15 minutos',
     color: 'navy',
     message: WHATSAPP_MESSAGES.suporte,
   },
@@ -42,6 +51,7 @@ const SUPPORT_CARDS = [
     icon: Handshake,
     title: 'Parceiros',
     description: 'Empresas interessadas em parceria comercial.',
+    response: 'Até 24 horas',
     color: 'gold',
     message: WHATSAPP_MESSAGES.partners,
   },
@@ -49,6 +59,7 @@ const SUPPORT_CARDS = [
     icon: Truck,
     title: 'Fornecedores',
     description: 'Cadastro e contato comercial para fornecedores.',
+    response: 'Até 24 horas',
     color: 'navy',
     message: WHATSAPP_MESSAGES.suppliers,
   },
@@ -56,6 +67,7 @@ const SUPPORT_CARDS = [
     icon: Users,
     title: 'Trabalhe Conosco',
     description: 'Envie seu currículo e conheça nossas oportunidades.',
+    response: 'Até 5 dias úteis',
     color: 'gold',
     message: WHATSAPP_MESSAGES.careers,
   },
@@ -63,6 +75,7 @@ const SUPPORT_CARDS = [
     icon: BookOpen,
     title: 'Documentação',
     description: 'LGPD, políticas e termos de uso.',
+    response: 'Até 24 horas',
     color: 'navy',
     message: WHATSAPP_MESSAGES.contact,
   },
@@ -88,6 +101,33 @@ const PRIORITY_OPTIONS = [
   { value: 'urgente', label: 'Urgente' },
 ];
 
+const STEPS = [
+  {
+    number: '01',
+    title: 'Preencha o formulário',
+    description: 'Informe seus dados e descreva sua necessidade.',
+    icon: Send,
+  },
+  {
+    number: '02',
+    title: 'Nossa IA organiza',
+    description: 'Seu pedido é classificado e direcionado automaticamente.',
+    icon: Sparkles,
+  },
+  {
+    number: '03',
+    title: 'Equipe recebe',
+    description: 'O departamento correto recebe sua solicitação.',
+    icon: Shield,
+  },
+  {
+    number: '04',
+    title: 'Contato imediato',
+    description: 'Entramos em contato em até 15 minutos.',
+    icon: Phone,
+  },
+];
+
 export default function Suporte() {
   const [formData, setFormData] = useState({
     nome: '',
@@ -103,6 +143,7 @@ export default function Suporte() {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [protocol, setProtocol] = useState('');
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -115,6 +156,9 @@ export default function Suporte() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const now = new Date();
+    const proto = `SUP-${now.getFullYear()}${String(now.getMonth() + 1).padStart(2, '0')}${String(now.getDate()).padStart(2, '0')}-${String(Math.floor(Math.random() * 9000) + 1000)}`;
+    setProtocol(proto);
     setSubmitted(true);
   };
 
@@ -140,22 +184,469 @@ export default function Suporte() {
               variants={revealUp}
               className="text-muted-foreground mx-auto mt-4 max-w-2xl text-lg"
             >
-              Estamos prontos para ajudar você. Escolha a opção que melhor
-              atende sua necessidade.
+              Estamos prontos para ajudar você. Preencha o formulário e nossa
+              equipe entrará em contato rapidamente.
             </motion.p>
+          </motion.div>
+
+          {/* Trust Bar */}
+          <motion.div
+            variants={revealUp}
+            className="mt-10 grid grid-cols-2 gap-6 sm:grid-cols-4"
+          >
+            {[
+              {
+                icon: Globe,
+                value: `+${COMPANY.clientsServed}`,
+                label: 'Empresas atendidas',
+              },
+              {
+                icon: Clock,
+                value: '15 min',
+                label: 'Tempo médio de resposta',
+              },
+              {
+                icon: Shield,
+                value: '24h',
+                label: 'Cobertura de atendimento',
+              },
+              {
+                icon: Zap,
+                value: 'Especializado',
+                label: 'Atendimento humanizado',
+              },
+            ].map((stat) => (
+              <motion.div
+                key={stat.label}
+                variants={staggerItem('up')}
+                className="text-center"
+              >
+                <stat.icon className="text-primary mx-auto h-8 w-8" />
+                <p className="text-foreground mt-2 text-2xl font-bold">
+                  {stat.value}
+                </p>
+                <p className="text-muted-foreground mt-1 text-sm">
+                  {stat.label}
+                </p>
+              </motion.div>
+            ))}
           </motion.div>
         </Container>
       </Section>
 
-      {/* Service Cards */}
+      {/* Form + Info Side by Side */}
       <Section>
         <Container>
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-5">
+            {/* Form */}
+            <div className="lg:col-span-3">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <div className="bg-card/80 border-border/50 shadow-elevated relative overflow-hidden rounded-2xl border backdrop-blur-sm">
+                  {/* Gradient accent */}
+                  <div className="bg-primary/5 absolute -top-20 -right-20 h-60 w-60 rounded-full blur-3xl" />
+                  <div className="bg-primary/5 absolute -bottom-20 -left-20 h-60 w-60 rounded-full blur-3xl" />
+
+                  <div className="relative p-8 sm:p-10">
+                    <h3 className="text-foreground text-2xl font-bold sm:text-3xl">
+                      Solicitar Atendimento
+                    </h3>
+                    <p className="text-muted-foreground mt-2 text-sm">
+                      Nosso sistema de IA organiza sua solicitação e a direciona
+                      para a equipe correta.
+                    </p>
+
+                    {submitted ? (
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        className="mt-8 text-center"
+                      >
+                        <CheckCircle2 className="text-primary mx-auto h-16 w-16" />
+                        <h4 className="text-foreground mt-4 text-xl font-bold">
+                          Solicitação recebida!
+                        </h4>
+                        <p className="text-muted-foreground mt-2 text-sm">
+                          Protocolo:{' '}
+                          <span className="text-foreground font-mono font-semibold">
+                            {protocol}
+                          </span>
+                        </p>
+                        <p className="text-muted-foreground mt-2 text-sm">
+                          Nossa equipe analisará sua solicitação e entrará em
+                          contato em até 24 horas úteis.
+                        </p>
+                        <a
+                          href={getWhatsAppUrl(
+                            COMPANY.whatsapp,
+                            WHATSAPP_MESSAGES.contactForm,
+                          )}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="mt-6 inline-flex"
+                        >
+                          <Button variant="secondary" size="lg">
+                            <Phone className="mr-2 h-5 w-5" />
+                            Abrir WhatsApp
+                          </Button>
+                        </a>
+                      </motion.div>
+                    ) : (
+                      <form onSubmit={handleSubmit} className="mt-6 space-y-5">
+                        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                          <div>
+                            <label className="text-foreground mb-2 block text-sm font-medium">
+                              Nome <span className="text-red-500">*</span>
+                            </label>
+                            <Input
+                              type="text"
+                              name="nome"
+                              value={formData.nome}
+                              onChange={handleChange}
+                              required
+                              placeholder="Seu nome completo"
+                            />
+                          </div>
+                          <div>
+                            <label className="text-foreground mb-2 block text-sm font-medium">
+                              Empresa
+                            </label>
+                            <Input
+                              type="text"
+                              name="empresa"
+                              value={formData.empresa}
+                              onChange={handleChange}
+                              placeholder="Nome da empresa"
+                            />
+                          </div>
+                        </div>
+
+                        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                          <div>
+                            <label className="text-foreground mb-2 block text-sm font-medium">
+                              Telefone <span className="text-red-500">*</span>
+                            </label>
+                            <Input
+                              type="tel"
+                              name="telefone"
+                              value={formData.telefone}
+                              onChange={handleChange}
+                              required
+                              placeholder="(11) 91234-5678"
+                            />
+                          </div>
+                          <div>
+                            <label className="text-foreground mb-2 block text-sm font-medium">
+                              E-mail <span className="text-red-500">*</span>
+                            </label>
+                            <Input
+                              type="email"
+                              name="email"
+                              value={formData.email}
+                              onChange={handleChange}
+                              required
+                              placeholder="seu@email.com"
+                            />
+                          </div>
+                        </div>
+
+                        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                          <div>
+                            <label className="text-foreground mb-2 block text-sm font-medium">
+                              Já é cliente?
+                            </label>
+                            <Select
+                              name="cliente"
+                              value={formData.cliente}
+                              onChange={handleChange}
+                            >
+                              <option value="">Selecione</option>
+                              <option value="sim">Sim</option>
+                              <option value="nao">Não</option>
+                            </Select>
+                          </div>
+                          <div>
+                            <label className="text-foreground mb-2 block text-sm font-medium">
+                              Nº do contrato (opcional)
+                            </label>
+                            <Input
+                              type="text"
+                              name="contrato"
+                              value={formData.contrato}
+                              onChange={handleChange}
+                              placeholder="Número do contrato"
+                            />
+                          </div>
+                        </div>
+
+                        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                          <div>
+                            <label className="text-foreground mb-2 block text-sm font-medium">
+                              Categoria <span className="text-red-500">*</span>
+                            </label>
+                            <Select
+                              name="categoria"
+                              value={formData.categoria}
+                              onChange={handleChange}
+                              required
+                            >
+                              {CATEGORY_OPTIONS.map((opt) => (
+                                <option key={opt.value} value={opt.value}>
+                                  {opt.label}
+                                </option>
+                              ))}
+                            </Select>
+                          </div>
+                          <div>
+                            <label className="text-foreground mb-2 block text-sm font-medium">
+                              Prioridade <span className="text-red-500">*</span>
+                            </label>
+                            <Select
+                              name="prioridade"
+                              value={formData.prioridade}
+                              onChange={handleChange}
+                              required
+                            >
+                              {PRIORITY_OPTIONS.map((opt) => (
+                                <option key={opt.value} value={opt.value}>
+                                  {opt.label}
+                                </option>
+                              ))}
+                            </Select>
+                          </div>
+                        </div>
+
+                        <div>
+                          <label className="text-foreground mb-2 block text-sm font-medium">
+                            Assunto <span className="text-red-500">*</span>
+                          </label>
+                          <Input
+                            type="text"
+                            name="assunto"
+                            value={formData.assunto}
+                            onChange={handleChange}
+                            required
+                            placeholder="Assunto da sua solicitação"
+                          />
+                        </div>
+
+                        <div>
+                          <label className="text-foreground mb-2 block text-sm font-medium">
+                            Descrição <span className="text-red-500">*</span>
+                          </label>
+                          <Textarea
+                            name="descricao"
+                            value={formData.descricao}
+                            onChange={handleChange}
+                            required
+                            placeholder="Descreva sua necessidade em detalhes..."
+                            rows={4}
+                          />
+                        </div>
+
+                        <div>
+                          <label className="text-foreground mb-2 block text-sm font-medium">
+                            Existe alguma necessidade específica que não foi
+                            listada acima?
+                          </label>
+                          <Textarea
+                            name="observacoes"
+                            value={formData.descricao}
+                            onChange={handleChange}
+                            placeholder="Conte um pouco sobre sua necessidade..."
+                            rows={3}
+                          />
+                        </div>
+
+                        <div className="flex flex-col gap-3 sm:flex-row">
+                          <Button
+                            type="submit"
+                            variant="primary"
+                            size="lg"
+                            className="flex-1"
+                          >
+                            <Send className="mr-2 h-5 w-5" />
+                            Enviar Solicitação
+                          </Button>
+                          <a
+                            href={getWhatsAppUrl(
+                              COMPANY.whatsapp,
+                              WHATSAPP_MESSAGES.contactForm,
+                            )}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex-1"
+                          >
+                            <Button
+                              variant="secondary"
+                              size="lg"
+                              className="w-full"
+                            >
+                              <Phone className="mr-2 h-5 w-5" />
+                              Falar no WhatsApp
+                            </Button>
+                          </a>
+                        </div>
+                      </form>
+                    )}
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Side Info */}
+            <div className="space-y-6 lg:col-span-2">
+              {/* How It Works */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+              >
+                <h3 className="text-foreground text-xl font-bold">
+                  Como funciona nosso atendimento?
+                </h3>
+                <div className="mt-4 space-y-4">
+                  {STEPS.map((step, index) => (
+                    <motion.div
+                      key={step.title}
+                      initial={{ opacity: 0, x: 20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: index * 0.1 }}
+                      className="flex gap-4"
+                    >
+                      <div className="flex flex-col items-center">
+                        <div className="bg-primary/10 text-primary flex h-10 w-10 items-center justify-center rounded-full">
+                          <step.icon className="h-5 w-5" />
+                        </div>
+                        {index < STEPS.length - 1 && (
+                          <div className="bg-border mt-2 h-full w-0.5" />
+                        )}
+                      </div>
+                      <div className="pb-4">
+                        <p className="text-foreground text-sm font-semibold">
+                          {step.number}. {step.title}
+                        </p>
+                        <p className="text-muted-foreground mt-1 text-sm">
+                          {step.description}
+                        </p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+
+              {/* Channel Choice */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="bg-card border-border rounded-2xl border p-6"
+              >
+                <h4 className="text-foreground text-lg font-bold">
+                  Como deseja continuar?
+                </h4>
+                <p className="text-muted-foreground mt-2 text-sm">
+                  Nosso atendimento é auxiliado por Inteligência Artificial para
+                  agilizar seu atendimento. Caso necessário, um especialista
+                  continuará o atendimento.
+                </p>
+                <div className="mt-4 space-y-3">
+                  <a
+                    href={getWhatsAppUrl(
+                      COMPANY.whatsapp,
+                      WHATSAPP_MESSAGES.contactForm,
+                    )}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-primary/10 text-primary hover:bg-primary/20 flex items-center gap-3 rounded-xl p-4 transition-colors"
+                  >
+                    <Phone className="h-5 w-5" />
+                    <span className="text-sm font-semibold">WhatsApp</span>
+                    <ArrowRight className="ml-auto h-4 w-4" />
+                  </a>
+                  <a
+                    href={`mailto:${COMPANY.email}`}
+                    className="bg-muted text-foreground hover:bg-muted/80 flex items-center gap-3 rounded-xl p-4 transition-colors"
+                  >
+                    <Mail className="h-5 w-5" />
+                    <span className="text-sm font-semibold">E-mail</span>
+                    <ArrowRight className="ml-auto h-4 w-4" />
+                  </a>
+                </div>
+              </motion.div>
+
+              {/* Contact Info */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="bg-card border-border rounded-2xl border p-6"
+              >
+                <h4 className="text-foreground text-lg font-bold">
+                  Contato Direto
+                </h4>
+                <div className="mt-4 space-y-3">
+                  <div className="flex items-center gap-3">
+                    <Phone className="text-primary h-5 w-5" />
+                    <span className="text-foreground text-sm">
+                      {COMPANY.phone}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Mail className="text-primary h-5 w-5" />
+                    <span className="text-foreground text-sm">
+                      {COMPANY.email}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <MapPin className="text-primary h-5 w-5" />
+                    <span className="text-muted-foreground text-sm">
+                      {COMPANY.address.street}, {COMPANY.address.number} —{' '}
+                      {COMPANY.address.neighborhood}, {COMPANY.address.city}
+                      /SP
+                      {COMPANY.address.complement &&
+                        `, ${COMPANY.address.complement}`}
+                    </span>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      {/* Service Cards */}
+      <Section className="bg-surface-alt">
+        <Container>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center"
+          >
+            <h2 className="text-foreground text-3xl font-bold sm:text-4xl">
+              Como podemos ajudar?
+            </h2>
+            <p className="text-muted-foreground mx-auto mt-4 max-w-2xl text-lg">
+              Escolha a opção que melhor atende sua necessidade.
+            </p>
+          </motion.div>
+
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={staggerReveal(0.1)}
-            className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
+            className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
           >
             {SUPPORT_CARDS.map((card) => (
               <motion.div
@@ -170,10 +661,13 @@ export default function Suporte() {
                   <div className="bg-primary/10 text-primary mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl">
                     <card.icon className="h-6 w-6" />
                   </div>
-                  <h3 className="text-foreground text-xl font-bold">
+                  <span className="bg-primary/10 text-primary mb-2 inline-block rounded-full px-3 py-1 text-xs font-semibold">
+                    {card.response}
+                  </span>
+                  <h3 className="text-foreground mt-3 text-xl font-bold">
                     {card.title}
                   </h3>
-                  <p className="text-muted-foreground mt-3 text-sm leading-relaxed">
+                  <p className="text-muted-foreground mt-2 text-sm leading-relaxed">
                     {card.description}
                   </p>
                   <a
@@ -193,291 +687,8 @@ export default function Suporte() {
         </Container>
       </Section>
 
-      {/* Support Form */}
-      <Section className="bg-surface-alt">
-        <Container>
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="mx-auto max-w-2xl"
-          >
-            <h2 className="text-foreground text-3xl font-bold sm:text-4xl">
-              Formulário de Atendimento
-            </h2>
-            <p className="text-muted-foreground mt-4 text-lg">
-              Preencha o formulário e nossa equipe entrará em contato o mais
-              breve possível.
-            </p>
-
-            {submitted ? (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="bg-card border-border mt-8 rounded-2xl border p-8 text-center"
-              >
-                <CheckCircle2 className="text-primary mx-auto h-16 w-16" />
-                <h3 className="text-foreground mt-4 text-xl font-bold">
-                  Solicitação recebida!
-                </h3>
-                <p className="text-muted-foreground mt-2">
-                  Nossa equipe analisará sua solicitação e entrará em contato em
-                  até 24 horas úteis.
-                </p>
-                <a
-                  href={getWhatsAppUrl(
-                    COMPANY.whatsapp,
-                    WHATSAPP_MESSAGES.contactForm,
-                  )}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-6 inline-flex"
-                >
-                  <Button variant="secondary" size="lg">
-                    <Phone className="mr-2 h-5 w-5" />
-                    Abrir WhatsApp
-                  </Button>
-                </a>
-              </motion.div>
-            ) : (
-              <form onSubmit={handleSubmit} className="mt-8 space-y-6">
-                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                  <div>
-                    <label className="text-foreground mb-2 block text-sm font-medium">
-                      Nome <span className="text-danger">*</span>
-                    </label>
-                    <Input
-                      type="text"
-                      name="nome"
-                      value={formData.nome}
-                      onChange={handleChange}
-                      required
-                      placeholder="Seu nome completo"
-                    />
-                  </div>
-                  <div>
-                    <label className="text-foreground mb-2 block text-sm font-medium">
-                      Empresa
-                    </label>
-                    <Input
-                      type="text"
-                      name="empresa"
-                      value={formData.empresa}
-                      onChange={handleChange}
-                      placeholder="Nome da empresa"
-                    />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                  <div>
-                    <label className="text-foreground mb-2 block text-sm font-medium">
-                      Telefone <span className="text-danger">*</span>
-                    </label>
-                    <Input
-                      type="tel"
-                      name="telefone"
-                      value={formData.telefone}
-                      onChange={handleChange}
-                      required
-                      placeholder="(11) 91234-5678"
-                    />
-                  </div>
-                  <div>
-                    <label className="text-foreground mb-2 block text-sm font-medium">
-                      E-mail <span className="text-danger">*</span>
-                    </label>
-                    <Input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      placeholder="seu@email.com"
-                    />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                  <div>
-                    <label className="text-foreground mb-2 block text-sm font-medium">
-                      Já é cliente?
-                    </label>
-                    <Select
-                      name="cliente"
-                      value={formData.cliente}
-                      onChange={handleChange}
-                    >
-                      <option value="">Selecione</option>
-                      <option value="sim">Sim</option>
-                      <option value="nao">Não</option>
-                    </Select>
-                  </div>
-                  <div>
-                    <label className="text-foreground mb-2 block text-sm font-medium">
-                      Nº do contrato (opcional)
-                    </label>
-                    <Input
-                      type="text"
-                      name="contrato"
-                      value={formData.contrato}
-                      onChange={handleChange}
-                      placeholder="Número do contrato"
-                    />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                  <div>
-                    <label className="text-foreground mb-2 block text-sm font-medium">
-                      Categoria <span className="text-danger">*</span>
-                    </label>
-                    <Select
-                      name="categoria"
-                      value={formData.categoria}
-                      onChange={handleChange}
-                      required
-                    >
-                      {CATEGORY_OPTIONS.map((opt) => (
-                        <option key={opt.value} value={opt.value}>
-                          {opt.label}
-                        </option>
-                      ))}
-                    </Select>
-                  </div>
-                  <div>
-                    <label className="text-foreground mb-2 block text-sm font-medium">
-                      Prioridade <span className="text-danger">*</span>
-                    </label>
-                    <Select
-                      name="prioridade"
-                      value={formData.prioridade}
-                      onChange={handleChange}
-                      required
-                    >
-                      {PRIORITY_OPTIONS.map((opt) => (
-                        <option key={opt.value} value={opt.value}>
-                          {opt.label}
-                        </option>
-                      ))}
-                    </Select>
-                  </div>
-                </div>
-
-                <div>
-                  <label className="text-foreground mb-2 block text-sm font-medium">
-                    Assunto <span className="text-danger">*</span>
-                  </label>
-                  <Input
-                    type="text"
-                    name="assunto"
-                    value={formData.assunto}
-                    onChange={handleChange}
-                    required
-                    placeholder="Assunto da sua solicitação"
-                  />
-                </div>
-
-                <div>
-                  <label className="text-foreground mb-2 block text-sm font-medium">
-                    Descrição <span className="text-danger">*</span>
-                  </label>
-                  <Textarea
-                    name="descricao"
-                    value={formData.descricao}
-                    onChange={handleChange}
-                    required
-                    placeholder="Descreva sua necessidade em detalhes..."
-                    rows={4}
-                  />
-                </div>
-
-                <div>
-                  <label className="text-foreground mb-2 block text-sm font-medium">
-                    Existe alguma necessidade específica que não foi listada
-                    acima?
-                  </label>
-                  <Textarea
-                    name="observacoes"
-                    value={formData.descricao}
-                    onChange={handleChange}
-                    placeholder="Conte um pouco sobre sua necessidade..."
-                    rows={3}
-                  />
-                </div>
-
-                <div className="flex flex-col gap-4 sm:flex-row">
-                  <Button
-                    type="submit"
-                    variant="primary"
-                    size="lg"
-                    className="flex-1"
-                  >
-                    <Send className="mr-2 h-5 w-5" />
-                    Enviar Solicitação
-                  </Button>
-                  <a
-                    href={getWhatsAppUrl(
-                      COMPANY.whatsapp,
-                      WHATSAPP_MESSAGES.contactForm,
-                    )}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1"
-                  >
-                    <Button variant="secondary" size="lg" className="w-full">
-                      <Phone className="mr-2 h-5 w-5" />
-                      Falar no WhatsApp
-                    </Button>
-                  </a>
-                </div>
-              </form>
-            )}
-          </motion.div>
-        </Container>
-      </Section>
-
-      {/* Horário de Atendimento */}
+      {/* FAQ */}
       <Section>
-        <Container>
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="bg-card border-border mx-auto max-w-2xl rounded-2xl border p-8"
-          >
-            <h3 className="text-foreground text-xl font-bold">
-              Horário de Atendimento
-            </h3>
-            <div className="mt-4 space-y-3">
-              <div className="flex items-center gap-3">
-                <Clock className="text-primary h-5 w-5" />
-                <span className="text-foreground">
-                  Segunda a Sexta, 08:00 às 18:00
-                </span>
-              </div>
-              <div className="flex items-center gap-3">
-                <Clock className="text-primary h-5 w-5" />
-                <span className="text-foreground">Sábado, 08:00 às 12:00</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <Clock className="text-muted-foreground h-5 w-5" />
-                <span className="text-muted-foreground">Domingo — Fechado</span>
-              </div>
-            </div>
-            <div className="border-border mt-6 border-t pt-4">
-              <p className="text-muted-foreground text-sm">
-                Tempo médio de resposta: até 15 minutos
-              </p>
-            </div>
-          </motion.div>
-        </Container>
-      </Section>
-
-      {/* FAQ Section */}
-      <Section className="bg-surface-alt">
         <Container>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -554,6 +765,86 @@ export default function Suporte() {
                 </div>
               </motion.div>
             ))}
+          </motion.div>
+        </Container>
+      </Section>
+
+      {/* Footer CTA */}
+      <Section className="bg-surface-alt">
+        <Container>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="bg-card border-border rounded-2xl p-8 sm:p-12"
+          >
+            <h3 className="text-foreground text-2xl font-bold sm:text-3xl">
+              Ainda precisa de ajuda?
+            </h3>
+            <p className="text-muted-foreground mt-4 max-w-xl text-lg">
+              Nossa equipe está pronta para atender você pelos canais abaixo.
+            </p>
+            <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              <a
+                href={getWhatsAppUrl(
+                  COMPANY.whatsapp,
+                  WHATSAPP_MESSAGES.whatsappButton,
+                )}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-primary/10 text-primary hover:bg-primary/20 flex items-center gap-3 rounded-xl p-4 transition-colors"
+              >
+                <Phone className="h-6 w-6" />
+                <div>
+                  <p className="text-foreground text-sm font-semibold">
+                    WhatsApp
+                  </p>
+                  <p className="text-muted-foreground text-xs">
+                    {COMPANY.phone}
+                  </p>
+                </div>
+              </a>
+              <a
+                href={`tel:${COMPANY.phone.replace(/\D/g, '')}`}
+                className="bg-muted text-foreground hover:bg-muted/80 flex items-center gap-3 rounded-xl p-4 transition-colors"
+              >
+                <Phone className="h-6 w-6" />
+                <div>
+                  <p className="text-foreground text-sm font-semibold">
+                    Telefone
+                  </p>
+                  <p className="text-muted-foreground text-xs">
+                    {COMPANY.phone}
+                  </p>
+                </div>
+              </a>
+              <a
+                href={`mailto:${COMPANY.email}`}
+                className="bg-muted text-foreground hover:bg-muted/80 flex items-center gap-3 rounded-xl p-4 transition-colors"
+              >
+                <Mail className="h-6 w-6" />
+                <div>
+                  <p className="text-foreground text-sm font-semibold">
+                    E-mail
+                  </p>
+                  <p className="text-muted-foreground text-xs">
+                    {COMPANY.email}
+                  </p>
+                </div>
+              </a>
+              <div className="bg-muted flex items-center gap-3 rounded-xl p-4">
+                <MapPin className="text-primary h-6 w-6" />
+                <div>
+                  <p className="text-foreground text-sm font-semibold">
+                    Endereço
+                  </p>
+                  <p className="text-muted-foreground text-xs">
+                    {COMPANY.address.city}
+                  </p>
+                </div>
+              </div>
+            </div>
           </motion.div>
         </Container>
       </Section>
