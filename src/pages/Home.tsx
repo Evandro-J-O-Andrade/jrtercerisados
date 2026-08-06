@@ -139,7 +139,7 @@ const diferenciais = [
     title: 'Banco de Talentos Atualizado',
     description:
       'Milhares de profissionais qualificados prontos para novas oportunidades, cadastrados e pré-avaliados.',
-    icon: SERVICE_ICONS.users,
+    icon: FEATURE_ICONS.users,
   },
   {
     title: 'WhatsApp First',
