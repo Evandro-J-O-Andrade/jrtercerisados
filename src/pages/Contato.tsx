@@ -17,6 +17,8 @@ import {
   getWhatsAppUrl,
   getWhatsAppMessage,
 } from '@/config';
+import { staggerReveal, revealUp } from '@/animations/scroll';
+import { staggerItem } from '@/animations/fade';
 
 const contactSchema = z.object({
   name: z.string().min(2, 'Nome é obrigatório'),
@@ -115,8 +117,23 @@ export default function Contato() {
           <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-5">
             <div className="space-y-6 lg:col-span-2">
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="relative overflow-hidden rounded-2xl"
+              >
+                <img
+                  src="/images/contact/contact.svg"
+                  alt="Contato JSTerceirizados"
+                  className="h-full w-full object-cover opacity-70"
+                  loading="lazy"
+                />
+                <div className="from-background/80 absolute inset-0 bg-gradient-to-t via-transparent to-transparent" />
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 className="bg-card shadow-premium rounded-2xl p-6"
               >
