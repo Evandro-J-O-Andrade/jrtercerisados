@@ -240,9 +240,9 @@ export default function Contato() {
                     size="lg"
                     className="w-full"
                     loading={isSubmitting}
-                    leftIcon={<Send className="h-5 w-5" />}
+                    leftIcon={<Phone className="h-5 w-5" />}
                   >
-                    Enviar Mensagem
+                    Enviar e Abrir WhatsApp
                   </Button>
                 </div>
               </motion.form>

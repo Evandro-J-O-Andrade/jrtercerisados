@@ -1,32 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="hsl(215,35%,12%)"/>
-      <stop offset="100%" stop-color="hsl(215,35%,8%)"/>
-    </linearGradient>
-    <linearGradient id="goldGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="hsl(43,90%,55%)"/>
-      <stop offset="100%" stop-color="hsl(43,74%,40%)"/>
-    </linearGradient>
-  </defs>
-  <rect width="800" height="600" fill="url(#bg)"/>
-  <rect x="250" y="160" width="300" height="280" rx="20" fill="hsl(215,35%,18%)" stroke="hsl(43,74%,40%)" stroke-width="2"/>
-  <rect x="280" y="190" width="240" height="60" rx="8" fill="hsl(215,35%,25%)"/>
-  <rect x="300" y="205" width="40" height="30" rx="5" fill="hsl(43,74%,40%)"/>
-  <rect x="360" y="205" width="140" height="8" rx="4" fill="hsl(215,35%,55%)"/>
-  <rect x="360" y="225" width="100" height="8" rx="4" fill="hsl(215,35%,50%)"/>
-  <rect x="470" y="205" width="40" height="30" rx="5" fill="hsl(43,74%,40%)"/>
-  <rect x="520" y="180" width="8" height="60" fill="hsl(43,74%,40%)"/>
-  <circle cx="430" cy="270" r="25" fill="url(#goldGrad)" opacity="0.15"/>
-  <path d="M430 255 L438 270 L445 255" stroke="url(#goldGrad)" stroke-width="2" fill="none"/>
-  <rect x="280" y="290" width="240" height="2" fill="hsl(215,35%,30%)"/>
-  <rect x="280" y="310" width="240" height="2" fill="hsl(215,35%,30%)"/>
-  <rect x="280" y="330" width="150" height="2" fill="hsl(215,35%,30%)"/>
-  <rect x="440" y="330" width="80" height="2" fill="hsl(215,35%,30%)"/>
-  <rect x="280" y="360" width="80" height="60" rx="10" fill="hsl(215,35%,15%)"/>
-  <rect x="370" y="360" width="80" height="60" rx="10" fill="hsl(215,35%,15%)"/>
-  <rect x="460" y="360" width="60" height="60" rx="10" fill="hsl(215,35%,15%)"/>
-  <text x="400" y="540" text-anchor="middle" font-family="Inter, sans-serif" font-size="24" font-weight="600" fill="hsl(0,0%,97%)">Portaria Profissional</text>
-  <text x="400" y="565" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="400" fill="hsl(215,35%,65%)">Recepção 24h • Controle de Visitantes • Atendimento</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <rect x="10" y="30" width="80" height="50" rx="3" stroke="currentColor" stroke-width="3" fill="none"/>
+  <rect x="20" y="38" width="12" height="8" rx="1" stroke="currentColor" stroke-width="2" fill="none"/>
+  <rect x="38" y="38" width="12" height="8" rx="1" stroke="currentColor" stroke-width="2" fill="none"/>
+  <rect x="56" y="38" width="12" height="8" rx="1" stroke="currentColor" stroke-width="2" fill="none"/>
+  <rect x="74" y="38" width="12" height="8" rx="1" stroke="currentColor" stroke-width="2" fill="none"/>
+  <rect x="20" y="52" width="12" height="8" rx="1" stroke="currentColor" stroke-width="2" fill="none"/>
+  <rect x="38" y="52" width="12" height="8" rx="1" stroke="currentColor" stroke-width="2" fill="none"/>
+  <rect x="56" y="52" width="12" height="8" rx="1" stroke="currentColor" stroke-width="2" fill="none"/>
+  <rect x="74" y="52" width="12" height="8" rx="1" stroke="currentColor" stroke-width="2" fill="none"/>
+  <rect x="20" y="66" width="12" height="8" rx="1" stroke="currentColor" stroke-width="2" fill="none"/>
+  <rect x="38" y="66" width="12" height="8" rx="1" stroke="currentColor" stroke-width="2" fill="none"/>
+  <rect x="56" y="66" width="12" height="8" rx="1" stroke="currentColor" stroke-width="2" fill="none"/>
+  <rect x="74" y="66" width="12" height="8" rx="1" stroke="currentColor" stroke-width="2" fill="none"/>
 </svg>

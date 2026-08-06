@@ -37,6 +37,16 @@ export const revealRight: Variants = {
   },
 };
 
+export const revealScale: Variants = {
+  hidden: { opacity: 0, scale: 0.9, filter: 'blur(4px)' },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    filter: 'blur(0px)',
+    transition: { duration: 0.6, ease: [0.25, 0.4, 0.25, 1] },
+  },
+};
+
 export const staggerReveal = (delay = 0.1): Variants => ({
   hidden: {},
   visible: {

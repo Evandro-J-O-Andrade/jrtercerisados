@@ -1,13 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg viewBox="0 0 200 280" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="goldGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="hsl(43, 90%, 55%)"/>
-      <stop offset="100%" stop-color="hsl(43, 74%, 40%)"/>
-    </linearGradient>
-  </defs>
-  <polygon points="20,270 40,40 160,40 180,270" fill="hsl(215,35%,15%)" stroke="url(#goldGrad)" stroke-width="3"/>
-  <text x="100" y="160" text-anchor="middle" font-family="Inter, sans-serif" font-size="110" font-weight="800" fill="url(#goldGrad)">J</text>
-  <text x="100" y="240" text-anchor="middle" font-family="Inter, sans-serif" font-size="110" font-weight="800" fill="hsl(0,0%,97%)">S</text>
-  <text x="100" y="270" text-anchor="middle" font-family="Inter, sans-serif" font-size="24" font-weight="600" fill="hsl(0,0%,97%)">Terceirizados</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" fill="none">
+  <rect width="200" height="60" rx="8" fill="#0F172A"/>
+  <text x="100" y="38" text-anchor="middle" fill="#F59E0B" font-size="28" font-weight="800" font-family="Inter, sans-serif">JS</text>
+  <text x="100" y="52" text-anchor="middle" fill="#F8FAFC" font-size="11" font-weight="600" font-family="Inter, sans-serif" letter-spacing="2">TERCEIRIZADOS</text>
 </svg>

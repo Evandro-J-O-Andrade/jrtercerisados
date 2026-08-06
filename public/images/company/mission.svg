@@ -1,1 +1,6 @@
-<svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="hsl(43,74%,40%)"/><stop offset="100%" stop-color="hsl(43,74%,35%)"/></linearGradient></defs><rect width="600" height="400" fill="url(#g)"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Inter, sans-serif" font-size="24" font-weight="600" fill="white" opacity="0.8">Missão</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <path d="M50 10 L60 30 L85 35 L65 50 L70 75 L50 65 L30 75 L35 50 L15 35 L40 30 Z" stroke="currentColor" stroke-width="3" fill="none"/>
+  <circle cx="50" cy="40" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
+  <path d="M50 50 L50 70" stroke="currentColor" stroke-width="2"/>
+  <path d="M40 55 L50 50 L60 55" stroke="currentColor" stroke-width="2" fill="none"/>
+</svg>

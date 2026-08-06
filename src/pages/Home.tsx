@@ -1,6 +1,14 @@
 ﻿import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Shield, MapPin, Users, Award, ArrowRight, Phone } from 'lucide-react';
+import {
+  Shield,
+  MapPin,
+  Users,
+  Award,
+  ArrowRight,
+  Phone,
+  ChevronDown,
+} from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Section } from '@/components/sections/Section';
 import { ServiceCard } from '@/components/sections/ServiceCard';
@@ -97,16 +105,15 @@ export default function Home() {
   return (
     <div>
       {/* Hero Premium */}
-      <section className="relative flex min-h-[90vh] items-center overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_50%,hsla(215,35%,25%,0.3),transparent_70%)]" />
-
+      <section className="relative flex min-h-screen items-center overflow-hidden">
+        {/* Background image */}
         <motion.div
           style={{ y: parallaxY, opacity: parallaxOpacity, scale: heroScale }}
           className="absolute inset-0"
         >
           <img
-            src="/images/hero/hero-profissional.svg"
-            alt="Profissionais de segurança em ação"
+            src="/images/hero/hero-main.webp"
+            alt="Segurança e facilities corporativos"
             className="h-full w-full object-cover object-center"
             loading="eager"
             width="1920"
@@ -120,13 +127,17 @@ export default function Home() {
           />
         </motion.div>
 
+        {/* Gradient overlays for text contrast */}
+        <div className="from-background/95 via-background/70 absolute inset-0 bg-gradient-to-r to-transparent" />
+        <div className="from-background via-background/50 to-background/20 absolute inset-0 bg-gradient-to-t" />
+
+        {/* Grid and lines */}
         <img
           src="/images/backgrounds/hero-grid.svg"
           alt=""
           className="absolute inset-0 h-full w-full opacity-10"
           aria-hidden="true"
         />
-
         <img
           src="/images/backgrounds/hero-lines.svg"
           alt=""
@@ -134,6 +145,7 @@ export default function Home() {
           aria-hidden="true"
         />
 
+        {/* Watermark */}
         <img
           src="/images/brand/watermark-logo.svg"
           alt=""
@@ -141,6 +153,7 @@ export default function Home() {
           aria-hidden="true"
         />
 
+        {/* Glow elements */}
         <motion.div className="bg-primary/10 animate-pulse-glow absolute top-1/4 left-1/4 hidden h-2 w-2 rounded-full md:block" />
         <motion.div
           className="bg-primary/10 animate-pulse-glow absolute top-1/3 right-1/4 hidden h-3 w-3 rounded-full md:block"
@@ -155,8 +168,16 @@ export default function Home() {
           style={{ animationDelay: '0.3s' }}
         />
         <motion.div className="bg-primary/15 animate-float-slow absolute right-1/3 bottom-1/3 hidden h-5 w-5 rounded-full opacity-70 md:block" />
+        <motion.div
+          className="bg-primary/10 animate-float-medium absolute top-1/2 left-10 hidden h-3 w-3 rounded-full opacity-50 md:block"
+          style={{ animationDelay: '2s' }}
+        />
+        <motion.div
+          className="bg-primary/10 animate-float-fast absolute right-10 bottom-1/4 hidden h-2 w-2 rounded-full opacity-60 md:block"
+          style={{ animationDelay: '1.5s' }}
+        />
 
-        <div className="relative mx-auto max-w-7xl px-4 py-32 sm:px-6 lg:px-8">
+        <div className="relative mx-auto max-w-[1600px] px-4 py-32 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
             {/* Text content */}
             <motion.div
@@ -207,35 +228,48 @@ export default function Home() {
                 transition={{ duration: 0.8, delay: 0.5 }}
                 className="mt-8 flex flex-wrap gap-4"
               >
-                <Link to="/clientes">
-                  <motion.div
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
+                <motion.a
+                  href={getWhatsAppUrl(
+                    COMPANY.whatsapp,
+                    getWhatsAppMessage({
+                      Origem: 'Botão Solicitar Proposta na Hero',
+                    }),
+                  )}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <Button
+                    variant="secondary"
+                    size="xl"
+                    className="shadow-glow-lg h-14 rounded-[18px] px-8 py-4 text-base"
                   >
-                    <Button
-                      variant="secondary"
-                      size="xl"
-                      className="shadow-glow-lg h-14 rounded-[18px] px-8 py-4 text-base"
-                    >
-                      Solicitar Proposta
-                      <ArrowRight className="ml-2 h-5 w-5" />
-                    </Button>
-                  </motion.div>
-                </Link>
-                <Link to="/trabalhe-conosco">
-                  <motion.div
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
+                    Solicitar Proposta
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </motion.a>
+                <motion.a
+                  href={getWhatsAppUrl(
+                    COMPANY.whatsapp,
+                    getWhatsAppMessage({
+                      Origem: 'Botão WhatsApp na Hero',
+                    }),
+                  )}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <Button
+                    variant="outline"
+                    size="xl"
+                    className="border-border/30 text-foreground hover:bg-muted h-14 rounded-[18px] px-8 py-4 text-base backdrop-blur"
                   >
-                    <Button
-                      variant="outline"
-                      size="xl"
-                      className="border-border/30 text-foreground hover:bg-muted h-14 rounded-[18px] px-8 py-4 text-base backdrop-blur"
-                    >
-                      Trabalhe Conosco
-                    </Button>
-                  </motion.div>
-                </Link>
+                    <Phone className="mr-2 h-5 w-5" />
+                    WhatsApp
+                  </Button>
+                </motion.a>
               </motion.div>
             </motion.div>
 
@@ -300,6 +334,7 @@ export default function Home() {
           </div>
         </div>
 
+        {/* Scroll indicator */}
         <motion.div
           className="absolute bottom-8 left-1/2 flex -translate-x-1/2 flex-col items-center"
           initial={{ opacity: 0, y: 10 }}
@@ -313,7 +348,7 @@ export default function Home() {
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
           >
-            <ArrowRight className="text-muted-foreground h-5 w-5 rotate-90" />
+            <ChevronDown className="text-muted-foreground h-5 w-5 rotate-90" />
           </motion.div>
         </motion.div>
       </section>
@@ -674,22 +709,28 @@ export default function Home() {
                 padrão dos seus serviços.
               </p>
               <div className="mt-8 flex flex-wrap justify-center gap-4">
-                <Link to="/clientes">
-                  <motion.div
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <Button variant="secondary" size="lg">
-                      Solicitar Proposta
-                      <ArrowRight className="ml-2 h-5 w-5" />
-                    </Button>
-                  </motion.div>
-                </Link>
                 <motion.a
                   href={getWhatsAppUrl(
                     COMPANY.whatsapp,
                     getWhatsAppMessage({
-                      Serviço: 'Solicitação de orçamento pelo site',
+                      Origem: 'CTA Solicitar Orçamento na Home',
+                    }),
+                  )}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <Button variant="secondary" size="lg">
+                    <Phone className="mr-2 h-5 w-5" />
+                    Solicitar Orçamento no WhatsApp
+                  </Button>
+                </motion.a>
+                <motion.a
+                  href={getWhatsAppUrl(
+                    COMPANY.whatsapp,
+                    getWhatsAppMessage({
+                      Origem: 'Falar no WhatsApp CTA Home',
                     }),
                   )}
                   target="_blank"

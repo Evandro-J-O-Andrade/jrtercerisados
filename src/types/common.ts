@@ -74,6 +74,7 @@ export interface Candidate {
   experience: string;
   position: string;
   resume: string;
+  resumeFileName?: string;
   availability: string;
   courses: string;
   status: 'received' | 'review' | 'interview' | 'approved' | 'rejected';

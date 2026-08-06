@@ -12,6 +12,8 @@ export const NAVIGATION_LINKS: NavLink[] = [
   { label: 'Parceiros', href: '/parceiros' },
   { label: 'Fornecedores', href: '/fornecedores' },
   { label: 'Trabalhe Conosco', href: '/trabalhe-conosco' },
+  { label: 'Processo Seletivo', href: '/processo-seletivo' },
+  { label: 'FAQ', href: '/faq' },
   { label: 'Contato', href: '/contato' },
 ];
 

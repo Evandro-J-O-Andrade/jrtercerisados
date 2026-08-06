@@ -1,1 +1,42 @@
-<svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="hsl(43,74%,40%)"/><stop offset="100%" stop-color="hsl(43,74%,35%)"/></linearGradient></defs><rect width="1920" height="1080" fill="url(#g)"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Inter, sans-serif" font-size="24" font-weight="600" fill="white" opacity="0.8">Hero Principal</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" fill="none">
+  <defs>
+    <linearGradient id="hg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="hsl(215,35%,15%)"/>
+      <stop offset="50%" stop-color="hsl(215,30%,25%)"/>
+      <stop offset="100%" stop-color="hsl(215,25%,35%)"/>
+    </linearGradient>
+    <linearGradient id="hg2" x1="1" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="hsl(43,74%,40%)" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="hsl(215,35%,10%)" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#hg)"/>
+  <rect width="1200" height="800" fill="url(#hg2)"/>
+  <rect x="0" y="0" width="1200" height="800" fill="url(#grid)" opacity="0.05"/>
+  <rect x="0" y="0" width="1200" height="800" fill="url(#dots)" opacity="0.03"/>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="hsl(43,74%,40%)" stroke-width="0.5"/>
+    </pattern>
+    <pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="10" cy="10" r="1" fill="hsl(43,74%,40%)"/>
+    </pattern>
+  </defs>
+  <rect x="0" y="0" width="1200" height="800" fill="url(#grad)" opacity="0.1"/>
+  <rect x="600" y="0" width="600" height="800" fill="url(#grad2)" opacity="0.05"/>
+  <defs>
+    <radialGradient id="grad" cx="0.3" cy="0.5" r="0.7">
+      <stop offset="0%" stop-color="hsl(43,74%,40%)" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="hsl(215,35%,10%)" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="grad2" cx="0.7" cy="0.5" r="0.6">
+      <stop offset="0%" stop-color="hsl(215,35%,20%)" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="hsl(215,35%,10%)" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect x="80" y="100" width="500" height="600" rx="12" fill="hsl(215,33%,20%)" opacity="0.3"/>
+  <rect x="600" y="150" width="520" height="500" rx="12" fill="hsl(215,33%,20%)" opacity="0.2"/>
+  <circle cx="100" cy="100" r="200" fill="hsl(43,74%,40%)" opacity="0.05"/>
+  <circle cx="1100" cy="700" r="300" fill="hsl(43,74%,40%)" opacity="0.04"/>
+  <circle cx="600" cy="400" r="150" fill="hsl(43,74%,40%)" opacity="0.03"/>
+</svg>

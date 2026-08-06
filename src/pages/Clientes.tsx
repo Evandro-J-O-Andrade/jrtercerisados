@@ -1,7 +1,7 @@
 ﻿import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { CheckCircle2, Send, Shield } from 'lucide-react';
+import { CheckCircle2, Send, Phone, Shield } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
@@ -254,9 +254,9 @@ export default function Clientes() {
                     size="lg"
                     className="w-full"
                     loading={isSubmitting}
-                    leftIcon={<Send className="h-5 w-5" />}
+                    leftIcon={<Phone className="h-5 w-5" />}
                   >
-                    Enviar Solicitação
+                    Enviar e Abrir WhatsApp
                   </Button>
                 </div>
               </motion.form>

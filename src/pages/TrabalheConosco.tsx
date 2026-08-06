@@ -1,7 +1,7 @@
 ﻿import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { CheckCircle2, Send, Briefcase } from 'lucide-react';
+import { CheckCircle2, Send, Briefcase, Upload } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
@@ -39,6 +39,30 @@ const candidateSchema = z
     availability: z.string().optional(),
     schedule: z.string().optional(),
     resume: z.string().min(2, 'Currículo é obrigatório'),
+    resumeFile: z
+      .instanceof(FileList)
+      .optional()
+      .refine(
+        (files) => {
+          if (!files || files.length === 0) return true;
+          const file = files[0];
+          const validTypes = [
+            'application/pdf',
+            'application/msword',
+            'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+          ];
+          return validTypes.includes(file.type);
+        },
+        { message: 'Apenas PDF, DOC ou DOCX são aceitos' },
+      )
+      .refine(
+        (files) => {
+          if (!files || files.length === 0) return true;
+          const file = files[0];
+          return file.size <= 10 * 1024 * 1024;
+        },
+        { message: 'O arquivo deve ter no máximo 10 MB' },
+      ),
   })
   .superRefine((data, ctx) => {
     if (data.position === 'auxiliar-limpeza') {
@@ -91,6 +115,7 @@ type CandidateFormData = z.infer<typeof candidateSchema>;
 export default function TrabalheConosco() {
   const [submitted, setSubmitted] = useState(false);
   const [selectedPosition, setSelectedPosition] = useState('');
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
   const {
     register,
@@ -105,6 +130,8 @@ export default function TrabalheConosco() {
   });
 
   const onSubmit = async (data: CandidateFormData): Promise<void> => {
+    const resumeFile = data.resumeFile?.[0] ?? null;
+
     mockSubmitCandidate({
       name: data.name,
       cpf: data.cpf ?? '',
@@ -118,10 +145,12 @@ export default function TrabalheConosco() {
       availability: data.availability ?? '',
       courses: data.courses ?? '',
       status: 'received',
+      resumeFileName: resumeFile?.name ?? '',
     });
     setSubmitted(true);
     reset();
     setSelectedPosition('');
+    setSelectedFile(null);
   };
 
   if (submitted) {
@@ -177,7 +206,8 @@ export default function TrabalheConosco() {
               Trabalhe Conosco
             </h1>
             <p className="text-muted-foreground mx-auto mt-4 max-w-2xl text-lg">
-              Escolha a vaga desejada e envie seu currículo.
+              Escolha a vaga desejada, envie seu currículo e faça parte da nossa
+              equipe.
             </p>
           </div>
 
@@ -349,6 +379,45 @@ export default function TrabalheConosco() {
                         error={errors.resume?.message}
                         {...register('resume')}
                       />
+                    </div>
+                    <div className="md:col-span-2">
+                      <label className="text-muted-foreground mb-1 block text-sm font-medium">
+                        Anexar Currículo (PDF, DOC, DOCX — máx. 10 MB)
+                      </label>
+                      <div
+                        className={cn(
+                          'border-input bg-surface text-foreground focus:border-primary focus:ring-primary/20 relative flex min-h-[120px] items-center justify-center rounded-lg border-2 border-dashed px-4 py-6 transition-colors focus:ring-2 focus:outline-none',
+                          errors.resumeFile?.message &&
+                            'border-destructive focus:border-destructive focus:ring-destructive/20',
+                        )}
+                      >
+                        <input
+                          type="file"
+                          accept=".pdf,.doc,.docx"
+                          onChange={(e) => {
+                            const file = e.target.files?.[0] ?? null;
+                            setSelectedFile(file);
+                          }}
+                          className="absolute inset-0 h-full w-full cursor-pointer opacity-0"
+                          aria-label="Selecionar arquivo de currículo"
+                        />
+                        <div className="pointer-events-none text-center">
+                          <Upload className="text-muted-foreground mx-auto mb-2 h-8 w-8" />
+                          <p className="text-muted-foreground text-sm">
+                            {selectedFile
+                              ? selectedFile.name
+                              : 'Arraste o arquivo ou clique para selecionar'}
+                          </p>
+                          <p className="text-muted-foreground/60 mt-1 text-xs">
+                            PDF, DOC ou DOCX — até 10 MB
+                          </p>
+                        </div>
+                      </div>
+                      {errors.resumeFile && (
+                        <p className="text-destructive mt-1 text-sm">
+                          {errors.resumeFile.message}
+                        </p>
+                      )}
                     </div>
                   </div>
 

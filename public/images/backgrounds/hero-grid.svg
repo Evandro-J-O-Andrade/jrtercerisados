@@ -1,16 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" fill="none">
   <defs>
-    <linearGradient id="gridGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="hsl(215,35%,10%)"/>
-      <stop offset="100%" stop-color="hsl(215,35%,5%)"/>
-    </linearGradient>
+    <pattern id="g" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="hsl(43,74%,40%)" stroke-width="0.5" opacity="0.5"/>
+    </pattern>
   </defs>
-  <rect width="600" height="600" fill="url(#gridGrad)"/>
-  <path d="M0 0 L600 600 M600 0 L0 600" stroke="hsl(215,35%,25%)" stroke-width="1" opacity="0.15"/>
-  <path d="M300 0 L300 600 M0 300 L600 300" stroke="hsl(215,35%,20%)" stroke-width="1" opacity="0.1"/>
-  <circle cx="150" cy="150" r="80" fill="hsl(43,74%,40%)" opacity="0.03"/>
-  <circle cx="450" cy="450" r="100" fill="hsl(43,74%,40%)" opacity="0.03"/>
-  <circle cx="450" cy="150" r="60" fill="hsl(215,35%,50%)" opacity="0.03"/>
-  <circle cx="150" cy="450" r="70" fill="hsl(215,35%,50%)" opacity="0.03"/>
+  <rect width="1200" height="800" fill="url(#g)"/>
 </svg>

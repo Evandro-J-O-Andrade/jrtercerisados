@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+Sitemap: https://jstercerizados.com.br/sitemap.xml
+
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 2
+
+Disallow: /api/
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /login/
+Disallow: /*?session=*

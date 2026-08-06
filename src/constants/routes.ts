@@ -7,6 +7,7 @@ export const ROUTES = {
   parceiros: '/parceiros',
   fornecedores: '/fornecedores',
   trabalheConosco: '/trabalhe-conosco',
+  processoSeletivo: '/processo-seletivo',
   contato: '/contato',
   login: '/login',
   dashboard: '/dashboard',

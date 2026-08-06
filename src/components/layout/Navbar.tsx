@@ -10,6 +10,8 @@ import {
   Instagram,
   Facebook,
   Send,
+  Linkedin,
+  Youtube,
 } from 'lucide-react';
 import { cn } from '@/utils';
 import { Button } from '@/components/ui/Button';
@@ -43,25 +45,29 @@ export function Navbar() {
     setIsOpen(false);
   }, [location.pathname]);
 
-  const menuVariants = {
+  const drawerVariants = {
     hidden: {
       opacity: 0,
-      maxHeight: 0,
-      transition: { duration: 0.3, ease: [0.25, 0.4, 0.25, 1] as const },
+      x: '100%',
+      transition: { duration: 0.3 },
     },
     visible: {
       opacity: 1,
-      maxHeight: 600,
+      x: 0,
       transition: {
         duration: 0.4,
-        ease: [0.25, 0.4, 0.25, 1] as const,
-        staggerChildren: 0.08,
+        staggerChildren: 0.06,
       },
+    },
+    exit: {
+      opacity: 0,
+      x: '100%',
+      transition: { duration: 0.3 },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, x: -20 },
+    hidden: { opacity: 0, x: 20 },
     visible: { opacity: 1, x: 0 },
   };
 
@@ -158,29 +164,50 @@ export function Navbar() {
         </div>
       </div>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
-            key="mobile-menu"
-            initial="hidden"
-            animate="visible"
-            exit="hidden"
-            variants={menuVariants}
-            className="border-border bg-card/95 shadow-lg backdrop-blur-xl lg:hidden"
-          >
-            <div className="mx-auto max-w-7xl px-4 sm:px-6">
-              <nav className="flex flex-col gap-2 py-4">
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm lg:hidden"
+              onClick={() => setIsOpen(false)}
+            />
+            <motion.div
+              key="mobile-drawer"
+              variants={drawerVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              className="bg-card/95 fixed top-0 right-0 z-50 h-full w-[85%] max-w-md shadow-2xl backdrop-blur-xl lg:hidden"
+            >
+              <div className="flex items-center justify-between p-4">
+                <span className="text-foreground text-lg font-semibold">
+                  Menu
+                </span>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => setIsOpen(false)}
+                  aria-label="Fechar menu"
+                >
+                  <X className="h-5 w-5" />
+                </Button>
+              </div>
+
+              <nav className="flex flex-col gap-1 px-4 py-2">
                 {NAVIGATION_LINKS.map((link) => (
                   <motion.div key={link.href} variants={itemVariants}>
                     <Link
                       to={link.href}
                       onClick={() => setIsOpen(false)}
                       className={cn(
-                        'block text-base font-medium transition-colors duration-200',
+                        'block rounded-lg px-4 py-3 text-base font-medium transition-colors duration-200',
                         location.pathname === link.href
-                          ? 'text-primary'
-                          : 'text-muted-foreground hover:text-primary',
+                          ? 'bg-primary/10 text-primary'
+                          : 'text-muted-foreground hover:bg-muted hover:text-foreground',
                       )}
                     >
                       {link.label}
@@ -188,70 +215,89 @@ export function Navbar() {
                   </motion.div>
                 ))}
 
-                <motion.div
-                  variants={itemVariants}
-                  className="border-border mt-4 border-t pt-4"
-                >
-                  <p className="text-muted-foreground mb-3 text-xs font-semibold uppercase">
-                    Redes Sociais
-                  </p>
-                  <div className="flex flex-wrap gap-3">
-                    <motion.a
-                      href={getWhatsAppUrl(
-                        COMPANY.whatsapp,
-                        getWhatsAppMessage({ Serviço: 'Contato pelo site' }),
-                      )}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.1 }}
-                      className="bg-primary text-primary-foreground flex h-9 w-9 items-center justify-center rounded-full transition-colors"
-                      aria-label="WhatsApp"
-                    >
-                      <Phone className="h-5 w-5" />
-                    </motion.a>
-                    <motion.a
-                      href={SOCIAL_LINKS.instagram}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.1 }}
-                      className="bg-muted text-muted-foreground hover:bg-primary hover:text-primary-foreground flex h-9 w-9 items-center justify-center rounded-full transition-colors"
-                      aria-label="Instagram"
-                    >
-                      <Instagram className="h-5 w-5" />
-                    </motion.a>
-                    <motion.a
-                      href={SOCIAL_LINKS.facebook}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.1 }}
-                      className="bg-muted text-muted-foreground hover:bg-primary hover:text-primary-foreground flex h-9 w-9 items-center justify-center rounded-full transition-colors"
-                      aria-label="Facebook"
-                    >
-                      <Facebook className="h-5 w-5" />
-                    </motion.a>
-                    <motion.a
-                      href={SOCIAL_LINKS.tiktok}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.1 }}
-                      className="bg-muted text-muted-foreground hover:bg-primary hover:text-primary-foreground flex h-9 w-9 items-center justify-center rounded-full transition-colors"
-                      aria-label="TikTok"
-                    >
-                      <Send className="h-5 w-5" />
-                    </motion.a>
-                  </div>
-                </motion.div>
-
-                <motion.div variants={itemVariants} className="mt-4">
-                  <Link to="/login">
-                    <Button variant="primary" className="w-full">
-                      Login
-                    </Button>
+                <motion.div variants={itemVariants} className="mt-2">
+                  <Link
+                    to="/login"
+                    onClick={() => setIsOpen(false)}
+                    className="text-muted-foreground hover:bg-muted hover:text-foreground block rounded-lg px-4 py-3 text-base font-medium transition-colors"
+                  >
+                    {isAuthenticated ? 'Painel' : 'Login'}
                   </Link>
                 </motion.div>
               </nav>
-            </div>
-          </motion.div>
+
+              <div className="border-border mt-4 border-t px-4 py-6">
+                <p className="text-muted-foreground mb-4 text-xs font-semibold tracking-wider uppercase">
+                  Redes Sociais
+                </p>
+                <div className="flex flex-wrap gap-3">
+                  <motion.a
+                    href={getWhatsAppUrl(
+                      COMPANY.whatsapp,
+                      getWhatsAppMessage({ Serviço: 'Contato pelo site' }),
+                    )}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.1 }}
+                    className="bg-primary text-primary-foreground flex h-10 w-10 items-center justify-center rounded-full transition-colors"
+                    aria-label="WhatsApp"
+                  >
+                    <Phone className="h-5 w-5" />
+                  </motion.a>
+                  <motion.a
+                    href={SOCIAL_LINKS.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.1 }}
+                    className="bg-muted text-muted-foreground hover:bg-primary hover:text-primary-foreground flex h-10 w-10 items-center justify-center rounded-full transition-colors"
+                    aria-label="Instagram"
+                  >
+                    <Instagram className="h-5 w-5" />
+                  </motion.a>
+                  <motion.a
+                    href={SOCIAL_LINKS.facebook}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.1 }}
+                    className="bg-muted text-muted-foreground hover:bg-primary hover:text-primary-foreground flex h-10 w-10 items-center justify-center rounded-full transition-colors"
+                    aria-label="Facebook"
+                  >
+                    <Facebook className="h-5 w-5" />
+                  </motion.a>
+                  <motion.a
+                    href={SOCIAL_LINKS.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.1 }}
+                    className="bg-muted text-muted-foreground hover:bg-primary hover:text-primary-foreground flex h-10 w-10 items-center justify-center rounded-full transition-colors"
+                    aria-label="LinkedIn"
+                  >
+                    <Linkedin className="h-5 w-5" />
+                  </motion.a>
+                  <motion.a
+                    href={SOCIAL_LINKS.youtube}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.1 }}
+                    className="bg-muted text-muted-foreground hover:bg-primary hover:text-primary-foreground flex h-10 w-10 items-center justify-center rounded-full transition-colors"
+                    aria-label="YouTube"
+                  >
+                    <Youtube className="h-5 w-5" />
+                  </motion.a>
+                  <motion.a
+                    href={SOCIAL_LINKS.tiktok}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.1 }}
+                    className="bg-muted text-muted-foreground hover:bg-primary hover:text-primary-foreground flex h-10 w-10 items-center justify-center rounded-full transition-colors"
+                    aria-label="TikTok"
+                  >
+                    <Send className="h-5 w-5" />
+                  </motion.a>
+                </div>
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </motion.header>
