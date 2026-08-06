@@ -131,19 +131,19 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-border/50 bg-surface relative border-t dark:bg-[#050914]">
-      <div className="via-primary/40 dark:via-primary/40 absolute -top-px right-0 left-0 h-px bg-gradient-to-r from-transparent to-transparent" />
+    <footer className="border-border/50 bg-surface relative border-t">
+      <div className="via-primary/40 absolute -top-px right-0 left-0 h-px bg-gradient-to-r from-transparent to-transparent" />
 
       <div className="mx-auto max-w-[1600px] px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
           {/* ─── Brand ───────────────────────────── */}
           <div className="space-y-6 lg:col-span-3">
             <Link to="/" className="flex items-center gap-4">
-              <div className="border-border/50 shadow-glow bg-primary/10 relative rounded-2xl border p-2 dark:border-white/10 dark:bg-white/5">
+              <div className="border-border/50 shadow-glow bg-primary/10 relative rounded-2xl border p-2">
                 <img
                   src={IMAGES.logo.dark}
                   alt={COMPANY.name}
-                  className="drop-shadow-glow dark:drop-shadow-glow h-14 w-auto"
+                  className="drop-shadow-glow h-14 w-auto"
                 />
               </div>
               <div>
@@ -179,7 +179,7 @@ export function Footer() {
                     }}
                     whileTap={{ scale: 0.95 }}
                     transition={{ type: 'spring', stiffness: 300 }}
-                    className="light:border-black/10 light:bg-black/5 relative flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 backdrop-blur-xl transition-all duration-300 hover:border-white/20"
+                    className="border-border/60 bg-muted/50 hover:border-primary/40 hover:bg-primary/10 relative flex h-12 w-12 items-center justify-center rounded-full backdrop-blur-xl transition-all duration-300"
                     aria-label={social.label}
                   >
                     <social.icon
