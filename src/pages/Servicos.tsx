@@ -164,6 +164,105 @@ export default function Servicos() {
                     </span>
                   </a>
                 </div>
+                <motion.div variants={staggerItem('up')}>
+                  <div className="bg-card shadow-premium group hover:y-[-4] relative flex h-full flex-col rounded-2xl p-6 transition-all duration-300">
+                    <div className="bg-primary/10 text-primary mb-4 flex h-12 w-12 items-center justify-center rounded-xl">
+                      <svg
+                        className="h-6 w-6"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M15 17h5a2 2 0 012 2v1a2 2 0 11-2 2h-2a2 2 0 01-2-2v-1a2 2 0 112-2h.5"
+                        />
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M9 12h6m2 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
+                      </svg>
+                    </div>
+                    <h3 className="text-foreground mb-3 text-xl font-semibold">
+                      Alertas de Emprego
+                    </h3>
+                    <p className="text-muted-foreground mb-4 flex-1 text-sm">
+                      Receba notificações de novas vagas compatíveis com seu
+                      perfil diretamente pelo WhatsApp.
+                    </p>
+                    <a href="/trabalhe-conosco">
+                      <span className="text-primary text-sm font-medium">
+                        Configurar alertas →
+                      </span>
+                    </a>
+                  </div>
+                </motion.div>
+                <motion.div variants={staggerItem('up')}>
+                  <div className="bg-card shadow-premium group hover:y-[-4] relative flex h-full flex-col rounded-2xl p-6 transition-all duration-300">
+                    <div className="bg-primary/10 text-primary mb-4 flex h-12 w-12 items-center justify-center rounded-xl">
+                      <svg
+                        className="h-6 w-6"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M12 6.25v6.5m0 0l2.5 2.5M12 12.75l-2.5 2.5"
+                        />
+                      </svg>
+                    </div>
+                    <h3 className="text-foreground mb-3 text-xl font-semibold">
+                      Orientação Profissional
+                    </h3>
+                    <p className="text-muted-foreground mb-4 flex-1 text-sm">
+                      Receba dicas de carreira, CV e preparação para processos
+                      seletivos da nossa equipe de RH.
+                    </p>
+                    <a href="/suporte">
+                      <span className="text-primary text-sm font-medium">
+                        Fale com um especialista →
+                      </span>
+                    </a>
+                  </div>
+                </motion.div>
+                <motion.div variants={staggerItem('up')}>
+                  <div className="bg-card shadow-premium group hover:y-[-4] relative flex h-full flex-col rounded-2xl p-6 transition-all duration-300">
+                    <div className="bg-primary/10 text-primary mb-4 flex h-12 w-12 items-center justify-center rounded-xl">
+                      <svg
+                        className="h-6 w-6"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M11 17h2M9 15h6M7 7h10a2 2 0 012 2v6a2 2 0 01-2 2H7a2 2 0 01-2-2V9a2 2 0 012-2z"
+                        />
+                      </svg>
+                    </div>
+                    <h3 className="text-foreground mb-3 text-xl font-semibold">
+                      Atualização de Currículo
+                    </h3>
+                    <p className="text-muted-foreground mb-4 flex-1 text-sm">
+                      Mantenha seu currículo sempre atualizado e destaque-se
+                      para nossas empresas parceiras.
+                    </p>
+                    <a href="/trabalhe-conosco">
+                      <span className="text-primary text-sm font-medium">
+                        Atualizar agora →
+                      </span>
+                    </a>
+                  </div>
+                </motion.div>
               </motion.div>
             </motion.div>
           </motion.div>
