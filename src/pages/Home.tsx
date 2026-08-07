@@ -136,7 +136,7 @@ const diferenciais = [
     title: 'Atendimento humanizado',
     description:
       'Acompanhamento próximo, transparente e respeitoso em cada etapa.',
-    icon: FEATURE_ICONS.heart,
+    icon: FEATURE_ICONS.users,
   },
 ];
 
