@@ -1,6 +1,6 @@
 export const COMPANY = {
-  name: 'JR Agência de Empregos',
-  tradingName: 'JR Terceirizados',
+  name: 'JS Empregos',
+  tradingName: 'JS Terceirizados',
   brand: 'JS Empregos',
   cnpj: '00.000.000/0001-00',
   phone: '(11) 96838-0592',

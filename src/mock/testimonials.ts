@@ -6,14 +6,14 @@ export const TESTIMONIALS_DEMO = [
     company: 'Tech Solutions Ltda',
     image: '/images/team/carlos-silva.svg',
     quote:
-      'A JR Agência de Empregos entregou 3 profissionais qualificados em uma semana. Nossa equipe cresceu 40% mais rápido.',
+      'A JS Empregos entregou 3 profissionais qualificados em uma semana. Nossa equipe cresceu 40% mais rápido.',
     rating: 5,
   },
   {
     id: 'testimonial-02',
     name: 'Marcos Oliveira',
     role: 'Candidato colocado',
-    company: 'JR Agência de Empregos',
+    company: 'JS Empregos',
     image: '/images/team/ana-costa.svg',
     quote:
       'Cadastrei meu currículo e fui contatado em 3 dias. Hoje trabalho na empresa dos meus sonhos.',

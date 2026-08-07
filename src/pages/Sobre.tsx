@@ -50,7 +50,7 @@ export default function Sobre() {
               variants={revealUp}
               className="text-foreground text-4xl font-bold sm:text-5xl"
             >
-              Sobre a JR Agência de Empregos
+              Sobre a JS Empregos
             </motion.h1>
             <motion.p
               variants={revealUp}
@@ -75,7 +75,7 @@ export default function Sobre() {
                 <SafeImage
                   src={IMAGES.hero.sobre.src}
                   fallbackSrc={IMAGES.hero.sobre.fallback}
-                  alt="Equipe JR Agência de Empregos"
+                  alt="Equipe JS Empregos"
                   className="h-full w-full object-cover opacity-80"
                 />
                 <div className="from-background/80 absolute inset-0 bg-gradient-to-t via-transparent to-transparent" />
@@ -198,7 +198,7 @@ export default function Sobre() {
                 <SafeImage
                   src={IMAGES.hero.sobre.src}
                   fallbackSrc={IMAGES.hero.sobre.fallback}
-                  alt="Missão JR Agência de Empregos"
+                  alt="Missão JS Empregos"
                   className="h-full w-full object-cover opacity-80"
                 />
                 <div className="from-background/80 absolute inset-0 bg-gradient-to-t via-transparent to-transparent" />

@@ -1,5 +1,5 @@
 export const SEO_CONFIG = {
-  title: 'JR Agência de Empregos — Recrutamento, Seleção e Banco de Talentos',
+  title: 'JS Empregos — Recrutamento, Seleção e Banco de Talentos',
   description:
     'Agência de Empregos e Assessoria em Recursos Humanos. Conectamos empresas aos melhores profissionais através de recrutamento, seleção, banco de talentos e hunting. Facilities e terceirização de serviços como solução complementar.',
   keywords: [
@@ -22,7 +22,7 @@ export const SEO_CONFIG = {
     type: 'website',
     locale: 'pt_BR',
     url: 'https://jrtelempregos.com.br',
-    siteName: 'JR Agência de Empregos',
+    siteName: 'JS Empregos',
   },
   twitter: {
     card: 'summary_large_image',

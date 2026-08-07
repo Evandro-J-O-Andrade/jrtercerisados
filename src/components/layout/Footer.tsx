@@ -169,7 +169,7 @@ export function Footer() {
             {/* Social */}
             <div className="pt-2">
               <h4 className="text-foreground mb-3 text-sm font-bold">
-                Siga a JR Agência de Empregos
+                Siga a JS Empregos
               </h4>
               <div className="flex flex-wrap gap-3">
                 {socialLinks.map((social) => (
@@ -346,8 +346,7 @@ export function Footer() {
           <div className="text-muted-foreground flex items-center gap-2 text-xs">
             <Heart className="text-primary h-3.5 w-3.5" />
             <span>
-              © {currentYear} JR Agência de Empregos. Todos os direitos
-              reservados.
+              © {currentYear} JS Empregos. Todos os direitos reservados.
             </span>
           </div>
           <div className="text-muted-foreground flex flex-wrap justify-center gap-4 text-xs">

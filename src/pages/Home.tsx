@@ -576,8 +576,7 @@ export default function Home() {
               variants={revealUp}
               className="text-muted-foreground mx-auto mt-4 max-w-2xl text-lg"
             >
-              O que torna a JR Agência de Empregos a escolha certa para sua
-              empresa.
+              O que torna a JS Empregos a escolha certa para sua empresa.
             </motion.p>
           </motion.div>
 

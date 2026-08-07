@@ -40,7 +40,7 @@ const steps = [
     step: '04',
     title: 'Contratação',
     description:
-      'Receba a proposta e inicie sua nova oportunidade profissional com a JR Agência de Empregos.',
+      'Receba a proposta e inicie sua nova oportunidade profissional com a JS Empregos.',
     icon: CheckCircle2,
   },
 ];

@@ -1,7 +1,6 @@
 export const APP_CONFIG = {
-  name: 'JR Agência de Empregos',
-  fullName:
-    'JR Agência de Empregos — Recrutamento, Seleção e Banco de Talentos',
+  name: 'JS Empregos',
+  fullName: 'JS Empregos — Recrutamento, Seleção e Banco de Talentos',
   description:
     'Agência de Empregos e Assessoria em Recursos Humanos. Conectamos empresas aos melhores profissionais através de recrutamento, seleção, banco de talentos e hunting. Facilities e terceirização de serviços como solução complementar.',
   version: '1.0.0',

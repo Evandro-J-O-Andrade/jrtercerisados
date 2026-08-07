@@ -125,7 +125,7 @@ export default function Contato() {
                 <SafeImage
                   src={IMAGES.hero.contato.src}
                   fallbackSrc={IMAGES.hero.contato.fallback}
-                  alt="Contato JR Agência de Empregos"
+                  alt="Contato JS Empregos"
                   className="h-full w-full object-cover opacity-70"
                 />
                 <div className="from-background/80 absolute inset-0 bg-gradient-to-t via-transparent to-transparent" />

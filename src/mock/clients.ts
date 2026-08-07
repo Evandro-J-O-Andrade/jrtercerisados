@@ -45,7 +45,7 @@ export const CLIENT_TESTIMONIALS = [
     company: 'Empresa Alpha',
     image: '/images/team/carlos-silva.svg',
     quote:
-      'A JR Agência de Empregos entregou profissionais qualificados em tempo recorde. Nossa equipe cresceu 40% sem perder a qualidade.',
+      'A JS Empregos entregou profissionais qualificados em tempo recorde. Nossa equipe cresceu 40% sem perder a qualidade.',
     rating: 5,
   },
   {

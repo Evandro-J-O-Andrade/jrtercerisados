@@ -1,5 +1,5 @@
 export const COMPANY_DEMO = {
-  name: 'JR Agência de Empregos',
+  name: 'JS Empregos',
   tagline: 'Conectando talentos às melhores oportunidades',
   description:
     'Somos uma agência de empregos e assessoria em Recursos Humanos que conecta empresas aos melhores profissionais através de recrutamento, seleção, banco de talentos e hunting. Como solução complementar, oferecemos terceirização de serviços operacionais.',
@@ -25,7 +25,7 @@ export const TEAM_MEMBERS = [
     name: 'Ricardo Santos',
     role: 'CEO & Fundador',
     image: '/images/team/ricardo-santos.svg',
-    bio: 'Fundador da JR Agência de Empregos com mais de 15 anos de experiência em recrutamento e seleção de talentos.',
+    bio: 'Fundador da JS Empregos com mais de 15 anos de experiência em recrutamento e seleção de talentos.',
     linkedin: 'https://linkedin.com/in/ricardo-santos',
   },
   {
@@ -49,7 +49,7 @@ export const TEAM_MEMBERS = [
 export const COMPANY_TIMELINE = [
   {
     year: '2011',
-    event: 'Fundação da JR Agência de Empregos',
+    event: 'Fundação da JS Empregos',
     description:
       'Começamos como uma agência de empregos focada em recrutamento e seleção de profissionais qualificados.',
   },
