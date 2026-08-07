@@ -62,6 +62,7 @@ function App() {
       </main>
       <Footer />
       <BottomNavigation />
+      <FloatingWhatsAppButton />
     </div>
   );
 }
