@@ -32,7 +32,7 @@ const heroSlides: HeroSlide[] = [
     id: 'rh',
     title: <>Conectando talentos às melhores oportunidades.</>,
     subtitle:
-      'Agência de Empregos e Assessoria em Recursos Humanos. Encontramos o profissional certo para sua empresa e ajudamos candidatos a conquistar novas oportunidades.',
+      'Agência de Empregos e Assessoria em Recursos Humanos. Encontamos o profissional certo para sua empresa e ajudamos candidatos a conquistar novas oportunidades. Mais eficiência em RH. Mais resultados para sua empresa.',
     image: IMAGES.hero.home.slides[0],
     fallback: IMAGES.hero.home.fallback,
     alt: 'Conectando talentos às melhores oportunidades',
@@ -59,7 +59,7 @@ const heroSlides: HeroSlide[] = [
       </>
     ),
     subtitle:
-      'Recrutamento, seleção e banco de talentos. Soluções sob medida para sua necessidade.',
+      'Recrutamento, seleção e banco de talentos. Tenha um profissional de RH dedicado à sua empresa. Soluções sob medida para sua necessidade.',
     image: IMAGES.hero.home.slides[2],
     fallback: IMAGES.hero.home.fallback,
     alt: 'Contratação de profissionais qualificados',
@@ -189,6 +189,15 @@ export default function Home() {
                 >
                   <Phone className="mr-2 h-5 w-5" />
                   Contratar Funcionários
+                </Button>
+              </Link>
+              <Link to="/servicos">
+                <Button
+                  variant="outline"
+                  size="xl"
+                  className="border-border/30 text-foreground hover:bg-muted h-14 rounded-[18px] px-8 py-4 text-base backdrop-blur"
+                >
+                  Nossos Serviços
                 </Button>
               </Link>
             </>
