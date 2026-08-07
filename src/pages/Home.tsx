@@ -1,27 +1,26 @@
 ﻿import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
-  Shield,
-  MapPin,
+  Briefcase,
   Users,
-  Award,
+  Shield,
   ArrowRight,
   Phone,
-  ChevronDown,
+  MapPin,
+  Award,
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { SafeImage } from '@/components/ui/SafeImage';
 import { Section } from '@/components/sections/Section';
 import { ServiceCard } from '@/components/sections/ServiceCard';
 import { NumberCounter } from '@/components/sections/NumberCounter';
-import { HeroSlider, Brand3D } from '@/components/sections';
+import { HeroSlider } from '@/components/sections';
 import type { HeroSlide } from '@/components/sections';
 import { Container } from '@/components/common/Container';
 import { staggerReveal, revealUp } from '@/animations/scroll';
 import { staggerItem } from '@/animations/fade';
 import { mockServices } from '@/services/mock/services';
 import { mockGetVagas } from '@/services/mock/vagas';
-import { TESTIMONIALS_DEMO } from '@/mock/testimonials';
 import { PARTNERS_LOGOS } from '@/mock/partners';
 import { COMPANY } from '@/config';
 import { SERVICE_ICONS, FEATURE_ICONS } from '@/constants/icons';
@@ -32,10 +31,24 @@ const heroSlides: HeroSlide[] = [
     id: 'rh',
     title: <>Conectando talentos às melhores oportunidades.</>,
     subtitle:
-      'Agência de Empregos e Assessoria em Recursos Humanos. Encontamos o profissional certo para sua empresa e ajudamos candidatos a conquistar novas oportunidades. Mais eficiência em RH. Mais resultados para sua empresa.',
+      'Agência de Empregos e Assessoria em Recursos Humanos. Encontramos o profissional certo para sua empresa e ajudamos candidatos a conquistar novas oportunidades de trabalho.',
     image: IMAGES.hero.home.slides[0],
     fallback: IMAGES.hero.home.fallback,
     alt: 'Conectando talentos às melhores oportunidades',
+  },
+  {
+    id: 'empresas',
+    title: (
+      <>
+        <span className="text-primary">Mais eficiência em RH.</span> Mais
+        resultados para sua empresa.
+      </>
+    ),
+    subtitle:
+      'Tenha um profissional de RH dedicado à sua empresa. Soluções eficientes para contratação e gestão de temporários e efetivos.',
+    image: IMAGES.hero.home.slides[2],
+    fallback: IMAGES.hero.home.fallback,
+    alt: 'Soluções de RH para empresas',
   },
   {
     id: 'candidato',
@@ -49,20 +62,6 @@ const heroSlides: HeroSlide[] = [
     image: IMAGES.hero.home.slides[1],
     fallback: IMAGES.hero.home.fallback,
     alt: 'Busca de vagas e cadastro de currículo',
-  },
-  {
-    id: 'empresas',
-    title: (
-      <>
-        <span className="text-primary">Contrate</span> os profissionais certos
-        para sua empresa.
-      </>
-    ),
-    subtitle:
-      'Recrutamento, seleção e banco de talentos. Tenha um profissional de RH dedicado à sua empresa. Soluções sob medida para sua necessidade.',
-    image: IMAGES.hero.home.slides[2],
-    fallback: IMAGES.hero.home.fallback,
-    alt: 'Contratação de profissionais qualificados',
   },
 ];
 
@@ -88,16 +87,16 @@ const stats = [
     icon: Award,
   },
   {
-    label: 'Empresas Parceiras',
-    value: COMPANY.clientsServed,
+    label: 'Profissionais no Banco',
+    value: COMPANY.professionals,
     suffix: '+',
     icon: Users,
   },
   {
-    label: 'Profissionais no Banco',
-    value: COMPANY.professionals,
+    label: 'Empresas Parceiras',
+    value: COMPANY.clientsServed,
     suffix: '+',
-    icon: Shield,
+    icon: Briefcase,
   },
   {
     label: 'Cidades Atendidas',
@@ -142,26 +141,28 @@ const diferenciais = [
     icon: SERVICE_ICONS.shield,
   },
   {
-    title: 'WhatsApp First',
-    description:
-      'Atendimento ágil via WhatsApp. Você recebe atualizações em tempo real sobre suas candidaturas e vagas.',
-    icon: FEATURE_ICONS.phone,
-  },
-  {
     title: 'Banco de Talentos Atualizado',
     description:
       'Milhares de profissionais qualificados prontos para novas oportunidades, cadastrados e pré-avaliados.',
     icon: FEATURE_ICONS.users,
   },
   {
-    title: 'Tecnologia Integrada',
+    title: 'Atendimento Humanizado',
     description:
-      'Plataforma digital para candidaturas, acompanhamento de processos e gestão de talentos.',
-    icon: FEATURE_ICONS.computer,
+      'Atendimento próximo e transparente para candidatos e empresas, com suporte em cada etapa.',
+    icon: FEATURE_ICONS.phone,
+  },
+  {
+    title: 'Processos Eficientes',
+    description:
+      'Metodologia de recrutamento ágil, reduzindo o tempo entre a abertura da vaga e a contratação.',
+    icon: FEATURE_ICONS.clock,
   },
 ];
 
 export default function Home() {
+  const destaques = mockGetVagas().slice(0, 3);
+
   return (
     <div>
       {/* Hero Slider Premium */}
@@ -203,94 +204,7 @@ export default function Home() {
             </>
           ),
         }))}
-      ></HeroSlider>
-
-      {/* Brand3D floating element (desktop only) */}
-      <div className="pointer-events-none absolute top-80 right-1/2 hidden lg:block lg:translate-x-1/2">
-        <Brand3D className="h-32 w-32" />
-      </div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        className="absolute bottom-8 left-1/2 flex -translate-x-1/2 flex-col items-center"
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1, duration: 0.8 }}
-      >
-        <span className="text-muted-foreground mb-2 text-xs font-medium">
-          Role para descer
-        </span>
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-        >
-          <ChevronDown className="text-muted-foreground h-5 w-5 rotate-90" />
-        </motion.div>
-      </motion.div>
-
-      {/* Two Paths */}
-      <Section>
-        <Container>
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-100px' }}
-            variants={staggerReveal(0.2)}
-            className="grid grid-cols-1 gap-6 md:grid-cols-2"
-          >
-            <Link to="/trabalhe-conosco">
-              <motion.div
-                variants={revealUp}
-                className="group bg-card border-border hover:border-primary/30 shadow-premium relative flex flex-col items-center rounded-2xl p-10 text-center transition-all duration-300"
-              >
-                <div className="bg-primary/10 group-hover:bg-primary/20 mb-6 flex h-20 w-20 items-center justify-center rounded-full text-3xl transition-all duration-300">
-                  <Users className="text-primary h-10 w-10" />
-                </div>
-                <h3 className="text-foreground group-hover:text-primary mb-3 text-2xl font-bold transition-colors">
-                  Encontre oportunidades
-                </h3>
-                <p className="text-muted-foreground mb-6 max-w-xs text-sm">
-                  Cadastre seu currículo no Banco de Talentos e encontre as
-                  vagas que combinam com seu perfil.
-                </p>
-                <Button
-                  variant="secondary"
-                  size="lg"
-                  className="mt-auto rounded-[14px] px-6"
-                >
-                  Quero uma Vaga
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </motion.div>
-            </Link>
-            <Link to="/empresas">
-              <motion.div
-                variants={revealUp}
-                className="group bg-card border-border hover:border-primary/30 shadow-premium relative flex flex-col items-center rounded-2xl p-10 text-center transition-all duration-300"
-              >
-                <div className="bg-primary/10 group-hover:bg-primary/20 mb-6 flex h-20 w-20 items-center justify-center rounded-full text-3xl transition-all duration-300">
-                  <Shield className="text-primary h-10 w-10" />
-                </div>
-                <h3 className="text-foreground group-hover:text-primary mb-3 text-2xl font-bold transition-colors">
-                  Contrate profissionais
-                </h3>
-                <p className="text-muted-foreground mb-6 max-w-xs text-sm">
-                  Encontre os profissionais certos para sua empresa. Mão de obra
-                  temporária, efetiva e recrutamento seletivo.
-                </p>
-                <Button
-                  variant="secondary"
-                  size="lg"
-                  className="mt-auto rounded-[14px] px-6"
-                >
-                  Contritar Funcionários
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </motion.div>
-            </Link>
-          </motion.div>
-        </Container>
-      </Section>
+      />
 
       {/* Stats Counter */}
       <Section>
@@ -330,14 +244,14 @@ export default function Home() {
               variants={revealUp}
               className="text-foreground text-3xl font-bold sm:text-4xl"
             >
-              Soluções para Empresas e Candidatos
+              Nossas Principais Soluções
             </motion.h2>
             <motion.p
               variants={revealUp}
               className="text-muted-foreground mx-auto mt-4 max-w-2xl text-lg"
             >
-              Recrutamento, seleção, banco de talentos e mão de obra temporária
-              para conectar empresas aos profissionais certos.
+              Soluções completas em recrutamento, seleção, mão de obra e
+              facilities.
             </motion.p>
           </motion.div>
 
@@ -359,7 +273,7 @@ export default function Home() {
             viewport={{ once: true }}
             className="mt-10 text-center"
           >
-            <Link to="/servicos#para-empresas">
+            <Link to="/servicos">
               <Button variant="secondary" size="lg">
                 Ver Todos os Serviços
                 <ArrowRight className="ml-2 h-5 w-5" />
@@ -370,7 +284,7 @@ export default function Home() {
       </Section>
 
       {/* Vagas em Destaque */}
-      <Section className="bg-surface-alt">
+      <Section>
         <Container>
           <motion.div
             initial="hidden"
@@ -408,93 +322,91 @@ export default function Home() {
             variants={staggerReveal(0.1)}
             className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
           >
-            {mockGetVagas()
-              .slice(0, 4)
-              .map((vaga) => (
-                <motion.div
-                  key={vaga.id}
-                  variants={staggerItem('up')}
-                  className="bg-card shadow-premium group relative flex flex-col rounded-2xl p-6 transition-all duration-300"
-                >
-                  <div className="mb-4 flex items-start justify-between">
-                    <div>
-                      <h3 className="text-foreground group-hover:text-primary mb-1 text-xl font-bold transition-colors">
-                        {vaga.titulo}
-                      </h3>
-                      <p className="text-muted-foreground text-sm">
-                        {vaga.empresa}
-                      </p>
-                    </div>
-                    <span className="bg-primary/10 text-primary rounded-full px-2.5 py-1 text-xs font-medium">
-                      {vaga.tipoContrato}
+            {destaques.map((vaga) => (
+              <motion.div
+                key={vaga.id}
+                variants={staggerItem('up')}
+                className="bg-card shadow-premium group relative flex flex-col rounded-2xl p-6 transition-all duration-300"
+              >
+                <div className="mb-4 flex items-start justify-between">
+                  <div>
+                    <h3 className="text-foreground group-hover:text-primary mb-1 text-xl font-bold transition-colors">
+                      {vaga.titulo}
+                    </h3>
+                    <p className="text-muted-foreground text-sm">
+                      {vaga.empresa}
+                    </p>
+                  </div>
+                  <span className="bg-primary/10 text-primary rounded-full px-2.5 py-1 text-xs font-medium">
+                    {vaga.tipoContrato}
+                  </span>
+                </div>
+
+                <div className="text-muted-foreground mb-4 space-y-1 text-sm">
+                  <div className="flex items-center gap-2">
+                    <MapPin className="h-4 w-4" />
+                    <span>
+                      {vaga.cidade}, {vaga.estado}
                     </span>
                   </div>
-
-                  <div className="text-muted-foreground mb-4 space-y-1 text-sm">
+                  {vaga.salarioMin && (
                     <div className="flex items-center gap-2">
-                      <MapPin className="h-4 w-4" />
+                      <span>R$</span>
                       <span>
-                        {vaga.cidade}, {vaga.estado}
+                        {vaga.salarioMin.toLocaleString('pt-BR')}
+                        {vaga.salarioMax
+                          ? ' – ' + vaga.salarioMax.toLocaleString('pt-BR')
+                          : ' a combinar'}
                       </span>
                     </div>
-                    {vaga.salarioMin && (
-                      <div className="flex items-center gap-2">
-                        <span>R$</span>
-                        <span>
-                          {vaga.salarioMin.toLocaleString('pt-BR')}
-                          {vaga.salarioMax
-                            ? ' – ' + vaga.salarioMax.toLocaleString('pt-BR')
-                            : ' a combinar'}
-                        </span>
-                      </div>
-                    )}
-                    <span className="inline-block text-xs">
-                      {vaga.modalidade === 'PRESENCIAL'
-                        ? 'Presencial'
-                        : vaga.modalidade === 'HIBRIDO'
-                          ? 'Híbrido'
-                          : 'Remoto'}
-                    </span>
-                  </div>
-
-                  {vaga.beneficios && vaga.beneficios.length > 0 && (
-                    <div className="mb-4">
-                      <p className="text-muted-foreground mb-2 text-xs font-medium">
-                        Benefícios
-                      </p>
-                      <div className="flex flex-wrap gap-1">
-                        {vaga.beneficios.slice(0, 3).map((beneficio) => (
-                          <span
-                            key={beneficio}
-                            className="bg-muted rounded-full px-2 py-0.5 text-xs"
-                          >
-                            {beneficio}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
                   )}
+                  <span className="inline-block text-xs">
+                    {vaga.modalidade === 'PRESENCIAL'
+                      ? 'Presencial'
+                      : vaga.modalidade === 'HIBRIDO'
+                        ? 'Híbrido'
+                        : 'Remoto'}
+                  </span>
+                </div>
 
-                  <div className="mt-auto flex gap-2">
-                    <Link to={`/vagas/${vaga.slug}`} className="flex-1">
-                      <Button variant="primary" size="sm" className="w-full">
-                        Ver vaga
-                      </Button>
-                    </Link>
-                    <Link to="/trabalhe-conosco" className="flex-1">
-                      <Button variant="outline" size="sm" className="w-full">
-                        Candidatar-se
-                      </Button>
-                    </Link>
+                {vaga.beneficios && vaga.beneficios.length > 0 && (
+                  <div className="mb-4">
+                    <p className="text-muted-foreground mb-2 text-xs font-medium">
+                      Benefícios
+                    </p>
+                    <div className="flex flex-wrap gap-1">
+                      {vaga.beneficios.slice(0, 3).map((beneficio) => (
+                        <span
+                          key={beneficio}
+                          className="bg-muted rounded-full px-2 py-0.5 text-xs"
+                        >
+                          {beneficio}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                </motion.div>
-              ))}
+                )}
+
+                <div className="mt-auto flex gap-2">
+                  <Link to={`/vagas/${vaga.slug}`} className="flex-1">
+                    <Button variant="primary" size="sm" className="w-full">
+                      Ver vaga
+                    </Button>
+                  </Link>
+                  <Link to="/trabalhe-conosco" className="flex-1">
+                    <Button variant="outline" size="sm" className="w-full">
+                      Candidatar-se
+                    </Button>
+                  </Link>
+                </div>
+              </motion.div>
+            ))}
           </motion.div>
         </Container>
       </Section>
 
       {/* How it works */}
-      <Section>
+      <Section className="bg-surface-alt">
         <Container>
           <motion.div
             initial="hidden"
@@ -566,7 +478,7 @@ export default function Home() {
       </Section>
 
       {/* Diferenciais */}
-      <Section className="bg-surface-alt">
+      <Section>
         <Container>
           <motion.div
             initial="hidden"
@@ -579,13 +491,13 @@ export default function Home() {
               variants={revealUp}
               className="text-foreground text-3xl font-bold sm:text-4xl"
             >
-              Nossos Diferenciais
+              Por que escolher a JS Empregos?
             </motion.h2>
             <motion.p
               variants={revealUp}
               className="text-muted-foreground mx-auto mt-4 max-w-2xl text-lg"
             >
-              O que torna a JS Empregos a escolha certa para sua empresa.
+              O que torna nossa agência a escolha certa para sua empresa.
             </motion.p>
           </motion.div>
 
@@ -620,76 +532,7 @@ export default function Home() {
         </Container>
       </Section>
 
-      {/* Testimonials */}
-      <Section>
-        <Container>
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-100px' }}
-            variants={staggerReveal(0.15)}
-            className="mb-12 text-center"
-          >
-            <motion.h2
-              variants={revealUp}
-              className="text-foreground text-3xl font-bold sm:text-4xl"
-            >
-              Depoimentos
-            </motion.h2>
-            <motion.p
-              variants={revealUp}
-              className="text-muted-foreground mx-auto mt-4 max-w-2xl text-lg"
-            >
-              O que empresas e candidatos dizem sobre a nossa agência.
-            </motion.p>
-          </motion.div>
-
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
-            variants={staggerReveal(0.1)}
-          >
-            {TESTIMONIALS_DEMO.map((testimonial) => (
-              <motion.div
-                key={testimonial.id}
-                variants={staggerItem('up')}
-                whileHover={{ y: -4 }}
-                transition={{ duration: 0.3 }}
-                className="bg-card shadow-premium group relative overflow-hidden rounded-3xl p-6"
-              >
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_0%,hsla(var(--primary),0.03),transparent_50%)]" />
-                <div className="relative">
-                  <p className="text-muted-foreground mb-4 leading-relaxed italic">
-                    "{testimonial.quote}"
-                  </p>
-                  <div className="flex items-center gap-3">
-                    <div className="bg-muted h-10 w-10 flex-shrink-0 overflow-hidden rounded-full">
-                      <img
-                        src={testimonial.image}
-                        alt={testimonial.name}
-                        className="h-full w-full object-cover"
-                        loading="lazy"
-                      />
-                    </div>
-                    <div>
-                      <p className="text-foreground font-semibold">
-                        {testimonial.name}
-                      </p>
-                      <p className="text-muted-foreground text-sm">
-                        {testimonial.role} — {testimonial.company}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </Container>
-      </Section>
-
-      {/* Partners */}
+      {/* Clients / Partners */}
       <Section className="bg-surface-alt">
         <Container>
           <motion.div
@@ -703,14 +546,14 @@ export default function Home() {
               variants={revealUp}
               className="text-foreground text-3xl font-bold sm:text-4xl"
             >
-              Empresas Parceiras
+              Empresas que confiam em nossas soluções
             </motion.h2>
             <motion.p
               variants={revealUp}
               className="text-muted-foreground mx-auto mt-4 max-w-2xl text-lg"
             >
-              Mais de {COMPANY.clientsServed} empresas confiam no nosso
-              recrutamento.
+              Mais de {COMPANY.clientsServed} empresas utilizam nossos serviços
+              de RH e facilities.
             </motion.p>
           </motion.div>
 
@@ -718,7 +561,7 @@ export default function Home() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="grid grid-cols-2 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6"
+            className="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6"
             variants={staggerReveal(0.1)}
           >
             {PARTNERS_LOGOS.map((partner) => (
@@ -732,7 +575,7 @@ export default function Home() {
                 <div className="relative aspect-[4/3] w-full overflow-hidden">
                   <SafeImage
                     src={partner.photo}
-                    fallbackSrc="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300' fill='%23111'%3E%3Crect width='400' height='300' fill='%232a2a2a'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23999' font-size='16'%3EEmpresa&lt;/text%3E%3C/svg%3E"
+                    fallbackSrc="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300' fill='%23111'%3E%3Crect width='400' height='300' fill='%232a2a2a'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23999' font-size='16'%3EEmpresa%3C/text%3E%3C/svg%3E"
                     alt={partner.name}
                     className="h-full w-full object-cover contrast-125 grayscale-[40%] transition-all duration-500 group-hover:contrast-100 group-hover:grayscale-0"
                   />
@@ -756,8 +599,8 @@ export default function Home() {
         </Container>
       </Section>
 
-      {/* CTA */}
-      <Section className="bg-muted">
+      {/* CTA Final */}
+      <Section>
         <Container>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -778,11 +621,11 @@ export default function Home() {
               className="relative"
             >
               <h2 className="text-foreground text-3xl font-bold sm:text-4xl">
-                Encontre profissionais ou sua nova oportunidade
+                Mais eficiência em RH. Mais resultados para sua empresa.
               </h2>
               <p className="text-muted-foreground mx-auto mt-4 max-w-xl text-lg">
-                Cadastre seu currículo ou solicite profissionais para sua
-                empresa. Estamos conectando talentos desde 2010.
+                Encontramos o profissional certo para sua empresa e ajudamos
+                candidatos a conquistar novas oportunidades de trabalho.
               </p>
               <div className="mt-8 flex flex-wrap justify-center gap-4">
                 <Link to="/trabalhe-conosco">
