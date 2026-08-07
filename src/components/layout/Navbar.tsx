@@ -138,8 +138,8 @@ export function Navbar() {
             loading="eager"
           />
           <h1 className="text-3xl font-extrabold tracking-tight">
-            <span className="text-primary drop-shadow-glow">JS</span>{' '}
-            <span className="text-foreground">Tercerizados</span>
+            <span className="text-primary drop-shadow-glow">JR</span>{' '}
+            <span className="text-foreground">Agência de Empregos</span>
           </h1>
         </Link>
 
@@ -171,7 +171,7 @@ export function Navbar() {
             )}
           </Button>
           <Button
-            to="/cadastro/candidato"
+            to="/trabalhe-conosco"
             variant="outline"
             size="sm"
             className="text-xs font-medium"
@@ -185,7 +185,7 @@ export function Navbar() {
               </Button>
             </Link>
           ) : (
-            <Link to="/cadastro/empresa">
+            <Link to="/clientes">
               <Button variant="primary" size="sm">
                 Divulgar Vaga
               </Button>
@@ -280,7 +280,7 @@ export function Navbar() {
 
                 <motion.div variants={itemVariants}>
                   <Link
-                    to="/cadastro/candidato"
+                    to="/trabalhe-conosco"
                     onClick={() => setIsOpen(false)}
                     className="bg-primary text-primary-foreground rounded-lg px-4 py-3 text-center text-base font-medium"
                   >
@@ -289,7 +289,7 @@ export function Navbar() {
                 </motion.div>
                 <motion.div variants={itemVariants}>
                   <Link
-                    to={isAuthenticated ? '/dashboard' : '/cadastro/empresa'}
+                    to={isAuthenticated ? '/dashboard' : '/clientes'}
                     onClick={() => setIsOpen(false)}
                     className="text-muted-foreground hover:bg-muted hover:text-foreground block rounded-lg px-4 py-3 text-base font-medium transition-colors"
                   >

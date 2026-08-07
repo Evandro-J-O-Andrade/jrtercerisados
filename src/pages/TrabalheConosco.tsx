@@ -15,100 +15,56 @@ import { COMPANY, WHATSAPP_MESSAGES, getWhatsAppUrl } from '@/config';
 import { cn } from '@/utils';
 
 const positionOptions = [
-  { value: 'auxiliar-limpeza', label: 'Auxiliar de Limpeza' },
-  { value: 'controlador-acesso', label: 'Controlador de Acesso' },
-  { value: 'zelador', label: 'Zelador' },
-  { value: 'porteiro', label: 'Porteiro' },
-  { value: 'vigilante', label: 'Vigilante' },
-  { value: 'recepcionista', label: 'Recepcionista' },
-  { value: 'supervisor', label: 'Supervisor' },
-  { value: 'fiscal-piso', label: 'Fiscal de Piso' },
+  { value: 'administrativo', label: 'Administrativo' },
+  { value: 'logistica', label: 'Logística e Armazém' },
+  { value: 'producao', label: 'Produção' },
+  { value: 'ti', label: 'Tecnologia da Informação' },
+  { value: 'comercio', label: 'Comércio e Varejo' },
+  { value: 'servicos', label: 'Serviços Gerais' },
+  { value: 'limpeza', label: 'Limpeza e Conservação' },
+  { value: 'seguranca', label: 'Segurança e Portaria' },
+  { value: 'zeladoria', label: 'Zeladoria e Manutenção' },
+  { value: 'outro', label: 'Outra área de atuação' },
 ];
 
-const candidateSchema = z
-  .object({
-    name: z.string().min(2, 'Nome é obrigatório'),
-    cpf: z.string().optional(),
-    rg: z.string().optional(),
-    phone: z.string().min(10, 'Telefone deve ter pelo menos 10 caracteres'),
-    email: z.string().email('E-mail inválido'),
-    city: z.string().min(2, 'Cidade é obrigatória'),
-    position: z.string().min(1, 'Selecione uma vaga'),
-    experience: z.string().min(2, 'Experiência é obrigatória'),
-    courses: z.string().optional(),
-    availability: z.string().optional(),
-    schedule: z.string().optional(),
-    resume: z.string().min(2, 'Currículo é obrigatório'),
-    resumeFile: z
-      .instanceof(FileList)
-      .optional()
-      .refine(
-        (files) => {
-          if (!files || files.length === 0) return true;
-          const file = files[0];
-          const validTypes = [
-            'application/pdf',
-            'application/msword',
-            'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-          ];
-          return validTypes.includes(file.type);
-        },
-        { message: 'Apenas PDF, DOC ou DOCX são aceitos' },
-      )
-      .refine(
-        (files) => {
-          if (!files || files.length === 0) return true;
-          const file = files[0];
-          return file.size <= 10 * 1024 * 1024;
-        },
-        { message: 'O arquivo deve ter no máximo 10 MB' },
-      ),
-  })
-  .superRefine((data, ctx) => {
-    if (data.position === 'auxiliar-limpeza') {
-      if (!data.cpf || data.cpf.length < 11) {
-        ctx.addIssue({
-          code: z.ZodIssueCode.custom,
-          message: 'CPF deve ter 11 dígitos',
-          path: ['cpf'],
-        });
-      }
-      if (!data.rg || data.rg.length < 5) {
-        ctx.addIssue({
-          code: z.ZodIssueCode.custom,
-          message: 'RG é obrigatório',
-          path: ['rg'],
-        });
-      }
-    }
-    if (data.position === 'controlador-acesso' || data.position === 'zelador') {
-      if (!data.courses || data.courses.length < 2) {
-        ctx.addIssue({
-          code: z.ZodIssueCode.custom,
-          message: 'Cursos são obrigatórios',
-          path: ['courses'],
-        });
-      }
-    }
-    if (data.position === 'controlador-acesso') {
-      if (!data.schedule || data.schedule.length < 1) {
-        ctx.addIssue({
-          code: z.ZodIssueCode.custom,
-          message: 'Escala é obrigatória',
-          path: ['schedule'],
-        });
-      }
-    }
-    if (data.position === 'zelador') {
-      if (!data.availability || data.availability.length < 1) {
-        ctx.addIssue({
-          code: z.ZodIssueCode.custom,
-          message: 'Disponibilidade é obrigatória',
-          path: ['availability'],
-        });
-      }
-    }
-  });
+const candidateSchema = z.object({
+  name: z.string().min(2, 'Nome é obrigatório'),
+  cpf: z.string().optional(),
+  rg: z.string().optional(),
+  phone: z.string().min(10, 'Telefone deve ter pelo menos 10 caracteres'),
+  email: z.string().email('E-mail inválido'),
+  city: z.string().min(2, 'Cidade é obrigatória'),
+  position: z.string().min(1, 'Selecione uma área de atuação'),
+  experience: z.string().min(2, 'Experiência é obrigatória'),
+  courses: z.string().optional(),
+  availability: z.string().optional(),
+  schedule: z.string().optional(),
+  resume: z.string().min(2, 'Currículo é obrigatório'),
+  resumeFile: z
+    .instanceof(FileList)
+    .optional()
+    .refine(
+      (files) => {
+        if (!files || files.length === 0) return true;
+        const file = files[0];
+        const validTypes = [
+          'application/pdf',
+          'application/msword',
+          'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+        ];
+        return validTypes.includes(file.type);
+      },
+      { message: 'Apenas PDF, DOC ou DOCX são aceitos' },
+    )
+    .refine(
+      (files) => {
+        if (!files || files.length === 0) return true;
+        const file = files[0];
+        return file.size <= 10 * 1024 * 1024;
+      },
+      { message: 'O arquivo deve ter no máximo 10 MB' },
+    ),
+});
 
 type CandidateFormData = z.infer<typeof candidateSchema>;
 
@@ -217,10 +173,10 @@ export default function TrabalheConosco() {
               >
                 <div className="bg-primary/10 text-primary mb-4 inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium">
                   <Briefcase className="h-4 w-4" />
-                  Vagas Abertas
+                  Banco de Talentos
                 </div>
                 <p className="text-muted-foreground">
-                  Selecione a vaga desejada e preencha o formulário com seus
+                  Selecione sua área de atuação e preencha o formulário com seus
                   dados e anexe seu currículo.
                 </p>
 
@@ -272,68 +228,46 @@ export default function TrabalheConosco() {
                       />
                     </div>
 
-                    {selectedPosition === 'auxiliar-limpeza' && (
-                      <>
-                        <div>
-                          <Input
-                            label="CPF *"
-                            placeholder="000.000.000-00"
-                            error={errors.cpf?.message}
-                            {...register('cpf')}
-                          />
-                        </div>
-                        <div>
-                          <Input
-                            label="RG *"
-                            placeholder="00.000.000-0"
-                            error={errors.rg?.message}
-                            {...register('rg')}
-                          />
-                        </div>
-                      </>
-                    )}
-
-                    {selectedPosition === 'controlador-acesso' && (
-                      <>
-                        <div className="md:col-span-2">
-                          <Input
-                            label="Cursos Realizados *"
-                            placeholder="Ex: Curso de Controle de Acesso, NR-10..."
-                            error={errors.courses?.message}
-                            {...register('courses')}
-                          />
-                        </div>
-                        <div className="md:col-span-2">
-                          <Input
-                            label="Escala Desejada *"
-                            placeholder="Ex: 12x36, Diurno, Noturno..."
-                            error={errors.schedule?.message}
-                            {...register('schedule')}
-                          />
-                        </div>
-                      </>
-                    )}
-
-                    {selectedPosition === 'zelador' && (
-                      <>
-                        <div className="md:col-span-2">
-                          <Input
-                            label="Cursos Realizados *"
-                            placeholder="Ex: Zeladoria, Limpeza Predial..."
-                            error={errors.courses?.message}
-                            {...register('courses')}
-                          />
-                        </div>
-                        <div className="md:col-span-2">
-                          <Input
-                            label="Disponibilidade *"
-                            placeholder="Ex: Integral, Manhã, Tarde..."
-                            error={errors.availability?.message}
-                            {...register('availability')}
-                          />
-                        </div>
-                      </>
-                    )}
+                    <div className="md:col-span-2">
+                      <Input
+                        label="CPF"
+                        placeholder="000.000.000-00"
+                        error={errors.cpf?.message}
+                        {...register('cpf')}
+                      />
+                    </div>
+                    <div className="md:col-span-2">
+                      <Input
+                        label="RG"
+                        placeholder="00.000.000-0"
+                        error={errors.rg?.message}
+                        {...register('rg')}
+                      />
+                    </div>
+                    <div className="md:col-span-2">
+                      <Input
+                        label="Cursos"
+                        placeholder="Ex: Administração, Informática..."
+                        error={errors.courses?.message}
+                        {...register('courses')}
+                      />
+                    </div>
+                    <div>
+                      <Input
+                        label="Disponibilidade"
+                        placeholder="Ex: Integral, Manhã, Tarde..."
+                        error={errors.availability?.message}
+                        {...register('availability')}
+                      />
+                    </div>
+                    <div>
+                      <Input
+                        label="Escala Preferida"
+                        placeholder="Ex: 2º turno, Noturno..."
+                        error={errors.schedule?.message}
+                        {...register('schedule')}
+                      />
+                    </div>
 
                     <div>
                       <Input

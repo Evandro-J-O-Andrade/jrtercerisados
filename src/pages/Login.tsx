@@ -79,7 +79,7 @@ export default function Login() {
       title: 'Painel Administrativo',
       subtitle: 'Acesse sua conta para gerenciar cadastros e relatórios.',
       icon: <Shield className="h-8 w-8" />,
-      placeholderEmail: 'admin@jstercerizados.com.br',
+      placeholderEmail: 'admin@jrtelempregos.com.br',
     },
     candidato: {
       title: 'Área do Candidato',

@@ -4,8 +4,8 @@ import {
   CheckCircle2,
   ArrowRight,
   FileText,
-  Users,
   Shield,
+  Send,
   Mail,
   Phone,
 } from 'lucide-react';
@@ -19,34 +19,28 @@ const steps = [
     step: '01',
     title: 'Cadastro',
     description:
-      'Preencha o formulário com seus dados pessoais e profissionais.',
+      'Preencha o formulário com seus dados e anexe seu currículo no Banco de Talentos.',
     icon: FileText,
   },
   {
     step: '02',
-    title: 'Envio do Currículo',
-    description: 'Anexe seu currículo em PDF, DOC ou DOCX (máximo 10 MB).',
-    icon: FileText,
+    title: 'Candidatura',
+    description:
+      'Candidate-se às vagas que combinam com seu perfil e receba confirmação via WhatsApp.',
+    icon: Send,
   },
   {
     step: '03',
-    title: 'Análise',
+    title: 'Processo Seletivo',
     description:
-      'Nossa equipe de RH analisa seu perfil e compara com as vagas disponíveis.',
+      'Nossa equipe de RH analisa seu perfil, realiza avaliações e agendará sua entrevista.',
     icon: Shield,
   },
   {
     step: '04',
-    title: 'Entrevista',
+    title: 'Contratação',
     description:
-      'Se o seu perfil for compatível, entraremos em contato para agendar a entrevista.',
-    icon: Users,
-  },
-  {
-    step: '05',
-    title: 'Integração',
-    description:
-      'Aprovado? Inicie o processo de integração com a equipe e comece a trabalhar.',
+      'Receba a proposta e inicie sua nova oportunidade profissional com a JR Agência de Empregos.',
     icon: CheckCircle2,
   },
 ];

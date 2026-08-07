@@ -39,7 +39,7 @@ const FAQ_CATEGORIES = [
       {
         question: 'Quais serviços vocês oferecem?',
         answer:
-          'Oferecemos Segurança Patrimonial, Controle de Acesso, Portaria, Limpeza Profissional, Zeladoria, Facilities e Recepção.',
+          'Somos uma agência de empregos especializada em recrutamento e seleção, banco de talentos, mão de obra temporária, terceirização, hunting de executivos e avaliação de perfil. Como solução complementar, oferecemos também facilities como limpeza, segurança, portaria e zeladoria.',
       },
       {
         question: 'Como solicitar um orçamento?',

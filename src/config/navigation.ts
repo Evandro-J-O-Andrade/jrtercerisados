@@ -10,15 +10,10 @@ export const NAVIGATION_LINKS: NavLink[] = [
   { label: 'Empresas', href: '/empresas' },
   { label: 'Candidatos', href: '/candidatos' },
   { label: 'Serviços', href: '/servicos' },
-  { label: 'Trabalhe Conosco', href: '/trabalhe-conosco' },
-  { label: 'Processo Seletivo', href: '/processo-seletivo' },
   { label: 'Sobre Nós', href: '/sobre' },
   { label: 'Blog', href: '/blog' },
-  { label: 'Parceiros', href: '/parceiros' },
-  { label: 'Fornecedores', href: '/fornecedores' },
-  { label: 'Suporte', href: '/suporte' },
-  { label: 'FAQ', href: '/faq' },
   { label: 'Contato', href: '/contato' },
+  { label: 'Login', href: '/login' },
 ];
 
 export interface DashboardLink {

@@ -30,23 +30,29 @@ const TikTokIcon = (props: React.SVGProps<SVGSVGElement>) => (
 
 const footerLinks = {
   empresa: [
+    { label: 'Início', href: '/' },
     { label: 'Sobre Nós', href: '/sobre' },
     { label: 'Clientes', href: '/clientes' },
     { label: 'Parceiros', href: '/parceiros' },
     { label: 'Fornecedores', href: '/fornecedores' },
   ],
   servicos: [
-    { label: 'Segurança Patrimonial', href: '/servicos/seguranca' },
-    { label: 'Controle de Acesso', href: '/servicos/controle-acesso' },
-    { label: 'Portaria', href: '/servicos/portaria' },
-    { label: 'Limpeza', href: '/servicos/limpeza' },
-    { label: 'Zeladoria', href: '/servicos/zeladoria' },
+    { label: 'Recrutamento & Seleção', href: '/servicos/recrutamento-selecao' },
+    { label: 'Banco de Talentos', href: '/servicos/banco-de-talentos' },
+    { label: 'Hunting', href: '/servicos/hunting' },
+    { label: 'Avaliação de Perfil', href: '/servicos/avaliacao-perfil' },
+  ],
+  candidatos: [
+    { label: 'Vagas', href: '/vagas' },
+    { label: 'Cadastrar Currículo', href: '/trabalhe-conosco' },
+    { label: 'Processo Seletivo', href: '/processo-seletivo' },
+    { label: 'FAQ', href: '/faq' },
   ],
   atendimento: [
     { label: 'Suporte', href: '/suporte' },
-    { label: 'FAQ', href: '/faq' },
-    { label: 'WhatsApp', href: SOCIAL_LINKS.whatsapp },
-    { label: 'E-mail', href: `mailto:${COMPANY.email}` },
+    { label: 'Contato', href: '/contato' },
+    { label: 'Blog', href: '/blog' },
+    { label: 'Login', href: '/login' },
   ],
 };
 
@@ -148,11 +154,11 @@ export function Footer() {
               </div>
               <div>
                 <h2 className="text-3xl font-extrabold tracking-tight">
-                  <span className="text-primary drop-shadow-glow">JS</span>{' '}
-                  <span className="text-foreground">Tercerizados</span>
+                  <span className="text-primary drop-shadow-glow">JR</span>{' '}
+                  <span className="text-foreground">Agência de Empregos</span>
                 </h2>
                 <p className="text-muted-foreground mt-1 text-xs">
-                  SaaS para Gestão de Terceirização
+                  Agência de Empregos e Assessoria em Recursos Humanos
                 </p>
               </div>
             </Link>
@@ -163,7 +169,7 @@ export function Footer() {
             {/* Social */}
             <div className="pt-2">
               <h4 className="text-foreground mb-3 text-sm font-bold">
-                Siga a JS Terceirizados
+                Siga a JR Agência de Empregos
               </h4>
               <div className="flex flex-wrap gap-3">
                 {socialLinks.map((social) => (
@@ -233,6 +239,25 @@ export function Footer() {
             </div>
           </div>
 
+          {/* ─── Candidatos ───────────────────────── */}
+          <div className="lg:col-span-2">
+            <h4 className="text-primary mb-5 text-xs font-bold tracking-wider uppercase">
+              Candidatos
+            </h4>
+            <div className="space-y-3">
+              {footerLinks.candidatos.map((link) => (
+                <Link
+                  key={link.label}
+                  to={link.href}
+                  className="text-muted-foreground hover:text-primary flex items-center gap-2 text-sm transition-colors duration-200"
+                >
+                  <span className="text-primary/50 h-1 w-1 rounded-full bg-current" />
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+
           {/* ─── Atendimento ─────────────────────── */}
           <div className="lg:col-span-2">
             <h4 className="text-primary mb-5 text-xs font-bold tracking-wider uppercase">
@@ -240,24 +265,14 @@ export function Footer() {
             </h4>
             <div className="space-y-3">
               {footerLinks.atendimento.map((link) => (
-                <a
+                <Link
                   key={link.label}
-                  href={link.href}
-                  target={
-                    link.label === 'WhatsApp' || link.label === 'E-mail'
-                      ? '_blank'
-                      : undefined
-                  }
-                  rel={
-                    link.label === 'WhatsApp' || link.label === 'E-mail'
-                      ? 'noopener noreferrer'
-                      : undefined
-                  }
+                  to={link.href}
                   className="text-muted-foreground hover:text-primary flex items-center gap-2 text-sm transition-colors duration-200"
                 >
                   <span className="text-primary/50 h-1 w-1 rounded-full bg-current" />
                   {link.label}
-                </a>
+                </Link>
               ))}
             </div>
           </div>
@@ -331,7 +346,8 @@ export function Footer() {
           <div className="text-muted-foreground flex items-center gap-2 text-xs">
             <Heart className="text-primary h-3.5 w-3.5" />
             <span>
-              © {currentYear} JSTerceirizados. Todos os direitos reservados.
+              © {currentYear} JR Agência de Empregos. Todos os direitos
+              reservados.
             </span>
           </div>
           <div className="text-muted-foreground flex flex-wrap justify-center gap-4 text-xs">

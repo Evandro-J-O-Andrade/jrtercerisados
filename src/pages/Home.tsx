@@ -37,18 +37,17 @@ const heroSlides: HeroSlide[] = [
     alt: 'Conectando talentos às melhores oportunidades',
   },
   {
-    id: 'banco',
+    id: 'candidato',
     title: (
       <>
-        <span className="text-primary">Banco de Talentos</span> atualizado com
-        profissionais qualificados.
+        <span className="text-primary">Encontre</span> sua próxima oportunidade.
       </>
     ),
     subtitle:
-      'Cadastre seu currículo e faça parte do nosso banco de talentos. Sua próxima oportunidade está a um clique de distância.',
+      'Cadastre seu currículo no Banco de Talentos e candidate-se às vagas que combinam com seu perfil.',
     image: IMAGES.hero.home.slides[1],
     fallback: IMAGES.hero.home.fallback,
-    alt: 'Banco de talentos de profissionais qualificados',
+    alt: 'Busca de vagas e cadastro de currículo',
   },
   {
     id: 'empresas',
@@ -59,7 +58,7 @@ const heroSlides: HeroSlide[] = [
       </>
     ),
     subtitle:
-      'Recrutamento, seleção e mão de obra temporária. Soluções sob medida para sua necessidade.',
+      'Recrutamento, seleção e banco de talentos. Soluções sob medida para sua necessidade.',
     image: IMAGES.hero.home.slides[2],
     fallback: IMAGES.hero.home.fallback,
     alt: 'Contratação de profissionais qualificados',
@@ -100,7 +99,7 @@ const stats = [
     icon: Shield,
   },
   {
-    label: 'Vagas Preenchidas',
+    label: 'Cidades Atendidas',
     value: COMPANY.citiesCovered,
     suffix: '+',
     icon: MapPin,
@@ -136,10 +135,10 @@ const steps = [
 
 const diferenciais = [
   {
-    title: 'Banco de Talentos Atualizado',
+    title: 'Recrutamento Especializado',
     description:
-      'Milhares de profissionais qualificados prontos para novas oportunidades, cadastrados e pré-avaliados.',
-    icon: FEATURE_ICONS.users,
+      'Processos de triagem, seleção e avaliação técnica para encontrar o profissional certo para cada vaga.',
+    icon: SERVICE_ICONS.shield,
   },
   {
     title: 'WhatsApp First',
@@ -148,10 +147,10 @@ const diferenciais = [
     icon: FEATURE_ICONS.phone,
   },
   {
-    title: 'Processo Seletivo Especializado',
+    title: 'Banco de Talentos Atualizado',
     description:
-      'Avaliação técnica, comportamental e cultural para garantir a contratação certa.',
-    icon: SERVICE_ICONS.shield,
+      'Milhares de profissionais qualificados prontos para novas oportunidades, cadastrados e pré-avaliados.',
+    icon: FEATURE_ICONS.users,
   },
   {
     title: 'Tecnologia Integrada',

@@ -12,8 +12,8 @@
     <circle cx="1620" cy="780" r="120" fill="hsl(43,74%,40%)" opacity="0.4" />
   </g>
   <g transform="translate(960 540)" text-anchor="middle">
-    <rect x="-300" y="-60" width="600" height="120" rx="24" fill="rgba(0,0,0,0.3)" stroke="rgba(255,255,255,0.06)" stroke-width="1" />
-    <text x="0" y="0" fill="rgba(255,255,255,0.6)" font-family="system-ui" font-size="32" font-weight="500">FALLBACK</text>
-    <text x="0" y="28" fill="rgba(180,180,180,0.35)" font-family="system-ui" font-size="16">Hero Image — 1920 × 1080</text>
+    <rect x="-300" y="-60" width="600" height="120" rx="24" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.06)" stroke-width="1" />
+    <text x="0" y="0" fill="rgba(255,255,255,0.6)" font-family="system-ui" font-size="32" font-weight="500">JR Agência de Empregos</text>
+    <text x="0" y="28" fill="rgba(255,255,255,0.15)" font-family="system-ui" font-size="16">Conectando talentos às melhores oportunidades</text>
   </g>
 </svg>

@@ -66,7 +66,7 @@ export default function VagaDetalhe() {
               transition={{ delay: 0.4, duration: 0.6 }}
               className="mt-8"
             >
-              <Button to="/cadastro/candidato" variant="secondary" size="lg">
+              <Button to="/trabalhe-conosco" variant="secondary" size="lg">
                 Candidatar-se agora
               </Button>
             </motion.div>

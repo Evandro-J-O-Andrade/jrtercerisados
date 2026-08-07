@@ -19,7 +19,7 @@ export default function Candidatos() {
               Área do Candidato
             </h1>
             <p className="text-muted-foreground mx-auto mt-4 max-w-2xl text-lg">
-              Cadastre seu currículo,Candidate-se às vagas e acompanhe seus
+              Cadastre seu currículo, candidate-se às vagas e acompanhe seus
               processos seletivos em um só lugar.
             </p>
           </motion.div>
@@ -43,7 +43,8 @@ export default function Candidatos() {
                 Crie e mantenha seu currículo atualizado com experiências,
                 formação e habilidades.
               </p>
-              <Link to="/candidato/cv">
+
+              <Link to="/trabalhe-conosco">
                 <Button variant="outline" size="sm">
                   Acessar
                 </Button>
@@ -56,12 +57,12 @@ export default function Candidatos() {
               className="border-border bg-card rounded-2xl border p-6 text-center"
             >
               <h3 className="text-foreground mb-2 text-xl font-bold">
-                Candidaturas
+                Buscar Vagas
               </h3>
               <p className="text-muted-foreground mb-4 text-sm">
-                Veja todas as vagas às quais você se candidatou e seu status.
+                Encontre oportunidades alinhadas ao seu perfil profissional.
               </p>
-              <Link to="/candidato/candidaturas">
+              <Link to="/vagas">
                 <Button variant="outline" size="sm">
                   Acessar
                 </Button>
@@ -74,13 +75,13 @@ export default function Candidatos() {
               className="border-border bg-card rounded-2xl border p-6 text-center"
             >
               <h3 className="text-foreground mb-2 text-xl font-bold">
-                Vagas Favoritas
+                Processo Seletivo
               </h3>
               <p className="text-muted-foreground mb-4 text-sm">
-                Salve as vagas de interesse e receba notificações de novas
-                oportunidades.
+                Conheça as etapas do nosso processo e prepare-se para a sua
+                próxima oportunidade.
               </p>
-              <Link to="/candidato/preferencias">
+              <Link to="/processo-seletivo">
                 <Button variant="outline" size="sm">
                   Acessar
                 </Button>
