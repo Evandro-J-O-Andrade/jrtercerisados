@@ -1,11 +1,11 @@
 export const APP_CONFIG = {
-  name: 'JSTerceirizados',
+  name: 'JR Agência de Empregos',
   fullName:
-    'JSTerceirizados — Plataforma SaaS para Gestão de Empresas de Terceirização',
+    'JR Agência de Empregos — Recrutamento, Seleção e Banco de Talentos',
   description:
-    'Plataforma web moderna para empresas de prestação de serviços de segurança patrimonial, controle de acesso, portaria, zeladoria, limpeza e facilities.',
-  version: '0.1.0',
-  url: 'https://jstercerizados.com.br',
+    'Agência de Empregos e Assessoria em Recursos Humanos. Conectamos empresas aos melhores profissionais através de recrutamento, seleção, banco de talentos e hunting. Facilities e terceirização de serviços como solução complementar.',
+  version: '1.0.0',
+  url: 'https://jrtelempregos.com.br',
   locale: 'pt-BR',
 } as const;
 

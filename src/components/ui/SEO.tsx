@@ -81,9 +81,9 @@ export function SEO({
       url,
       sameAs: [
         SEO_CONFIG.openGraph.url,
-        'https://instagram.com/jstercerizados',
-        'https://facebook.com/jstercerizados',
-        'https://linkedin.com/company/jstercerizados',
+        'https://instagram.com/jrtelempregos',
+        'https://facebook.com/jrtelempregos',
+        'https://linkedin.com/company/jrtelempregos',
       ],
     };
 

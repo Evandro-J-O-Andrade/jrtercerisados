@@ -1,12 +1,12 @@
 export const COMPANY_DEMO = {
-  name: 'JSTerceirizados',
-  tagline: 'Segurança e Serviços que Protegem seu Negócio',
+  name: 'JR Agência de Empregos',
+  tagline: 'Conectando talentos às melhores oportunidades',
   description:
-    'Na JSTerceirizados, transformamos a gestão de serviços de segurança, portaria, zeladoria, limpeza e facilities em uma experiência premium, combinando tecnologia avançada, profissionais qualificados e um atendimento personalizado para cada cliente.',
+    'Somos uma agência de empregos e assessoria em Recursos Humanos que conecta empresas aos melhores profissionais através de recrutamento, seleção, banco de talentos e hunting. Como solução complementar, oferecemos terceirização de serviços operacionais.',
   mission:
-    'Proteger o patrimônio e potencializar a operação de nossos clientes com serviços de excelência e tecnologia de ponta.',
+    'Conectar empresas aos profissionais certos e ajudar candidatos a conquistarem novas oportunidades, por meio de recrutamento, seleção e um banco de talentos sempre atualizado.',
   vision:
-    'Ser a referência em terceirização de serviços no Brasil, reconhecida pela inovação e excelência operacional.',
+    'Ser a referência em agência de empregos e assessoria de RH, reconhecida pela excelência no recrutamento e pela conexão humanizada entre empresas e talentos.',
   values: [
     'Excelência',
     'Inovação',
@@ -25,7 +25,7 @@ export const TEAM_MEMBERS = [
     name: 'Ricardo Santos',
     role: 'CEO & Fundador',
     image: '/images/team/ricardo-santos.svg',
-    bio: 'Fundador da JSTerceirizados com mais de 15 anos de experiência no setor de segurança e terceirização.',
+    bio: 'Fundador da JR Agência de Empregos com mais de 15 anos de experiência em recrutamento e seleção de talentos.',
     linkedin: 'https://linkedin.com/in/ricardo-santos',
   },
   {
@@ -49,14 +49,15 @@ export const TEAM_MEMBERS = [
 export const COMPANY_TIMELINE = [
   {
     year: '2011',
-    event: 'Fundação da JSTerceirizados',
+    event: 'Fundação da JR Agência de Empregos',
     description:
-      'Começamos como uma empresa de segurança patrimonial com 10 profissionais.',
+      'Começamos como uma agência de empregos focada em recrutamento e seleção de profissionais qualificados.',
   },
   {
     year: '2015',
     event: 'Expansão para Facilities',
-    description: 'Iniciamos os serviços de zeladoria, limpeza e portaria.',
+    description:
+      'Iniciamos os serviços complementares de zeladoria, limpeza e segurança.',
   },
   {
     year: '2018',
@@ -71,8 +72,9 @@ export const COMPANY_TIMELINE = [
   },
   {
     year: '2022',
-    event: 'Plataforma SaaS',
-    description: 'Lançamos a plataforma web para gestão integrada de serviços.',
+    event: 'Plataforma JR RH',
+    description:
+      'Lançamos a plataforma web para recrutamento, seleção e gestão de talentos.',
   },
   {
     year: '2024',

@@ -1,6 +1,6 @@
 export const CONTACTS = {
   phone: '(11) 96838-0592',
-  email: 'contato@jstercerizados.com.br',
+  email: 'contato@jrtelempregos.com.br',
   whatsapp: '5511968380592',
   address: 'São Paulo, SP — Brasil',
   businessHours: {
