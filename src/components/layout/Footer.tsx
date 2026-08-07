@@ -30,29 +30,26 @@ const TikTokIcon = (props: React.SVGProps<SVGSVGElement>) => (
 
 const footerLinks = {
   empresa: [
-    { label: 'Início', href: '/' },
     { label: 'Sobre Nós', href: '/sobre' },
     { label: 'Clientes', href: '/clientes' },
     { label: 'Parceiros', href: '/parceiros' },
     { label: 'Fornecedores', href: '/fornecedores' },
   ],
   servicos: [
+    {
+      label: 'Mão de Obra Temporária',
+      href: '/servicos/mao-de-obra-temporaria',
+    },
+    { label: 'Mão de Obra Efetiva', href: '/servicos/mao-de-obra-efetiva' },
     { label: 'Recrutamento & Seleção', href: '/servicos/recrutamento-selecao' },
-    { label: 'Banco de Talentos', href: '/servicos/banco-de-talentos' },
-    { label: 'Hunting', href: '/servicos/hunting' },
-    { label: 'Avaliação de Perfil', href: '/servicos/avaliacao-perfil' },
-  ],
-  candidatos: [
-    { label: 'Vagas', href: '/vagas' },
-    { label: 'Cadastrar Currículo', href: '/trabalhe-conosco' },
-    { label: 'Processo Seletivo', href: '/processo-seletivo' },
-    { label: 'FAQ', href: '/faq' },
+    { label: 'Segurança Patrimonial', href: '/servicos/seguranca' },
+    { label: 'Portaria', href: '/servicos/portaria' },
   ],
   atendimento: [
     { label: 'Suporte', href: '/suporte' },
-    { label: 'Contato', href: '/contato' },
-    { label: 'Blog', href: '/blog' },
-    { label: 'Login', href: '/login' },
+    { label: 'FAQ', href: '/faq' },
+    { label: 'WhatsApp', href: SOCIAL_LINKS.whatsapp },
+    { label: 'E-mail', href: `mailto:${COMPANY.email}` },
   ],
 };
 
@@ -239,25 +236,6 @@ export function Footer() {
             </div>
           </div>
 
-          {/* ─── Candidatos ───────────────────────── */}
-          <div className="lg:col-span-2">
-            <h4 className="text-primary mb-5 text-xs font-bold tracking-wider uppercase">
-              Candidatos
-            </h4>
-            <div className="space-y-3">
-              {footerLinks.candidatos.map((link) => (
-                <Link
-                  key={link.label}
-                  to={link.href}
-                  className="text-muted-foreground hover:text-primary flex items-center gap-2 text-sm transition-colors duration-200"
-                >
-                  <span className="text-primary/50 h-1 w-1 rounded-full bg-current" />
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-          </div>
-
           {/* ─── Atendimento ─────────────────────── */}
           <div className="lg:col-span-2">
             <h4 className="text-primary mb-5 text-xs font-bold tracking-wider uppercase">
@@ -265,14 +243,24 @@ export function Footer() {
             </h4>
             <div className="space-y-3">
               {footerLinks.atendimento.map((link) => (
-                <Link
+                <a
                   key={link.label}
-                  to={link.href}
+                  href={link.href}
+                  target={
+                    link.label === 'WhatsApp' || link.label === 'E-mail'
+                      ? '_blank'
+                      : undefined
+                  }
+                  rel={
+                    link.label === 'WhatsApp' || link.label === 'E-mail'
+                      ? 'noopener noreferrer'
+                      : undefined
+                  }
                   className="text-muted-foreground hover:text-primary flex items-center gap-2 text-sm transition-colors duration-200"
                 >
                   <span className="text-primary/50 h-1 w-1 rounded-full bg-current" />
                   {link.label}
-                </Link>
+                </a>
               ))}
             </div>
           </div>
@@ -346,7 +334,8 @@ export function Footer() {
           <div className="text-muted-foreground flex items-center gap-2 text-xs">
             <Heart className="text-primary h-3.5 w-3.5" />
             <span>
-              © {currentYear} JS Empregos. Todos os direitos reservados.
+              © {currentYear} {COMPANY.tradingName}. Todos os direitos
+              reservados.
             </span>
           </div>
           <div className="text-muted-foreground flex flex-wrap justify-center gap-4 text-xs">
