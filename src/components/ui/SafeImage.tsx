@@ -69,7 +69,7 @@ export function SafeImage({
         (fallback ?? DEFAULT_FALLBACK)
       ) : (
         <img
-          src={src}
+          src={imgSrc}
           alt={alt}
           loading={loading}
           onLoad={() => setIsLoading(false)}

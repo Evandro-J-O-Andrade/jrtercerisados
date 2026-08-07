@@ -7,9 +7,9 @@ export interface PageSEO {
 
 export const SEO_PAGES: Record<string, PageSEO> = {
   '/': {
-    title: 'JS Empregos — Agência de Empregos e Assessoria em RH',
+    title: 'J&S Tercerizados LTDA — Agência de Empregos e Assessoria em RH',
     description:
-      'Conectamos talentos às melhores oportunidades. Encontre vagas de emprego ou encontre profissionais qualificados para sua empresa. Mão de obra temporária e efetiva.',
+      'Mais eficiência em RH. Mais resultados para sua empresa. Conectamos talentos às melhores oportunidades. Encontre vagas de emprego ou profissionais qualificados.',
     keywords: [
       'agência de empregos',
       'recrutamento',
@@ -48,7 +48,7 @@ export const SEO_PAGES: Record<string, PageSEO> = {
       'recrutamento para empresas',
       'contratar funcionários',
       'mão de obra temporária',
-      'mão de obra efetiva',
+      'assessoria em rh',
       'seleção de pessoas',
       'banco de talentos',
     ],
@@ -71,7 +71,7 @@ export const SEO_PAGES: Record<string, PageSEO> = {
     title:
       'Serviços de RH e Recrutamento — Mão de Obra Temporária e Efetiva | JS Empregos',
     description:
-      'Recrutamento, seleção, banco de talentos, hunting, mão de obra temporária e efetiva. Soluções sob medida para sua empresa e seu perfil.',
+      'Soluções completas em RH: Recrutamento, seleção, mão de obra temporária e efetiva, assessoria em RH e facilities. Tudo para sua empresa.',
     keywords: [
       'serviços de RH',
       'recrutamento',

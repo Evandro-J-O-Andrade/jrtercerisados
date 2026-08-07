@@ -2,12 +2,13 @@ export const COMPANY_DEMO = {
   name: 'JS Empregos',
   tagline: 'Conectando talentos às melhores oportunidades',
   description:
-    'Somos uma agência de empregos e assessoria em Recursos Humanos que conecta empresas aos melhores profissionais através de recrutamento, seleção, banco de talentos e hunting. Como solução complementar, oferecemos terceirização de serviços operacionais.',
+    'Mais eficiência em RH. Mais resultados para sua empresa. Conectamos empresas aos melhores profissionais através de recrutamento, seleção, mão de obra temporária, efetiva e assessoria completa em RH.',
   mission:
     'Conectar empresas aos profissionais certos e ajudar candidatos a conquistarem novas oportunidades, por meio de recrutamento, seleção e um banco de talentos sempre atualizado.',
   vision:
     'Ser a referência em agência de empregos e assessoria de RH, reconhecida pela excelência no recrutamento e pela conexão humanizada entre empresas e talentos.',
   values: [
+    'Compromisso',
     'Excelência',
     'Inovação',
     'Transparência',
@@ -24,7 +25,7 @@ export const TEAM_MEMBERS = [
     id: 'team-01',
     name: 'Ricardo Santos',
     role: 'CEO & Fundador',
-    image: '/images/team/ricardo-santos.svg',
+    image: '/images/team/placeholder.svg',
     bio: 'Fundador da JS Empregos com mais de 15 anos de experiência em recrutamento e seleção de talentos.',
     linkedin: 'https://linkedin.com/in/ricardo-santos',
   },
@@ -32,7 +33,7 @@ export const TEAM_MEMBERS = [
     id: 'team-02',
     name: 'Fernanda Oliveira',
     role: 'Diretora de Operações',
-    image: '/images/team/fernanda-oliveira.svg',
+    image: '/images/team/placeholder.svg',
     bio: 'Especialista em logística de serviços com experiência em grandes operações corporativas.',
     linkedin: 'https://linkedin.com/in/fernanda-oliveira',
   },
@@ -40,7 +41,7 @@ export const TEAM_MEMBERS = [
     id: 'team-03',
     name: 'Thiago Mendes',
     role: 'Diretor de Tecnologia',
-    image: '/images/team/thiago-mendes.svg',
+    image: '/images/team/placeholder.svg',
     bio: 'Responsável pela inovação tecnológica e sistemas de monitoramento da empresa.',
     linkedin: 'https://linkedin.com/in/thiago-mendes',
   },
@@ -51,7 +52,7 @@ export const COMPANY_TIMELINE = [
     year: '2011',
     event: 'Fundação da JS Empregos',
     description:
-      'Começamos como uma agência de empregos focada em recrutamento e seleção de profissionais qualificados.',
+      'Início das operações como uma agência focada em recrutamento e seleção de profissionais qualificados.',
   },
   {
     year: '2015',
@@ -68,13 +69,14 @@ export const COMPANY_TIMELINE = [
   {
     year: '2020',
     event: '200 Clientes',
-    description: 'Atingimos a marca de 200 clientes satisfeitos.',
+    description:
+      'Atingimos a marca de 200 clientes empresariais satisfeitos com nossas soluções de RH.',
   },
   {
     year: '2022',
     event: 'Plataforma JR RH',
     description:
-      'Lançamos a plataforma web para recrutamento, seleção e gestão de talentos.',
+      'Lançamento da plataforma digital para otimizar a gestão de vagas, candidatos e processos seletivos.',
   },
   {
     year: '2024',

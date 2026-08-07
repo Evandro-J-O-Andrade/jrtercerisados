@@ -7,8 +7,8 @@ export const COMPANY = {
   email: 'contato@jrtelempregos.com.br',
   whatsapp: '5511968380592',
   description:
-    'Agência de Empregos e Assessoria em Recursos Humanos. Conectamos empresas aos melhores profissionais através de recrutamento, seleção, banco de talentos e hunting. Especialistas em mão de obra temporária e efetiva. Facilities como solução complementar.',
-  tagline: 'Conectando talentos às melhores oportunidades.',
+    'Agência de Empregos e Assessoria em Recursos Humanos. Mais eficiência em RH. Mais resultados para sua empresa. Conectamos empresas aos melhores profissionais por meio de recrutamento, seleção, banco de talentos e hunting.',
+  tagline: 'Mais eficiência em RH. Mais resultados para sua empresa.',
   address: {
     street: 'Rodovia João Afonso de Souza Castellano',
     number: '411',
