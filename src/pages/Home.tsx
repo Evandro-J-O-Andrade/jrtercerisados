@@ -219,6 +219,70 @@ export default function Home() {
         </motion.div>
       </motion.div>
 
+      {/* Two Paths */}
+      <Section>
+        <Container>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-100px' }}
+            variants={staggerReveal(0.2)}
+            className="grid grid-cols-1 gap-6 md:grid-cols-2"
+          >
+            <Link to="/trabalhe-conosco">
+              <motion.div
+                variants={revealUp}
+                className="group bg-card border-border hover:border-primary/30 shadow-premium relative flex flex-col items-center rounded-2xl p-10 text-center transition-all duration-300"
+              >
+                <div className="bg-primary/10 group-hover:bg-primary/20 mb-6 flex h-20 w-20 items-center justify-center rounded-full text-3xl transition-all duration-300">
+                  <Users className="text-primary h-10 w-10" />
+                </div>
+                <h3 className="text-foreground group-hover:text-primary mb-3 text-2xl font-bold transition-colors">
+                  Encontre oportunidades
+                </h3>
+                <p className="text-muted-foreground mb-6 max-w-xs text-sm">
+                  Cadastre seu currículo no Banco de Talentos e encontre as
+                  vagas que combinam com seu perfil.
+                </p>
+                <Button
+                  variant="secondary"
+                  size="lg"
+                  className="mt-auto rounded-[14px] px-6"
+                >
+                  Quero uma Vaga
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </motion.div>
+            </Link>
+            <Link to="/empresas">
+              <motion.div
+                variants={revealUp}
+                className="group bg-card border-border hover:border-primary/30 shadow-premium relative flex flex-col items-center rounded-2xl p-10 text-center transition-all duration-300"
+              >
+                <div className="bg-primary/10 group-hover:bg-primary/20 mb-6 flex h-20 w-20 items-center justify-center rounded-full text-3xl transition-all duration-300">
+                  <Shield className="text-primary h-10 w-10" />
+                </div>
+                <h3 className="text-foreground group-hover:text-primary mb-3 text-2xl font-bold transition-colors">
+                  Contrate profissionais
+                </h3>
+                <p className="text-muted-foreground mb-6 max-w-xs text-sm">
+                  Encontre os profissionais certos para sua empresa. Mão de obra
+                  temporária, efetiva e recrutamento seletivo.
+                </p>
+                <Button
+                  variant="secondary"
+                  size="lg"
+                  className="mt-auto rounded-[14px] px-6"
+                >
+                  Contritar Funcionários
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </motion.div>
+            </Link>
+          </motion.div>
+        </Container>
+      </Section>
+
       {/* Stats Counter */}
       <Section>
         <Container>

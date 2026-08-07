@@ -41,11 +41,11 @@ export const CLIENT_TESTIMONIALS = [
   {
     id: 'testimonial-01',
     name: 'Carlos Silva',
-    role: 'Diretor de Segurança',
+    role: 'Diretor de Recursos Humanos',
     company: 'Empresa Alpha',
     image: '/images/team/carlos-silva.svg',
     quote:
-      'A JSTerceirizados transformou nossa operação de segurança. Redução de 80% em incidentes.',
+      'A JR Agência de Empregos entregou profissionais qualificados em tempo recorde. Nossa equipe cresceu 40% sem perder a qualidade.',
     rating: 5,
   },
   {
@@ -55,7 +55,7 @@ export const CLIENT_TESTIMONIALS = [
     company: 'Corp Epslon',
     image: '/images/team/ana-costa.svg',
     quote:
-      'Profissionais altamente capacitados e tecnologia de ponta. Recomendamos sem hesitar.',
+      'Contamos com a JR para recrutamento e também para soluções de facilities. Excelente parceria estratégica e resultados consistentes.',
     rating: 5,
   },
   {

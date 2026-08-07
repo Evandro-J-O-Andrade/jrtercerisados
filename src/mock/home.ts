@@ -26,31 +26,31 @@ export interface Step {
 export const WORK_STEPS: Step[] = [
   {
     step: '01',
-    title: 'Avaliação',
+    title: 'Avaliação das Necessidades',
     description:
-      'Analisamos suas necessidades e avaliamos o melhor plano para sua empresa.',
+      'Analisamos suas vagas e requisitos para definir o perfil ideal de profissional.',
     icon: 'clipboard-check',
   },
   {
     step: '02',
-    title: 'Planejamento',
+    title: 'Busca e Triagem',
     description:
-      'Elaboramos um plano personalizado com cronograma e recursos definidos.',
-    icon: 'calendar',
+      'Nossa equipe de RH busca nos canais certos e tria os currículos mais compatíveis.',
+    icon: 'search',
   },
   {
     step: '03',
-    title: 'Execução',
+    title: 'Avaliação e Seleção',
     description:
-      'Implementamos os serviços com profissionais treinados e monitoramento constante.',
-    icon: 'play',
+      'Realizamos entrevistas, testes técnicos e validação de experiências para selecionar os melhores.',
+    icon: 'users',
   },
   {
     step: '04',
-    title: 'Monitoramento',
+    title: 'Contratação e Integração',
     description:
-      'Acompanhamento contínuo e relatórios periódicos para garantir resultados.',
-    icon: 'activity',
+      'Você contrata o profissional e conta com nosso suporte para uma integração tranquila.',
+    icon: 'check-circle',
   },
 ] as const;
 
