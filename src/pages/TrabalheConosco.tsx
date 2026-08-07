@@ -8,6 +8,7 @@ import { z } from 'zod';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
 import { Textarea } from '@/components/ui/Textarea';
+import { SEO } from '@/components/ui/SEO';
 import { Section } from '@/components/sections/Section';
 import { Container } from '@/components/common/Container';
 import { mockSubmitCandidate } from '@/services/mock/curriculos';
@@ -151,239 +152,254 @@ export default function TrabalheConosco() {
   }
 
   return (
-    <div>
-      <Section>
-        <Container>
-          <div className="mb-12 text-center">
-            <h1 className="text-foreground text-3xl font-bold sm:text-4xl">
-              Faça parte da nossa equipe
-            </h1>
-            <p className="text-muted-foreground mx-auto mt-4 max-w-2xl text-lg">
-              Preencha o formulário abaixo com seus dados e anexe seu currículo.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-5">
-            <div className="lg:col-span-2">
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-              >
-                <div className="bg-primary/10 text-primary mb-4 inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium">
-                  <Briefcase className="h-4 w-4" />
-                  Banco de Talentos
-                </div>
-                <p className="text-muted-foreground">
-                  Selecione sua área de atuação e preencha o formulário com seus
-                  dados e anexe seu currículo.
-                </p>
-
-                <div className="mt-6 space-y-3">
-                  {positionOptions.map((opt) => (
-                    <label
-                      key={opt.value}
-                      className={cn(
-                        'flex cursor-pointer items-center gap-3 rounded-lg border p-3 transition-colors',
-                        selectedPosition === opt.value
-                          ? 'border-primary bg-primary/5'
-                          : 'border-border hover:border-primary',
-                      )}
-                    >
-                      <input
-                        type="radio"
-                        name="position"
-                        value={opt.value}
-                        checked={selectedPosition === opt.value}
-                        onChange={(e) => setSelectedPosition(e.target.value)}
-                        className="text-primary focus:ring-primary h-4 w-4"
-                      />
-                      <span className="text-muted-foreground text-sm font-medium">
-                        {opt.label}
-                      </span>
-                    </label>
-                  ))}
-                </div>
-              </motion.div>
+    <>
+      <SEO
+        title="Envie seu Currículo — Cadastre-se | J&S"
+        description="Cadastre seu currículo e candidate-se às vagas que combinam com seu perfil. Sua nova oportunidade começa aqui."
+        keywords={[
+          'enviar currículo',
+          'candidatura',
+          'trabalhe conosco',
+          'vagas de emprego',
+          'cadastro',
+        ]}
+        type="WebSite"
+      />
+      <div>
+        <Section>
+          <Container>
+            <div className="mb-12 text-center">
+              <h1 className="text-foreground text-3xl font-bold sm:text-4xl">
+                Faça parte da nossa equipe
+              </h1>
+              <p className="text-muted-foreground mx-auto mt-4 max-w-2xl text-lg">
+                Preencha o formulário abaixo com seus dados e anexe seu
+                currículo.
+              </p>
             </div>
 
-            <div className="lg:col-span-3">
-              {selectedPosition && (
-                <motion.form
-                  key={selectedPosition}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3 }}
-                  onSubmit={handleSubmit(onSubmit)}
-                  className="bg-card shadow-premium rounded-2xl p-8"
+            <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-5">
+              <div className="lg:col-span-2">
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
                 >
-                  <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                    <div className="md:col-span-2">
-                      <Input
-                        label="Nome Completo *"
-                        placeholder="Seu nome completo"
-                        error={errors.name?.message}
-                        {...register('name')}
-                      />
-                    </div>
+                  <div className="bg-primary/10 text-primary mb-4 inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium">
+                    <Briefcase className="h-4 w-4" />
+                    Banco de Talentos
+                  </div>
+                  <p className="text-muted-foreground">
+                    Selecione sua área de atuação e preencha o formulário com
+                    seus dados e anexe seu currículo.
+                  </p>
 
-                    <div className="md:col-span-2">
-                      <Input
-                        label="CPF"
-                        placeholder="000.000.000-00"
-                        error={errors.cpf?.message}
-                        {...register('cpf')}
-                      />
-                    </div>
-                    <div className="md:col-span-2">
-                      <Input
-                        label="RG"
-                        placeholder="00.000.000-0"
-                        error={errors.rg?.message}
-                        {...register('rg')}
-                      />
-                    </div>
-                    <div className="md:col-span-2">
-                      <Input
-                        label="Cursos"
-                        placeholder="Ex: Administração, Informática..."
-                        error={errors.courses?.message}
-                        {...register('courses')}
-                      />
-                    </div>
-                    <div>
-                      <Input
-                        label="Disponibilidade"
-                        placeholder="Ex: Integral, Manhã, Tarde..."
-                        error={errors.availability?.message}
-                        {...register('availability')}
-                      />
-                    </div>
-                    <div>
-                      <Input
-                        label="Escala Preferida"
-                        placeholder="Ex: 2º turno, Noturno..."
-                        error={errors.schedule?.message}
-                        {...register('schedule')}
-                      />
-                    </div>
-
-                    <div>
-                      <Input
-                        label="Telefone *"
-                        placeholder="(11) 99999-9999"
-                        error={errors.phone?.message}
-                        {...register('phone')}
-                      />
-                    </div>
-                    <div>
-                      <Input
-                        label="E-mail *"
-                        type="email"
-                        placeholder="seu@email.com"
-                        error={errors.email?.message}
-                        {...register('email')}
-                      />
-                    </div>
-                    <div>
-                      <Input
-                        label="Cidade *"
-                        placeholder="São Paulo"
-                        error={errors.city?.message}
-                        {...register('city')}
-                      />
-                    </div>
-                    <div>
-                      <Input
-                        label="Experiência *"
-                        placeholder="Ex: 2 anos na área..."
-                        error={errors.experience?.message}
-                        {...register('experience')}
-                      />
-                    </div>
-                    <div className="md:col-span-2">
-                      <Textarea
-                        label="Currículo *"
-                        placeholder="Descreva sua experiência profissional..."
-                        rows={4}
-                        error={errors.resume?.message}
-                        {...register('resume')}
-                      />
-                    </div>
-                    <div className="md:col-span-2">
-                      <label className="text-muted-foreground mb-1 block text-sm font-medium">
-                        Anexar Currículo (PDF, DOC, DOCX — máx. 10 MB)
-                      </label>
-                      <div
+                  <div className="mt-6 space-y-3">
+                    {positionOptions.map((opt) => (
+                      <label
+                        key={opt.value}
                         className={cn(
-                          'border-input bg-surface text-foreground focus:border-primary focus:ring-primary/20 relative flex min-h-[120px] items-center justify-center rounded-lg border-2 border-dashed px-4 py-6 transition-colors focus:ring-2 focus:outline-none',
-                          errors.resumeFile?.message &&
-                            'border-destructive focus:border-destructive focus:ring-destructive/20',
+                          'flex cursor-pointer items-center gap-3 rounded-lg border p-3 transition-colors',
+                          selectedPosition === opt.value
+                            ? 'border-primary bg-primary/5'
+                            : 'border-border hover:border-primary',
                         )}
                       >
                         <input
-                          type="file"
-                          accept=".pdf,.doc,.docx"
-                          onChange={(e) => {
-                            const file = e.target.files?.[0] ?? null;
-                            setSelectedFile(file);
-                          }}
-                          className="absolute inset-0 h-full w-full cursor-pointer opacity-0"
-                          aria-label="Selecionar arquivo de currículo"
+                          type="radio"
+                          name="position"
+                          value={opt.value}
+                          checked={selectedPosition === opt.value}
+                          onChange={(e) => setSelectedPosition(e.target.value)}
+                          className="text-primary focus:ring-primary h-4 w-4"
                         />
-                        <div className="pointer-events-none text-center">
-                          <Upload className="text-muted-foreground mx-auto mb-2 h-8 w-8" />
-                          <p className="text-muted-foreground text-sm">
-                            {selectedFile
-                              ? selectedFile.name
-                              : 'Arraste o arquivo ou clique para selecionar'}
-                          </p>
-                          <p className="text-muted-foreground/60 mt-1 text-xs">
-                            PDF, DOC ou DOCX — até 10 MB
-                          </p>
-                        </div>
-                      </div>
-                      {errors.resumeFile && (
-                        <p className="text-destructive mt-1 text-sm">
-                          {errors.resumeFile.message}
-                        </p>
-                      )}
-                    </div>
+                        <span className="text-muted-foreground text-sm font-medium">
+                          {opt.label}
+                        </span>
+                      </label>
+                    ))}
                   </div>
-
-                  <input type="hidden" {...register('position')} />
-
-                  <div className="mt-8">
-                    <Button
-                      type="submit"
-                      variant="secondary"
-                      size="lg"
-                      className="w-full"
-                      loading={isSubmitting}
-                      leftIcon={<Send className="h-5 w-5" />}
-                    >
-                      Enviar Currículo
-                    </Button>
-                  </div>
-                </motion.form>
-              )}
-
-              {!selectedPosition && (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  className="bg-card shadow-premium rounded-2xl p-8 text-center"
-                >
-                  <Briefcase className="text-muted-foreground mx-auto mb-4 h-12 w-12" />
-                  <p className="text-muted-foreground">
-                    Selecione uma vaga acima para preencher o formulário.
-                  </p>
                 </motion.div>
-              )}
+              </div>
+
+              <div className="lg:col-span-3">
+                {selectedPosition && (
+                  <motion.form
+                    key={selectedPosition}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3 }}
+                    onSubmit={handleSubmit(onSubmit)}
+                    className="bg-card shadow-premium rounded-2xl p-8"
+                  >
+                    <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                      <div className="md:col-span-2">
+                        <Input
+                          label="Nome Completo *"
+                          placeholder="Seu nome completo"
+                          error={errors.name?.message}
+                          {...register('name')}
+                        />
+                      </div>
+
+                      <div className="md:col-span-2">
+                        <Input
+                          label="CPF"
+                          placeholder="000.000.000-00"
+                          error={errors.cpf?.message}
+                          {...register('cpf')}
+                        />
+                      </div>
+                      <div className="md:col-span-2">
+                        <Input
+                          label="RG"
+                          placeholder="00.000.000-0"
+                          error={errors.rg?.message}
+                          {...register('rg')}
+                        />
+                      </div>
+                      <div className="md:col-span-2">
+                        <Input
+                          label="Cursos"
+                          placeholder="Ex: Administração, Informática..."
+                          error={errors.courses?.message}
+                          {...register('courses')}
+                        />
+                      </div>
+                      <div>
+                        <Input
+                          label="Disponibilidade"
+                          placeholder="Ex: Integral, Manhã, Tarde..."
+                          error={errors.availability?.message}
+                          {...register('availability')}
+                        />
+                      </div>
+                      <div>
+                        <Input
+                          label="Escala Preferida"
+                          placeholder="Ex: 2º turno, Noturno..."
+                          error={errors.schedule?.message}
+                          {...register('schedule')}
+                        />
+                      </div>
+
+                      <div>
+                        <Input
+                          label="Telefone *"
+                          placeholder="(11) 99999-9999"
+                          error={errors.phone?.message}
+                          {...register('phone')}
+                        />
+                      </div>
+                      <div>
+                        <Input
+                          label="E-mail *"
+                          type="email"
+                          placeholder="seu@email.com"
+                          error={errors.email?.message}
+                          {...register('email')}
+                        />
+                      </div>
+                      <div>
+                        <Input
+                          label="Cidade *"
+                          placeholder="São Paulo"
+                          error={errors.city?.message}
+                          {...register('city')}
+                        />
+                      </div>
+                      <div>
+                        <Input
+                          label="Experiência *"
+                          placeholder="Ex: 2 anos na área..."
+                          error={errors.experience?.message}
+                          {...register('experience')}
+                        />
+                      </div>
+                      <div className="md:col-span-2">
+                        <Textarea
+                          label="Currículo *"
+                          placeholder="Descreva sua experiência profissional..."
+                          rows={4}
+                          error={errors.resume?.message}
+                          {...register('resume')}
+                        />
+                      </div>
+                      <div className="md:col-span-2">
+                        <label className="text-muted-foreground mb-1 block text-sm font-medium">
+                          Anexar Currículo (PDF, DOC, DOCX — máx. 10 MB)
+                        </label>
+                        <div
+                          className={cn(
+                            'border-input bg-surface text-foreground focus:border-primary focus:ring-primary/20 relative flex min-h-[120px] items-center justify-center rounded-lg border-2 border-dashed px-4 py-6 transition-colors focus:ring-2 focus:outline-none',
+                            errors.resumeFile?.message &&
+                              'border-destructive focus:border-destructive focus:ring-destructive/20',
+                          )}
+                        >
+                          <input
+                            type="file"
+                            accept=".pdf,.doc,.docx"
+                            onChange={(e) => {
+                              const file = e.target.files?.[0] ?? null;
+                              setSelectedFile(file);
+                            }}
+                            className="absolute inset-0 h-full w-full cursor-pointer opacity-0"
+                            aria-label="Selecionar arquivo de currículo"
+                          />
+                          <div className="pointer-events-none text-center">
+                            <Upload className="text-muted-foreground mx-auto mb-2 h-8 w-8" />
+                            <p className="text-muted-foreground text-sm">
+                              {selectedFile
+                                ? selectedFile.name
+                                : 'Arraste o arquivo ou clique para selecionar'}
+                            </p>
+                            <p className="text-muted-foreground/60 mt-1 text-xs">
+                              PDF, DOC ou DOCX — até 10 MB
+                            </p>
+                          </div>
+                        </div>
+                        {errors.resumeFile && (
+                          <p className="text-destructive mt-1 text-sm">
+                            {errors.resumeFile.message}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+
+                    <input type="hidden" {...register('position')} />
+
+                    <div className="mt-8">
+                      <Button
+                        type="submit"
+                        variant="secondary"
+                        size="lg"
+                        className="w-full"
+                        loading={isSubmitting}
+                        leftIcon={<Send className="h-5 w-5" />}
+                      >
+                        Enviar Currículo
+                      </Button>
+                    </div>
+                  </motion.form>
+                )}
+
+                {!selectedPosition && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    className="bg-card shadow-premium rounded-2xl p-8 text-center"
+                  >
+                    <Briefcase className="text-muted-foreground mx-auto mb-4 h-12 w-12" />
+                    <p className="text-muted-foreground">
+                      Selecione uma vaga acima para preencher o formulário.
+                    </p>
+                  </motion.div>
+                )}
+              </div>
             </div>
-          </div>
-        </Container>
-      </Section>
-    </div>
+          </Container>
+        </Section>
+      </div>
+    </>
   );
 }

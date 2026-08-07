@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { MapPin, Search, Filter } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
+import { SEO } from '@/components/ui/SEO';
 import { Section } from '@/components/sections/Section';
 import { Container } from '@/components/common/Container';
 import { staggerReveal, revealUp } from '@/animations/scroll';
@@ -32,232 +33,249 @@ export default function Vagas() {
   }, [searchTerm, cidadeFilter, tipoFilter]);
 
   return (
-    <div className="min-h-screen pt-16 lg:pt-20">
-      <Section className="pt-20 md:pt-28">
-        <Container>
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-100px' }}
-            variants={staggerReveal(0.15)}
-            className="mb-12 text-center"
-          >
-            <motion.h1
-              variants={revealUp}
-              className="text-foreground text-4xl font-extrabold tracking-tight sm:text-5xl"
+    <>
+      <SEO
+        title="Vagas de Emprego — Encontre sua próxima oportunidade | J&S"
+        description="Confira vagas de emprego atualizadas. Encontre a oportunidade certa para seu perfil e candidate-se agora."
+        keywords={[
+          'vagas de emprego',
+          'empregos',
+          'trabalho',
+          'CLT',
+          'temporário',
+          'freelance',
+          'vagas SP',
+        ]}
+        type="Service"
+      />
+      <div className="min-h-screen pt-16 lg:pt-20">
+        <Section className="pt-20 md:pt-28">
+          <Container>
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: '-100px' }}
+              variants={staggerReveal(0.15)}
+              className="mb-12 text-center"
             >
-              Vagas Disponíveis
-            </motion.h1>
-            <motion.p
-              variants={revealUp}
-              className="text-muted-foreground mx-auto mt-4 max-w-2xl text-lg"
-            >
-              Encontre a oportunidade ideal para o seu perfil profissional.
-            </motion.p>
-          </motion.div>
-
-          {/* Search + Filters */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="mb-8 grid grid-cols-1 gap-4 md:grid-cols-4"
-          >
-            <div className="relative">
-              <Search className="text-muted-foreground absolute top-1/2 left-3 h-5 w-5 -translate-y-1/2" />
-              <input
-                type="text"
-                placeholder="Busque por cargo, empresa..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="border-input bg-surface text-foreground focus:border-primary focus:ring-primary/20 w-full rounded-xl border px-4 py-3 pl-10 text-sm transition-colors outline-none focus:ring-2"
-              />
-            </div>
-            <div className="relative">
-              <MapPin className="text-muted-foreground absolute top-1/2 left-3 h-5 w-5 -translate-y-1/2" />
-              <input
-                type="text"
-                placeholder="Cidade"
-                value={cidadeFilter}
-                onChange={(e) => setCidadeFilter(e.target.value)}
-                className="border-input bg-surface text-foreground focus:border-primary focus:ring-primary/20 w-full rounded-xl border px-4 py-3 pl-10 text-sm transition-colors outline-none focus:ring-2"
-              />
-            </div>
-            <select
-              value={tipoFilter}
-              onChange={(e) => setTipoFilter(e.target.value)}
-              className="border-input bg-surface text-foreground focus:border-primary focus:ring-primary/20 w-full cursor-pointer rounded-xl border px-4 py-3 text-sm transition-colors outline-none focus:ring-2"
-            >
-              <option value="">Todos os contratos</option>
-              <option value="CLT">CLT</option>
-              <option value="ESTAGIO">Estágio</option>
-              <option value="TEMPORARIO">Temporário</option>
-              <option value="TERCEIRIZADO">Terceirizado</option>
-            </select>
-            <Button
-              variant="outline"
-              size="lg"
-              className="w-full"
-              onClick={() => {
-                setSearchTerm('');
-                setCidadeFilter('');
-                setTipoFilter('');
-              }}
-            >
-              <Filter className="mr-2 h-4 w-4" />
-              Limpar filtros
-            </Button>
-          </motion.div>
-
-          {/* Results header */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="mb-6 flex items-center justify-between"
-          >
-            <p className="text-muted-foreground text-sm">
-              <span className="text-foreground font-medium">
-                {vagas.length}
-              </span>{' '}
-              vaga{vagas.length !== 1 ? 's' : ''} encontrada
-              {vagas.length !== 1 ? 's' : ''}
-            </p>
-            <Link to="/trabalhe-conosco">
-              <Button variant="secondary" size="sm">
-                Cadastrar Currículo
-              </Button>
-            </Link>
-          </motion.div>
-
-          {/* Vagas Grid */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={staggerReveal(0.1)}
-            className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
-          >
-            {vagas.length === 0 ? (
-              <motion.div
-                variants={staggerItem('up')}
-                className="bg-card shadow-premium col-span-full rounded-2xl p-12 text-center"
+              <motion.h1
+                variants={revealUp}
+                className="text-foreground text-4xl font-extrabold tracking-tight sm:text-5xl"
               >
-                <p className="text-muted-foreground">
-                  Nenhuma vaga encontrada com os filtros aplicados.
-                </p>
-              </motion.div>
-            ) : (
-              vagas.map((vaga) => (
-                <motion.div
-                  key={vaga.id}
-                  variants={staggerItem('up')}
-                  whileHover={{ y: -4 }}
-                  className="bg-card shadow-premium group relative flex flex-col rounded-2xl p-6 transition-all duration-300"
-                >
-                  <div className="mb-4 flex items-start justify-between">
-                    <div>
-                      <h3 className="text-foreground group-hover:text-primary mb-1 text-xl font-bold transition-colors">
-                        {vaga.titulo}
-                      </h3>
-                      <p className="text-muted-foreground text-sm">
-                        {vaga.empresa}
-                      </p>
-                    </div>
-                    <span
-                      className={`rounded-full px-2.5 py-1 text-xs font-medium ${
-                        vaga.tipoContrato === 'CLT'
-                          ? 'bg-success/10 text-success'
-                          : 'bg-primary/10 text-primary'
-                      }`}
-                    >
-                      {CONTRATO_LABELS[vaga.tipoContrato] || vaga.tipoContrato}
-                    </span>
-                  </div>
+                Vagas Disponíveis
+              </motion.h1>
+              <motion.p
+                variants={revealUp}
+                className="text-muted-foreground mx-auto mt-4 max-w-2xl text-lg"
+              >
+                Encontre a oportunidade ideal para o seu perfil profissional.
+              </motion.p>
+            </motion.div>
 
-                  <div className="mb-4 space-y-2">
-                    <div className="flex items-center gap-2 text-sm">
-                      <MapPin className="text-muted-foreground h-4 w-4" />
-                      <span className="text-muted-foreground">
-                        {vaga.cidade}, {vaga.estado}
-                      </span>
-                    </div>
-                    {vaga.salarioMin && (
-                      <div className="flex items-center gap-2 text-sm">
-                        <span className="text-muted-foreground">R$</span>
-                        <span className="text-muted-foreground">
-                          {vaga.salarioMin.toLocaleString('pt-BR')}
-                          {' – '}
-                          {vaga.salarioMax
-                            ? vaga.salarioMax.toLocaleString('pt-BR')
-                            : 'a combinar'}
-                        </span>
-                      </div>
-                    )}
-                    {vaga.modalidade && (
-                      <span className="text-muted-foreground inline-block text-xs">
-                        {vaga.modalidade === 'PRESENCIAL'
-                          ? 'Presencial'
-                          : vaga.modalidade === 'HIBRIDO'
-                            ? 'Híbrido'
-                            : 'Remoto'}
-                      </span>
-                    )}
-                  </div>
-
-                  {vaga.beneficios && vaga.beneficios.length > 0 && (
-                    <div className="mb-4">
-                      <p className="text-muted-foreground mb-2 text-xs font-medium">
-                        Benefícios
-                      </p>
-                      <div className="flex flex-wrap gap-1">
-                        {vaga.beneficios.slice(0, 3).map((beneficio) => (
-                          <span
-                            key={beneficio}
-                            className="bg-muted rounded-full px-2 py-0.5 text-xs"
-                          >
-                            {beneficio}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
-                  <div className="mt-auto flex gap-2">
-                    <Link to={`/vagas/${vaga.slug}`} className="flex-1">
-                      <Button variant="primary" size="sm" className="w-full">
-                        Ver vaga
-                      </Button>
-                    </Link>
-                    <Link to="/trabalhe-conosco" className="flex-1">
-                      <Button variant="outline" size="sm" className="w-full">
-                        Candidatar-se
-                      </Button>
-                    </Link>
-                  </div>
-                </motion.div>
-              ))
-            )}
-          </motion.div>
-
-          {vagas.length > 0 && vagas.length < 100 && (
+            {/* Search + Filters */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
-              className="mt-12 text-center"
+              transition={{ delay: 0.2 }}
+              className="mb-8 grid grid-cols-1 gap-4 md:grid-cols-4"
+            >
+              <div className="relative">
+                <Search className="text-muted-foreground absolute top-1/2 left-3 h-5 w-5 -translate-y-1/2" />
+                <input
+                  type="text"
+                  placeholder="Busque por cargo, empresa..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="border-input bg-surface text-foreground focus:border-primary focus:ring-primary/20 w-full rounded-xl border px-4 py-3 pl-10 text-sm transition-colors outline-none focus:ring-2"
+                />
+              </div>
+              <div className="relative">
+                <MapPin className="text-muted-foreground absolute top-1/2 left-3 h-5 w-5 -translate-y-1/2" />
+                <input
+                  type="text"
+                  placeholder="Cidade"
+                  value={cidadeFilter}
+                  onChange={(e) => setCidadeFilter(e.target.value)}
+                  className="border-input bg-surface text-foreground focus:border-primary focus:ring-primary/20 w-full rounded-xl border px-4 py-3 pl-10 text-sm transition-colors outline-none focus:ring-2"
+                />
+              </div>
+              <select
+                value={tipoFilter}
+                onChange={(e) => setTipoFilter(e.target.value)}
+                className="border-input bg-surface text-foreground focus:border-primary focus:ring-primary/20 w-full cursor-pointer rounded-xl border px-4 py-3 text-sm transition-colors outline-none focus:ring-2"
+              >
+                <option value="">Todos os contratos</option>
+                <option value="CLT">CLT</option>
+                <option value="ESTAGIO">Estágio</option>
+                <option value="TEMPORARIO">Temporário</option>
+                <option value="TERCEIRIZADO">Terceirizado</option>
+              </select>
+              <Button
+                variant="outline"
+                size="lg"
+                className="w-full"
+                onClick={() => {
+                  setSearchTerm('');
+                  setCidadeFilter('');
+                  setTipoFilter('');
+                }}
+              >
+                <Filter className="mr-2 h-4 w-4" />
+                Limpar filtros
+              </Button>
+            </motion.div>
+
+            {/* Results header */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="mb-6 flex items-center justify-between"
             >
               <p className="text-muted-foreground text-sm">
-                Mostrando {vagas.length} vaga
-                {vagas.length !== 1 ? 's' : ''} de {vagas.length} disponível
+                <span className="text-foreground font-medium">
+                  {vagas.length}
+                </span>{' '}
+                vaga{vagas.length !== 1 ? 's' : ''} encontrada
                 {vagas.length !== 1 ? 's' : ''}
               </p>
+              <Link to="/trabalhe-conosco">
+                <Button variant="secondary" size="sm">
+                  Cadastrar Currículo
+                </Button>
+              </Link>
             </motion.div>
-          )}
-        </Container>
-      </Section>
-    </div>
+
+            {/* Vagas Grid */}
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={staggerReveal(0.1)}
+              className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
+            >
+              {vagas.length === 0 ? (
+                <motion.div
+                  variants={staggerItem('up')}
+                  className="bg-card shadow-premium col-span-full rounded-2xl p-12 text-center"
+                >
+                  <p className="text-muted-foreground">
+                    Nenhuma vaga encontrada com os filtros aplicados.
+                  </p>
+                </motion.div>
+              ) : (
+                vagas.map((vaga) => (
+                  <motion.div
+                    key={vaga.id}
+                    variants={staggerItem('up')}
+                    whileHover={{ y: -4 }}
+                    className="bg-card shadow-premium group relative flex flex-col rounded-2xl p-6 transition-all duration-300"
+                  >
+                    <div className="mb-4 flex items-start justify-between">
+                      <div>
+                        <h3 className="text-foreground group-hover:text-primary mb-1 text-xl font-bold transition-colors">
+                          {vaga.titulo}
+                        </h3>
+                        <p className="text-muted-foreground text-sm">
+                          {vaga.empresa}
+                        </p>
+                      </div>
+                      <span
+                        className={`rounded-full px-2.5 py-1 text-xs font-medium ${
+                          vaga.tipoContrato === 'CLT'
+                            ? 'bg-success/10 text-success'
+                            : 'bg-primary/10 text-primary'
+                        }`}
+                      >
+                        {CONTRATO_LABELS[vaga.tipoContrato] ||
+                          vaga.tipoContrato}
+                      </span>
+                    </div>
+
+                    <div className="mb-4 space-y-2">
+                      <div className="flex items-center gap-2 text-sm">
+                        <MapPin className="text-muted-foreground h-4 w-4" />
+                        <span className="text-muted-foreground">
+                          {vaga.cidade}, {vaga.estado}
+                        </span>
+                      </div>
+                      {vaga.salarioMin && (
+                        <div className="flex items-center gap-2 text-sm">
+                          <span className="text-muted-foreground">R$</span>
+                          <span className="text-muted-foreground">
+                            {vaga.salarioMin.toLocaleString('pt-BR')}
+                            {' – '}
+                            {vaga.salarioMax
+                              ? vaga.salarioMax.toLocaleString('pt-BR')
+                              : 'a combinar'}
+                          </span>
+                        </div>
+                      )}
+                      {vaga.modalidade && (
+                        <span className="text-muted-foreground inline-block text-xs">
+                          {vaga.modalidade === 'PRESENCIAL'
+                            ? 'Presencial'
+                            : vaga.modalidade === 'HIBRIDO'
+                              ? 'Híbrido'
+                              : 'Remoto'}
+                        </span>
+                      )}
+                    </div>
+
+                    {vaga.beneficios && vaga.beneficios.length > 0 && (
+                      <div className="mb-4">
+                        <p className="text-muted-foreground mb-2 text-xs font-medium">
+                          Benefícios
+                        </p>
+                        <div className="flex flex-wrap gap-1">
+                          {vaga.beneficios.slice(0, 3).map((beneficio) => (
+                            <span
+                              key={beneficio}
+                              className="bg-muted rounded-full px-2 py-0.5 text-xs"
+                            >
+                              {beneficio}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    <div className="mt-auto flex gap-2">
+                      <Link to={`/vagas/${vaga.slug}`} className="flex-1">
+                        <Button variant="primary" size="sm" className="w-full">
+                          Ver vaga
+                        </Button>
+                      </Link>
+                      <Link to="/trabalhe-conosco" className="flex-1">
+                        <Button variant="outline" size="sm" className="w-full">
+                          Candidatar-se
+                        </Button>
+                      </Link>
+                    </div>
+                  </motion.div>
+                ))
+              )}
+            </motion.div>
+
+            {vagas.length > 0 && vagas.length < 100 && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3 }}
+                className="mt-12 text-center"
+              >
+                <p className="text-muted-foreground text-sm">
+                  Mostrando {vagas.length} vaga
+                  {vagas.length !== 1 ? 's' : ''} de {vagas.length} disponível
+                  {vagas.length !== 1 ? 's' : ''}
+                </p>
+              </motion.div>
+            )}
+          </Container>
+        </Section>
+      </div>
+    </>
   );
 }
