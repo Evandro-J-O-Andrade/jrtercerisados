@@ -2,8 +2,6 @@
 import { Shield, Award, Users, Target } from 'lucide-react';
 import { Section } from '@/components/sections/Section';
 import { Container } from '@/components/common/Container';
-import { SafeImage } from '@/components/ui/SafeImage';
-import { COMPANY, IMAGES } from '@/config';
 import { staggerReveal, revealUp } from '@/animations/scroll';
 import { staggerItem } from '@/animations/fade';
 
@@ -37,7 +35,7 @@ const valores = [
 export default function Sobre() {
   return (
     <div className="pt-20">
-      <Section>
+      <Section className="pt-20 md:pt-28">
         <Container>
           <motion.div
             initial="hidden"
@@ -50,16 +48,15 @@ export default function Sobre() {
               variants={revealUp}
               className="text-foreground text-4xl font-bold sm:text-5xl"
             >
-              Sobre a JS Empregos
+              Sobre a J&S Terceirizados
             </motion.h1>
             <motion.p
               variants={revealUp}
               className="text-muted-foreground mx-auto mt-4 max-w-3xl text-lg"
             >
-              Há mais de {COMPANY.yearsOfExperience} anos, conectamos empresas
-              aos melhores profissionais do mercado. Somos uma agência de
-              empregos e assessoria em Recursos Humanos que transforma talentos
-              em oportunidades.
+              A J&S Terceirizados Ltda. é especializada em oferecer soluções de
+              terceirização de mão de obra temporária e efetiva e facilities,
+              buscando otimizar gestão e eficiência operacional dos clientes.
             </motion.p>
           </motion.div>
 
@@ -68,21 +65,9 @@ export default function Sobre() {
             whileInView="visible"
             viewport={{ once: true, margin: '-100px' }}
             variants={staggerReveal(0.15)}
-            className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2"
+            className="grid grid-cols-1 gap-12 lg:grid-cols-2"
           >
             <motion.div variants={staggerItem('left')}>
-              <div className="bg-card shadow-glass border-border/40 relative overflow-hidden rounded-3xl border">
-                <SafeImage
-                  src={IMAGES.hero.sobre.src}
-                  fallbackSrc={IMAGES.hero.sobre.fallback}
-                  alt="Equipe JS Empregos"
-                  className="h-full w-full object-cover opacity-80"
-                />
-                <div className="from-background/80 absolute inset-0 bg-gradient-to-t via-transparent to-transparent" />
-              </div>
-            </motion.div>
-
-            <motion.div variants={staggerItem('right')}>
               <h2 className="text-foreground mb-4 text-2xl font-bold">
                 Nossa Missão
               </h2>
@@ -96,10 +81,26 @@ export default function Sobre() {
                 Nossa Visão
               </h3>
               <p className="text-muted-foreground leading-relaxed">
-                Ser a referência em agência de empregos e assessoria de RH,
-                reconhecida pela excelência no recrutamento e pela conexão
-                humanizada entre empresas e talentos.
+                Ser a referência em soluções de RH e terceirização, reconhecida
+                pela excelência no recrutamento e pela conexão humanizada entre
+                empresas e talentos.
               </p>
+            </motion.div>
+
+            <motion.div variants={staggerItem('right')}>
+              <div className="bg-card shadow-glass border-border/40 relative overflow-hidden rounded-3xl border">
+                <div className="from-background/80 absolute inset-0 bg-gradient-to-t via-transparent to-transparent" />
+                <div className="flex h-full items-center justify-center p-12">
+                  <div className="text-center">
+                    <p className="text-foreground text-xl font-semibold">
+                      Mão de obra temporária, efetiva e facilities.
+                    </p>
+                    <p className="text-muted-foreground mt-2">
+                      Soluções completas para sua empresa.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </motion.div>
           </motion.div>
 
@@ -136,99 +137,6 @@ export default function Sobre() {
                 </motion.div>
               ))}
             </div>
-          </motion.div>
-
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-100px' }}
-            variants={staggerReveal(0.2)}
-            className="mt-16 text-center"
-          >
-            <motion.h2
-              variants={revealUp}
-              className="text-foreground mb-4 text-2xl font-bold"
-            >
-              Estatísticas
-            </motion.h2>
-            <motion.div
-              variants={staggerReveal(0.15)}
-              className="flex flex-wrap justify-center gap-8 text-center"
-            >
-              <motion.div variants={staggerItem('up')}>
-                <p className="text-primary text-3xl font-bold">
-                  +{COMPANY.professionals.toLocaleString('pt-BR')}
-                </p>
-                <p className="text-muted-foreground text-sm">
-                  Profissionais ativos
-                </p>
-              </motion.div>
-              <motion.div variants={staggerItem('up')}>
-                <p className="text-primary text-3xl font-bold">
-                  +{COMPANY.yearsOfExperience}
-                </p>
-                <p className="text-muted-foreground text-sm">
-                  Anos de experiência
-                </p>
-              </motion.div>
-              <motion.div variants={staggerItem('up')}>
-                <p className="text-primary text-3xl font-bold">
-                  +{COMPANY.clientsServed}
-                </p>
-                <p className="text-muted-foreground text-sm">
-                  Clientes atendidos
-                </p>
-              </motion.div>
-            </motion.div>
-          </motion.div>
-        </Container>
-      </Section>
-
-      <Section className="bg-surface-alt">
-        <Container>
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-100px' }}
-            variants={staggerReveal(0.15)}
-            className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2"
-          >
-            <motion.div variants={staggerItem('left')}>
-              <div className="bg-card shadow-glass border-border/40 relative overflow-hidden rounded-3xl border">
-                <SafeImage
-                  src={IMAGES.hero.sobre.src}
-                  fallbackSrc={IMAGES.hero.sobre.fallback}
-                  alt="Missão JS Empregos"
-                  className="h-full w-full object-cover opacity-80"
-                />
-                <div className="from-background/80 absolute inset-0 bg-gradient-to-t via-transparent to-transparent" />
-              </div>
-            </motion.div>
-
-            <motion.div variants={staggerItem('right')}>
-              <h2 className="text-foreground mb-6 text-3xl font-bold">
-                Cobertura Regional
-              </h2>
-              <p className="text-muted-foreground mb-4 leading-relaxed">
-                Atendemos empresas e candidatos em mais de{' '}
-                {COMPANY.citiesCovered} cidades, com cobertura completa para
-                garantir agilidade e presença onde você precisa.
-              </p>
-              <div className="space-y-3">
-                <div className="flex items-center gap-3">
-                  <Shield className="text-primary h-5 w-5" />
-                  <span className="text-foreground font-medium">
-                    Cobertura nacional
-                  </span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Award className="text-primary h-5 w-5" />
-                  <span className="text-foreground font-medium">
-                    Equipe 24/7
-                  </span>
-                </div>
-              </div>
-            </motion.div>
           </motion.div>
         </Container>
       </Section>
