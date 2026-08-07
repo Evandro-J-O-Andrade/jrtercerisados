@@ -5,7 +5,6 @@ import {
   Users,
   Briefcase,
   ArrowRight,
-  Phone,
   MapPin,
   Award,
   FileText,
@@ -171,33 +170,24 @@ export default function Home() {
           badge: <HeroSlideBadge />,
           cta: (
             <>
-              <Link to="/trabalhe-conosco">
+              <Link to="/empresas">
                 <Button
                   variant="secondary"
                   size="xl"
                   className="shadow-glow-lg h-14 rounded-[18px] px-8 py-4 text-base"
                 >
-                  Quero uma Vaga
+                  Contratar Funcionários
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
-              <Link to="/empresas">
+              <Link to="/trabalhe-conosco">
                 <Button
                   variant="outline"
                   size="xl"
                   className="border-border/30 text-foreground hover:bg-muted h-14 rounded-[18px] px-8 py-4 text-base backdrop-blur"
                 >
-                  <Phone className="mr-2 h-5 w-5" />
-                  Contratar Funcionários
-                </Button>
-              </Link>
-              <Link to="/servicos">
-                <Button
-                  variant="outline"
-                  size="xl"
-                  className="border-border/30 text-foreground hover:bg-muted h-14 rounded-[18px] px-8 py-4 text-base backdrop-blur"
-                >
-                  Nossos Serviços
+                  Quero uma Vaga
+                  <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
             </>
