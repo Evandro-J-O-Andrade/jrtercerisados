@@ -70,6 +70,40 @@ export const mockServices: Service[] = [
     image: '/images/services/hunting.svg',
     icon: 'search',
   },
+  {
+    id: '9',
+    slug: 'mao-de-obra-temporaria',
+    title: 'Mão de Obra Temporária',
+    description:
+      'Solução rápida e flexível para picos de demanda. Conectamos sua empresa a profissionais qualificados para períodos específicos, sem custos de contratação CLT.',
+    benefits: [
+      'Contratação flexível por período',
+      'Profissionais pré-qualificados',
+      'Redução de custos trabalhistas',
+      'Escalabilidade sob demanda',
+      'Compliance total',
+      'Gestão completa incluída',
+    ],
+    image: '/images/services/recrutamento.svg',
+    icon: 'users',
+  },
+  {
+    id: '10',
+    slug: 'terceirizacao-de-servicos',
+    title: 'Terceirização de Serviços',
+    description:
+      'Como solução complementar, oferecemos terceirização de serviços operacionais: limpeza, segurança, portaria e zeladoria. Tudo com gestão profissional e conformidade legal.',
+    benefits: [
+      'Redução de custos operacionais',
+      'Profissionais treinados e certificados',
+      'Gestão completa de equipes',
+      'Conformidade legal garantida',
+      'SLA e KPIs de qualidade',
+      'Suporte 24h dedicado',
+    ],
+    image: '/images/services/facilities.svg',
+    icon: 'building',
+  },
 
   // ── Terceirização (mantida) ─────────────────────────────
   {

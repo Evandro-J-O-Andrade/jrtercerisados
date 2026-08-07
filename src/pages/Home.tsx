@@ -20,6 +20,7 @@ import { Container } from '@/components/common/Container';
 import { staggerReveal, revealUp } from '@/animations/scroll';
 import { staggerItem } from '@/animations/fade';
 import { mockServices } from '@/services/mock/services';
+import { mockGetVagas } from '@/services/mock/vagas';
 import { TESTIMONIALS_DEMO } from '@/mock/testimonials';
 import { PARTNERS_LOGOS } from '@/mock/partners';
 import { COMPANY } from '@/config';
@@ -291,6 +292,130 @@ export default function Home() {
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
+          </motion.div>
+        </Container>
+      </Section>
+
+      {/* Vagas em Destaque */}
+      <Section className="bg-surface-alt">
+        <Container>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-100px' }}
+            variants={staggerReveal(0.15)}
+            className="mb-12 flex items-end justify-between"
+          >
+            <motion.div variants={revealUp}>
+              <motion.h2
+                variants={revealUp}
+                className="text-foreground text-3xl font-bold sm:text-4xl"
+              >
+                Vagas em Destaque
+              </motion.h2>
+              <motion.p
+                variants={revealUp}
+                className="text-muted-foreground mt-4 max-w-2xl text-lg"
+              >
+                Confira as oportunidades disponíveis no momento.
+              </motion.p>
+            </motion.div>
+            <Link to="/vagas">
+              <Button variant="outline" size="sm">
+                Ver todas as vagas
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerReveal(0.1)}
+            className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
+          >
+            {mockGetVagas()
+              .slice(0, 4)
+              .map((vaga) => (
+                <motion.div
+                  key={vaga.id}
+                  variants={staggerItem('up')}
+                  className="bg-card shadow-premium group relative flex flex-col rounded-2xl p-6 transition-all duration-300"
+                >
+                  <div className="mb-4 flex items-start justify-between">
+                    <div>
+                      <h3 className="text-foreground group-hover:text-primary mb-1 text-xl font-bold transition-colors">
+                        {vaga.titulo}
+                      </h3>
+                      <p className="text-muted-foreground text-sm">
+                        {vaga.empresa}
+                      </p>
+                    </div>
+                    <span className="bg-primary/10 text-primary rounded-full px-2.5 py-1 text-xs font-medium">
+                      {vaga.tipoContrato}
+                    </span>
+                  </div>
+
+                  <div className="text-muted-foreground mb-4 space-y-1 text-sm">
+                    <div className="flex items-center gap-2">
+                      <MapPin className="h-4 w-4" />
+                      <span>
+                        {vaga.cidade}, {vaga.estado}
+                      </span>
+                    </div>
+                    {vaga.salarioMin && (
+                      <div className="flex items-center gap-2">
+                        <span>R$</span>
+                        <span>
+                          {vaga.salarioMin.toLocaleString('pt-BR')}
+                          {vaga.salarioMax
+                            ? ' – ' + vaga.salarioMax.toLocaleString('pt-BR')
+                            : ' a combinar'}
+                        </span>
+                      </div>
+                    )}
+                    <span className="inline-block text-xs">
+                      {vaga.modalidade === 'PRESENCIAL'
+                        ? 'Presencial'
+                        : vaga.modalidade === 'HIBRIDO'
+                          ? 'Híbrido'
+                          : 'Remoto'}
+                    </span>
+                  </div>
+
+                  {vaga.beneficios && vaga.beneficios.length > 0 && (
+                    <div className="mb-4">
+                      <p className="text-muted-foreground mb-2 text-xs font-medium">
+                        Benefícios
+                      </p>
+                      <div className="flex flex-wrap gap-1">
+                        {vaga.beneficios.slice(0, 3).map((beneficio) => (
+                          <span
+                            key={beneficio}
+                            className="bg-muted rounded-full px-2 py-0.5 text-xs"
+                          >
+                            {beneficio}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  <div className="mt-auto flex gap-2">
+                    <Link to={`/vagas/${vaga.slug}`} className="flex-1">
+                      <Button variant="primary" size="sm" className="w-full">
+                        Ver vaga
+                      </Button>
+                    </Link>
+                    <Link to="/trabalhe-conosco" className="flex-1">
+                      <Button variant="outline" size="sm" className="w-full">
+                        Candidatar-se
+                      </Button>
+                    </Link>
+                  </div>
+                </motion.div>
+              ))}
           </motion.div>
         </Container>
       </Section>
