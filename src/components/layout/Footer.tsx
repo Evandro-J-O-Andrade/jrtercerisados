@@ -154,11 +154,11 @@ export function Footer() {
               </div>
               <div>
                 <h2 className="text-3xl font-extrabold tracking-tight">
-                  <span className="text-primary drop-shadow-glow">JR</span>{' '}
-                  <span className="text-foreground">Agência de Empregos</span>
+                  <span className="text-primary drop-shadow-glow">JS</span>{' '}
+                  <span className="text-foreground">Empregos</span>
                 </h2>
                 <p className="text-muted-foreground mt-1 text-xs">
-                  Agência de Empregos e Assessoria em Recursos Humanos
+                  {COMPANY.tagline}
                 </p>
               </div>
             </Link>
