@@ -3,6 +3,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { BottomNavigation } from '@/components/layout/BottomNavigation';
+import { FloatingWhatsAppButton } from '@/components/layout/FloatingWhatsAppButton';
 import { PageLoader } from '@/components/ui/PageLoader';
 import { ScrollToTop } from '@/components/ui/ScrollToTop';
 
