@@ -1,6 +1,6 @@
 export const COMPANY_DEMO = {
-  name: 'JS Empregos',
-  tagline: 'Conectando talentos às melhores oportunidades',
+  name: 'J&S Terceirizados LTDA',
+  tagline: 'Mais eficiência em RH. Mais resultados para sua empresa.',
   description:
     'Mais eficiência em RH. Mais resultados para sua empresa. Conectamos empresas aos melhores profissionais através de recrutamento, seleção, mão de obra temporária, efetiva e assessoria completa em RH.',
   mission:
@@ -26,7 +26,7 @@ export const TEAM_MEMBERS = [
     name: 'Ricardo Santos',
     role: 'CEO & Fundador',
     image: '/images/team/placeholder.svg',
-    bio: 'Fundador da JS Empregos com mais de 15 anos de experiência em recrutamento e seleção de talentos.',
+    bio: 'Fundador da J&S Terceirizados LTDA com mais de 15 anos de experiência em recrutamento e seleção de talentos.',
     linkedin: 'https://linkedin.com/in/ricardo-santos',
   },
   {
@@ -50,7 +50,7 @@ export const TEAM_MEMBERS = [
 export const COMPANY_TIMELINE = [
   {
     year: '2011',
-    event: 'Fundação da JS Empregos',
+    event: 'Fundação da J&S Terceirizados LTDA',
     description:
       'Início das operações como uma agência focada em recrutamento e seleção de profissionais qualificados.',
   },

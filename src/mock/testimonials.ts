@@ -6,14 +6,14 @@ export const TESTIMONIALS_DEMO = [
     company: 'Tech Solutions Ltda',
     image: '/images/team/carlos-silva.svg',
     quote:
-      'A JS Empregos entregou 3 profissionais qualificados em uma semana. Nossa equipe cresceu 40% mais rápido.',
+      'A J&S Terceirizados LTDA entregou 3 profissionais qualificados em uma semana. Nossa equipe cresceu 40% mais rápido.',
     rating: 5,
   },
   {
     id: 'testimonial-02',
     name: 'Marcos Oliveira',
     role: 'Candidato colocado',
-    company: 'JS Empregos',
+    company: 'J&S Terceirizados LTDA',
     image: '/images/team/ana-costa.svg',
     quote:
       'Cadastrei meu currículo e fui contatado em 3 dias. Hoje trabalho na empresa dos meus sonhos.',
@@ -26,7 +26,7 @@ export const TESTIMONIALS_DEMO = [
     company: 'Grupo Alpha',
     image: '/images/team/marcos-lima.svg',
     quote:
-      'O Banco de Talentos da JR tem profissionais pré-qualificados. Reduzimos 60% do tempo de recrutamento.',
+      'O Banco de Talentos da J&S tem profissionais pré-qualificados. Reduzimos 60% do tempo de recrutamento.',
     rating: 5,
   },
   {

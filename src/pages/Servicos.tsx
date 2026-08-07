@@ -1,6 +1,5 @@
 ﻿import { motion } from 'framer-motion';
 import { staggerReveal, revealUp } from '@/animations/scroll';
-import { staggerItem } from '@/animations/fade';
 import { Section } from '@/components/sections/Section';
 import { ServiceCard } from '@/components/sections/ServiceCard';
 import { Container } from '@/components/common/Container';

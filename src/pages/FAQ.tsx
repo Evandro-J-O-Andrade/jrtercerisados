@@ -84,7 +84,7 @@ const FAQ_CATEGORIES = [
     icon: '🏢',
     items: [
       {
-        question: 'Quem é a JS Empregos?',
+        question: 'Quem é a J&S Terceirizados LTDA?',
         answer:
           'Somos uma agência de empregos e assessoria em Recursos Humanos com mais de 15 anos de experiência, conectando empresas aos profissionais certos.',
       },

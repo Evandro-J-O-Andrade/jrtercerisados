@@ -921,7 +921,7 @@ export default function Home() {
               variants={revealUp}
               className="text-foreground text-3xl font-bold sm:text-4xl"
             >
-              Por que escolher a JS Empregos?
+              Por que escolher a J&S Terceirizados LTDA?
             </motion.h2>
             <motion.p
               variants={revealUp}

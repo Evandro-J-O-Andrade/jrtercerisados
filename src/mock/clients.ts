@@ -14,7 +14,7 @@ export const CLIENTS_LIST = [
   {
     id: 'client-03',
     name: 'Indústria Gama',
-    logo: '/images/clients/gama.svg',
+    logo: '/images/clients/gamma.svg',
     segment: 'Manufatura',
   },
   {
@@ -26,7 +26,7 @@ export const CLIENTS_LIST = [
   {
     id: 'client-05',
     name: 'Corp Epslon',
-    logo: '/images/clients/epslon.svg',
+    logo: '/images/clients/epsilon.svg',
     segment: 'Tecnologia',
   },
   {
@@ -45,7 +45,7 @@ export const CLIENT_TESTIMONIALS = [
     company: 'Empresa Alpha',
     image: '/images/team/carlos-silva.svg',
     quote:
-      'A JS Empregos entregou profissionais qualificados em tempo recorde. Nossa equipe cresceu 40% sem perder a qualidade.',
+      'A J&S Terceirizados LTDA entregou profissionais qualificados em tempo recorde. Nossa equipe cresceu 40% sem perder a qualidade.',
     rating: 5,
   },
   {
@@ -55,7 +55,7 @@ export const CLIENT_TESTIMONIALS = [
     company: 'Corp Epslon',
     image: '/images/team/ana-costa.svg',
     quote:
-      'Contamos com a JR para recrutamento e também para soluções de facilities. Excelente parceria estratégica e resultados consistentes.',
+      'Contamos com a J&S para recrutamento e também para soluções de facilities. Excelente parceria estratégica e resultados consistentes.',
     rating: 5,
   },
   {

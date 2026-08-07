@@ -86,7 +86,7 @@ export const mockVagas: Vaga[] = [
     id: '5',
     slug: 'auxiliar-limpeza-comercial',
     titulo: 'Auxiliar de Limpeza',
-    empresa: 'JS Empregos',
+    empresa: 'J&S Terceirizados LTDA',
     cidade: 'São Paulo',
     estado: 'SP',
     tipoContrato: 'TERCEIRIZADO',

@@ -1,13 +1,14 @@
 export const WHATSAPP_MESSAGES = {
   home: {
     candidate:
-      'Olá! Visitei o site da JS Empregos e gostaria de me cadastrar no banco de talentos. Pode me orientar?',
+      'Olá! Visitei o site da J&S Terceirizados LTDA e gostaria de me cadastrar no banco de talentos. Pode me orientar?',
     company:
-      'Olá! Visitei o site da JS Empregos e gostaria de contratar profissionais para minha empresa. Como posso solicitar?',
+      'Olá! Visitei o site da J&S Terceirizados LTDA e gostaria de contratar profissionais para minha empresa. Como posso solicitar?',
   },
   comercial:
     'Olá! Gostaria de solicitar profissionais para minha empresa. Qual serviço de seu interesse?',
-  suporte: 'Olá! Preciso de atendimento da JS Empregos. Já sou cliente.',
+  suporte:
+    'Olá! Preciso de atendimento da J&S Terceirizados LTDA. Já sou cliente.',
   recrutamento:
     'Olá! Tenho interesse no serviço de Recrutamento e Seleção e gostaria de uma proposta comercial.',
   banco:
@@ -33,34 +34,36 @@ export const WHATSAPP_MESSAGES = {
   facilities:
     'Olá! Tenho interesse no serviço de Facilities e gostaria de uma proposta comercial.',
   sobre:
-    'Olá! Gostaria de saber mais sobre a JS Empregos e nossos serviços de recrutamento e RH.',
+    'Olá! Gostaria de saber mais sobre a J&S Terceirizados LTDA e nossos serviços de recrutamento e RH.',
   servicos:
-    'Olá! Visitei o site da JS Empregos e gostaria de conhecer melhor os serviços oferecidos.',
+    'Olá! Visitei o site da J&S Terceirizados LTDA e gostaria de conhecer melhor os serviços oferecidos.',
   services:
-    'Olá! Visitei o site da JS Empregos e gostaria de conhecer melhor os serviços oferecidos.',
+    'Olá! Visitei o site da J&S Terceirizados LTDA e gostaria de conhecer melhor os serviços oferecidos.',
   clients:
-    'Olá! Tenho interesse em saber mais sobre as empresas atendidas pela JS Empregos.',
+    'Olá! Tenho interesse em saber mais sobre as empresas atendidas pela J&S Terceirizados LTDA.',
   clientes:
-    'Olá! Tenho interesse em saber mais sobre as empresas atendidas pela JS Empregos.',
+    'Olá! Tenho interesse em saber mais sobre as empresas atendidas pela J&S Terceirizados LTDA.',
   parceiros:
-    'Olá! Tenho interesse em ser parceiro da JS Empregos e gostaria de receber mais informações.',
+    'Olá! Tenho interesse em ser parceiro da J&S Terceirizados LTDA e gostaria de receber mais informações.',
   partners:
-    'Olá! Tenho interesse em ser parceiro da JS Empregos e gostaria de receber mais informações.',
-  fornecedores: 'Olá! Tenho interesse em fornecer serviços para a JS Empregos.',
-  suppliers: 'Olá! Tenho interesse em fornecer serviços para a JS Empregos.',
+    'Olá! Tenho interesse em ser parceiro da J&S Terceirizados LTDA e gostaria de receber mais informações.',
+  fornecedores:
+    'Olá! Tenho interesse em fornecer serviços para a J&S Terceirizados LTDA.',
+  suppliers:
+    'Olá! Tenho interesse em fornecer serviços para a J&S Terceirizados LTDA.',
   careers:
-    'Olá! Tenho interesse em trabalhar na JS Empregos e gostaria de saber mais sobre as oportunidades.',
+    'Olá! Tenho interesse em trabalhar na J&S Terceirizados LTDA e gostaria de saber mais sobre as oportunidades.',
   process:
-    'Olá! Tenho interesse no Processo Seletivo da JS Empregos e gostaria de me candidatar.',
-  faq: 'Olá! Tenho algumas dúvidas sobre a JS Empregos e gostaria de obter mais informações.',
+    'Olá! Tenho interesse no Processo Seletivo da J&S Terceirizados LTDA e gostaria de me candidatar.',
+  faq: 'Olá! Tenho algumas dúvidas sobre a J&S Terceirizados LTDA e gostaria de obter mais informações.',
   contact:
-    'Olá! Entrei em contato pelo site da JS Empregos e gostaria de receber mais informações.',
+    'Olá! Entrei em contato pelo site da J&S Terceirizados LTDA e gostaria de receber mais informações.',
   contactForm:
-    'Olá! Preenchi o formulário de contato no site da JS Empregos e gostaria de ser atendido.',
+    'Olá! Preenchi o formulário de contato no site da J&S Terceirizados LTDA e gostaria de ser atendido.',
   whatsappButton:
-    'Olá! Vi o botão de WhatsApp no site da JS Empregos e gostaria de conversar sobre recrutamento ou oportidades.',
+    'Olá! Vi o botão de WhatsApp no site da J&S Terceirizados LTDA e gostaria de conversar sobre recrutamento ou oportidades.',
   budgetForm:
     'Olá! Preenchi o formulário no site e gostaria de solicitar profissionais para minha empresa.',
   candidateForm:
-    'Olá! Acabei de enviar meu currículo pelo site da JS Empregos. Gostaria de saber mais sobre o processo de recrutamento.',
+    'Olá! Acabei de enviar meu currículo pelo site da J&S Terceirizados LTDA. Gostaria de saber mais sobre o processo de recrutamento.',
 } as const;

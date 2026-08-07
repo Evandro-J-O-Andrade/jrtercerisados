@@ -1,3 +1,5 @@
+import { COMPANY } from './company';
+
 export interface PageSEO {
   title: string;
   description: string;
@@ -7,7 +9,7 @@ export interface PageSEO {
 
 export const SEO_PAGES: Record<string, PageSEO> = {
   '/': {
-    title: 'J&S Tercerizados LTDA — Agência de Empregos e Assessoria em RH',
+    title: `${COMPANY.name} — Agência de Empregos e Assessoria em RH`,
     description:
       'Mais eficiência em RH. Mais resultados para sua empresa. Conectamos talentos às melhores oportunidades. Encontre vagas de emprego ou profissionais qualificados.',
     keywords: [
@@ -15,7 +17,7 @@ export const SEO_PAGES: Record<string, PageSEO> = {
       'recrutamento',
       'seleção de pessoas',
       'mão de obra',
-      'temporeira',
+      'temporária',
       'efetiva',
       'vagas de emprego',
       'RH',
@@ -25,7 +27,7 @@ export const SEO_PAGES: Record<string, PageSEO> = {
     path: '/',
   },
   '/vagas': {
-    title: 'Vagas de Emprego — Encontre sua próxima oportunidade | JS Empregos',
+    title: `Vagas de Emprego — Encontre sua próxima oportunidade | ${COMPANY.name}`,
     description:
       'Confira centenas de vagas de emprego atualizadas diariamente. Encontre a oportunidade certa para seu perfil e candidate-se agora.',
     keywords: [
@@ -40,8 +42,7 @@ export const SEO_PAGES: Record<string, PageSEO> = {
     path: '/vagas',
   },
   '/empresas': {
-    title:
-      'Recrutamento e Seleção para Empresas | Contratar Funcionários | JS Empregos',
+    title: `Recrutamento e Seleção para Empresas | Contratar Funcionários | ${COMPANY.name}`,
     description:
       'Encontramos os profissionais certos para sua empresa. Mão de obra temporária e efetiva, recrutamento seletivo e banco de talentos.',
     keywords: [
@@ -55,7 +56,7 @@ export const SEO_PAGES: Record<string, PageSEO> = {
     path: '/empresas',
   },
   '/candidatos': {
-    title: 'Encontre seu Emprego — Cadastre seu Currículo | JS Empregos',
+    title: `Encontre seu Emprego — Cadastre seu Currículo | ${COMPANY.name}`,
     description:
       'Cadastre seu currículo no Banco de Talentos e encontre as oportunidades compatíveis com seu perfil.',
     keywords: [
@@ -68,8 +69,7 @@ export const SEO_PAGES: Record<string, PageSEO> = {
     path: '/candidatos',
   },
   '/servicos': {
-    title:
-      'Serviços de RH e Recrutamento — Mão de Obra Temporária e Efetiva | JS Empregos',
+    title: `Serviços de RH e Recrutamento — Mão de Obra Temporária e Efetiva | ${COMPANY.name}`,
     description:
       'Soluções completas em RH: Recrutamento, seleção, mão de obra temporária e efetiva, assessoria em RH e facilities. Tudo para sua empresa.',
     keywords: [
@@ -84,7 +84,7 @@ export const SEO_PAGES: Record<string, PageSEO> = {
     path: '/servicos',
   },
   '/trabalhe-conosco': {
-    title: 'Envie seu Currículo — Cadastre-se | JS Empregos',
+    title: `Envie seu Currículo — Cadastre-se | ${COMPANY.name}`,
     description:
       'Cadastre seu currículo e candidate-se às vagas que combinam com seu perfil. Sua nova oportunidade começa aqui.',
     keywords: [
@@ -97,42 +97,42 @@ export const SEO_PAGES: Record<string, PageSEO> = {
     path: '/trabalhe-conosco',
   },
   '/processo-seletivo': {
-    title: 'Como Funciona o Processo Seletivo | JS Empregos',
+    title: `Como Funciona o Processo Seletivo | ${COMPANY.name}`,
     description:
       'Entenda as etapas do nosso processo seletivo: cadastro, candidatura, avaliação e contratação.',
     keywords: ['processo seletivo', 'etapas', 'como funciona', 'recrutamento'],
     path: '/processo-seletivo',
   },
   '/sobre': {
-    title: 'Sobre Nós — JS Empregos | Agência de Empregos e RH',
+    title: `Sobre Nós — ${COMPANY.name} | Agência de Empregos e RH`,
     description:
       'Conheça nossa história e nossa missão de conectar talentos às melhores oportunidades através de recrutamento, seleção e mão de obra.',
     keywords: ['sobre nós', 'história', 'missão', 'agência de empregos', 'RH'],
     path: '/sobre',
   },
   '/clientes': {
-    title: 'Clientes e Depoimentos | JS Empregos',
+    title: `Clientes e Depoimentos | ${COMPANY.name}`,
     description:
       'Veja as empresas que já confiam na nossa agência e depoimentos de clientes satisfeitos.',
     keywords: ['clientes', 'depoimentos', 'empresas parceiras'],
     path: '/clientes',
   },
   '/contato': {
-    title: 'Fale Conosco | Contato | JS Empregos',
+    title: `Fale Conosco | Contato | ${COMPANY.name}`,
     description:
       'Entre em contato com a nossa equipe. WhatsApp, e-mail e telefone para dúvidas sobre vagas, recrutamento e serviços.',
     keywords: ['contato', 'fale conosco', 'whatsapp', 'atendimento', 'suporte'],
     path: '/contato',
   },
   '/suporte': {
-    title: 'Suporte e Atendimento | JS Empregos',
+    title: `Suporte e Atendimento | ${COMPANY.name}`,
     description:
       'Tire suas dúvidas sobre nossos serviços, processos e oportunidades. Atendimento rápido via WhatsApp.',
     keywords: ['suporte', 'atendimento', 'dúvidas', 'ajuda', 'whatsapp'],
     path: '/suporte',
   },
   '/faq': {
-    title: 'Perguntas Frequentes | FAQ | JS Empregos',
+    title: `Perguntas Frequentes | FAQ | ${COMPANY.name}`,
     description:
       'Tire suas dúvidas sobre nossos serviços, processos de recrutamento e oportunidades de emprego.',
     keywords: [
@@ -145,7 +145,7 @@ export const SEO_PAGES: Record<string, PageSEO> = {
     path: '/faq',
   },
   '/login': {
-    title: 'Login | Acesse sua Conta | JS Empregos',
+    title: `Login | Acesse sua Conta | ${COMPANY.name}`,
     description:
       'Acesse sua conta de candidato, empresa ou RH para acompanhar processos e vagas.',
     keywords: [
@@ -159,7 +159,7 @@ export const SEO_PAGES: Record<string, PageSEO> = {
     path: '/login',
   },
   '/blog': {
-    title: 'Blog | Dicas de Emprego e RH | JS Empregos',
+    title: `Blog | Dicas de Emprego e RH | ${COMPANY.name}`,
     description:
       'Artigos sobre recrutamento, carreira, dicas de emprego e tendências do RH.',
     keywords: ['blog', 'dicas de emprego', 'carreira', 'RH', 'recrutamento'],

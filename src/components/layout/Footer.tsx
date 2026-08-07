@@ -166,7 +166,7 @@ export function Footer() {
             {/* Social */}
             <div className="pt-2">
               <h4 className="text-foreground mb-3 text-sm font-bold">
-                Siga a JS Empregos
+                Siga a J&S Terceirizados
               </h4>
               <div className="flex flex-wrap gap-3">
                 {socialLinks.map((social) => (

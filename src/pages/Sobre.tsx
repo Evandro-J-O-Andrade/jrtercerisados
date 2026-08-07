@@ -1,4 +1,4 @@
-﻿import { motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Shield, Award, Users, Target } from 'lucide-react';
 import { Section } from '@/components/sections/Section';
 import { Container } from '@/components/common/Container';
@@ -9,13 +9,13 @@ import { staggerItem } from '@/animations/fade';
 
 const valores = [
   {
-    title: 'Excelência em Recrutamento',
+    title: 'Excel�ncia em Recrutamento',
     description:
-      'Processos rigorosos de triagem e seleção para encontrar o profissional certo para cada vaga.',
+      'Processos rigorosos de triagem e sele��o para encontrar o profissional certo para cada vaga.',
     icon: Award,
   },
   {
-    title: 'Inovação em RH',
+    title: 'Inova��o em RH',
     description:
       'Investimento constante em tecnologia e metodologias para otimizar o recrutamento.',
     icon: Shield,
@@ -23,13 +23,13 @@ const valores = [
   {
     title: 'Foco no Resultado',
     description:
-      'Alinhamento total com os objetivos da empresa: encontrar talentos e elevar padrões.',
+      'Alinhamento total com os objetivos da empresa: encontrar talentos e elevar padr�es.',
     icon: Target,
   },
   {
     title: 'Equipe Qualificada',
     description:
-      'Especialistas em recrutamento, seleção e gestão de pessoas com certificações reconhecidas.',
+      'Especialistas em recrutamento, sele��o e gest�o de pessoas com certifica��es reconhecidas.',
     icon: Users,
   },
 ];
@@ -50,14 +50,14 @@ export default function Sobre() {
               variants={revealUp}
               className="text-foreground text-4xl font-bold sm:text-5xl"
             >
-              Sobre a JS Empregos
+              Sobre a J&S Terceirizados LTDA
             </motion.h1>
             <motion.p
               variants={revealUp}
               className="text-muted-foreground mx-auto mt-4 max-w-3xl text-lg"
             >
-              Há mais de {COMPANY.yearsOfExperience} anos, conectamos empresas
-              aos melhores profissionais do mercado. Somos uma agência de
+              H� mais de {COMPANY.yearsOfExperience} anos, conectamos empresas
+              aos melhores profissionais do mercado. Somos uma ag�ncia de
               empregos e assessoria em Recursos Humanos que transforma talentos
               em oportunidades.
             </motion.p>
@@ -75,7 +75,7 @@ export default function Sobre() {
                 <SafeImage
                   src={IMAGES.hero.sobre.src}
                   fallbackSrc={IMAGES.hero.sobre.fallback}
-                  alt="Equipe JS Empregos"
+                  alt="Equipe J&S Terceirizados LTDA"
                   className="h-full w-full object-cover opacity-80"
                 />
                 <div className="from-background/80 absolute inset-0 bg-gradient-to-t via-transparent to-transparent" />
@@ -84,20 +84,20 @@ export default function Sobre() {
 
             <motion.div variants={staggerItem('right')}>
               <h2 className="text-foreground mb-4 text-2xl font-bold">
-                Nossa Missão
+                Nossa Miss�o
               </h2>
               <p className="text-muted-foreground leading-relaxed">
                 Conectar empresas aos profissionais certos e ajudar candidatos a
                 conquistarem novas oportunidades, por meio de recrutamento,
-                seleção e um banco de talentos sempre atualizado.
+                sele��o e um banco de talentos sempre atualizado.
               </p>
 
               <h3 className="text-foreground mt-8 mb-4 text-2xl font-bold">
-                Nossa Visão
+                Nossa Vis�o
               </h3>
               <p className="text-muted-foreground leading-relaxed">
-                Ser a referência em agência de empregos e assessoria de RH,
-                reconhecida pela excelência no recrutamento e pela conexão
+                Ser a refer�ncia em ag�ncia de empregos e assessoria de RH,
+                reconhecida pela excel�ncia no recrutamento e pela conex�o
                 humanizada entre empresas e talentos.
               </p>
             </motion.div>
@@ -149,7 +149,7 @@ export default function Sobre() {
               variants={revealUp}
               className="text-foreground mb-4 text-2xl font-bold"
             >
-              Estatísticas
+              Estat�sticas
             </motion.h2>
             <motion.div
               variants={staggerReveal(0.15)}
@@ -168,7 +168,7 @@ export default function Sobre() {
                   +{COMPANY.yearsOfExperience}
                 </p>
                 <p className="text-muted-foreground text-sm">
-                  Anos de experiência
+                  Anos de experi�ncia
                 </p>
               </motion.div>
               <motion.div variants={staggerItem('up')}>
@@ -198,7 +198,7 @@ export default function Sobre() {
                 <SafeImage
                   src={IMAGES.hero.sobre.src}
                   fallbackSrc={IMAGES.hero.sobre.fallback}
-                  alt="Missão JS Empregos"
+                  alt="Miss�o J&S Terceirizados LTDA"
                   className="h-full w-full object-cover opacity-80"
                 />
                 <div className="from-background/80 absolute inset-0 bg-gradient-to-t via-transparent to-transparent" />
@@ -212,7 +212,7 @@ export default function Sobre() {
               <p className="text-muted-foreground mb-4 leading-relaxed">
                 Atendemos empresas e candidatos em mais de{' '}
                 {COMPANY.citiesCovered} cidades, com cobertura completa para
-                garantir agilidade e presença onde você precisa.
+                garantir agilidade e presen�a onde voc� precisa.
               </p>
               <div className="space-y-3">
                 <div className="flex items-center gap-3">

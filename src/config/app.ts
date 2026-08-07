@@ -1,8 +1,9 @@
+import { COMPANY } from './company';
+
 export const APP_CONFIG = {
-  name: 'JS Empregos',
-  fullName: 'JS Empregos — Recrutamento, Seleção e Banco de Talentos',
-  description:
-    'Agência de Empregos e Assessoria em Recursos Humanos. Conectamos empresas aos melhores profissionais através de recrutamento, seleção, banco de talentos e hunting. Facilities e terceirização de serviços como solução complementar.',
+  name: COMPANY.name,
+  fullName: COMPANY.tradingName,
+  description: COMPANY.description,
   version: '1.0.0',
   url: 'https://jrtelempregos.com.br',
   locale: 'pt-BR',
