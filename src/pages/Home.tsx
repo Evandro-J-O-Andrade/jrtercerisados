@@ -118,7 +118,7 @@ const diferenciais = [
   {
     title: 'Empresas parceiras',
     description: 'Rede de empresas que confiam na nossa seleção e agilidade.',
-    icon: FEATURE_ICONS.briefcase,
+    icon: SERVICE_ICONS.briefcase,
   },
   {
     title: 'Equipe especializada em RH',

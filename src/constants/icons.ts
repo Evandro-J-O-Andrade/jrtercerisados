@@ -15,6 +15,9 @@ import {
   Users,
   Computer,
   Briefcase,
+  Database,
+  Target,
+  Search,
 } from 'lucide-react';
 
 export const SERVICE_ICONS: Record<
@@ -30,6 +33,9 @@ export const SERVICE_ICONS: Record<
   building: Building,
   monitor: Monitor,
   briefcase: Briefcase,
+  database: Database,
+  target: Target,
+  search: Search,
 };
 
 export const FEATURE_ICONS: Record<
