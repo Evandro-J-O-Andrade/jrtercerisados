@@ -127,8 +127,8 @@ export function AccessibilityWidget({
           return NodeFilter.FILTER_REJECT;
         if (getComputedStyle(parent).visibility === 'hidden')
           return NodeFilter.FILTER_REJECT;
-        const text = node.nodeValue?.trim();
-        if (!text) return NodeFilter.FILTER_REJECT;
+        const rawText = node.nodeValue?.trim();
+        if (!rawText) return NodeFilter.FILTER_REJECT;
         return NodeFilter.FILTER_ACCEPT;
       },
     });
@@ -157,7 +157,7 @@ export function AccessibilityWidget({
   }, []);
 
   return (
-    <div className="fixed bottom-4 left-4 z-50 sm:bottom-6">
+    <div className="fixed bottom-20 left-4 z-50 sm:bottom-24">
       <AnimatePresence>
         {isOpen && (
           <>
