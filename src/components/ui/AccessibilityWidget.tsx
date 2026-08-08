@@ -157,7 +157,7 @@ export function AccessibilityWidget({
   }, []);
 
   return (
-    <div className="fixed bottom-20 left-4 z-50 sm:bottom-24">
+    <div className="fixed bottom-24 left-4 z-50 sm:bottom-28">
       <AnimatePresence>
         {isOpen && (
           <>
@@ -166,7 +166,7 @@ export function AccessibilityWidget({
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm"
+              className="fixed inset-0 z-40 bg-black/10 backdrop-blur-sm"
               onClick={handleBackdropClick}
               aria-hidden="true"
             />
