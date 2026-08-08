@@ -8,7 +8,7 @@ const IDLE_TIMEOUT = 10 * 60 * 1000;
 const slides = ['/images/hero/cardheros.png'];
 
 const slideVariants = {
-  hidden: { opacity: 0, scale: 1.06 },
+  hidden: { opacity: 0, scale: 1.04 },
   visible: {
     opacity: 1,
     scale: 1,
@@ -16,7 +16,7 @@ const slideVariants = {
   },
   exit: {
     opacity: 0,
-    scale: 1.02,
+    scale: 1.01,
     transition: { duration: 0.6, ease: [0.25, 0.4, 0.25, 1] as const },
   },
 } as const;
@@ -111,7 +111,7 @@ export function CinematicShowcase({ onFinish }: { onFinish: () => void }) {
             <SafeImage
               src={slides[current]}
               alt=""
-              className="h-full w-full object-cover"
+              className="h-full w-full object-cover object-center"
               decoding="async"
             />
             <div className="absolute inset-0 bg-black/20" />
