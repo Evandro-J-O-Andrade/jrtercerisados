@@ -1,6 +1,5 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import {
   MapPin,
   Phone,
@@ -12,14 +11,10 @@ import {
   Youtube,
   Heart,
   Globe,
-  ChevronDown,
-  ChevronUp,
-  LogIn,
 } from 'lucide-react';
 import { COMPANY, SOCIAL_LINKS } from '@/config';
 import { IMAGES } from '@/config/images';
 import { cn } from '@/utils';
-import { useMediaQuery } from '@/hooks';
 
 const TikTokIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
@@ -39,27 +34,27 @@ const footerLinks = {
     { label: 'Clientes', href: '/clientes' },
     { label: 'Parceiros', href: '/parceiros' },
     { label: 'Fornecedores', href: '/fornecedores' },
+    { label: 'Blog', href: '/blog' },
   ],
   servicos: [
-    {
-      label: 'Recrutamento e Seleção',
-      href: '/servicos/recrutamento-selecao',
-    },
+    { label: 'Todos os Serviços', href: '/servicos' },
+    { label: 'Assessoria em RH', href: '/servicos/assessoria-rh' },
+    { label: 'Recrutamento e Seleção', href: '/servicos/recrutamento-selecao' },
     {
       label: 'Mão de Obra Temporária',
       href: '/servicos/mao-de-obra-temporaria',
     },
     { label: 'Mão de Obra Efetiva', href: '/servicos/mao-de-obra-efetiva' },
+    { label: 'Facilities', href: '/servicos/facilities' },
+    { label: 'Limpeza', href: '/servicos/limpeza' },
+    { label: 'Jardinagem', href: '/servicos/jardinagem' },
     { label: 'Terceirização', href: '/servicos/terceirizacao' },
-    { label: 'Hunting de Executivos', href: '/servicos/hunting' },
-    { label: 'Avaliação de Perfil', href: '/servicos/avaliacao-perfil' },
   ],
   atendimento: [
     { label: 'Suporte', href: '/suporte' },
     { label: 'FAQ', href: '/faq' },
-    { label: 'Processo Seletivo', href: '/processo-seletivo' },
-    { label: 'WhatsApp', href: SOCIAL_LINKS.whatsapp },
-    { label: 'E-mail', href: `mailto:${COMPANY.email}` },
+    { label: 'Ajuda', href: '/suporte' },
+    { label: 'Login', href: '/login' },
   ],
 };
 
@@ -105,14 +100,14 @@ const socialLinks = [
 const contactItems = [
   {
     type: 'phone',
-    label: 'Comercial',
+    label: 'Telefone',
     value: COMPANY.phone,
     href: `tel:${COMPANY.phone.replace(/\D/g, '')}`,
     icon: Phone,
   },
   {
     type: 'email',
-    label: 'E-mail Comercial',
+    label: 'E-mail',
     value: COMPANY.email,
     href: `mailto:${COMPANY.email}`,
     icon: Mail,
@@ -133,80 +128,6 @@ const contactItems = [
   },
 ];
 
-function FooterAccordion({
-  title,
-  links,
-}: {
-  title: string;
-  links: { label: string; href: string }[];
-}) {
-  const [open, setOpen] = useState(false);
-  const isDesktop = useMediaQuery('(min-width: 1024px)');
-
-  if (isDesktop) {
-    return (
-      <div>
-        <h4 className="text-primary mb-5 text-xs font-bold tracking-wider uppercase">
-          {title}
-        </h4>
-        <div className="space-y-3">
-          {links.map((link) => (
-            <Link
-              key={link.href}
-              to={link.href}
-              className="text-muted-foreground hover:text-primary flex items-center gap-2 text-sm transition-colors duration-200"
-            >
-              <span className="text-primary/50 h-1 w-1 rounded-full bg-current" />
-              {link.label}
-            </Link>
-          ))}
-        </div>
-      </div>
-    );
-  }
-
-  return (
-    <div className="border-border/50 rounded-xl border">
-      <button
-        type="button"
-        onClick={() => setOpen((prev) => !prev)}
-        className="text-foreground flex w-full items-center justify-between px-4 py-3 text-sm font-semibold"
-        aria-expanded={open}
-      >
-        {title}
-        {open ? (
-          <ChevronUp className="h-4 w-4" aria-hidden="true" />
-        ) : (
-          <ChevronDown className="h-4 w-4" aria-hidden="true" />
-        )}
-      </button>
-      <AnimatePresence initial={false}>
-        {open && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.25 }}
-            className="overflow-hidden"
-          >
-            <div className="space-y-3 px-4 pb-4">
-              {links.map((link) => (
-                <Link
-                  key={link.href}
-                  to={link.href}
-                  className="text-muted-foreground hover:text-primary block text-sm transition-colors"
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  );
-}
-
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -216,7 +137,7 @@ export function Footer() {
 
       <div className="mx-auto max-w-[1600px] px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-12">
-          {/* ─── Brand ───────────────────────────── */}
+          {/* ─── Identidade J&S ──────────────────── */}
           <div className="space-y-6 lg:col-span-3">
             <Link to="/" className="flex items-center gap-4">
               <div className="border-border/50 shadow-glow bg-primary/10 relative rounded-2xl border p-2">
@@ -272,26 +193,69 @@ export function Footer() {
                 ))}
               </div>
             </div>
-
-            {/* Login */}
-            <Link
-              to="/login"
-              className="border-border/60 bg-muted/50 hover:border-primary/40 hover:bg-primary/10 focus-visible:ring-primary inline-flex items-center gap-2 rounded-xl border px-4 py-2.5 text-sm font-semibold transition-all duration-300 focus-visible:ring-2 focus-visible:outline-none"
-            >
-              <LogIn className="h-4 w-4" aria-hidden="true" />
-              Área de acesso
-            </Link>
           </div>
 
-          {/* ─── Accordions mobile / grupos desktop ─ */}
-          <div className="lg:col-span-7">
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              <FooterAccordion title="Empresa" links={footerLinks.empresa} />
-              <FooterAccordion title="Serviços" links={footerLinks.servicos} />
-              <FooterAccordion
-                title="Atendimento"
-                links={footerLinks.atendimento}
-              />
+          {/* ─── Grupos desktop / accordions mobile ─ */}
+          <div className="lg:col-span-9">
+            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+              {/* Empresa */}
+              <div className="hidden lg:block">
+                <h4 className="text-primary mb-5 text-xs font-bold tracking-wider uppercase">
+                  Empresa
+                </h4>
+                <div className="space-y-3">
+                  {footerLinks.empresa.map((link) => (
+                    <Link
+                      key={link.href}
+                      to={link.href}
+                      className="text-muted-foreground hover:text-primary flex items-center gap-2 text-sm transition-colors duration-200"
+                    >
+                      <span className="text-primary/50 h-1 w-1 rounded-full bg-current" />
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              {/* Serviços */}
+              <div className="hidden lg:block">
+                <h4 className="text-primary mb-5 text-xs font-bold tracking-wider uppercase">
+                  Serviços
+                </h4>
+                <div className="space-y-3">
+                  {footerLinks.servicos.map((link) => (
+                    <Link
+                      key={link.href}
+                      to={link.href}
+                      className="text-muted-foreground hover:text-primary flex items-center gap-2 text-sm transition-colors duration-200"
+                    >
+                      <span className="text-primary/50 h-1 w-1 rounded-full bg-current" />
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              {/* Atendimento */}
+              <div className="hidden lg:block">
+                <h4 className="text-primary mb-5 text-xs font-bold tracking-wider uppercase">
+                  Atendimento
+                </h4>
+                <div className="space-y-3">
+                  {footerLinks.atendimento.map((link) => (
+                    <Link
+                      key={link.href}
+                      to={link.href}
+                      className="text-muted-foreground hover:text-primary flex items-center gap-2 text-sm transition-colors duration-200"
+                    >
+                      <span className="text-primary/50 h-1 w-1 rounded-full bg-current" />
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              {/* Fale Conosco */}
               <div className="hidden lg:block">
                 <h4 className="text-primary mb-5 text-xs font-bold tracking-wider uppercase">
                   Fale Conosco
