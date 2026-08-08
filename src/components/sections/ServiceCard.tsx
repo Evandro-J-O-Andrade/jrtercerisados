@@ -5,6 +5,7 @@ import { ArrowRight } from 'lucide-react';
 import type { Service } from '@/types/common';
 import { SERVICE_ICONS } from '@/constants/icons';
 import { SafeImage } from '@/components/ui/SafeImage';
+import { SERVICE_IMAGES } from '@/content/assets';
 
 interface ServiceCardProps {
   service: Service;
@@ -18,9 +19,26 @@ const CATEGORY_LABELS: Record<Service['category'], string> = {
   candidato: 'Para Candidatos',
 };
 
+const SERVICE_IMAGE_FALLBACK: Record<string, string> = {
+  'recrutamento-selecao': SERVICE_IMAGES.recrutamento,
+  'mao-de-obra-temporaria': SERVICE_IMAGES.maoDeObraTemporaria,
+  'mao-de-obra-efetiva': SERVICE_IMAGES.maoDeObraEfetiva,
+  'banco-de-talentos': SERVICE_IMAGES.assessoriaRh,
+  'assessoria-rh': SERVICE_IMAGES.assessoriaRh,
+  'avaliacao-perfil': SERVICE_IMAGES.assessoriaRh,
+  hunting: SERVICE_IMAGES.assessoriaRh,
+  facilities: SERVICE_IMAGES.facilities,
+  'seguranca-patrimonial': SERVICE_IMAGES.terceirizacao,
+  'limpeza-conservacao': SERVICE_IMAGES.limpeza,
+  'zeladoria-manutencao': SERVICE_IMAGES.facilities,
+};
+
 export function ServiceCard({ service, index }: ServiceCardProps) {
   const Icon: ComponentType<{ className?: string }> =
     SERVICE_ICONS[service.icon] || SERVICE_ICONS.shield;
+
+  const fallbackImage =
+    SERVICE_IMAGE_FALLBACK[service.slug] || SERVICE_IMAGES.facilitiesFallback;
 
   return (
     <motion.div
@@ -47,7 +65,7 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
             src={service.image}
             alt={service.title}
             className="h-full w-full object-cover opacity-80 transition-all duration-500 group-hover:scale-105 group-hover:opacity-100"
-            fallbackSrc="/images/placeholders/service-fallback.svg"
+            fallbackSrc={fallbackImage}
           />
           <div className="from-card/90 via-card/40 absolute inset-0 bg-gradient-to-t to-transparent" />
           <div className="from-primary/10 absolute inset-0 bg-gradient-to-br to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
