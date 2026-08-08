@@ -6,6 +6,7 @@ import { Container } from '@/components/common/Container';
 import { SafeImage } from '@/components/ui/SafeImage';
 import { COMPANY, IMAGES } from '@/config';
 import { HERO_ASSETS } from '@/content/assets';
+import { COMPANY_TIMELINE } from '@/mock/company';
 import { staggerReveal, revealUp } from '@/animations/scroll';
 import { staggerItem } from '@/animations/fade';
 
@@ -154,6 +155,57 @@ export default function Sobre() {
                   </p>
                 </motion.div>
               ))}
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-100px' }}
+            variants={staggerReveal(0.2)}
+            className="mt-16"
+          >
+            <motion.h2
+              variants={revealUp}
+              className="text-foreground mb-8 text-center text-3xl font-bold"
+            >
+              Nossa Trajetória
+            </motion.h2>
+            <div className="relative">
+              <div className="bg-border absolute top-0 left-4 h-full w-0.5 sm:left-1/2" />
+              <div className="space-y-8">
+                {COMPANY_TIMELINE.map((item, index) => (
+                  <motion.div
+                    key={item.year}
+                    variants={staggerItem('up')}
+                    className={`relative flex items-center gap-6 sm:gap-0 ${
+                      index % 2 === 0 ? 'sm:flex-row' : 'sm:flex-row-reverse'
+                    }`}
+                  >
+                    <div
+                      className={`flex-1 sm:text-right ${
+                        index % 2 === 0 ? 'sm:text-right' : 'sm:text-left'
+                      }`}
+                    >
+                      <div className="bg-card border-border rounded-2xl border p-4 sm:rounded-none sm:border-t-0 sm:border-r-0 sm:border-b sm:border-l-0">
+                        <span className="text-primary text-sm font-semibold">
+                          {item.year}
+                        </span>
+                        <h3 className="text-foreground mt-1 text-lg font-semibold">
+                          {item.event}
+                        </h3>
+                        <p className="text-muted-foreground mt-1 text-sm">
+                          {item.description}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="bg-primary text-primary-foreground absolute left-4 flex h-8 w-8 items-center justify-center rounded-full text-xs font-bold sm:left-1/2 sm:-translate-x-1/2">
+                      {item.year.slice(-2)}
+                    </div>
+                    <div className="hidden flex-1 sm:block" />
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </motion.div>
 
