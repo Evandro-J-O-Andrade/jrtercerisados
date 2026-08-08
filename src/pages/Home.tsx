@@ -1,5 +1,5 @@
-﻿import { motion, useReducedMotion } from 'framer-motion';
-import { useState } from 'react';
+﻿import { motion } from 'framer-motion';
+import { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Shield,
@@ -16,7 +16,7 @@ import { Section } from '@/components/sections/Section';
 import { ServiceCard } from '@/components/sections/ServiceCard';
 import { NumberCounter } from '@/components/sections/NumberCounter';
 import { HeroSplit } from '@/components/sections/HeroSplit';
-import { CinematicIntro } from '@/components/sections/CinematicIntro';
+import { CinematicShowcase } from '@/components/sections/CinematicIntro';
 import { Container } from '@/components/common/Container';
 import { staggerReveal, revealUp } from '@/animations/scroll';
 import { staggerItem } from '@/animations/fade';
@@ -27,7 +27,7 @@ import { COMPANY } from '@/config';
 import { IMAGES } from '@/config/images';
 import type { Service } from '@/types/common';
 
-const HERO_INTRO_KEY = 'js-hero-intro-dismissed';
+const SHOWCASE_KEY = 'js-showcase-dismissed';
 
 const heroSlides = [
   {
@@ -182,24 +182,51 @@ const blogPosts = [
 ];
 
 export default function Home() {
-  const shouldReduceMotion = useReducedMotion();
-  const [showIntro, setShowIntro] = useState(() => {
-    if (shouldReduceMotion) return false;
+  const [showcaseFinished, setShowcaseFinished] = useState(() => {
     if (typeof window !== 'undefined') {
-      return !sessionStorage.getItem(HERO_INTRO_KEY);
+      return sessionStorage.getItem(SHOWCASE_KEY) === '1';
     }
-    return true;
+    return false;
   });
 
-  const handleIntroFinish = () => {
-    setShowIntro(false);
-  };
+  const handleShowcaseFinish = useCallback(() => {
+    if (typeof window !== 'undefined') {
+      sessionStorage.setItem(SHOWCASE_KEY, '1');
+    }
+    setShowcaseFinished(true);
+  }, []);
+
+  useEffect(() => {
+    if (showcaseFinished) return;
+    if (typeof window === 'undefined') return;
+
+    const resetDismiss = () => {
+      sessionStorage.removeItem(SHOWCASE_KEY);
+      setShowcaseFinished(false);
+    };
+
+    window.addEventListener('pointermove', resetDismiss);
+    window.addEventListener('pointerdown', resetDismiss);
+    window.addEventListener('keydown', resetDismiss);
+    window.addEventListener('scroll', resetDismiss);
+    window.addEventListener('touchstart', resetDismiss);
+
+    return () => {
+      window.removeEventListener('pointermove', resetDismiss);
+      window.removeEventListener('pointerdown', resetDismiss);
+      window.removeEventListener('keydown', resetDismiss);
+      window.removeEventListener('scroll', resetDismiss);
+      window.removeEventListener('touchstart', resetDismiss);
+    };
+  }, [showcaseFinished]);
 
   const destaques = mockGetVagas().slice(0, 4);
 
   return (
     <div>
-      {showIntro && <CinematicIntro onFinish={handleIntroFinish} />}
+      {!showcaseFinished && (
+        <CinematicShowcase onFinish={handleShowcaseFinish} />
+      )}
 
       {/* Hero */}
       <HeroSplit slides={heroSlides} />
