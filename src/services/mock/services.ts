@@ -1,5 +1,6 @@
 import type { Service } from '@/types/common';
 import { IMAGES } from '@/config/images';
+import { SERVICE_IMAGES } from '@/content/assets';
 
 export const mockServices: Service[] = [
   // ── Para Empresas (Recursos Humanos) ───────────────────
@@ -100,7 +101,7 @@ export const mockServices: Service[] = [
       'Redução de custos com departamento de RH',
       'Suporte em legislação trabalhista',
     ],
-    image: '/images/services/assessoria-rh.png',
+    image: SERVICE_IMAGES.assessoriaRh,
     icon: 'briefcase',
     category: 'rh',
   },
@@ -120,7 +121,8 @@ export const mockServices: Service[] = [
       'Score de adequação',
       'Recomendações personalizadas',
     ],
-    image: '/images/services/avaliacao-perfil.svg',
+    image:
+      SERVICE_IMAGES.avaliacaoPerfil ?? '/images/services/avaliacao-perfil.svg',
     icon: 'target',
     category: 'rh',
   },
@@ -140,7 +142,7 @@ export const mockServices: Service[] = [
       'Oferta personalizada',
       'Garantia de resultado',
     ],
-    image: '/images/services/hunting.svg',
+    image: SERVICE_IMAGES.hunting ?? '/images/services/hunting.svg',
     icon: 'search',
     category: 'rh',
   },
@@ -185,7 +187,9 @@ export const mockServices: Service[] = [
       'Comunicação integrada',
       'Relatórios detalhados',
     ],
-    image: '/images/services/controle-acesso.jfif',
+    image:
+      SERVICE_IMAGES.segurancaPatrimonial ??
+      '/images/services/controle-acesso.jfif',
     icon: 'shield',
     category: 'terceirizacao',
   },
@@ -206,7 +210,7 @@ export const mockServices: Service[] = [
       'Relatórios de limpeza',
     ],
     image:
-      IMAGES.services.limpezaReal ?? '/images/services/limpeza-escritorio.jfif',
+      SERVICE_IMAGES.limpezaReal ?? '/images/services/limpeza-escritorio.jfif',
     icon: 'sparkles',
     category: 'facilities',
   },
@@ -226,7 +230,7 @@ export const mockServices: Service[] = [
       'Gestão de áreas comuns',
       'Inspeções regulares',
     ],
-    image: IMAGES.services.zeladoriaReal ?? '/images/services/zeladoria.svg',
+    image: SERVICE_IMAGES.zeladoriaReal ?? '/images/services/zeladoria.svg',
     icon: 'wrench',
     category: 'facilities',
   },
@@ -247,7 +251,8 @@ export const mockServices: Service[] = [
       'Alertas de novas vagas',
       'Acesso ao banco de talentos',
     ],
-    image: '/images/services/banco-talentos.svg',
+    image:
+      SERVICE_IMAGES.bancoTalentoReal ?? '/images/services/banco-talentos.svg',
     icon: 'users',
     category: 'candidato',
   },
@@ -266,7 +271,7 @@ export const mockServices: Service[] = [
       'Candidatura simplificada',
       'Notificações via WhatsApp',
     ],
-    image: '/images/services/recrutamento.svg',
+    image: SERVICE_IMAGES.recrutamento ?? '/images/services/recrutamento.svg',
     icon: 'search',
     category: 'candidato',
   },
@@ -285,7 +290,8 @@ export const mockServices: Service[] = [
       'Filtros por preferência',
       'Sem spam',
     ],
-    image: '/images/services/banco-talentos.svg',
+    image:
+      SERVICE_IMAGES.bancoTalentoReal ?? '/images/services/banco-talentos.svg',
     icon: 'phone',
     category: 'candidato',
   },
@@ -304,7 +310,8 @@ export const mockServices: Service[] = [
       'Preparação para processos',
       'Equipe especializada',
     ],
-    image: '/images/services/avaliacao-perfil.svg',
+    image:
+      SERVICE_IMAGES.avaliacaoPerfil ?? '/images/services/avaliacao-perfil.svg',
     icon: 'award',
     category: 'candidato',
   },
@@ -323,7 +330,8 @@ export const mockServices: Service[] = [
       'Notificações de vagas compatíveis',
       'Suporte da equipe',
     ],
-    image: '/images/services/banco-talentos.svg',
+    image:
+      SERVICE_IMAGES.bancoTalentoReal ?? '/images/services/banco-talentos.svg',
     icon: 'clipboard-check',
     category: 'candidato',
   },

@@ -28,6 +28,9 @@ export const SERVICE_IMAGES = {
   limpezaPosObraReal: '/images/services/limpeza-pos-obra.webp',
   trabalhoTemporizadoReal: '/images/services/trabalho-tercerizado.png',
   trabalhoFreeLanceReal: '/images/services/trabalho-free-lance.png',
+  avaliacaoPerfil: '/images/services/avaliacao-perfil.svg',
+  hunting: '/images/services/hunting.svg',
+  segurancaPatrimonial: '/images/services/controle-acesso.jfif',
 } as const;
 
 export const CANDIDATE_IMAGES = {

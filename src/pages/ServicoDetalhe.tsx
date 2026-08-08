@@ -14,11 +14,13 @@ import {
   Zap,
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
+import { SafeImage } from '@/components/ui/SafeImage';
 import { Section } from '@/components/sections/Section';
 import { SEO } from '@/components/ui/SEO';
 import { Container } from '@/components/common/Container';
 import { mockGetServiceBySlug } from '@/services/mock/services';
 import { COMPANY, WHATSAPP_MESSAGES, getWhatsAppUrl } from '@/config';
+import { SERVICE_IMAGES } from '@/content/assets';
 import { staggerReveal, revealUp } from '@/animations/scroll';
 import { staggerItem } from '@/animations/fade';
 
@@ -98,13 +100,13 @@ export default function ServicoDetalhe() {
           transition={{ duration: 1.2, ease: [0.25, 0.4, 0.25, 1] }}
           className="absolute inset-0"
         >
-          <img
+          <SafeImage
             src={service.image}
             alt={service.title}
-            className="h-full w-full object-cover object-center"
+            className="h-full w-full object-cover"
+            fallbackSrc={SERVICE_IMAGES.facilitiesFallback}
             loading="eager"
-            width="1920"
-            height="1080"
+            decoding="async"
           />
           <img
             src="/images/hero/hero-overlay.svg"
