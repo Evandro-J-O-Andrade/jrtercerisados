@@ -44,7 +44,7 @@ Não foram encontrados erros de compilação ou build.
 | Contato com WhatsApp / mapa / horário | 🟢 OK           | Footer e página de contato possuem esses elementos.                                            |
 | Acessibilidade                        | 🟡 PARCIAL      | Widget existe, mas falta focus trap, escala de cinza e ajustes de backdrop.                    |
 | Chat IA + humano                      | 🟡 PARCIAL      | ChatWidget mockado com opções; sem integração real.                                            |
-| SEO por página                        | 🔴 NÃO INICIADO | Componente `SEO.tsx` existe, mas não é usado em nenhuma página.                                |
+| SEO por página                        | 🟡 PARCIAL      | Componente `SEO.tsx` existe, mas não é usado em nenhuma página.                                |
 | Performance / build                   | 🟢 OK           | Build e typecheck limpos.                                                                      |
 
 ---
@@ -383,12 +383,12 @@ Nenhuma imagem pode:
 
 ## SEO
 
-| Item | Status | Arquivo | Observação |
-|---|---|---|
-| Componente `SEO` | 🟡 PARCIAL | `src/components/ui/SEO.tsx` | Implementa title, description, keywords, canonical, OG, Twitter, JSON-LD. |
-| Aplicação nas páginas | 🔴 NÃO INICIADO | `src/pages/*` | Nenhuma página importa ou usa `<SEO />`. |
-| Structured data | 🔴 NÃO INICIADO | — | Sem JSON-LD aplicado. |
-| Canonical / OG | 🔴 NÃO INICIADO | — | Sem aplicação prática. |
+| Item                  | Status     | Arquivo                     | Observação                                                                     |
+| --------------------- | ---------- | --------------------------- | ------------------------------------------------------------------------------ |
+| Componente `SEO`      | 🟢 OK      | `src/components/ui/SEO.tsx` | Implementa title, description, keywords, canonical, OG, Twitter, JSON-LD.      |
+| Aplicação nas páginas | 🟡 PARCIAL | `src/pages/*`               | Aplicado em Home, Servicos, Vagas, Empresas, Candidatos, Contato, Sobre, Blog. |
+| Structured data       | 🟡 PARCIAL | `src/components/ui/SEO.tsx` | JSON-LD gerado pelo componente, mas não aplicado em todas as páginas.          |
+| Canonical / OG        | 🟡 PARCIAL | `src/components/ui/SEO.tsx` | Aplicado via componente nas páginas atualizadas.                               |
 
 ---
 
@@ -406,43 +406,43 @@ Nenhuma imagem pode:
 
 ## Matriz de Status
 
-| Requisito                 | Origem              | Estado          | Arquivo(s)                                                                                | Observação                                                                              |
-| ------------------------- | ------------------- | --------------- | ----------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| Identidade oficial        | `00-VISAO-GERAL.md` | 🟡 PARCIAL      | `src/config/company.ts`, `src/config/contacts.ts`                                         | Nome ok; e-mail/domínio/redes antigas.                                                  |
-| Rotas principais          | `00-VISAO-GERAL.md` | 🟢 OK           | `src/App.tsx`                                                                             | Todas presentes.                                                                        |
-| Home                      | `00-VISAO-GERAL.md` | 🟡 PARCIAL      | `src/pages/Home.tsx`                                                                      | Seções existem, ordem diverge; números sem validação.                                   |
-| HeroSplit                 | `00-VISAO-GERAL.md` | 🟢 OK           | `src/components/sections/HeroSplit.tsx`                                                   | Completo e acessível.                                                                   |
-| Serviços                  | `00-VISAO-GERAL.md` | 🟢 OK           | `src/services/mock/services.ts`, `src/pages/Servicos.tsx`, `src/pages/ServicoDetalhe.tsx` | Mock e rotas ok.                                                                        |
-| Vagas                     | `00-VISAO-GERAL.md` | 🟡 PARCIAL      | `src/pages/Vagas.tsx`, `src/pages/VagaDetalhe.tsx`                                        | Filtros incompletos; sem candidatura própria.                                           |
-| Candidatos                | `00-VISAO-GERAL.md` | 🟡 PARCIAL      | `src/pages/Candidatos.tsx`                                                                | Minimalista.                                                                            |
-| Empresas                  | `00-VISAO-GERAL.md` | 🟡 PARCIAL      | `src/pages/Empresas.tsx`                                                                  | Falta seção de problema/processo.                                                       |
-| Formulários reutilizáveis | `00-VISAO-GERAL.md` | 🟡 PARCIAL      | `src/pages/Contato.tsx`, `src/pages/TrabalheConosco.tsx`                                  | Primitivos ok; faltam forms de alto nível.                                              |
-| Footer                    | `00-VISAO-GERAL.md` | 🟡 PARCIAL      | `src/components/layout/Footer.tsx`                                                        | Rotas fantasma; grupos divergem.                                                        |
-| Acessibilidade            | `00-VISAO-GERAL.md` | 🟡 PARCIAL      | `src/components/ui/AccessibilityWidget.tsx`                                               | Falta focus trap e escala de cinza.                                                     |
-| SEO                       | `00-VISAO-GERAL.md` | 🔴 NÃO INICIADO | `src/components/ui/SEO.tsx`                                                               | Componente existe, não é usado.                                                         |
-| CinematicIntro            | `00-VISAO-GERAL.md` | 🟢 OK           | `src/components/sections/CinematicIntro.tsx`                                              | Implementada como showcase visual sem texto; com inatividade de 10 min e botão “Pular”. |
-| Mobile                    | `00-VISAO-GERAL.md` | 🟢 OK           | Vários                                                                                    | Sem overflow; grids responsivos.                                                        |
-| Performance / build       | `00-VISAO-GERAL.md` | 🟢 OK           | —                                                                                         | Typecheck e build OK.                                                                   |
+| Requisito                 | Origem              | Estado     | Arquivo(s)                                                                                | Observação                                                                              |
+| ------------------------- | ------------------- | ---------- | ----------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| Identidade oficial        | `00-VISAO-GERAL.md` | 🟡 PARCIAL | `src/config/company.ts`, `src/config/contacts.ts`                                         | Nome ok; e-mail/domínio/redes antigas.                                                  |
+| Rotas principais          | `00-VISAO-GERAL.md` | 🟢 OK      | `src/App.tsx`                                                                             | Todas presentes.                                                                        |
+| Home                      | `00-VISAO-GERAL.md` | 🟡 PARCIAL | `src/pages/Home.tsx`                                                                      | Seções existem, ordem diverge; números sem validação.                                   |
+| HeroSplit                 | `00-VISAO-GERAL.md` | 🟢 OK      | `src/components/sections/HeroSplit.tsx`                                                   | Completo e acessível.                                                                   |
+| Serviços                  | `00-VISAO-GERAL.md` | 🟢 OK      | `src/services/mock/services.ts`, `src/pages/Servicos.tsx`, `src/pages/ServicoDetalhe.tsx` | Mock e rotas ok.                                                                        |
+| Vagas                     | `00-VISAO-GERAL.md` | 🟡 PARCIAL | `src/pages/Vagas.tsx`, `src/pages/VagaDetalhe.tsx`                                        | Filtros incompletos; sem candidatura própria.                                           |
+| Candidatos                | `00-VISAO-GERAL.md` | 🟡 PARCIAL | `src/pages/Candidatos.tsx`                                                                | Minimalista.                                                                            |
+| Empresas                  | `00-VISAO-GERAL.md` | 🟡 PARCIAL | `src/pages/Empresas.tsx`                                                                  | Falta seção de problema/processo.                                                       |
+| Formulários reutilizáveis | `00-VISAO-GERAL.md` | 🟡 PARCIAL | `src/pages/Contato.tsx`, `src/pages/TrabalheConosco.tsx`                                  | Primitivos ok; faltam forms de alto nível.                                              |
+| Footer                    | `00-VISAO-GERAL.md` | 🟡 PARCIAL | `src/components/layout/Footer.tsx`                                                        | Rotas fantasma; grupos divergem.                                                        |
+| Acessibilidade            | `00-VISAO-GERAL.md` | 🟡 PARCIAL | `src/components/ui/AccessibilityWidget.tsx`                                               | Falta focus trap e escala de cinza.                                                     |
+| SEO                       | `00-VISAO-GERAL.md` | 🟡 PARCIAL | `src/components/ui/SEO.tsx` + `src/pages/*`                                               | Componente existe e foi aplicado em páginas principais.                                 |
+| CinematicIntro            | `00-VISAO-GERAL.md` | 🟢 OK      | `src/components/sections/CinematicIntro.tsx`                                              | Implementada como showcase visual sem texto; com inatividade de 10 min e botão “Pular”. |
+| Mobile                    | `00-VISAO-GERAL.md` | 🟢 OK      | Vários                                                                                    | Sem overflow; grids responsivos.                                                        |
+| Performance / build       | `00-VISAO-GERAL.md` | 🟢 OK      | —                                                                                         | Typecheck e build OK.                                                                   |
 
 ---
 
 ## 10 Problemas Mais Importantes
 
-1. **SEO não aplicado** — componente existe, mas nenhuma página o usa.
+1. **Identidade/contato desatualizados** — domínio e e-mail ainda antigos.
 2. **Rotas fantasma no Footer** — links quebrados para páginas inexistentes.
-3. **Identidade/contato desatualizados** — domínio e e-mail ainda antigos.
-4. **Candidatura sem formulário próprio** — vaga redireciona para Trabalhe Conosco.
-5. **Números da Home sem validação** — dados inventados podem ser publicados.
-6. **Formulários de alto nível ausentes** — repetição de código e baixa reutilização.
-7. **Focus trap ausente na acessibilidade** — documento exige, não está implementado.
-8. **Home com ordem divergente** — não segue a arquitetura recomendada.
-9. **Dados históricos não validados** — fundação, clientes, cidades, contratações.
-10. **CinematicIntro com 1 slide** — experiência com apenas 1 imagem; refine para múltiplos slides e ajuste de `object-position` por viewport.
+3. **Candidatura sem formulário próprio** — vaga redireciona para Trabalhe Conosco.
+4. **Números da Home sem validação** — dados inventados podem ser publicados.
+5. **Formulários de alto nível ausentes** — repetição de código e baixa reutilização.
+6. **Focus trap ausente na acessibilidade** — documento exige, não está implementado.
+7. **Home com ordem divergente** — não segue a arquitetura recomendada.
+8. **Dados históricos não validados** — fundação, clientes, cidades, contratações.
+9. **CinematicIntro com 1 slide** — experiência com apenas 1 imagem; refine para múltiplos slides e ajuste de `object-position` por viewport.
+10. **SEO parcial** — componente aplicado em algumas páginas, mas não em todas.
 
 ## 10 Pendências Mais Importantes
 
-1. Atualizar identidade/contato para `jsterceirizados.com.br`.
-2. Aplicar `SEO` em todas as páginas.
+1. Aplicar `SEO` em todas as páginas restantes.
+2. Atualizar identidade/contato para `jsterceirizados.com.br`.
 3. Corrigir rotas fantasma ou removê-las do Footer.
 4. Implementar `CandidaturaForm` vinculado a `/vagas/:slug`.
 5. Validar números da Home com o cliente.
