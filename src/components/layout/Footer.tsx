@@ -1,5 +1,6 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
   MapPin,
   Phone,
@@ -11,10 +12,14 @@ import {
   Youtube,
   Heart,
   Globe,
+  ChevronDown,
+  ChevronUp,
+  LogIn,
 } from 'lucide-react';
 import { COMPANY, SOCIAL_LINKS } from '@/config';
 import { IMAGES } from '@/config/images';
 import { cn } from '@/utils';
+import { useMediaQuery } from '@/hooks';
 
 const TikTokIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
@@ -52,6 +57,7 @@ const footerLinks = {
   atendimento: [
     { label: 'Suporte', href: '/suporte' },
     { label: 'FAQ', href: '/faq' },
+    { label: 'Processo Seletivo', href: '/processo-seletivo' },
     { label: 'WhatsApp', href: SOCIAL_LINKS.whatsapp },
     { label: 'E-mail', href: `mailto:${COMPANY.email}` },
   ],
@@ -63,42 +69,36 @@ const socialLinks = [
     href: SOCIAL_LINKS.whatsapp,
     icon: Phone,
     color: 'text-social-whatsapp',
-    glow: 'rgba(37,211,102,0.4)',
   },
   {
     label: 'Instagram',
     href: SOCIAL_LINKS.instagram,
     icon: Instagram,
     color: 'text-social-instagram',
-    glow: 'rgba(228,64,95,0.4)',
   },
   {
     label: 'Facebook',
     href: SOCIAL_LINKS.facebook,
     icon: Facebook,
     color: 'text-social-facebook',
-    glow: 'rgba(24,119,242,0.4)',
   },
   {
     label: 'TikTok',
     href: SOCIAL_LINKS.tiktok,
     icon: TikTokIcon,
     color: 'text-social-tiktok',
-    glow: 'rgba(254,44,85,0.4)',
   },
   {
     label: 'LinkedIn',
     href: SOCIAL_LINKS.linkedin,
     icon: Linkedin,
     color: 'text-social-linkedin',
-    glow: 'rgba(10,102,194,0.4)',
   },
   {
     label: 'YouTube',
     href: SOCIAL_LINKS.youtube,
     icon: Youtube,
     color: 'text-social-youtube',
-    glow: 'rgba(255,0,0,0.4)',
   },
 ];
 
@@ -122,17 +122,90 @@ const contactItems = [
     label: 'Endereço',
     value: `${COMPANY.address.street}, ${COMPANY.address.number}`,
     subvalue: `${COMPANY.address.neighborhood}, ${COMPANY.address.city} - ${COMPANY.address.state}`,
-    href: `https://maps.google.com/?q=${encodeURIComponent(`${COMPANY.address.street}, ${COMPANY.address.number}, ${COMPANY.address.city}, ${COMPANY.address.state}`)}`,
     icon: MapPin,
   },
   {
     type: 'map',
-    label: 'Ver no Mapa',
+    label: 'Ver localização',
     value: `${COMPANY.address.city} - SP`,
     href: `https://maps.google.com/?q=${encodeURIComponent(`${COMPANY.address.street}, ${COMPANY.address.number}, ${COMPANY.address.city}, ${COMPANY.address.state}`)}`,
     icon: Globe,
   },
 ];
+
+function FooterAccordion({
+  title,
+  links,
+}: {
+  title: string;
+  links: { label: string; href: string }[];
+}) {
+  const [open, setOpen] = useState(false);
+  const isDesktop = useMediaQuery('(min-width: 1024px)');
+
+  if (isDesktop) {
+    return (
+      <div>
+        <h4 className="text-primary mb-5 text-xs font-bold tracking-wider uppercase">
+          {title}
+        </h4>
+        <div className="space-y-3">
+          {links.map((link) => (
+            <Link
+              key={link.href}
+              to={link.href}
+              className="text-muted-foreground hover:text-primary flex items-center gap-2 text-sm transition-colors duration-200"
+            >
+              <span className="text-primary/50 h-1 w-1 rounded-full bg-current" />
+              {link.label}
+            </Link>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="border-border/50 rounded-xl border">
+      <button
+        type="button"
+        onClick={() => setOpen((prev) => !prev)}
+        className="text-foreground flex w-full items-center justify-between px-4 py-3 text-sm font-semibold"
+        aria-expanded={open}
+      >
+        {title}
+        {open ? (
+          <ChevronUp className="h-4 w-4" aria-hidden="true" />
+        ) : (
+          <ChevronDown className="h-4 w-4" aria-hidden="true" />
+        )}
+      </button>
+      <AnimatePresence initial={false}>
+        {open && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            className="overflow-hidden"
+          >
+            <div className="space-y-3 px-4 pb-4">
+              {links.map((link) => (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  className="text-muted-foreground hover:text-primary block text-sm transition-colors"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -142,7 +215,7 @@ export function Footer() {
       <div className="via-primary/40 absolute -top-px right-0 left-0 h-px bg-gradient-to-r from-transparent to-transparent" />
 
       <div className="mx-auto max-w-[1600px] px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-12">
           {/* ─── Brand ───────────────────────────── */}
           <div className="space-y-6 lg:col-span-3">
             <Link to="/" className="flex items-center gap-4">
@@ -170,7 +243,7 @@ export function Footer() {
             {/* Social */}
             <div className="pt-2">
               <h4 className="text-foreground mb-3 text-sm font-bold">
-                Siga a J&S Terceirizados
+                Siga a J&amp;S Terceirizados
               </h4>
               <div className="flex flex-wrap gap-3">
                 {socialLinks.map((social) => (
@@ -180,13 +253,12 @@ export function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     whileHover={{
-                      scale: 1.15,
-                      y: -6,
-                      boxShadow: `0 0 30px ${social.glow}`,
+                      scale: 1.08,
+                      y: -3,
                     }}
                     whileTap={{ scale: 0.95 }}
                     transition={{ type: 'spring', stiffness: 300 }}
-                    className="border-border/60 bg-muted/50 hover:border-primary/40 hover:bg-primary/10 relative flex h-12 w-12 items-center justify-center rounded-full backdrop-blur-xl transition-all duration-300"
+                    className="border-border/60 bg-muted/50 hover:border-primary/40 hover:bg-primary/10 focus-visible:ring-primary relative flex h-12 w-12 items-center justify-center rounded-full transition-all duration-300 focus-visible:ring-2 focus-visible:outline-none"
                     aria-label={social.label}
                   >
                     <social.icon
@@ -200,133 +272,88 @@ export function Footer() {
                 ))}
               </div>
             </div>
+
+            {/* Login */}
+            <Link
+              to="/login"
+              className="border-border/60 bg-muted/50 hover:border-primary/40 hover:bg-primary/10 focus-visible:ring-primary inline-flex items-center gap-2 rounded-xl border px-4 py-2.5 text-sm font-semibold transition-all duration-300 focus-visible:ring-2 focus-visible:outline-none"
+            >
+              <LogIn className="h-4 w-4" aria-hidden="true" />
+              Área de acesso
+            </Link>
           </div>
 
-          {/* ─── Empresa ─────────────────────────── */}
-          <div className="lg:col-span-2">
-            <h4 className="text-primary mb-5 text-xs font-bold tracking-wider uppercase">
-              Empresa
-            </h4>
-            <div className="space-y-3">
-              {footerLinks.empresa.map((link) => (
-                <Link
-                  key={link.href}
-                  to={link.href}
-                  className="text-muted-foreground hover:text-primary flex items-center gap-2 text-sm transition-colors duration-200"
-                >
-                  <span className="text-primary/50 h-1 w-1 rounded-full bg-current" />
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          {/* ─── Serviços ───────────────────────── */}
-          <div className="lg:col-span-2">
-            <h4 className="text-primary mb-5 text-xs font-bold tracking-wider uppercase">
-              Serviços
-            </h4>
-            <div className="space-y-3">
-              {footerLinks.servicos.map((link) => (
-                <Link
-                  key={link.href}
-                  to={link.href}
-                  className="text-muted-foreground hover:text-primary flex items-center gap-2 text-sm transition-colors duration-200"
-                >
-                  <span className="text-primary/50 h-1 w-1 rounded-full bg-current" />
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          {/* ─── Atendimento ─────────────────────── */}
-          <div className="lg:col-span-2">
-            <h4 className="text-primary mb-5 text-xs font-bold tracking-wider uppercase">
-              Atendimento
-            </h4>
-            <div className="space-y-3">
-              {footerLinks.atendimento.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  target={
-                    link.label === 'WhatsApp' || link.label === 'E-mail'
-                      ? '_blank'
-                      : undefined
-                  }
-                  rel={
-                    link.label === 'WhatsApp' || link.label === 'E-mail'
-                      ? 'noopener noreferrer'
-                      : undefined
-                  }
-                  className="text-muted-foreground hover:text-primary flex items-center gap-2 text-sm transition-colors duration-200"
-                >
-                  <span className="text-primary/50 h-1 w-1 rounded-full bg-current" />
-                  {link.label}
-                </a>
-              ))}
-            </div>
-          </div>
-
-          {/* ─── Contato ─────────────────────────── */}
-          <div className="lg:col-span-3">
-            <h4 className="text-primary mb-5 text-xs font-bold tracking-wider uppercase">
-              Fale Conosco
-            </h4>
-            <div className="space-y-4">
-              {contactItems.map((item) => (
-                <a
-                  key={item.type}
-                  href={item.href}
-                  target={item.type === 'map' ? '_blank' : undefined}
-                  rel={item.type === 'map' ? 'noopener noreferrer' : undefined}
-                  className="border-border/50 hover:border-primary/30 group bg-primary/5 flex items-center gap-4 rounded-xl border p-4 transition-all duration-300"
-                >
-                  <div className="text-primary bg-primary/10 flex h-10 w-10 items-center justify-center rounded-lg">
-                    <item.icon className="h-5 w-5" />
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <p className="text-foreground text-sm font-semibold">
-                      {item.label}
-                    </p>
-                    <p className="text-muted-foreground truncate text-xs">
-                      {item.value}
-                    </p>
-                    {item.subvalue && (
-                      <p className="text-muted-foreground text-xs">
-                        {item.subvalue}
-                      </p>
-                    )}
-                  </div>
-                  {item.type === 'map' && (
-                    <Globe className="text-primary h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  )}
-                </a>
-              ))}
-            </div>
-
-            {/* ─── Horário ───────────────────────── */}
-            <div className="border-border/50 bg-primary/5 mt-8 rounded-xl border p-5">
-              <h5 className="text-foreground mb-4 text-sm font-bold">
-                Horário de Atendimento
-              </h5>
-              <div className="space-y-3">
-                <div className="flex items-center gap-2 text-sm">
-                  <Clock className="text-primary h-4 w-4" />
-                  <span className="text-muted-foreground">
-                    Seg a Sex, 08h às 18h
-                  </span>
+          {/* ─── Accordions mobile / grupos desktop ─ */}
+          <div className="lg:col-span-7">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              <FooterAccordion title="Empresa" links={footerLinks.empresa} />
+              <FooterAccordion title="Serviços" links={footerLinks.servicos} />
+              <FooterAccordion
+                title="Atendimento"
+                links={footerLinks.atendimento}
+              />
+              <div className="hidden lg:block">
+                <h4 className="text-primary mb-5 text-xs font-bold tracking-wider uppercase">
+                  Fale Conosco
+                </h4>
+                <div className="space-y-4">
+                  {contactItems.map((item) => (
+                    <a
+                      key={item.type}
+                      href={item.href}
+                      target={item.type === 'map' ? '_blank' : undefined}
+                      rel={
+                        item.type === 'map' ? 'noopener noreferrer' : undefined
+                      }
+                      className="border-border/50 hover:border-primary/30 group bg-primary/5 flex items-center gap-3 rounded-xl border p-3 transition-all duration-300"
+                    >
+                      <div className="text-primary bg-primary/10 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg">
+                        <item.icon className="h-4 w-4" />
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <p className="text-foreground text-sm font-semibold">
+                          {item.label}
+                        </p>
+                        <p className="text-muted-foreground truncate text-xs">
+                          {item.value}
+                        </p>
+                        {item.subvalue && (
+                          <p className="text-muted-foreground text-xs">
+                            {item.subvalue}
+                          </p>
+                        )}
+                      </div>
+                      {item.type === 'map' && (
+                        <Globe className="text-primary h-4 w-4 transition-transform group-hover:translate-x-1" />
+                      )}
+                    </a>
+                  ))}
                 </div>
-                <div className="flex items-center gap-2 text-sm">
-                  <Clock className="text-primary h-4 w-4" />
-                  <span className="text-muted-foreground">Sáb, 08h às 12h</span>
-                </div>
-                <div className="flex items-center gap-2 text-sm">
-                  <Clock className="text-muted-foreground h-4 w-4" />
-                  <span className="text-muted-foreground">
-                    Domingo — Fechado
-                  </span>
+
+                <div className="border-border/50 bg-primary/5 mt-4 rounded-xl border p-4">
+                  <h5 className="text-foreground mb-3 text-sm font-bold">
+                    Horário de Atendimento
+                  </h5>
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2 text-sm">
+                      <Clock className="text-primary h-4 w-4" />
+                      <span className="text-muted-foreground">
+                        Seg a Sex, 08h às 18h
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm">
+                      <Clock className="text-primary h-4 w-4" />
+                      <span className="text-muted-foreground">
+                        Sáb, 08h às 12h
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm">
+                      <Clock className="text-muted-foreground h-4 w-4" />
+                      <span className="text-muted-foreground">
+                        Domingo — Fechado
+                      </span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
