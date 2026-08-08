@@ -1,7 +1,7 @@
 import { COMPANY } from './company';
 
 export const SEO_CONFIG = {
-  title: `${COMPANY.name} — Recrutamento, Seleção e Banco de Talentos`,
+  title: `${COMPANY.name} — Assessoria em RH, Recrutamento, Mão de Obra e Facilities`,
   description: COMPANY.description,
   keywords: [
     'recrutamento',
@@ -9,25 +9,26 @@ export const SEO_CONFIG = {
     'banco de talentos',
     'hunting de executivos',
     'mão de obra temporária',
-    'agência de empregos',
+    'mão de obra efetiva',
+    'terceirização',
+    'facilities',
+    'limpeza',
+    'jardinagem',
+    'portaria',
+    'assessoria em RH',
     'RH',
     'vagas de emprego',
-    'terceirização de serviços',
-    'facilities',
     'segurança patrimonial',
-    'limpeza profissional',
-    'portaria',
-    'zeladoria',
   ],
   openGraph: {
     type: 'website',
     locale: 'pt_BR',
-    url: 'https://jrtelempregos.com.br',
+    url: 'https://jsterceirizados.com.br',
     siteName: COMPANY.name,
   },
   twitter: {
     card: 'summary_large_image',
-    site: '@jrtelempregos',
+    site: '@jsterceirizados',
   },
   robots: {
     index: true,

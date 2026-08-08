@@ -4,10 +4,10 @@ export const COMPANY = {
   brand: 'J&S Terceirizados',
   cnpj: '00.000.000/0001-00',
   phone: '(11) 96838-0592',
-  email: 'contato@jrtelempregos.com.br',
+  email: 'contato@jsterceirizados.com.br',
   whatsapp: '5511968380592',
   description:
-    'Agência de Empregos e Assessoria em Recursos Humanos. Mais eficiência em RH. Mais resultados para sua empresa. Conectamos empresas aos melhores profissionais por meio de recrutamento, seleção, banco de talentos e hunting.',
+    'Assessoria em Recursos Humanos, recrutamento, mão de obra temporária e efetiva, terceirização e facilities. Mais eficiência em RH, mais agilidade para sua empresa.',
   tagline: 'Mais eficiência em RH. Mais resultados para sua empresa.',
   address: {
     street: 'Rodovia João Afonso de Souza Castellano',
@@ -42,12 +42,12 @@ export const COMPANY = {
 } as const;
 
 export const SOCIAL_LINKS = {
-  instagram: 'https://instagram.com/jrtelempregos',
-  facebook: 'https://facebook.com/jrtelempregos',
-  tiktok: 'https://tiktok.com/@jrtelempregos',
-  linkedin: 'https://linkedin.com/company/jrtelempregos',
-  youtube: 'https://youtube.com/@jrtelempregos',
-  twitter: 'https://twitter.com/jrtelempregos',
+  instagram: 'https://instagram.com/jsterceirizados',
+  facebook: 'https://facebook.com/jsterceirizados',
+  tiktok: 'https://tiktok.com/@jsterceirizados',
+  linkedin: 'https://linkedin.com/company/jsterceirizados',
+  youtube: 'https://youtube.com/@jsterceirizados',
+  twitter: 'https://twitter.com/jsterceirizados',
   whatsapp: 'https://wa.me/5511968380592',
-  email: 'mailto:contato@jrtelempregos.com.br',
+  email: 'mailto:contato@jsterceirizados.com.br',
 } as const;
