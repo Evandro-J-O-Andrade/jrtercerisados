@@ -1,4 +1,5 @@
-﻿import { motion } from 'framer-motion';
+﻿import { motion, useReducedMotion } from 'framer-motion';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Shield,
@@ -15,7 +16,7 @@ import { Section } from '@/components/sections/Section';
 import { ServiceCard } from '@/components/sections/ServiceCard';
 import { NumberCounter } from '@/components/sections/NumberCounter';
 import { HeroSplit } from '@/components/sections/HeroSplit';
-import type { HeroSplitSlide } from '@/components/sections/HeroSplit';
+import { CinematicIntro } from '@/components/sections/CinematicIntro';
 import { Container } from '@/components/common/Container';
 import { staggerReveal, revealUp } from '@/animations/scroll';
 import { staggerItem } from '@/animations/fade';
@@ -25,7 +26,9 @@ import { PARTNERS_LOGOS } from '@/mock/partners';
 import { COMPANY } from '@/config';
 import { IMAGES } from '@/config/images';
 
-const heroSlides: HeroSplitSlide[] = [
+const HERO_INTRO_KEY = 'js-hero-intro-dismissed';
+
+const heroSlides = [
   {
     id: 'talentos',
     image: IMAGES.hero.home.slides[0],
@@ -86,10 +89,25 @@ const blogPosts = [
 ];
 
 export default function Home() {
+  const shouldReduceMotion = useReducedMotion();
+  const [showIntro, setShowIntro] = useState(() => {
+    if (shouldReduceMotion) return false;
+    if (typeof window !== 'undefined') {
+      return !sessionStorage.getItem(HERO_INTRO_KEY);
+    }
+    return true;
+  });
+
+  const handleIntroFinish = () => {
+    setShowIntro(false);
+  };
+
   const destaques = mockGetVagas().slice(0, 4);
 
   return (
     <div>
+      {showIntro && <CinematicIntro onFinish={handleIntroFinish} />}
+
       {/* Hero */}
       <HeroSplit
         eyebrow={
