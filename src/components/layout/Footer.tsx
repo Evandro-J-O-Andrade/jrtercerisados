@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
@@ -11,10 +12,11 @@ import {
   Youtube,
   Heart,
   Globe,
+  LogIn,
+  ChevronDown,
 } from 'lucide-react';
 import { COMPANY, SOCIAL_LINKS } from '@/config';
 import { IMAGES } from '@/config/images';
-import { cn } from '@/utils';
 
 const TikTokIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
@@ -24,7 +26,7 @@ const TikTokIcon = (props: React.SVGProps<SVGSVGElement>) => (
     height="1em"
     {...props}
   >
-    <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.11v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V8.73a8.19 8.19 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.16z" />
+    <path d="M19.381 3.64c.004.023.017.044.021.066.393 2.383.36 4.784-.097 7.166-.457 2.391-2.318 4.443-4.578 5.291-2.26.848-4.675.796-6.899-.108-2.225-.904-3.964-2.713-4.535-4.925-.572-2.212-.266-4.532.95-6.445 1.216-1.913 3.146-3.256 5.334-3.737 2.188-.481 4.445-.173 6.49-1.077v3.022c-1.732.503-2.968 2-3.499 3.845-.532 1.843-.214 3.898 0 5.718h6.461c.166-2.188.158-4.38-.097-6.565-.255-2.183-1.173-4.242-2.682-5.822-1.51-1.581-3.333-2.57-5.262-2.856-1.929-.285-3.92-.08-5.732.644-1.814.726-3.25 2.115-4.068 3.967-1.24 2.85-.928 6.17.897 8.607 1.825 2.438 4.727 3.968 7.752 3.968h.094c.443.015.887.022 1.329.022h.01c1.937 0 3.898-.279 5.786-.829.983-.284 2.005-.664 2.917-1.207.296-.175.568-.379.822-.603a6.59 6.59 0 0 0-.693-1.203c-.686-.804-1.534-1.504-2.549-1.967-.955-.432-1.93-.66-2.932-.683h-.026c-.844-.011-1.692.097-2.513.324-1.547.376-2.894 1.296-3.786 2.57-.18.264-.346.536-.496.821-1.433-.594-2.896-1.18-4.335-1.751-1.44-.569-2.846-1.127-4.216-1.665-1.37-.538-2.704-1.053-4.003-1.547a10.46 10.46 0 0 1 0-6.538c0-.015.008-.03.008-.045a7.875 7.875 0 0 0 0-1.592c0-.034-.016-.067-.024-.101a9.556 9.556 0 0 1 2.015 1.355c.897.68 1.952 1.154 3.06.83.057-.013.114-.027.17-.04.625 1.103 1.543 1.978 2.597 2.556.962.53 2.017.727 3.061.564.256-.037.506-.095.749-.161-1.515-.83-3.196-1.29-4.912-1.348-.741-.023-.867-.894-1.67-1.051-1.26-.28-2.505-.217-3.717.091-1.213.308-2.372.993-3.398 2.004-1.026 1.011-1.814 2.255-2.306 3.647z" />
   </svg>
 );
 
@@ -54,7 +56,7 @@ const footerLinks = {
     { label: 'Suporte', href: '/suporte' },
     { label: 'FAQ', href: '/faq' },
     { label: 'Ajuda', href: '/suporte' },
-    { label: 'Login', href: '/login' },
+    { label: 'Login', href: '/login', icon: LogIn },
   ],
 };
 
@@ -63,37 +65,31 @@ const socialLinks = [
     label: 'WhatsApp',
     href: SOCIAL_LINKS.whatsapp,
     icon: Phone,
-    color: 'text-social-whatsapp',
   },
   {
     label: 'Instagram',
     href: SOCIAL_LINKS.instagram,
     icon: Instagram,
-    color: 'text-social-instagram',
   },
   {
     label: 'Facebook',
     href: SOCIAL_LINKS.facebook,
     icon: Facebook,
-    color: 'text-social-facebook',
   },
   {
     label: 'TikTok',
     href: SOCIAL_LINKS.tiktok,
     icon: TikTokIcon,
-    color: 'text-social-tiktok',
   },
   {
     label: 'LinkedIn',
     href: SOCIAL_LINKS.linkedin,
     icon: Linkedin,
-    color: 'text-social-linkedin',
   },
   {
     label: 'YouTube',
     href: SOCIAL_LINKS.youtube,
     icon: Youtube,
-    color: 'text-social-youtube',
   },
 ];
 
@@ -128,6 +124,72 @@ const contactItems = [
   },
 ];
 
+function MobileAccordion({
+  title,
+  links,
+  defaultOpen = false,
+}: {
+  title: string;
+  links: Array<{
+    label: string;
+    href: string;
+    icon?: React.ComponentType<{ className?: string }>;
+  }>;
+  defaultOpen?: boolean;
+}) {
+  const [open, setOpen] = useState(defaultOpen);
+
+  return (
+    <div className="border-border/50 border-b">
+      <button
+        type="button"
+        onClick={() => setOpen((prev) => !prev)}
+        className="flex w-full items-center justify-between py-4 text-left"
+        aria-expanded={open}
+        aria-controls={`footer-${title.toLowerCase()}-panel`}
+      >
+        <span className="text-foreground text-sm font-bold tracking-wider uppercase">
+          {title}
+        </span>
+        <motion.span
+          animate={{ rotate: open ? 180 : 0 }}
+          transition={{ duration: 0.2 }}
+          className="text-muted-foreground"
+        >
+          <ChevronDown className="h-4 w-4" />
+        </motion.span>
+      </button>
+      <motion.div
+        id={`footer-${title.toLowerCase()}-panel`}
+        initial={false}
+        animate={{
+          height: open ? 'auto' : 0,
+          opacity: open ? 1 : 0,
+        }}
+        transition={{ duration: 0.25, ease: [0.25, 0.4, 0.25, 1] }}
+        className="overflow-hidden"
+      >
+        <div className="space-y-3 pb-4">
+          {links.map((link) => {
+            const Icon = link.icon;
+            return (
+              <Link
+                key={link.href}
+                to={link.href}
+                className="text-muted-foreground hover:text-primary flex items-center gap-2 text-sm transition-colors duration-200"
+              >
+                {Icon && <Icon className="text-primary/70 h-4 w-4" />}
+                <span className="text-primary/50 h-1 w-1 rounded-full bg-current" />
+                {link.label}
+              </Link>
+            );
+          })}
+        </div>
+      </motion.div>
+    </div>
+  );
+}
+
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -135,7 +197,7 @@ export function Footer() {
     <footer className="border-border/50 bg-surface relative z-10 border-t">
       <div className="via-primary/40 absolute -top-px right-0 left-0 h-px bg-gradient-to-r from-transparent to-transparent" />
 
-      <div className="mx-auto max-w-[1600px] px-4 py-16 pb-24 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-[1600px] px-4 py-16 pb-28 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-12">
           {/* ─── Identidade J&S ──────────────────── */}
           <div className="space-y-6 lg:col-span-3">
@@ -183,10 +245,7 @@ export function Footer() {
                     aria-label={social.label}
                   >
                     <social.icon
-                      className={cn(
-                        'h-5 w-5 transition-colors duration-300',
-                        social.color,
-                      )}
+                      className="h-5 w-5 transition-colors duration-300"
                       aria-hidden="true"
                     />
                   </motion.a>
@@ -242,16 +301,20 @@ export function Footer() {
                   Atendimento
                 </h4>
                 <div className="space-y-3">
-                  {footerLinks.atendimento.map((link) => (
-                    <Link
-                      key={link.href}
-                      to={link.href}
-                      className="text-muted-foreground hover:text-primary flex items-center gap-2 text-sm transition-colors duration-200"
-                    >
-                      <span className="text-primary/50 h-1 w-1 rounded-full bg-current" />
-                      {link.label}
-                    </Link>
-                  ))}
+                  {footerLinks.atendimento.map((link) => {
+                    const Icon = link.icon;
+                    return (
+                      <Link
+                        key={link.href}
+                        to={link.href}
+                        className="text-muted-foreground hover:text-primary flex items-center gap-2 text-sm transition-colors duration-200"
+                      >
+                        {Icon && <Icon className="text-primary/70 h-4 w-4" />}
+                        <span className="text-primary/50 h-1 w-1 rounded-full bg-current" />
+                        {link.label}
+                      </Link>
+                    );
+                  })}
                 </div>
               </div>
 
@@ -261,6 +324,85 @@ export function Footer() {
                   Fale Conosco
                 </h4>
                 <div className="space-y-4">
+                  {contactItems.map((item) => (
+                    <a
+                      key={item.type}
+                      href={item.href}
+                      target={item.type === 'map' ? '_blank' : undefined}
+                      rel={
+                        item.type === 'map' ? 'noopener noreferrer' : undefined
+                      }
+                      className="border-border/50 hover:border-primary/30 group bg-primary/5 flex items-center gap-3 rounded-xl border p-3 transition-all duration-300"
+                    >
+                      <div className="text-primary bg-primary/10 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg">
+                        <item.icon className="h-4 w-4" />
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <p className="text-foreground text-sm font-semibold">
+                          {item.label}
+                        </p>
+                        <p className="text-muted-foreground truncate text-xs">
+                          {item.value}
+                        </p>
+                        {item.subvalue && (
+                          <p className="text-muted-foreground text-xs">
+                            {item.subvalue}
+                          </p>
+                        )}
+                      </div>
+                      {item.type === 'map' && (
+                        <Globe className="text-primary h-4 w-4 transition-transform group-hover:translate-x-1" />
+                      )}
+                    </a>
+                  ))}
+                </div>
+
+                <div className="border-border/50 bg-primary/5 mt-4 rounded-xl border p-4">
+                  <h5 className="text-foreground mb-3 text-sm font-bold">
+                    Horário de Atendimento
+                  </h5>
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2 text-sm">
+                      <Clock className="text-primary h-4 w-4" />
+                      <span className="text-muted-foreground">
+                        Seg a Sex, 08h às 18h
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm">
+                      <Clock className="text-primary h-4 w-4" />
+                      <span className="text-muted-foreground">
+                        Sáb, 08h às 12h
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm">
+                      <Clock className="text-muted-foreground h-4 w-4" />
+                      <span className="text-muted-foreground">
+                        Domingo — Fechado
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* ─── Mobile accordions ─ */}
+            <div className="lg:hidden">
+              <MobileAccordion
+                title="Empresa"
+                links={footerLinks.empresa}
+                defaultOpen
+              />
+              <MobileAccordion title="Serviços" links={footerLinks.servicos} />
+              <MobileAccordion
+                title="Atendimento"
+                links={footerLinks.atendimento}
+              />
+
+              <div className="border-border/50 border-b py-4">
+                <h4 className="text-primary mb-3 text-xs font-bold tracking-wider uppercase">
+                  Fale Conosco
+                </h4>
+                <div className="space-y-3">
                   {contactItems.map((item) => (
                     <a
                       key={item.type}

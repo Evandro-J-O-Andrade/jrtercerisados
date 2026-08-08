@@ -65,10 +65,10 @@ export default function VagaDetalhe() {
   return (
     <div className="min-h-screen pt-16 lg:pt-20">
       <SEO
-        title={`${vaga.title} — J&S Terceirizados`}
-        description={vaga.description}
+        title={`${vaga.titulo} — J&S Terceirizados`}
+        description={vaga.descricao}
         keywords={[
-          vaga.title,
+          vaga.titulo,
           'vaga',
           'emprego',
           'trabalho',
