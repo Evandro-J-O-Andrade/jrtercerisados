@@ -18,6 +18,7 @@ import { SafeImage } from '@/components/ui/SafeImage';
 import { Section } from '@/components/sections/Section';
 import { SEO } from '@/components/ui/SEO';
 import { Container } from '@/components/common/Container';
+import { ServiceRequestForm } from '@/components/forms/ServiceRequestForm';
 import { mockGetServiceBySlug } from '@/services/mock/services';
 import { COMPANY, WHATSAPP_MESSAGES, getWhatsAppUrl } from '@/config';
 import { SERVICE_IMAGES } from '@/content/assets';
@@ -771,28 +772,12 @@ export default function ServicoDetalhe() {
                 Solicite uma proposta gratuita e descubra como podemos elevar o
                 padrão dos seus serviços.
               </p>
-              <div className="mt-8 flex flex-wrap justify-center gap-4">
-                <motion.a
-                  href={getWhatsAppUrl(
-                    COMPANY.whatsapp,
-                    WHATSAPP_MESSAGES.services,
-                  )}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <Button variant="secondary" size="lg">
-                    <Phone className="mr-2 h-5 w-5" />
-                    Falar no WhatsApp
-                  </Button>
-                </motion.a>
-                <Link to="/contato">
-                  <Button variant="outline" size="lg">
-                    Enviar E-mail
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                </Link>
+
+              <div className="mt-8">
+                <ServiceRequestForm
+                  serviceSlug={service.slug}
+                  serviceName={service.title}
+                />
               </div>
             </motion.div>
           </motion.div>
