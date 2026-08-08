@@ -360,10 +360,6 @@ export function Footer() {
             </span>
           </p>
         </div>
-
-        <div className="hidden lg:block" aria-hidden="true">
-          <div className="fixed right-6 bottom-28 z-40 h-16 w-16" />
-        </div>
       </div>
     </footer>
   );
