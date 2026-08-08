@@ -138,8 +138,8 @@ export function Navbar() {
             loading="eager"
           />
           <h1 className="text-3xl font-extrabold tracking-tight">
-            <span className="text-primary drop-shadow-glow">JS</span>{' '}
-            <span className="text-foreground">Empregos</span>
+            <span className="text-primary drop-shadow-glow">J&amp;S</span>{' '}
+            <span className="text-foreground">Terceirizados</span>
           </h1>
         </Link>
 

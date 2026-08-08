@@ -1,6 +1,6 @@
 import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
-import { SEO_CONFIG, COMPANY } from '@/config';
+import { SEO_CONFIG, COMPANY, SOCIAL_LINKS } from '@/config';
 
 interface SEOProps {
   title?: string;
@@ -81,9 +81,9 @@ export function SEO({
       url,
       sameAs: [
         SEO_CONFIG.openGraph.url,
-        'https://instagram.com/jrtelempregos',
-        'https://facebook.com/jrtelempregos',
-        'https://linkedin.com/company/jrtelempregos',
+        SOCIAL_LINKS.instagram,
+        SOCIAL_LINKS.facebook,
+        SOCIAL_LINKS.linkedin,
       ],
     };
 

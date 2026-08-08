@@ -1,9 +1,10 @@
-import { Suspense, lazy } from 'react';
+import { Suspense, lazy, useState } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { BottomNavigation } from '@/components/layout/BottomNavigation';
-import { FloatingWhatsAppButton } from '@/components/layout/FloatingWhatsAppButton';
+import { AccessibilityWidget } from '@/components/ui/AccessibilityWidget';
+import { ChatWidget } from '@/components/ui/ChatWidget';
 import { PageLoader } from '@/components/ui/PageLoader';
 import { ScrollToTop } from '@/components/ui/ScrollToTop';
 
@@ -28,11 +29,13 @@ const Login = lazy(() => import('@/pages/Login'));
 const Dashboard = lazy(() => import('@/pages/Dashboard'));
 
 function App() {
+  const [isChatOpen, setIsChatOpen] = useState(false);
+
   return (
     <div className="flex min-h-screen flex-col">
       <ScrollToTop />
       <Navbar />
-      <main className="flex-1 pb-20 lg:pb-0">
+      <main className="flex-1 pb-24 lg:pb-0">
         <Suspense fallback={<PageLoader />}>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -62,7 +65,8 @@ function App() {
       </main>
       <Footer />
       <BottomNavigation />
-      <FloatingWhatsAppButton />
+      <AccessibilityWidget onOpenChat={() => setIsChatOpen(true)} />
+      <ChatWidget isOpen={isChatOpen} onOpenChange={setIsChatOpen} />
     </div>
   );
 }

@@ -29,7 +29,7 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
     >
       <Link
         to={`/servicos/${service.slug}`}
-        className="group bg-card/80 shadow-glass hover:shadow-glow border-border/60 hover:border-primary/30 relative block h-full overflow-hidden rounded-3xl border backdrop-blur transition-all duration-300"
+        className="group bg-card shadow-premium hover:shadow-glow border-border hover:border-primary/30 relative block h-full overflow-hidden rounded-3xl border transition-all duration-300"
       >
         {/* Top gradient accent */}
         <div className="bg-primary/10 absolute inset-x-0 top-0 h-1 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
@@ -39,15 +39,15 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
           <SafeImage
             src={service.image}
             alt={service.title}
-            className="h-full w-full object-cover opacity-70 transition-all duration-500 group-hover:scale-105 group-hover:opacity-90"
+            className="h-full w-full object-cover opacity-80 transition-all duration-500 group-hover:scale-105 group-hover:opacity-100"
             fallbackSrc="/images/placeholders/service-fallback.svg"
           />
           <div className="from-card/90 via-card/40 absolute inset-0 bg-gradient-to-t to-transparent" />
           <div className="from-primary/10 absolute inset-0 bg-gradient-to-br to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
           {/* Icon overlay */}
-          <div className="bg-primary/20 absolute bottom-4 left-4 flex h-12 w-12 items-center justify-center rounded-xl backdrop-blur-sm">
-            <Icon className="text-primary-foreground h-6 w-6" />
+          <div className="bg-primary text-primary-foreground absolute bottom-4 left-4 flex h-12 w-12 items-center justify-center rounded-xl shadow-lg">
+            <Icon className="h-6 w-6" />
           </div>
         </div>
 

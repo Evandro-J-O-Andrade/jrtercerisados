@@ -21,10 +21,10 @@ import {
 } from '@/config';
 
 const contactSchema = z.object({
-  name: z.string().min(2, 'Nome � obrigat�rio'),
-  email: z.string().email('E-mail inv�lido'),
+  name: z.string().min(2, 'Nome é obrigatório'),
+  email: z.string().email('E-mail inválido'),
   phone: z.string().min(10, 'Telefone deve ter pelo menos 10 caracteres'),
-  subject: z.string().min(2, 'Assunto � obrigat�rio'),
+  subject: z.string().min(2, 'Assunto é obrigatório'),
   message: z.string().min(10, 'Mensagem deve ter pelo menos 10 caracteres'),
 });
 
@@ -73,7 +73,7 @@ export default function Contato() {
             Mensagem Enviada!
           </h2>
           <p className="text-muted-foreground mb-8">
-            Entraremos em contato em breve. Enquanto isso, voc� pode nos chamar
+            Entraremos em contato em breve. Enquanto isso, você pode nos chamar
             diretamente pelo WhatsApp.
           </p>
           <div className="flex flex-col justify-center gap-4 sm:flex-row">
@@ -92,7 +92,7 @@ export default function Contato() {
             </a>
             <Link to="/">
               <Button variant="outline" size="lg">
-                Voltar ao In�cio
+                Voltar ao Início
               </Button>
             </Link>
           </div>
@@ -110,7 +110,7 @@ export default function Contato() {
               Contato
             </h1>
             <p className="text-muted-foreground mx-auto mt-4 max-w-2xl text-lg">
-              Entre em contato conosco. Estamos prontos para atend�-lo.
+              Entre em contato conosco. Estamos prontos para atendê-lo.
             </p>
           </div>
 
@@ -138,17 +138,17 @@ export default function Contato() {
                 className="bg-card shadow-premium rounded-2xl p-6"
               >
                 <h3 className="text-foreground mb-4 text-lg font-semibold">
-                  Informa��es de Contato
+                  Informações de Contato
                 </h3>
                 <div className="space-y-4">
                   <div className="flex items-start gap-3">
                     <MapPin className="text-primary mt-1 h-5 w-5 flex-shrink-0" />
                     <div>
                       <p className="text-foreground text-sm font-medium">
-                        Endere�o
+                        Endereço
                       </p>
                       <p className="text-muted-foreground text-sm">
-                        {COMPANY.address.city}, {COMPANY.address.state} � Brasil
+                        {COMPANY.address.city}, {COMPANY.address.state} — Brasil
                       </p>
                     </div>
                   </div>
@@ -187,11 +187,11 @@ export default function Contato() {
                 className="bg-muted shadow-premium rounded-2xl p-6"
               >
                 <h3 className="text-foreground mb-4 text-lg font-semibold">
-                  Hor�rio de Atendimento
+                  Horário de Atendimento
                 </h3>
                 <div className="text-muted-foreground space-y-2 text-sm">
-                  <p>Segunda a Sexta: 08h �s 18h</p>
-                  <p>S�bado: 08h �s 12h</p>
+                  <p>Segunda a Sexta: 08h às 18h</p>
+                  <p>Sábado: 08h às 12h</p>
                   <p>Domingo: Fechado</p>
                 </div>
               </motion.div>
@@ -209,7 +209,7 @@ export default function Contato() {
                   <div className="md:col-span-2">
                     <Input
                       label="Seu Nome *"
-                      placeholder="Jo�o Silva"
+                      placeholder="João Silva"
                       error={errors.name?.message}
                       {...register('name')}
                     />
@@ -242,7 +242,7 @@ export default function Contato() {
                   <div className="md:col-span-2">
                     <Textarea
                       label="Mensagem *"
-                      placeholder="Como podemos ajud�-lo?"
+                      placeholder="Como podemos ajudá-lo?"
                       rows={5}
                       error={errors.message?.message}
                       {...register('message')}

@@ -300,7 +300,7 @@ export default function Suporte() {
                         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                           <div>
                             <label className="text-foreground mb-2 block text-sm font-medium">
-                              Nome <span className="text-red-500">*</span>
+                              Nome <span className="text-destructive">*</span>
                             </label>
                             <Input
                               type="text"
@@ -328,7 +328,8 @@ export default function Suporte() {
                         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                           <div>
                             <label className="text-foreground mb-2 block text-sm font-medium">
-                              Telefone <span className="text-red-500">*</span>
+                              Telefone{' '}
+                              <span className="text-destructive">*</span>
                             </label>
                             <Input
                               type="tel"
@@ -341,7 +342,7 @@ export default function Suporte() {
                           </div>
                           <div>
                             <label className="text-foreground mb-2 block text-sm font-medium">
-                              E-mail <span className="text-red-500">*</span>
+                              E-mail <span className="text-destructive">*</span>
                             </label>
                             <Input
                               type="email"
@@ -386,7 +387,8 @@ export default function Suporte() {
                         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                           <div>
                             <label className="text-foreground mb-2 block text-sm font-medium">
-                              Categoria <span className="text-red-500">*</span>
+                              Categoria{' '}
+                              <span className="text-destructive">*</span>
                             </label>
                             <Select
                               name="categoria"
@@ -403,7 +405,8 @@ export default function Suporte() {
                           </div>
                           <div>
                             <label className="text-foreground mb-2 block text-sm font-medium">
-                              Prioridade <span className="text-red-500">*</span>
+                              Prioridade{' '}
+                              <span className="text-destructive">*</span>
                             </label>
                             <Select
                               name="prioridade"
@@ -422,7 +425,7 @@ export default function Suporte() {
 
                         <div>
                           <label className="text-foreground mb-2 block text-sm font-medium">
-                            Assunto <span className="text-red-500">*</span>
+                            Assunto <span className="text-destructive">*</span>
                           </label>
                           <Input
                             type="text"
@@ -436,7 +439,8 @@ export default function Suporte() {
 
                         <div>
                           <label className="text-foreground mb-2 block text-sm font-medium">
-                            Descrição <span className="text-red-500">*</span>
+                            Descrição{' '}
+                            <span className="text-destructive">*</span>
                           </label>
                           <Textarea
                             name="descricao"

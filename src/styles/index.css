@@ -374,4 +374,56 @@
   .backdrop-blur-sm {
     backdrop-filter: blur(4px);
   }
+
+  .high-contrast {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 0%;
+    --card-foreground: 0 0% 100%;
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 100%;
+    --border: 0 0% 100%;
+    --primary: 43 100% 50%;
+    --primary-foreground: 0 0% 0%;
+    filter: contrast(1.5);
+  }
+
+  .high-contrast * {
+    border-color: hsl(0 0% 100%) !important;
+  }
+
+  .highlight-links a {
+    outline: 3px solid hsl(var(--primary)) !important;
+    outline-offset: 2px !important;
+    background-color: hsl(var(--primary) / 0.1) !important;
+  }
+
+  .increased-spacing {
+    line-height: 2 !important;
+    letter-spacing: 0.05em !important;
+  }
+
+  .increased-spacing * {
+    margin-bottom: 1.5em !important;
+    padding-bottom: 1.5em !important;
+  }
+
+  .reduce-animations * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .focus-mode *:not(:focus) {
+    opacity: 0.4;
+    filter: blur(1px);
+  }
+
+  .focus-mode *:focus {
+    opacity: 1;
+    filter: blur(0);
+    outline: 3px solid hsl(var(--primary)) !important;
+    outline-offset: 2px !important;
+  }
 }

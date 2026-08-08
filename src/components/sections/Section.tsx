@@ -11,7 +11,7 @@ export function Section({ children, className, id }: SectionProps) {
   return (
     <section
       id={id}
-      className={twMerge('py-[120px] sm:py-[140px] lg:py-[160px]', className)}
+      className={twMerge('py-[80px] sm:py-[100px] lg:py-[120px]', className)}
     >
       {children}
     </section>

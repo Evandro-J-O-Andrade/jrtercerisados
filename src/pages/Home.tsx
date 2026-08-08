@@ -14,8 +14,8 @@ import { SafeImage } from '@/components/ui/SafeImage';
 import { Section } from '@/components/sections/Section';
 import { ServiceCard } from '@/components/sections/ServiceCard';
 import { NumberCounter } from '@/components/sections/NumberCounter';
-import { HeroSlider } from '@/components/sections';
-import type { HeroSlide } from '@/components/sections';
+import { HeroSplit } from '@/components/sections/HeroSplit';
+import type { HeroSplitSlide } from '@/components/sections/HeroSplit';
 import { Container } from '@/components/common/Container';
 import { staggerReveal, revealUp } from '@/animations/scroll';
 import { staggerItem } from '@/animations/fade';
@@ -23,61 +23,25 @@ import { mockServices } from '@/services/mock/services';
 import { mockGetVagas } from '@/services/mock/vagas';
 import { PARTNERS_LOGOS } from '@/mock/partners';
 import { COMPANY } from '@/config';
-import { SERVICE_ICONS, FEATURE_ICONS } from '@/constants/icons';
 import { IMAGES } from '@/config/images';
 
-const heroSlides: HeroSlide[] = [
+const heroSlides: HeroSplitSlide[] = [
   {
-    id: 'rh',
-    title: <>Conectando talentos às melhores oportunidades.</>,
-    subtitle:
-      'Encontramos o profissional certo para sua empresa e ajudamos candidatos a conquistar novas oportunidades de trabalho.',
+    id: 'talentos',
     image: IMAGES.hero.home.slides[0],
-    fallback: IMAGES.hero.home.fallback,
     alt: 'Conectando talentos às melhores oportunidades',
   },
   {
     id: 'empresas',
-    title: (
-      <>
-        <span className="text-primary">Mais eficiência em RH.</span> Mais
-        resultados para sua empresa.
-      </>
-    ),
-    subtitle:
-      'Tenha um profissional de RH dedicado à sua empresa. Soluções eficientes para contratação e gestão de temporários e efetivos.',
     image: IMAGES.hero.home.slides[2],
-    fallback: IMAGES.hero.home.fallback,
     alt: 'Soluções de RH para empresas',
   },
   {
     id: 'candidato',
-    title: (
-      <>
-        <span className="text-primary">Encontre</span> sua próxima oportunidade.
-      </>
-    ),
-    subtitle:
-      'Cadastre seu currículo no Banco de Talentos e candidate-se às vagas que combinam com seu perfil.',
     image: IMAGES.hero.home.slides[1],
-    fallback: IMAGES.hero.home.fallback,
     alt: 'Busca de vagas e cadastro de currículo',
   },
 ];
-
-function HeroSlideBadge() {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: 0.2 }}
-      className="bg-primary/10 text-primary border-primary/20 mb-6 inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium backdrop-blur"
-    >
-      <Shield className="h-4 w-4" />
-      <span>Agência de Empregos desde 2010</span>
-    </motion.div>
-  );
-}
 
 const steps = [
   {
@@ -99,43 +63,6 @@ const steps = [
     step: '04',
     title: 'Contratação',
     description: 'Você inicia sua nova oportunidade.',
-  },
-];
-
-const diferenciais = [
-  {
-    title: 'Banco de talentos atualizado',
-    description:
-      'Profissionais qualificados e pré-avaliados prontos para novas oportunidades.',
-    icon: FEATURE_ICONS.users,
-  },
-  {
-    title: 'Atendimento rápido',
-    description: 'Canais diretos e resposta ágil para candidatos e empresas.',
-    icon: FEATURE_ICONS.phone,
-  },
-  {
-    title: 'Empresas parceiras',
-    description: 'Rede de empresas que confiam na nossa seleção e agilidade.',
-    icon: SERVICE_ICONS.briefcase,
-  },
-  {
-    title: 'Equipe especializada em RH',
-    description:
-      'Profissionais de recrutamento com experiência e conhecimento de mercado.',
-    icon: SERVICE_ICONS.shield,
-  },
-  {
-    title: 'Processos seletivos eficientes',
-    description:
-      'Metodologia ágil para reduzir o tempo entre a vaga e a contratação.',
-    icon: FEATURE_ICONS.clock,
-  },
-  {
-    title: 'Atendimento humanizado',
-    description:
-      'Acompanhamento próximo, transparente e respeitoso em cada etapa.',
-    icon: FEATURE_ICONS.users,
   },
 ];
 
@@ -164,35 +91,60 @@ export default function Home() {
   return (
     <div>
       {/* Hero */}
-      <HeroSlider
-        slides={heroSlides.map((s) => ({
-          ...s,
-          badge: <HeroSlideBadge />,
-          cta: (
-            <>
-              <Link to="/empresas">
-                <Button
-                  variant="secondary"
-                  size="xl"
-                  className="shadow-glow-lg h-14 rounded-[18px] px-8 py-4 text-base"
-                >
-                  Contratar Funcionários
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </Link>
-              <Link to="/trabalhe-conosco">
-                <Button
-                  variant="outline"
-                  size="xl"
-                  className="border-border/30 text-foreground hover:bg-muted h-14 rounded-[18px] px-8 py-4 text-base backdrop-blur"
-                >
-                  Quero uma Vaga
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </Link>
-            </>
-          ),
-        }))}
+      <HeroSplit
+        eyebrow={
+          <span className="flex items-center gap-2">
+            <Shield className="h-4 w-4" />
+            Assessoria em Recursos Humanos
+          </span>
+        }
+        title={
+          <>
+            <span className="text-primary">Mais eficiência</span> em Recursos
+            Humanos, mais agilidade para sua empresa.
+          </>
+        }
+        subtitle={
+          <>
+            Simplifique processos, reduza o tempo gasto com tarefas operacionais
+            e foque no que realmente importa: o crescimento do seu negócio.
+          </>
+        }
+        cta={
+          <>
+            <Link to="/empresas">
+              <Button
+                variant="secondary"
+                size="xl"
+                className="shadow-glow-lg h-14 rounded-[18px] px-8 py-4 text-base"
+              >
+                Contratar Funcionários
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
+            <Link to="/vagas">
+              <Button
+                variant="outline"
+                size="xl"
+                className="border-border/30 text-foreground hover:bg-muted h-14 rounded-[18px] px-8 py-4 text-base backdrop-blur"
+              >
+                Quero uma Vaga
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
+            <Link to="/servicos">
+              <Button
+                variant="ghost"
+                size="xl"
+                className="h-14 rounded-[18px] px-8 py-4 text-base"
+              >
+                Conheça nossos Serviços
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
+          </>
+        }
+        slides={heroSlides}
       />
 
       {/* Dois caminhos */}
@@ -259,7 +211,7 @@ export default function Home() {
         </Container>
       </Section>
 
-      {/* Nossas Principais Soluções */}
+      {/* Nossa atuação */}
       <Section className="bg-surface-alt">
         <Container>
           <motion.div
@@ -273,13 +225,14 @@ export default function Home() {
               variants={revealUp}
               className="text-foreground text-3xl font-bold sm:text-4xl"
             >
-              Nossas Principais Soluções
+              Nossa atuação
             </motion.h2>
             <motion.p
               variants={revealUp}
               className="text-muted-foreground mx-auto mt-4 max-w-2xl text-lg"
             >
-              Soluções completas para empresas e candidatos.
+              Assessoria em RH, recrutamento, mão de obra e facilities para
+              empresas que precisam de resultados.
             </motion.p>
           </motion.div>
 
@@ -303,117 +256,10 @@ export default function Home() {
           >
             <Link to="/servicos">
               <Button variant="secondary" size="lg">
-                Ver Todos os Serviços
+                Conheça nossos serviços
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
-          </motion.div>
-        </Container>
-      </Section>
-
-      {/* Mais eficiência em RH */}
-      <Section>
-        <Container>
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-100px' }}
-            variants={staggerReveal(0.15)}
-            className="text-center"
-          >
-            <motion.h2
-              variants={revealUp}
-              className="text-foreground text-3xl font-bold sm:text-4xl"
-            >
-              Mais eficiência em RH. Mais resultados para sua empresa.
-            </motion.h2>
-            <motion.p
-              variants={revealUp}
-              className="text-muted-foreground mx-auto mt-4 max-w-2xl text-lg"
-            >
-              Mais eficiência em Recursos Humanos, mais agilidade para sua
-              empresa.
-            </motion.p>
-            <motion.div variants={revealUp} className="mt-8">
-              <Link to="/servicos">
-                <Button variant="secondary" size="lg">
-                  Conhecer nossas soluções
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </Link>
-            </motion.div>
-          </motion.div>
-        </Container>
-      </Section>
-
-      {/* Mão de Obra Temporária + Efetiva */}
-      <Section className="bg-surface-alt">
-        <Container>
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-100px' }}
-            variants={staggerReveal(0.15)}
-            className="mb-12 text-center"
-          >
-            <motion.h2
-              variants={revealUp}
-              className="text-foreground text-3xl font-bold sm:text-4xl"
-            >
-              Mão de obra temporária e efetiva
-            </motion.h2>
-            <motion.p
-              variants={revealUp}
-              className="text-muted-foreground mx-auto mt-4 max-w-2xl text-lg"
-            >
-              Soluções flexíveis para atender demandas específicas da sua
-              operação.
-            </motion.p>
-          </motion.div>
-
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={staggerReveal(0.1)}
-            className="grid grid-cols-1 gap-6 md:grid-cols-2"
-          >
-            <motion.div
-              variants={staggerItem('up')}
-              className="bg-card shadow-premium rounded-3xl p-8"
-            >
-              <h3 className="text-foreground mb-3 text-xl font-semibold">
-                Mão de Obra Temporária
-              </h3>
-              <p className="text-muted-foreground mb-6 text-sm">
-                Profissionais para atender demandas sazonais, substituições e
-                necessidades específicas da operação.
-              </p>
-              <Link to="/servicos/mao-de-obra-temporaria">
-                <Button variant="secondary" size="sm">
-                  Conhecer mão de obra temporária
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>
-            </motion.div>
-            <motion.div
-              variants={staggerItem('up')}
-              className="bg-card shadow-premium rounded-3xl p-8"
-            >
-              <h3 className="text-foreground mb-3 text-xl font-semibold">
-                Mão de Obra Efetiva
-              </h3>
-              <p className="text-muted-foreground mb-6 text-sm">
-                Encontre profissionais para posições permanentes, com apoio
-                especializado no processo de recrutamento e seleção.
-              </p>
-              <Link to="/servicos/mao-de-obra-efetiva">
-                <Button variant="secondary" size="sm">
-                  Conhecer mão de obra efetiva
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>
-            </motion.div>
           </motion.div>
         </Container>
       </Section>
@@ -612,191 +458,6 @@ export default function Home() {
         </Container>
       </Section>
 
-      {/* Para Empresas */}
-      <Section>
-        <Container>
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-100px' }}
-            variants={staggerReveal(0.15)}
-            className="grid grid-cols-1 items-center gap-10 md:grid-cols-2"
-          >
-            <motion.div variants={revealUp}>
-              <motion.h2
-                variants={revealUp}
-                className="text-foreground text-3xl font-bold sm:text-4xl"
-              >
-                Precisa contratar?
-              </motion.h2>
-              <motion.p
-                variants={revealUp}
-                className="text-muted-foreground mt-4 text-lg"
-              >
-                Encontramos profissionais qualificados para sua necessidade.
-              </motion.p>
-              <div className="mt-8">
-                <Link to="/empresas">
-                  <Button variant="secondary" size="lg">
-                    Solicitar Orçamento
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                </Link>
-              </div>
-            </motion.div>
-
-            <motion.div
-              variants={revealUp}
-              className="grid grid-cols-1 gap-4 sm:grid-cols-2"
-            >
-              {mockServices.slice(0, 4).map((service) => (
-                <Link key={service.id} to="/servicos" className="block">
-                  <div className="bg-card shadow-premium rounded-2xl p-5 transition-all duration-300 hover:-translate-y-1">
-                    <h3 className="text-foreground mb-2 text-base font-semibold">
-                      {service.title}
-                    </h3>
-                    <p className="text-muted-foreground line-clamp-2 text-sm">
-                      {service.description}
-                    </p>
-                  </div>
-                </Link>
-              ))}
-            </motion.div>
-          </motion.div>
-        </Container>
-      </Section>
-
-      {/* Para Candidatos */}
-      <Section className="bg-surface-alt">
-        <Container>
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-100px' }}
-            variants={staggerReveal(0.15)}
-            className="grid grid-cols-1 items-center gap-10 md:grid-cols-2"
-          >
-            <motion.div variants={revealUp} className="order-2 md:order-none">
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                {mockServices.slice(0, 4).map((service) => (
-                  <Link
-                    key={service.id}
-                    to="/trabalhe-conosco"
-                    className="block"
-                  >
-                    <div className="bg-card shadow-premium rounded-2xl p-5 transition-all duration-300 hover:-translate-y-1">
-                      <h3 className="text-foreground mb-2 text-base font-semibold">
-                        {service.title}
-                      </h3>
-                      <p className="text-muted-foreground line-clamp-2 text-sm">
-                        {service.description}
-                      </p>
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            </motion.div>
-
-            <motion.div variants={revealUp}>
-              <motion.h2
-                variants={revealUp}
-                className="text-foreground text-3xl font-bold sm:text-4xl"
-              >
-                Construa sua próxima oportunidade
-              </motion.h2>
-              <motion.p
-                variants={revealUp}
-                className="text-muted-foreground mt-4 text-lg"
-              >
-                Cadastre seu currículo, encontre vagas e participe dos nossos
-                processos seletivos.
-              </motion.p>
-              <div className="mt-8 flex flex-wrap gap-4">
-                <Link to="/trabalhe-conosco">
-                  <Button variant="secondary" size="lg">
-                    Cadastrar Currículo
-                  </Button>
-                </Link>
-                <Link to="/vagas">
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    className="border-border/30 text-foreground hover:bg-muted"
-                  >
-                    Ver Vagas
-                  </Button>
-                </Link>
-              </div>
-            </motion.div>
-          </motion.div>
-        </Container>
-      </Section>
-
-      {/* Facilities */}
-      <Section>
-        <Container>
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-100px' }}
-            variants={staggerReveal(0.15)}
-            className="mb-10 text-center"
-          >
-            <motion.h2
-              variants={revealUp}
-              className="text-foreground text-3xl font-bold sm:text-4xl"
-            >
-              Facilities
-            </motion.h2>
-            <motion.p
-              variants={revealUp}
-              className="text-muted-foreground mx-auto mt-4 max-w-2xl text-lg"
-            >
-              Soluções complementares para apoiar a operação da sua empresa.
-            </motion.p>
-          </motion.div>
-
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={staggerReveal(0.1)}
-            className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6"
-          >
-            {[
-              'Limpeza',
-              'Conservação',
-              'Controle de Acesso',
-              'Portaria',
-              'Jardinagem',
-              'Recepção',
-            ].map((item) => (
-              <motion.div
-                key={item}
-                variants={staggerItem('up')}
-                className="bg-card shadow-premium rounded-2xl p-4 text-center text-sm font-medium"
-              >
-                {item}
-              </motion.div>
-            ))}
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mt-8 text-center"
-          >
-            <Link to="/servicos">
-              <Button variant="outline" size="lg">
-                Conhecer Facilities
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-            </Link>
-          </motion.div>
-        </Container>
-      </Section>
-
       {/* Empresas / Clientes */}
       <Section className="bg-surface-alt">
         <Container>
@@ -818,7 +479,7 @@ export default function Home() {
               className="text-muted-foreground mx-auto mt-4 max-w-2xl text-lg"
             >
               Mais de {COMPANY.clientsServed} empresas utilizam nossos serviços
-              de RH e facilities.
+              de RH.
             </motion.p>
           </motion.div>
 
@@ -891,61 +552,6 @@ export default function Home() {
                   suffix={stat.suffix}
                   icon={Award}
                 />
-              </motion.div>
-            ))}
-          </motion.div>
-        </Container>
-      </Section>
-
-      {/* Diferenciais */}
-      <Section className="bg-surface-alt">
-        <Container>
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-100px' }}
-            variants={staggerReveal(0.15)}
-            className="mb-12 text-center"
-          >
-            <motion.h2
-              variants={revealUp}
-              className="text-foreground text-3xl font-bold sm:text-4xl"
-            >
-              Por que escolher a J&S Terceirizados LTDA?
-            </motion.h2>
-            <motion.p
-              variants={revealUp}
-              className="text-muted-foreground mx-auto mt-4 max-w-2xl text-lg"
-            >
-              O que torna nossa agência a escolha certa para sua empresa.
-            </motion.p>
-          </motion.div>
-
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={staggerReveal(0.1)}
-            className="grid grid-cols-1 gap-6 md:grid-cols-3"
-          >
-            {diferenciais.map((item) => (
-              <motion.div
-                key={item.title}
-                variants={staggerItem('up')}
-                whileHover={{ y: -6, scale: 1.02 }}
-                className="bg-card shadow-premium group relative rounded-3xl p-8 pt-14 text-center transition-all duration-300"
-              >
-                <div className="bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground absolute -top-8 left-1/2 flex h-16 w-16 -translate-x-1/2 items-center justify-center rounded-full transition-all duration-300">
-                  <item.icon className="h-8 w-8 transition-transform group-hover:scale-110" />
-                </div>
-                <div className="mt-8">
-                  <h3 className="text-foreground group-hover:text-primary mb-3 text-xl font-semibold transition-colors">
-                    {item.title}
-                  </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    {item.description}
-                  </p>
-                </div>
               </motion.div>
             ))}
           </motion.div>

@@ -37,13 +37,17 @@ const footerLinks = {
   ],
   servicos: [
     {
+      label: 'Recrutamento e Seleção',
+      href: '/servicos/recrutamento-selecao',
+    },
+    {
       label: 'Mão de Obra Temporária',
       href: '/servicos/mao-de-obra-temporaria',
     },
     { label: 'Mão de Obra Efetiva', href: '/servicos/mao-de-obra-efetiva' },
-    { label: 'Recrutamento & Seleção', href: '/servicos/recrutamento-selecao' },
-    { label: 'Segurança Patrimonial', href: '/servicos/seguranca' },
-    { label: 'Portaria', href: '/servicos/portaria' },
+    { label: 'Terceirização', href: '/servicos/terceirizacao' },
+    { label: 'Hunting de Executivos', href: '/servicos/hunting' },
+    { label: 'Avaliação de Perfil', href: '/servicos/avaliacao-perfil' },
   ],
   atendimento: [
     { label: 'Suporte', href: '/suporte' },
@@ -134,7 +138,7 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-border/50 bg-surface relative border-t">
+    <footer className="border-border/50 bg-surface relative z-10 border-t">
       <div className="via-primary/40 absolute -top-px right-0 left-0 h-px bg-gradient-to-r from-transparent to-transparent" />
 
       <div className="mx-auto max-w-[1600px] px-4 py-16 sm:px-6 lg:px-8">
@@ -151,8 +155,8 @@ export function Footer() {
               </div>
               <div>
                 <h2 className="text-3xl font-extrabold tracking-tight">
-                  <span className="text-primary drop-shadow-glow">JS</span>{' '}
-                  <span className="text-foreground">Empregos</span>
+                  <span className="text-primary drop-shadow-glow">J&amp;S</span>{' '}
+                  <span className="text-foreground">Terceirizados</span>
                 </h2>
                 <p className="text-muted-foreground mt-1 text-xs">
                   {COMPANY.tagline}
@@ -206,7 +210,7 @@ export function Footer() {
             <div className="space-y-3">
               {footerLinks.empresa.map((link) => (
                 <Link
-                  key={link.label}
+                  key={link.href}
                   to={link.href}
                   className="text-muted-foreground hover:text-primary flex items-center gap-2 text-sm transition-colors duration-200"
                 >
@@ -225,7 +229,7 @@ export function Footer() {
             <div className="space-y-3">
               {footerLinks.servicos.map((link) => (
                 <Link
-                  key={link.label}
+                  key={link.href}
                   to={link.href}
                   className="text-muted-foreground hover:text-primary flex items-center gap-2 text-sm transition-colors duration-200"
                 >
@@ -244,7 +248,7 @@ export function Footer() {
             <div className="space-y-3">
               {footerLinks.atendimento.map((link) => (
                 <a
-                  key={link.label}
+                  key={link.href}
                   href={link.href}
                   target={
                     link.label === 'WhatsApp' || link.label === 'E-mail'

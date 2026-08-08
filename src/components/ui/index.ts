@@ -8,3 +8,4 @@ export { Badge } from './Badge';
 export { PageLoader } from './PageLoader';
 export { ScrollToTop } from './ScrollToTop';
 export { SafeImage } from './SafeImage';
+export { AccessibilityWidget } from './AccessibilityWidget';
