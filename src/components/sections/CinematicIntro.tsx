@@ -25,10 +25,25 @@ const slideVariants = {
   },
 } as const;
 
+function getBreakpointObjectPosition(width: number): string {
+  if (width >= 1024) {
+    return 'center 35%';
+  }
+  if (width >= 640) {
+    return 'center 40%';
+  }
+  return '60% center';
+}
+
 export function CinematicShowcase({ onFinish }: { onFinish: () => void }) {
   const [active, setActive] = useState(false);
   const [current, setCurrent] = useState(0);
   const [phase, setPhase] = useState<'idle' | 'playing' | 'closing'>('idle');
+  const [objectPosition, setObjectPosition] = useState(() =>
+    getBreakpointObjectPosition(
+      typeof window !== 'undefined' ? window.innerWidth : 1024,
+    ),
+  );
 
   const finish = useCallback(() => {
     setPhase('closing');
@@ -99,6 +114,16 @@ export function CinematicShowcase({ onFinish }: { onFinish: () => void }) {
     };
   }, [phase]);
 
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const handleResize = () => {
+      setObjectPosition(getBreakpointObjectPosition(window.innerWidth));
+    };
+    window.addEventListener('resize', handleResize);
+    handleResize();
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   if (!active && phase === 'idle') return null;
 
   return (
@@ -115,7 +140,8 @@ export function CinematicShowcase({ onFinish }: { onFinish: () => void }) {
             <SafeImage
               src={slides[current]}
               alt=""
-              className="h-full w-full object-cover object-center"
+              className="h-full w-full object-cover"
+              style={{ objectPosition }}
               decoding="async"
             />
             <div className="absolute inset-0 bg-black/20" />
