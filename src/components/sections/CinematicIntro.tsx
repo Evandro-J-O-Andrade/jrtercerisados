@@ -5,7 +5,11 @@ import { SafeImage } from '@/components/ui/SafeImage';
 const SHOWCASE_KEY = 'js-showcase-dismissed';
 const IDLE_TIMEOUT = 10 * 60 * 1000;
 
-const slides = ['/images/hero/cardheros.png'];
+const slides = [
+  '/images/hero/cardheros.png',
+  '/images/hero/hero-main.webp',
+  '/images/hero/hero-security.webp',
+];
 
 const slideVariants = {
   hidden: { opacity: 0, scale: 1.04 },
