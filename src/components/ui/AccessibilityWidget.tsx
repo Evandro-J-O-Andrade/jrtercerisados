@@ -157,7 +157,7 @@ export function AccessibilityWidget({
   }, []);
 
   return (
-    <div className="fixed bottom-24 left-4 z-50 sm:bottom-28">
+    <div className="fixed bottom-32 left-4 z-50 sm:bottom-36">
       <AnimatePresence>
         {isOpen && (
           <>

@@ -180,7 +180,7 @@ export function ChatWidget({
   };
 
   return (
-    <div className="fixed right-4 bottom-24 z-50 sm:right-6 sm:bottom-28">
+    <div className="fixed right-4 bottom-32 z-50 sm:right-6 sm:bottom-36">
       <AnimatePresence>
         {open && (
           <>
