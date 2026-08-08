@@ -30,19 +30,111 @@ const HERO_INTRO_KEY = 'js-hero-intro-dismissed';
 
 const heroSlides = [
   {
-    id: 'talentos',
+    id: 'assessoria-rh',
     image: IMAGES.hero.home.slides[0],
-    alt: 'Conectando talentos às melhores oportunidades',
+    alt: 'Assessoria em Recursos Humanos',
+    eyebrow: (
+      <span className="flex items-center gap-2">
+        <Shield className="h-4 w-4" />
+        Assessoria em RH
+      </span>
+    ),
+    title: (
+      <>
+        <span className="text-primary">Mais eficiência</span> em Recursos
+        Humanos, mais agilidade para sua empresa.
+      </>
+    ),
+    subtitle:
+      'Simplifique processos, reduza o tempo gasto com tarefas operacionais e foque no que realmente importa: o crescimento do seu negócio.',
+    cta: (
+      <>
+        <Link to="/empresas">
+          <Button
+            variant="secondary"
+            size="xl"
+            className="shadow-glow-lg h-14 rounded-[18px] px-8 py-4 text-base"
+          >
+            Contratar Funcionários
+            <ArrowRight className="ml-2 h-5 w-5" />
+          </Button>
+        </Link>
+        <Link to="/vagas">
+          <Button
+            variant="outline"
+            size="xl"
+            className="border-border/30 text-foreground hover:bg-muted h-14 rounded-[18px] px-8 py-4 text-base backdrop-blur"
+          >
+            Quero uma Vaga
+            <ArrowRight className="ml-2 h-5 w-5" />
+          </Button>
+        </Link>
+      </>
+    ),
   },
   {
-    id: 'empresas',
-    image: IMAGES.hero.home.slides[2],
-    alt: 'Soluções de RH para empresas',
-  },
-  {
-    id: 'candidato',
+    id: 'facilities',
     image: IMAGES.hero.home.slides[1],
-    alt: 'Busca de vagas e cadastro de currículo',
+    alt: 'Facilities e soluções operacionais',
+    eyebrow: (
+      <span className="flex items-center gap-2">
+        <Briefcase className="h-4 w-4" />
+        Facilities
+      </span>
+    ),
+    title: (
+      <>
+        Ambientes mais eficientes,
+        <br />
+        equipes mais preparadas.
+      </>
+    ),
+    subtitle:
+      'Limpeza, conservação, jardinagem e portaria para sua operação funcionar com excelência.',
+    cta: (
+      <Link to="/servicos">
+        <Button
+          variant="secondary"
+          size="xl"
+          className="shadow-glow-lg h-14 rounded-[18px] px-8 py-4 text-base"
+        >
+          Conheça Facilities
+          <ArrowRight className="ml-2 h-5 w-5" />
+        </Button>
+      </Link>
+    ),
+  },
+  {
+    id: 'mao-de-obra',
+    image: IMAGES.hero.home.slides[2],
+    alt: 'Mão de obra temporária e efetiva',
+    eyebrow: (
+      <span className="flex items-center gap-2">
+        <Users className="h-4 w-4" />
+        Mão de Obra
+      </span>
+    ),
+    title: (
+      <>
+        Profissionais preparados
+        <br />
+        para atender sua necessidade.
+      </>
+    ),
+    subtitle:
+      'Mão de obra temporária e efetiva com agilidade, segurança e gestão especializada.',
+    cta: (
+      <Link to="/servicos">
+        <Button
+          variant="secondary"
+          size="xl"
+          className="shadow-glow-lg h-14 rounded-[18px] px-8 py-4 text-base"
+        >
+          Solicitar Profissionais
+          <ArrowRight className="ml-2 h-5 w-5" />
+        </Button>
+      </Link>
+    ),
   },
 ];
 
@@ -109,61 +201,7 @@ export default function Home() {
       {showIntro && <CinematicIntro onFinish={handleIntroFinish} />}
 
       {/* Hero */}
-      <HeroSplit
-        eyebrow={
-          <span className="flex items-center gap-2">
-            <Shield className="h-4 w-4" />
-            Assessoria em Recursos Humanos
-          </span>
-        }
-        title={
-          <>
-            <span className="text-primary">Mais eficiência</span> em Recursos
-            Humanos, mais agilidade para sua empresa.
-          </>
-        }
-        subtitle={
-          <>
-            Simplifique processos, reduza o tempo gasto com tarefas operacionais
-            e foque no que realmente importa: o crescimento do seu negócio.
-          </>
-        }
-        cta={
-          <>
-            <Link to="/empresas">
-              <Button
-                variant="secondary"
-                size="xl"
-                className="shadow-glow-lg h-14 rounded-[18px] px-8 py-4 text-base"
-              >
-                Contratar Funcionários
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
-            <Link to="/vagas">
-              <Button
-                variant="outline"
-                size="xl"
-                className="border-border/30 text-foreground hover:bg-muted h-14 rounded-[18px] px-8 py-4 text-base backdrop-blur"
-              >
-                Quero uma Vaga
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
-            <Link to="/servicos">
-              <Button
-                variant="ghost"
-                size="xl"
-                className="h-14 rounded-[18px] px-8 py-4 text-base"
-              >
-                Conheça nossos Serviços
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
-          </>
-        }
-        slides={heroSlides}
-      />
+      <HeroSplit slides={heroSlides} />
 
       {/* Dois caminhos */}
       <Section>
