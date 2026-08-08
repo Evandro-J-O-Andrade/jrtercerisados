@@ -142,25 +142,31 @@ export default function Empresas() {
             className="mt-16 grid grid-cols-2 gap-6 text-center md:grid-cols-4"
           >
             <motion.div variants={staggerItem('up')}>
-              <div className="text-foreground text-3xl font-bold">500+</div>
+              <div className="text-foreground text-3xl font-bold">
+                +{COMPANY.professionals.toLocaleString('pt-BR')}
+              </div>
               <p className="text-muted-foreground text-sm">
                 Profissionais no banco
               </p>
             </motion.div>
             <motion.div variants={staggerItem('up')}>
-              <div className="text-foreground text-3xl font-bold">200+</div>
+              <div className="text-foreground text-3xl font-bold">
+                +{COMPANY.clientsServed.toLocaleString('pt-BR')}
+              </div>
               <p className="text-muted-foreground text-sm">
                 Empresas atendidas
               </p>
             </motion.div>
             <motion.div variants={staggerItem('up')}>
-              <div className="text-foreground text-3xl font-bold">7</div>
-              <p className="text-muted-foreground text-sm">
-                Dias para contratar
-              </p>
+              <div className="text-foreground text-3xl font-bold">
+                +{COMPANY.citiesCovered}
+              </div>
+              <p className="text-muted-foreground text-sm">Cidades atendidas</p>
             </motion.div>
             <motion.div variants={staggerItem('up')}>
-              <div className="text-foreground text-3xl font-bold">15+</div>
+              <div className="text-foreground text-3xl font-bold">
+                +{COMPANY.yearsOfExperience}
+              </div>
               <p className="text-muted-foreground text-sm">
                 Anos de experiência
               </p>

@@ -74,7 +74,7 @@ export const COMPANY_TIMELINE = [
   },
   {
     year: '2022',
-    event: 'Plataforma JR RH',
+    event: 'Plataforma Digital J&S',
     description:
       'Lançamento da plataforma digital para otimizar a gestão de vagas, candidatos e processos seletivos.',
   },

@@ -5,6 +5,7 @@ import { SEO } from '@/components/ui/SEO';
 import { Container } from '@/components/common/Container';
 import { SafeImage } from '@/components/ui/SafeImage';
 import { COMPANY, IMAGES } from '@/config';
+import { HERO_ASSETS } from '@/content/assets';
 import { staggerReveal, revealUp } from '@/animations/scroll';
 import { staggerItem } from '@/animations/fade';
 
@@ -91,7 +92,7 @@ export default function Sobre() {
             <motion.div variants={staggerItem('left')}>
               <div className="bg-card shadow-glass border-border/40 relative overflow-hidden rounded-3xl border">
                 <SafeImage
-                  src={IMAGES.hero.sobre.src}
+                  src={HERO_ASSETS.bannerjs}
                   fallbackSrc={IMAGES.hero.sobre.fallback}
                   alt="Equipe J&S Terceirizados LTDA"
                   className="h-full w-full object-cover opacity-80"
@@ -214,7 +215,7 @@ export default function Sobre() {
             <motion.div variants={staggerItem('left')}>
               <div className="bg-card shadow-glass border-border/40 relative overflow-hidden rounded-3xl border">
                 <SafeImage
-                  src={IMAGES.hero.sobre.src}
+                  src={HERO_ASSETS.bannerjs}
                   fallbackSrc={IMAGES.hero.sobre.fallback}
                   alt="Missão J&S Terceirizados LTDA"
                   className="h-full w-full object-cover opacity-80"
