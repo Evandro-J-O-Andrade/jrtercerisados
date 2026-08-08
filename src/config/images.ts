@@ -13,6 +13,7 @@ export const IMAGES = {
     watermark: '/images/brand/watermark-logo.svg',
     grid: '/images/backgrounds/hero-grid.svg',
     lines: '/images/backgrounds/hero-lines.svg',
+    cardheros: '/images/hero/cardheros.png',
     home: {
       slides: [
         '/images/hero/home/hero-01.svg',
@@ -22,7 +23,7 @@ export const IMAGES = {
       fallback: '/images/hero/home/fallback.svg',
     },
     servicos: {
-      src: '/images/hero/servicos/hero.svg',
+      src: '/images/hero/servicos-hero.webp',
       fallback: '/images/hero/home/fallback.svg',
     },
     sobre: {
@@ -30,7 +31,7 @@ export const IMAGES = {
       fallback: '/images/hero/home/fallback.svg',
     },
     trabalheConosco: {
-      src: '/images/hero/trabalhe-conosco/hero.svg',
+      src: '/images/trabalhe-conosco/trabalhe-conosco.webp',
       fallback: '/images/hero/home/fallback.svg',
     },
     parceiros: {
@@ -42,7 +43,7 @@ export const IMAGES = {
       fallback: '/images/hero/home/fallback.svg',
     },
     suporte: {
-      src: '/images/hero/suporte/hero.svg',
+      src: '/images/support/suporte.webp',
       fallback: '/images/hero/home/fallback.svg',
     },
     contato: {
@@ -67,24 +68,34 @@ export const IMAGES = {
     'assessoria-rh': '/images/services/assessoria-rh.png',
     'solucao-rh': '/images/services/solucao-rh.jfif',
     'time-rh': '/images/team/time-rh.jfif',
-    facilitiesReal: '/images/services/facilities-real.webp',
-    limpezaReal: '/images/services/limpeza-real.webp',
-    jardinagemReal: '/images/services/jardinagem-real.webp',
-    maoDeObraReal: '/images/services/mao-de-obra-real.webp',
-    terceirizacaoReal: '/images/services/terceirizacao-real.webp',
-    servicosReal: '/images/services/servicos-real.webp',
-    zeladoriaReal: '/images/services/zeladoria-real.png',
-    bancoTalentosReal: '/images/services/banco-talento-real.jfif',
+    facilitiesReal: '/images/services/facilities-jardinagem.webp',
+    limpezaReal: '/images/services/limpeza-higienizacao.webp',
+    jardinagemReal: '/images/services/jardinagem.webp',
+    maoDeObraReal: '/images/services/mao-de-obra.webp',
+    terceirizacaoReal: '/images/services/terceirizacao.webp',
+    servicosReal: '/images/hero/servicos-hero.webp',
+    zeladoriaReal: '/images/services/cardzeladoria.png',
+    bancoTalentosReal: '/images/services/banco-talento.jfif',
+    faxinaReal: '/images/services/faxina.webp',
+    limpezaPesadaReal: '/images/services/limpeza-pesada.webp',
+    limpezaFachadaReal: '/images/services/limpeza-de-fachada.webp',
+    limpezaVidrosReal: '/images/services/limpeza-de-vidros.webp',
+    limpezaPreMudancaReal: '/images/services/limpeza-pre-mudanca.webp',
+    limpezaPosMudancaReal: '/images/services/limpeza-pos-mudanca.webp',
+    limpezaPosObraReal: '/images/services/limpeza-pos-obra.webp',
+    trabalhoTemporizadoReal: '/images/services/trabalho-tercerizado.png',
+    trabalhoFreeLanceReal: '/images/services/trabalho-free-lance.png',
   },
   partners: {
     vectorEngenharia: '/images/partners/vector-engenharia.webp',
     mistral: '/images/partners/mistral.webp',
+    cadrempresaspareceiras: '/images/partners/cadrempresaspareceiras.png',
   },
   empresas: {
     cadastro: '/images/empresas/cadastro-empresas.png',
   },
   suporte: {
-    hero: '/images/suporte/suporte.webp',
+    hero: '/images/support/suporte.webp',
   },
   trabalheConosco: {
     hero: '/images/trabalhe-conosco/trabalhe-conosco.webp',

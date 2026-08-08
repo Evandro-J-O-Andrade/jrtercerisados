@@ -5,8 +5,10 @@ import { SafeImage } from '@/components/ui/SafeImage';
 const SHOWCASE_KEY = 'js-showcase-dismissed';
 const IDLE_TIMEOUT = 10 * 60 * 1000;
 
+import { HERO_ASSETS } from '@/content/assets';
+
 const slides = [
-  '/images/hero/cardheros.png',
+  HERO_ASSETS.cardheros,
   '/images/hero/hero-main.webp',
   '/images/hero/hero-security.webp',
 ];
