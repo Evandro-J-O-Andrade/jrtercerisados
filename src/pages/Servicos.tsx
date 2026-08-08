@@ -2,6 +2,7 @@
 import { staggerReveal, revealUp } from '@/animations/scroll';
 import { Section } from '@/components/sections/Section';
 import { ServiceCard } from '@/components/sections/ServiceCard';
+import { SEO } from '@/components/ui/SEO';
 import { Container } from '@/components/common/Container';
 import { mockServices } from '@/services/mock/services';
 
@@ -25,6 +26,22 @@ export default function Servicos() {
 
   return (
     <div className="pt-16 lg:pt-20">
+      <SEO
+        title="Serviços — J&S Terceirizados"
+        description="Assessoria em RH, recrutamento, mão de obra temporária e efetiva, terceirização, facilities, limpeza, jardinagem e portaria."
+        keywords={[
+          'serviços',
+          'assessoria em RH',
+          'recrutamento',
+          'mão de obra temporária',
+          'terceirização',
+          'facilities',
+          'limpeza',
+          'jardinagem',
+          'portaria',
+        ]}
+        type="WebSite"
+      />
       <Section className="pt-20 md:pt-28">
         <Container>
           <motion.div

@@ -2,11 +2,27 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/Button';
 import { Section } from '@/components/sections/Section';
+import { SEO } from '@/components/ui/SEO';
 import { Container } from '@/components/common/Container';
 
 export default function Blog() {
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Blog — J&S Terceirizados"
+        description="Dicas de carreira, tendências de recrutamento, gestão de pessoas e muito mais."
+        keywords={[
+          'blog',
+          'RH',
+          'recrutamento',
+          'seleção',
+          'carreira',
+          'currículo',
+          'entrevista',
+          'gestão de pessoas',
+        ]}
+        type="Article"
+      />
       <Section className="pt-24 md:pt-32">
         <Container>
           <motion.div

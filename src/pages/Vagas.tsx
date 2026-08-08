@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { MapPin, Search, Filter } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Section } from '@/components/sections/Section';
+import { SEO } from '@/components/ui/SEO';
 import { Container } from '@/components/common/Container';
 import { staggerReveal, revealUp } from '@/animations/scroll';
 import { staggerItem } from '@/animations/fade';
@@ -33,6 +34,21 @@ export default function Vagas() {
 
   return (
     <div className="min-h-screen pt-16 lg:pt-20">
+      <SEO
+        title="Vagas — J&S Terceirizados"
+        description="Oportunidades de trabalho e vagas disponíveis na J&S Terceirizados. Encontre sua próxima oportunidade profissional."
+        keywords={[
+          'vagas',
+          'emprego',
+          'trabalho',
+          'oportunidades',
+          'recrutamento',
+          'seleção',
+          'RH',
+          'currículo',
+        ]}
+        type="WebSite"
+      />
       <Section className="pt-20 md:pt-28">
         <Container>
           <motion.div

@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Shield, Award, Users, Target } from 'lucide-react';
 import { Section } from '@/components/sections/Section';
+import { SEO } from '@/components/ui/SEO';
 import { Container } from '@/components/common/Container';
 import { SafeImage } from '@/components/ui/SafeImage';
 import { COMPANY, IMAGES } from '@/config';
@@ -37,6 +38,23 @@ const valores = [
 export default function Sobre() {
   return (
     <div className="pt-20">
+      <SEO
+        title="Sobre — J&S Terceirizados"
+        description="Conheça a J&S Terceirizados: assessoria em RH, recrutamento, mão de obra e facilities com excelência."
+        keywords={[
+          'sobre',
+          'J&S Terceirizados',
+          'RH',
+          'recrutamento',
+          'seleção',
+          'terceirização',
+          'facilities',
+          'limpeza',
+          'jardinagem',
+          'portaria',
+        ]}
+        type="Organization"
+      />
       <Section>
         <Container>
           <motion.div

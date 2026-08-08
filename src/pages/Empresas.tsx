@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/Button';
 import { Section } from '@/components/sections/Section';
+import { SEO } from '@/components/ui/SEO';
 import { Container } from '@/components/common/Container';
 import { staggerReveal, revealUp } from '@/animations/scroll';
 import { staggerItem } from '@/animations/fade';
@@ -13,6 +14,21 @@ import { Phone, Building2, Users, MapPin, CheckCircle2 } from 'lucide-react';
 export default function Empresas() {
   return (
     <div className="min-h-screen pt-16 lg:pt-20">
+      <SEO
+        title="Para Empresas — J&S Terceirizados"
+        description="Soluções em recrutamento, seleção, mão de obra temporária e efetiva, terceirização e facilities para empresas."
+        keywords={[
+          'empresas',
+          'recrutamento',
+          'seleção',
+          'mão de obra temporária',
+          'terceirização',
+          'facilities',
+          'RH',
+          'vagas',
+        ]}
+        type="WebSite"
+      />
       <Section className="pt-20 md:pt-28">
         <Container>
           {/* Hero */}

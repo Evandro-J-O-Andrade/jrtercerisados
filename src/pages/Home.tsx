@@ -17,6 +17,7 @@ import { ServiceCard } from '@/components/sections/ServiceCard';
 import { NumberCounter } from '@/components/sections/NumberCounter';
 import { HeroSplit } from '@/components/sections/HeroSplit';
 import { CinematicShowcase } from '@/components/sections/CinematicIntro';
+import { SEO } from '@/components/ui/SEO';
 import { Container } from '@/components/common/Container';
 import { staggerReveal, revealUp } from '@/animations/scroll';
 import { staggerItem } from '@/animations/fade';
@@ -224,6 +225,26 @@ export default function Home() {
 
   return (
     <div>
+      <SEO
+        title={`${COMPANY.name} — Assessoria em RH, Recrutamento, Mão de Obra e Facilities`}
+        description={COMPANY.description}
+        keywords={[
+          'recrutamento',
+          'seleção de pessoas',
+          'banco de talentos',
+          'mão de obra temporária',
+          'mão de obra efetiva',
+          'terceirização',
+          'facilities',
+          'limpeza',
+          'jardinagem',
+          'portaria',
+          'assessoria em RH',
+          'RH',
+          'vagas de emprego',
+        ]}
+        type="WebSite"
+      />
       {!showcaseFinished && (
         <CinematicShowcase onFinish={handleShowcaseFinish} />
       )}

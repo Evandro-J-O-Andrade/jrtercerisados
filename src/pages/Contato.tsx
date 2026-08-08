@@ -10,6 +10,7 @@ import { Input } from '@/components/ui/Input';
 import { Textarea } from '@/components/ui/Textarea';
 import { SafeImage } from '@/components/ui/SafeImage';
 import { Section } from '@/components/sections/Section';
+import { SEO } from '@/components/ui/SEO';
 import { Container } from '@/components/common/Container';
 import { mockSubmitContact } from '@/services/mock/contatos';
 import {
@@ -103,6 +104,22 @@ export default function Contato() {
 
   return (
     <div>
+      <SEO
+        title="Contato — J&S Terceirizados"
+        description="Entre em contato com a J&S Terceirizados. Telefone, WhatsApp, e-mail e endereço."
+        keywords={[
+          'contato',
+          'telefone',
+          'whatsapp',
+          'e-mail',
+          'endereço',
+          'J&S Terceirizados',
+          'RH',
+          'terceirização',
+          'facilities',
+        ]}
+        type="WebSite"
+      />
       <Section>
         <Container>
           <div className="mb-12 text-center">

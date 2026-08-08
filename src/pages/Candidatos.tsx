@@ -2,11 +2,27 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/Button';
 import { Section } from '@/components/sections/Section';
+import { SEO } from '@/components/ui/SEO';
 import { Container } from '@/components/common/Container';
 
 export default function Candidatos() {
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Área do Candidato — J&S Terceirizados"
+        description="Cadastre seu currículo, candidate-se às vagas e acompanhe seus processos seletivos na J&S Terceirizados."
+        keywords={[
+          'candidato',
+          'currículo',
+          'vagas',
+          'emprego',
+          'trabalho',
+          'processo seletivo',
+          'RH',
+          'recrutamento',
+        ]}
+        type="WebSite"
+      />
       <Section className="pt-24 md:pt-32">
         <Container>
           <motion.div
