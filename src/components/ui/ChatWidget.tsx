@@ -180,119 +180,134 @@ export function ChatWidget({
   };
 
   return (
-    <div className="fixed right-6 bottom-6 z-50">
+    <div className="fixed right-4 bottom-[calc(4rem+env(safe-area-inset-bottom))] z-50 sm:right-6 sm:bottom-6">
       <AnimatePresence>
         {open && (
-          <motion.div
-            initial={{ opacity: 0, y: 20, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            transition={{ duration: 0.2 }}
-            className="bg-card border-border mb-3 flex h-[500px] w-[360px] flex-col overflow-hidden rounded-2xl border shadow-2xl"
-          >
-            <div className="bg-primary/10 border-border/50 flex items-center justify-between border-b px-4 py-3">
-              <div className="flex items-center gap-3">
-                <div className="bg-primary text-primary-foreground flex h-8 w-8 items-center justify-center rounded-full">
-                  <MessageCircle className="h-4 w-4" />
-                </div>
-                <div>
-                  <h3 className="text-foreground text-sm font-semibold">
-                    Chat Online
-                  </h3>
-                  <p className="text-muted-foreground text-xs">
-                    Assistente IA • Online
-                  </p>
-                </div>
-              </div>
-              <button
-                onClick={() => setOpen(false)}
-                className="text-muted-foreground hover:text-foreground"
-                aria-label="Fechar chat"
-              >
-                <X className="h-5 w-5" />
-              </button>
-            </div>
-
-            <div className="flex-1 space-y-4 overflow-y-auto p-4">
-              {messages.map((message) => (
-                <div
-                  key={message.id}
-                  className={cn(
-                    'flex gap-2',
-                    message.role === 'user' ? 'flex-row-reverse' : 'flex-row',
-                  )}
-                >
-                  {message.role !== 'user' && (
-                    <div className="bg-primary/10 text-primary flex h-8 w-8 shrink-0 items-center justify-center rounded-full">
-                      {getRoleIcon(message.role)}
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 z-40 bg-black/20 backdrop-blur-sm"
+              onClick={() => setOpen(false)}
+              aria-hidden="true"
+            />
+            <motion.div
+              initial={{ opacity: 0, y: 20, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 20, scale: 0.95 }}
+              transition={{ duration: 0.2 }}
+              className="mb-3 flex w-[calc(100vw-2rem)] max-w-[360px] flex-col sm:mb-3"
+            >
+              <div className="bg-card border-border flex h-[60vh] max-h-[500px] flex-col overflow-hidden rounded-2xl border shadow-2xl">
+                <div className="bg-primary/10 border-border/50 flex items-center justify-between border-b px-4 py-3">
+                  <div className="flex items-center gap-3">
+                    <div className="bg-primary text-primary-foreground flex h-8 w-8 items-center justify-center rounded-full">
+                      <MessageCircle className="h-4 w-4" />
                     </div>
-                  )}
-                  <div
-                    className={cn(
-                      'max-w-[80%] rounded-2xl px-4 py-2 text-sm',
-                      message.role === 'user'
-                        ? 'bg-primary text-primary-foreground'
-                        : 'bg-muted text-foreground',
-                    )}
+                    <div>
+                      <h3 className="text-foreground text-sm font-semibold">
+                        Chat Online
+                      </h3>
+                      <p className="text-muted-foreground text-xs">
+                        Assistente IA • Online
+                      </p>
+                    </div>
+                  </div>
+                  <button
+                    onClick={() => setOpen(false)}
+                    className="text-muted-foreground hover:text-foreground focus-visible:ring-primary focus-visible:ring-2 focus-visible:outline-none"
+                    aria-label="Fechar chat"
                   >
-                    <p>{message.content}</p>
-                    {message.options && (
-                      <div className="mt-3 space-y-2">
-                        {message.options.map((option) => (
-                          <button
-                            key={option.value}
-                            onClick={() => handleOptionClick(option.value)}
-                            className="bg-background hover:bg-primary/10 flex w-full items-center justify-between rounded-lg px-3 py-2 text-left text-xs transition-colors"
-                          >
-                            <span>{option.label}</span>
-                            <ChevronRight className="text-muted-foreground h-3 w-3" />
-                          </button>
-                        ))}
+                    <X className="h-5 w-5" />
+                  </button>
+                </div>
+
+                <div className="flex-1 space-y-4 overflow-y-auto p-4">
+                  {messages.map((message) => (
+                    <div
+                      key={message.id}
+                      className={cn(
+                        'flex gap-2',
+                        message.role === 'user'
+                          ? 'flex-row-reverse'
+                          : 'flex-row',
+                      )}
+                    >
+                      {message.role !== 'user' && (
+                        <div className="bg-primary/10 text-primary flex h-8 w-8 shrink-0 items-center justify-center rounded-full">
+                          {getRoleIcon(message.role)}
+                        </div>
+                      )}
+                      <div
+                        className={cn(
+                          'max-w-[80%] rounded-2xl px-4 py-2 text-sm',
+                          message.role === 'user'
+                            ? 'bg-primary text-primary-foreground'
+                            : 'bg-muted text-foreground',
+                        )}
+                      >
+                        <p>{message.content}</p>
+                        {message.options && (
+                          <div className="mt-3 space-y-2">
+                            {message.options.map((option) => (
+                              <button
+                                key={option.value}
+                                onClick={() => handleOptionClick(option.value)}
+                                className="bg-background hover:bg-primary/10 flex w-full items-center justify-between rounded-lg px-3 py-2 text-left text-xs transition-colors"
+                              >
+                                <span>{option.label}</span>
+                                <ChevronRight className="text-muted-foreground h-3 w-3" />
+                              </button>
+                            ))}
+                          </div>
+                        )}
                       </div>
-                    )}
-                  </div>
-                </div>
-              ))}
-
-              {isTyping && (
-                <div className="flex items-center gap-2">
-                  <div className="bg-primary/10 text-primary flex h-8 w-8 items-center justify-center rounded-full">
-                    <Bot className="h-4 w-4" />
-                  </div>
-                  <div className="bg-muted rounded-2xl px-4 py-2">
-                    <div className="flex gap-1">
-                      <span className="bg-foreground/20 h-2 w-2 animate-bounce rounded-full [animation-delay:-0.3s]" />
-                      <span className="bg-foreground/20 h-2 w-2 animate-bounce rounded-full [animation-delay:-0.15s]" />
-                      <span className="bg-foreground/20 h-2 w-2 animate-bounce rounded-full" />
                     </div>
+                  ))}
+
+                  {isTyping && (
+                    <div className="flex items-center gap-2">
+                      <div className="bg-primary/10 text-primary flex h-8 w-8 shrink-0 items-center justify-center rounded-full">
+                        <Bot className="h-4 w-4" />
+                      </div>
+                      <div className="bg-muted rounded-2xl px-4 py-2">
+                        <div className="flex gap-1">
+                          <span className="bg-foreground/20 h-2 w-2 animate-bounce rounded-full [animation-delay:-0.3s]" />
+                          <span className="bg-foreground/20 h-2 w-2 animate-bounce rounded-full [animation-delay:-0.15s]" />
+                          <span className="bg-foreground/20 h-2 w-2 animate-bounce rounded-full" />
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                  <div ref={messagesEndRef} />
+                </div>
+
+                <div className="border-border/50 border-t p-3">
+                  <div className="flex items-center gap-2">
+                    <input
+                      type="text"
+                      value={inputValue}
+                      onChange={(e) => setInputValue(e.target.value)}
+                      onKeyDown={(e) => e.key === 'Enter' && handleSend()}
+                      placeholder="Digite sua mensagem..."
+                      className="bg-background border-border focus:border-primary flex-1 rounded-lg border px-3 py-2 text-sm outline-none"
+                    />
+                    <Button
+                      variant="primary"
+                      size="icon"
+                      onClick={handleSend}
+                      disabled={!inputValue.trim()}
+                      aria-label="Enviar mensagem"
+                    >
+                      <Send className="h-4 w-4" />
+                    </Button>
                   </div>
                 </div>
-              )}
-              <div ref={messagesEndRef} />
-            </div>
-
-            <div className="border-border/50 border-t p-3">
-              <div className="flex items-center gap-2">
-                <input
-                  type="text"
-                  value={inputValue}
-                  onChange={(e) => setInputValue(e.target.value)}
-                  onKeyDown={(e) => e.key === 'Enter' && handleSend()}
-                  placeholder="Digite sua mensagem..."
-                  className="bg-background border-border focus:border-primary flex-1 rounded-lg border px-3 py-2 text-sm outline-none"
-                />
-                <Button
-                  variant="primary"
-                  size="icon"
-                  onClick={handleSend}
-                  disabled={!inputValue.trim()}
-                  aria-label="Enviar mensagem"
-                >
-                  <Send className="h-4 w-4" />
-                </Button>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
 

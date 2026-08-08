@@ -114,7 +114,30 @@ export function AccessibilityWidget({
       return;
     }
     stopTts();
-    const text = document.body.innerText;
+    const root = document.documentElement;
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode: (node) => {
+        const parent = node.parentElement;
+        if (!parent) return NodeFilter.FILTER_REJECT;
+        if (parent.hasAttribute('aria-hidden')) return NodeFilter.FILTER_REJECT;
+        const style = parent.getAttribute('style') || '';
+        if (style.includes('display:none') || style.includes('display: none'))
+          return NodeFilter.FILTER_REJECT;
+        if (getComputedStyle(parent).display === 'none')
+          return NodeFilter.FILTER_REJECT;
+        if (getComputedStyle(parent).visibility === 'hidden')
+          return NodeFilter.FILTER_REJECT;
+        const text = node.nodeValue?.trim();
+        if (!text) return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      },
+    });
+    const parts: string[] = [];
+    let node: Text | null;
+    while ((node = walker.nextNode() as Text | null)) {
+      parts.push(node.nodeValue?.trim() || '');
+    }
+    const text = parts.join('. ').replace(/\s+/g, ' ').trim();
     if (!text) return;
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = 'pt-BR';
@@ -134,7 +157,7 @@ export function AccessibilityWidget({
   }, []);
 
   return (
-    <div className="fixed bottom-6 left-4 z-50">
+    <div className="fixed bottom-4 left-4 z-50 sm:bottom-6">
       <AnimatePresence>
         {isOpen && (
           <>
@@ -152,7 +175,7 @@ export function AccessibilityWidget({
               animate={{ opacity: 1, x: 0, scale: 1 }}
               exit={{ opacity: 0, x: -20, scale: 0.95 }}
               transition={{ duration: 0.2 }}
-              className="absolute bottom-full left-0 mb-3 w-80"
+              className="absolute bottom-full left-0 mb-3 w-80 max-w-[calc(100vw-2rem)] sm:left-0"
             >
               <div
                 ref={panelRef}
@@ -170,7 +193,7 @@ export function AccessibilityWidget({
                   </div>
                   <button
                     onClick={() => setIsOpen(false)}
-                    className="text-muted-foreground hover:text-foreground"
+                    className="text-muted-foreground hover:text-foreground focus-visible:ring-primary focus-visible:ring-2 focus-visible:outline-none"
                     aria-label="Fechar acessibilidade"
                   >
                     <X className="h-4 w-4" />
@@ -297,7 +320,7 @@ export function AccessibilityWidget({
                         size="sm"
                         onClick={() => {
                           window.speechSynthesis.pause();
-                          setTts({ speaking: true, paused: true });
+                          setTts((prev) => ({ ...prev, paused: true }));
                         }}
                         disabled={!tts.speaking || tts.paused}
                       >
