@@ -25,6 +25,7 @@ import { mockGetVagas } from '@/services/mock/vagas';
 import { PARTNERS_LOGOS } from '@/mock/partners';
 import { COMPANY } from '@/config';
 import { IMAGES } from '@/config/images';
+import type { Service } from '@/types/common';
 
 const HERO_INTRO_KEY = 'js-hero-intro-dismissed';
 
@@ -292,17 +293,66 @@ export default function Home() {
             </motion.p>
           </motion.div>
 
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={staggerReveal(0.1)}
-            className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4"
-          >
-            {mockServices.slice(0, 4).map((service, index) => (
-              <ServiceCard key={service.id} service={service} index={index} />
-            ))}
-          </motion.div>
+          {(() => {
+            const grouped = mockServices.reduce<Record<string, Service[]>>(
+              (acc, service) => {
+                acc[service.category] = acc[service.category] || [];
+                acc[service.category].push(service);
+                return acc;
+              },
+              {},
+            );
+
+            const categoryLabels: Record<string, string> = {
+              rh: 'Assessoria em RH',
+              facilities: 'Facilities',
+              terceirizacao: 'Terceirização',
+              candidato: 'Para Candidatos',
+            };
+
+            const categoryOrder = [
+              'rh',
+              'facilities',
+              'terceirizacao',
+              'candidato',
+            ];
+
+            return categoryOrder
+              .filter((key) => grouped[key]?.length)
+              .map((category) => {
+                const services = grouped[category];
+                const label = categoryLabels[category] || category;
+
+                return (
+                  <div key={category} className="mb-16 last:mb-0">
+                    <motion.h3
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: true, margin: '-80px' }}
+                      variants={revealUp}
+                      className="text-foreground mb-8 text-center text-2xl font-bold sm:text-3xl"
+                    >
+                      {label}
+                    </motion.h3>
+                    <motion.div
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: true }}
+                      variants={staggerReveal(0.1)}
+                      className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4"
+                    >
+                      {services.map((service, index) => (
+                        <ServiceCard
+                          key={service.id}
+                          service={service}
+                          index={index}
+                        />
+                      ))}
+                    </motion.div>
+                  </div>
+                );
+              });
+          })()}
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
