@@ -496,7 +496,7 @@ export default function Home() {
                 variants={staggerItem('up')}
                 whileHover={{ y: -6, scale: 1.03 }}
                 transition={{ type: 'spring', stiffness: 300 }}
-                className="group relative overflow-hidden rounded-2xl border border-white/5 bg-white/5"
+                className="group bg-muted/50 relative overflow-hidden rounded-2xl border border-white/5"
               >
                 <div className="relative aspect-[4/3] w-full overflow-hidden">
                   <SafeImage

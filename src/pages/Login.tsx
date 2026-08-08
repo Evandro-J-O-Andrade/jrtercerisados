@@ -111,7 +111,7 @@ export default function Login() {
         transition={{ duration: 0.6, ease: [0.25, 0.4, 0.25, 1] }}
         className="relative z-10 w-full max-w-md"
       >
-        <div className="border-border/40 bg-card/70 shadow-glass rounded-3xl border p-8 backdrop-blur-xl">
+        <div className="border-border/40 bg-card shadow-glass rounded-3xl border p-8">
           {/* Profile selector */}
           <div className="mb-6 flex justify-center gap-2">
             {(['admin', 'candidato', 'empresa'] as const).map((p) => (

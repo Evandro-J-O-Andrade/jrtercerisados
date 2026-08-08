@@ -24,7 +24,7 @@ export function Brand3D({ className }: Brand3DProps) {
       }}
     >
       <motion.div
-        className="relative flex h-32 w-32 items-center justify-center rounded-[24px] border border-white/10 bg-white/5 backdrop-blur-xl"
+        className="bg-muted relative flex h-32 w-32 items-center justify-center rounded-[24px] border border-white/10 backdrop-blur-xl"
         whileHover={{
           rotate: [0, -2, 2, 0],
           scale: 1.05,

@@ -178,7 +178,7 @@ export default function Empresas() {
                   key={partner.name}
                   variants={staggerItem('up')}
                   whileHover={{ scale: 1.05 }}
-                  className="group relative overflow-hidden rounded-2xl border border-white/5 bg-white/5"
+                  className="group bg-muted/50 relative overflow-hidden rounded-2xl border border-white/5"
                 >
                   <div className="relative aspect-[4/3] w-full overflow-hidden">
                     <SafeImage
