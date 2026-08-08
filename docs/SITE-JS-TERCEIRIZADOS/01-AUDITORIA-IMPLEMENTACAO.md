@@ -257,19 +257,19 @@ Não foram encontrados erros de compilação ou build.
 
 ## Cinematic Intro
 
-| Item                     | Status     | Arquivo                                      | Observação                                                            |
-| ------------------------ | ---------- | -------------------------------------------- | --------------------------------------------------------------------- |
-| Imagem `cardheros`       | 🟢 OK      | `src/components/sections/CinematicIntro.tsx` | `/images/hero/cardheros.png` usado.                                   |
-| Sem texto / H1 / CTA     | 🟢 OK      | `src/components/sections/CinematicIntro.tsx` | Apenas imagem e overlay.                                              |
-| Duração curta            | 🟢 OK      | `src/components/sections/CinematicIntro.tsx` | Showcase controlado por timer e sessionStorage.                       |
-| Múltiplas imagens        | 🟡 PARCIAL | `src/components/sections/CinematicIntro.tsx` | Array `slides` tem apenas 1 item; estrutura pronta para receber mais. |
-| Inatividade 10 min       | 🟢 OK      | `src/components/sections/CinematicIntro.tsx` | Timer reseta com interação.                                           |
-| `sessionStorage`         | 🟢 OK      | `src/components/sections/CinematicIntro.tsx` | dismissed por sessão.                                                 |
-| `prefers-reduced-motion` | 🟢 OK      | `src/components/sections/CinematicIntro.tsx` | Respeitado.                                                           |
-| Bloqueio de scroll       | 🟢 OK      | `src/components/sections/CinematicIntro.tsx` | `overflow: hidden` durante showcase.                                  |
-| Botão “Pular”            | 🟢 OK      | `src/components/sections/CinematicIntro.tsx` | Presente e funcional.                                                 |
-| Posicionamento fixed     | 🟢 OK      | `src/components/sections/CinematicIntro.tsx` | Não participa do fluxo do documento.                                  |
-| Sem overflow             | 🟢 OK      | `src/components/sections/CinematicIntro.tsx` | Container controla proporção e `object-fit`.                          |
+| Item                     | Status | Arquivo                                      | Observação                                                                           |
+| ------------------------ | ------ | -------------------------------------------- | ------------------------------------------------------------------------------------ |
+| Imagem `cardheros`       | 🟢 OK  | `src/components/sections/CinematicIntro.tsx` | `/images/hero/cardheros.png` usado.                                                  |
+| Sem texto / H1 / CTA     | 🟢 OK  | `src/components/sections/CinematicIntro.tsx` | Apenas imagem e overlay.                                                             |
+| Duração curta            | 🟢 OK  | `src/components/sections/CinematicIntro.tsx` | Showcase controlado por timer e sessionStorage.                                      |
+| Múltiplas imagens        | 🟢 OK  | `src/components/sections/CinematicIntro.tsx` | Array `slides` com 3 itens: `cardheros.png`, `hero-main.webp`, `hero-security.webp`. |
+| Inatividade 10 min       | 🟢 OK  | `src/components/sections/CinematicIntro.tsx` | Timer reseta com interação.                                                          |
+| `sessionStorage`         | 🟢 OK  | `src/components/sections/CinematicIntro.tsx` | dismissed por sessão.                                                                |
+| `prefers-reduced-motion` | 🟢 OK  | `src/components/sections/CinematicIntro.tsx` | Respeitado.                                                                          |
+| Bloqueio de scroll       | 🟢 OK  | `src/components/sections/CinematicIntro.tsx` | `overflow: hidden` durante showcase.                                                 |
+| Botão “Pular”            | 🟢 OK  | `src/components/sections/CinematicIntro.tsx` | Presente e funcional.                                                                |
+| Posicionamento fixed     | 🟢 OK  | `src/components/sections/CinematicIntro.tsx` | Não participa do fluxo do documento.                                                 |
+| Sem overflow             | 🟢 OK  | `src/components/sections/CinematicIntro.tsx` | Container controla proporção e `object-fit`.                                         |
 
 ---
 
@@ -406,23 +406,23 @@ Nenhuma imagem pode:
 
 ## Matriz de Status
 
-| Requisito                 | Origem              | Estado     | Arquivo(s)                                                                                | Observação                                                                              |
-| ------------------------- | ------------------- | ---------- | ----------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| Identidade oficial        | `00-VISAO-GERAL.md` | 🟡 PARCIAL | `src/config/company.ts`, `src/config/contacts.ts`                                         | Nome ok; e-mail/domínio/redes antigas.                                                  |
-| Rotas principais          | `00-VISAO-GERAL.md` | 🟢 OK      | `src/App.tsx`                                                                             | Todas presentes.                                                                        |
-| Home                      | `00-VISAO-GERAL.md` | 🟡 PARCIAL | `src/pages/Home.tsx`                                                                      | Seções existem, ordem diverge; números sem validação.                                   |
-| HeroSplit                 | `00-VISAO-GERAL.md` | 🟢 OK      | `src/components/sections/HeroSplit.tsx`                                                   | Completo e acessível.                                                                   |
-| Serviços                  | `00-VISAO-GERAL.md` | 🟢 OK      | `src/services/mock/services.ts`, `src/pages/Servicos.tsx`, `src/pages/ServicoDetalhe.tsx` | Mock e rotas ok.                                                                        |
-| Vagas                     | `00-VISAO-GERAL.md` | 🟡 PARCIAL | `src/pages/Vagas.tsx`, `src/pages/VagaDetalhe.tsx`                                        | Filtros incompletos; sem candidatura própria.                                           |
-| Candidatos                | `00-VISAO-GERAL.md` | 🟡 PARCIAL | `src/pages/Candidatos.tsx`                                                                | Minimalista.                                                                            |
-| Empresas                  | `00-VISAO-GERAL.md` | 🟡 PARCIAL | `src/pages/Empresas.tsx`                                                                  | Falta seção de problema/processo.                                                       |
-| Formulários reutilizáveis | `00-VISAO-GERAL.md` | 🟡 PARCIAL | `src/pages/Contato.tsx`, `src/pages/TrabalheConosco.tsx`                                  | Primitivos ok; faltam forms de alto nível.                                              |
-| Footer                    | `00-VISAO-GERAL.md` | 🟡 PARCIAL | `src/components/layout/Footer.tsx`                                                        | Rotas fantasma; grupos divergem.                                                        |
-| Acessibilidade            | `00-VISAO-GERAL.md` | 🟡 PARCIAL | `src/components/ui/AccessibilityWidget.tsx`                                               | Falta focus trap e escala de cinza.                                                     |
-| SEO                       | `00-VISAO-GERAL.md` | 🟡 PARCIAL | `src/components/ui/SEO.tsx` + `src/pages/*`                                               | Componente existe e foi aplicado em páginas principais.                                 |
-| CinematicIntro            | `00-VISAO-GERAL.md` | 🟢 OK      | `src/components/sections/CinematicIntro.tsx`                                              | Implementada como showcase visual sem texto; com inatividade de 10 min e botão “Pular”. |
-| Mobile                    | `00-VISAO-GERAL.md` | 🟢 OK      | Vários                                                                                    | Sem overflow; grids responsivos.                                                        |
-| Performance / build       | `00-VISAO-GERAL.md` | 🟢 OK      | —                                                                                         | Typecheck e build OK.                                                                   |
+| Requisito                 | Origem              | Estado     | Arquivo(s)                                                                                | Observação                                                                                        |
+| ------------------------- | ------------------- | ---------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| Identidade oficial        | `00-VISAO-GERAL.md` | 🟡 PARCIAL | `src/config/company.ts`, `src/config/contacts.ts`                                         | Nome ok; e-mail/domínio/redes antigas.                                                            |
+| Rotas principais          | `00-VISAO-GERAL.md` | 🟢 OK      | `src/App.tsx`                                                                             | Todas presentes.                                                                                  |
+| Home                      | `00-VISAO-GERAL.md` | 🟡 PARCIAL | `src/pages/Home.tsx`                                                                      | Seções existem, ordem diverge; números sem validação.                                             |
+| HeroSplit                 | `00-VISAO-GERAL.md` | 🟢 OK      | `src/components/sections/HeroSplit.tsx`                                                   | Completo e acessível.                                                                             |
+| Serviços                  | `00-VISAO-GERAL.md` | 🟢 OK      | `src/services/mock/services.ts`, `src/pages/Servicos.tsx`, `src/pages/ServicoDetalhe.tsx` | Mock e rotas ok.                                                                                  |
+| Vagas                     | `00-VISAO-GERAL.md` | 🟡 PARCIAL | `src/pages/Vagas.tsx`, `src/pages/VagaDetalhe.tsx`                                        | Filtros incompletos; sem candidatura própria.                                                     |
+| Candidatos                | `00-VISAO-GERAL.md` | 🟡 PARCIAL | `src/pages/Candidatos.tsx`                                                                | Minimalista.                                                                                      |
+| Empresas                  | `00-VISAO-GERAL.md` | 🟡 PARCIAL | `src/pages/Empresas.tsx`                                                                  | Falta seção de problema/processo.                                                                 |
+| Formulários reutilizáveis | `00-VISAO-GERAL.md` | 🟡 PARCIAL | `src/pages/Contato.tsx`, `src/pages/TrabalheConosco.tsx`                                  | Primitivos ok; faltam forms de alto nível.                                                        |
+| Footer                    | `00-VISAO-GERAL.md` | 🟡 PARCIAL | `src/components/layout/Footer.tsx`                                                        | Rotas fantasma; grupos divergem.                                                                  |
+| Acessibilidade            | `00-VISAO-GERAL.md` | 🟡 PARCIAL | `src/components/ui/AccessibilityWidget.tsx`                                               | Falta focus trap e escala de cinza.                                                               |
+| SEO                       | `00-VISAO-GERAL.md` | 🟡 PARCIAL | `src/components/ui/SEO.tsx` + `src/pages/*`                                               | Componente existe e foi aplicado em páginas principais.                                           |
+| CinematicIntro            | `00-VISAO-GERAL.md` | 🟢 OK      | `src/components/sections/CinematicIntro.tsx`                                              | Implementada como showcase visual sem texto; com inatividade de 10 min, botão “Pular” e 3 slides. |
+| Mobile                    | `00-VISAO-GERAL.md` | 🟢 OK      | Vários                                                                                    | Sem overflow; grids responsivos.                                                                  |
+| Performance / build       | `00-VISAO-GERAL.md` | 🟢 OK      | —                                                                                         | Typecheck e build OK.                                                                             |
 
 ---
 
