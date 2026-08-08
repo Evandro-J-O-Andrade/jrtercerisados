@@ -54,16 +54,18 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
     >
       <Link
         to={`/servicos/${service.slug}`}
-        className="group bg-card shadow-premium hover:shadow-glow border-border hover:border-primary/30 relative block h-full overflow-hidden rounded-3xl border transition-all duration-300"
+        className="group bg-card shadow-premium hover:shadow-glow border-border hover:border-primary/30 focus-visible:ring-primary relative block h-full overflow-hidden rounded-3xl border transition-all duration-300 focus-visible:ring-2 focus-visible:outline-none"
       >
         {/* Top gradient accent */}
         <div className="bg-primary/10 absolute inset-x-0 top-0 h-1 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
         {/* Image area */}
-        <div className="relative h-52 overflow-hidden">
+        <div className="relative h-52 overflow-hidden sm:h-56">
           <SafeImage
             src={service.image}
             alt={service.title}
+            loading="lazy"
+            decoding="async"
             className="h-full w-full object-cover opacity-80 transition-all duration-500 group-hover:scale-105 group-hover:opacity-100"
             fallbackSrc={fallbackImage}
           />
@@ -77,7 +79,7 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
         </div>
 
         {/* Content */}
-        <div className="p-6">
+        <div className="p-5 sm:p-6">
           <span className="text-primary text-xs font-semibold tracking-wider uppercase">
             {CATEGORY_LABELS[service.category]}
           </span>

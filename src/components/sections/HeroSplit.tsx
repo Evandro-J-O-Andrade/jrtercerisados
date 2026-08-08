@@ -147,12 +147,13 @@ export function HeroSplit({
           </AnimatePresence>
           {slides.length > 1 && (
             <div className="absolute -bottom-8 left-1/2 flex -translate-x-1/2 gap-2">
-              {slides.map((_, index) => (
+              {slides.map((slide, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrent(index)}
                   className="relative h-2 w-10 cursor-pointer rounded-full bg-white/10 transition-all duration-300 hover:bg-white/20"
-                  aria-label={`Ir para imagem ${index + 1}`}
+                  aria-label={`Ir para imagem ${index + 1} de ${slides.length}: ${slide.alt}`}
+                  aria-pressed={current === index}
                 >
                   <div
                     className={`absolute inset-0.5 rounded-full transition-all duration-300 ${
