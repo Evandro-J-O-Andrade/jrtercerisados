@@ -194,7 +194,7 @@ export function AccessibilityWidget({
   }, []);
 
   return (
-    <div className="fixed bottom-32 left-4 z-50 sm:bottom-36">
+    <div className="fixed bottom-[calc(8rem+env(safe-area-inset-bottom))] left-4 z-50 sm:bottom-[calc(9rem+env(safe-area-inset-bottom))]">
       <AnimatePresence>
         {isOpen && (
           <>

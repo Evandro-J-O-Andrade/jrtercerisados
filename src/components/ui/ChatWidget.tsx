@@ -180,7 +180,7 @@ export function ChatWidget({
   };
 
   return (
-    <div className="fixed right-4 bottom-32 z-50 sm:right-6 sm:bottom-36">
+    <div className="fixed right-4 bottom-[calc(8rem+env(safe-area-inset-bottom))] z-50 sm:right-6 sm:bottom-[calc(9rem+env(safe-area-inset-bottom))]">
       <AnimatePresence>
         {open && (
           <>
@@ -189,7 +189,7 @@ export function ChatWidget({
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="fixed inset-0 z-40 bg-black/10"
+              className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm"
               onClick={() => setOpen(false)}
               aria-hidden="true"
             />

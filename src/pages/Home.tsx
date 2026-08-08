@@ -690,14 +690,11 @@ export default function Home() {
             className="grid grid-cols-2 gap-6 md:grid-cols-4"
           >
             {[
-              { label: 'Currículos', value: 10000, suffix: '+' },
               {
                 label: 'Empresas Parceiras',
                 value: COMPANY.clientsServed,
                 suffix: '+',
               },
-              { label: 'Contratações', value: 2000, suffix: '+' },
-              { label: 'Satisfação', value: 95, suffix: '%' },
             ].map((stat) => (
               <motion.div key={stat.label} variants={staggerItem('up')}>
                 <NumberCounter
