@@ -17,7 +17,6 @@ Os principais desalinhos encontrados estão em:
 - atualização de dados de identidade/contato que ainda apontam para o domínio e marca antigos;
 - ausência de aplicação prática do componente `SEO` nas páginas;
 - rotas fantasma no Footer (`/privacidade`, `/termos`, `/lgpd`, `/cookies`);
-- CinematicIntro tecnicamente implementada, mas com comportamento efetivo quase invisível porque há apenas 1 slide;
 - falta de um formulário reutilizável de candidatura vinculado à vaga;
 - números da Home sem validação do cliente.
 
@@ -88,18 +87,18 @@ Não foram encontrados erros de compilação ou build.
 
 ## Parcialmente Implementado
 
-| Item                 | Arquivo(s)                                                                                                         | Observação                                                                                                           |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------- |
-| Identidade / contato | `src/config/company.ts`, `src/config/contacts.ts`, `src/config/seo.ts`, `src/config/app.ts`, `src/mock/company.ts` | Nome da marca ok, mas e-mail, domínio e redes sociais ainda usam `jrtelempregos.com.br`.                             |
-| Home                 | `src/pages/Home.tsx`                                                                                               | Seções existem, mas a ordem difere da arquitetura desejada e há números sem validação.                               |
-| CinematicIntro       | `src/components/sections/CinematicIntro.tsx`                                                                       | Implementada como showcase visual sem texto, mas com apenas 1 slide, fechando automaticamente em ~2,2s.              |
-| Vagas                | `src/pages/Vagas.tsx`, `src/pages/VagaDetalhe.tsx`                                                                 | Faltam filtros de área, estado, salário e data. Candidatura redireciona para `/trabalhe-conosco`.                    |
-| Candidatos           | `src/pages/Candidatos.tsx`                                                                                         | Página minimalista; falta conteúdo de jornada, preparação e acompanhamento.                                          |
-| Empresas             | `src/pages/Empresas.tsx`                                                                                           | Falta seção de dor/problema e explicação detalhada de serviços/processo.                                             |
-| Formulários          | `src/pages/Contato.tsx`, `src/pages/TrabalheConosco.tsx`, `src/pages/Login.tsx`                                    | Primitivos reutilizáveis existem, mas faltam formulários de alto nível (`CandidaturaForm`, `CompanyLeadForm`, etc.). |
-| Footer               | `src/components/layout/Footer.tsx`                                                                                 | Estrutura ok, mas há divergência de grupos em relação ao documento e rotas fantasma.                                 |
-| Acessibilidade       | `src/components/ui/AccessibilityWidget.tsx`                                                                        | Falta focus trap, escala de cinza e ajuste de backdrop conforme documento.                                           |
-| SEO                  | `src/components/ui/SEO.tsx`                                                                                        | Componente existe, mas não é usado em nenhuma página.                                                                |
+| Item                 | Arquivo(s)                                                                                                         | Observação                                                                                                                                                                      |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Identidade / contato | `src/config/company.ts`, `src/config/contacts.ts`, `src/config/seo.ts`, `src/config/app.ts`, `src/mock/company.ts` | Nome da marca ok, mas e-mail, domínio e redes sociais ainda usam `jrtelempregos.com.br`.                                                                                        |
+| Home                 | `src/pages/Home.tsx`                                                                                               | Seções existem, mas a ordem difere da arquitetura desejada e há números sem validação.                                                                                          |
+| CinematicIntro       | `src/components/sections/CinematicIntro.tsx`                                                                       | Implementada como showcase visual sem texto, com inatividade de 10 minutos e botão “Pular”. Refinamento pendente: slides adicionais e ajuste de `object-position` por viewport. |
+| Vagas                | `src/pages/Vagas.tsx`, `src/pages/VagaDetalhe.tsx`                                                                 | Faltam filtros de área, estado, salário e data. Candidatura redireciona para `/trabalhe-conosco`.                                                                               |
+| Candidatos           | `src/pages/Candidatos.tsx`                                                                                         | Página minimalista; falta conteúdo de jornada, preparação e acompanhamento.                                                                                                     |
+| Empresas             | `src/pages/Empresas.tsx`                                                                                           | Falta seção de dor/problema e explicação detalhada de serviços/processo.                                                                                                        |
+| Formulários          | `src/pages/Contato.tsx`, `src/pages/TrabalheConosco.tsx`, `src/pages/Login.tsx`                                    | Primitivos reutilizáveis existem, mas faltam formulários de alto nível (`CandidaturaForm`, `CompanyLeadForm`, etc.).                                                            |
+| Footer               | `src/components/layout/Footer.tsx`                                                                                 | Estrutura ok, mas há divergência de grupos em relação ao documento e rotas fantasma.                                                                                            |
+| Acessibilidade       | `src/components/ui/AccessibilityWidget.tsx`                                                                        | Falta focus trap, escala de cinza e ajuste de backdrop conforme documento.                                                                                                      |
+| SEO                  | `src/components/ui/SEO.tsx`                                                                                        | Componente existe, mas não é usado em nenhuma página.                                                                                                                           |
 
 ---
 
@@ -126,13 +125,12 @@ Não foram encontrados erros de compilação ou build.
 
 ## Bugs
 
-| #   | Bug                                | Arquivo                                                                                                            | Observação                                                                                         |
-| --- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------- |
-| 1   | Rotas fantasma no Footer           | `src/components/layout/Footer.tsx`                                                                                 | Links para `/privacidade`, `/termos`, `/lgpd`, `/cookies` não existem em `App.tsx`.                |
-| 2   | CinematicIntro com 1 slide         | `src/components/sections/CinematicIntro.tsx`                                                                       | Como `slides.length <= 1`, a função `finish()` é chamada imediatamente, fechando a intro em ~2,2s. |
-| 3   | Candidatura sem formulário próprio | `src/pages/VagaDetalhe.tsx`                                                                                        | Botão “Candidatar-se agora” redireciona para `/trabalhe-conosco`.                                  |
-| 4   | Identidade/contato desatualizados  | `src/config/company.ts`, `src/config/contacts.ts`, `src/config/seo.ts`, `src/config/app.ts`, `src/mock/company.ts` | E-mail, domínio e redes sociais ainda apontam para `jrtelempregos.com.br`.                         |
-| 5   | SEO não aplicado                   | `src/components/ui/SEO.tsx`                                                                                        | Componente existe, mas não é usado em nenhuma página.                                              |
+| #   | Bug                                | Arquivo                                                                                                            | Observação                                                                          |
+| --- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------- |
+| 1   | Rotas fantasma no Footer           | `src/components/layout/Footer.tsx`                                                                                 | Links para `/privacidade`, `/termos`, `/lgpd`, `/cookies` não existem em `App.tsx`. |
+| 2   | Candidatura sem formulário próprio | `src/pages/VagaDetalhe.tsx`                                                                                        | Botão “Candidatar-se agora” redireciona para `/trabalhe-conosco`.                   |
+| 3   | Identidade/contato desatualizados  | `src/config/company.ts`, `src/config/contacts.ts`, `src/config/seo.ts`, `src/config/app.ts`, `src/mock/company.ts` | E-mail, domínio e redes sociais ainda apontam para `jrtelempregos.com.br`.          |
+| 4   | SEO não aplicado                   | `src/components/ui/SEO.tsx`                                                                                        | Componente existe, mas não é usado em nenhuma página.                               |
 
 ---
 
@@ -141,7 +139,7 @@ Não foram encontrados erros de compilação ou build.
 | #   | Melhoria                               | Arquivo                                                                         | Observação                                                                                                                                                                                                                                |
 | --- | -------------------------------------- | ------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 1   | Revisar ordem das seções da Home       | `src/pages/Home.tsx`                                                            | Alinhar com a ordem do documento: Hero → Soluções para Empresas → Assessoria em RH → Facilities/Terceirização → Para Candidatos → Vagas em Destaque → Como Funciona → Diferenciais → Clientes/Parceiros → Depoimentos → Blog → CTA Final. |
-| 2   | Aprimorar CinematicIntro               | `src/components/sections/CinematicIntro.tsx`                                    | Adicionar mais slides ou remover a intro se não houver assets suficientes.                                                                                                                                                                |
+| 2   | Aprimorar CinematicIntro               | `src/components/sections/CinematicIntro.tsx`                                    | Adicionar mais slides e ajustar `object-position` por viewport para manter o enquadramento da `cardheros`.                                                                                                                                |
 | 3   | Revisar identidade visual do Footer    | `src/components/layout/Footer.tsx`                                              | Alinhar grupos com o documento (`Empresa`, `Oportunidades`, `Negócios`, `Atendimento`, `Legal`).                                                                                                                                          |
 | 4   | Revisar responsividade dos widgets     | `src/components/ui/ChatWidget.tsx`, `src/components/ui/AccessibilityWidget.tsx` | Garantir que não cubram BottomNavigation em telas pequenas.                                                                                                                                                                               |
 | 5   | Melhorar contraste e hierarquia visual | Vários                                                                          | Acessibilidade e legibilidade em light/dark mode.                                                                                                                                                                                         |
@@ -259,17 +257,19 @@ Não foram encontrados erros de compilação ou build.
 
 ## Cinematic Intro
 
-| Item | Status | Arquivo | Observação |
-|---|---|---|
-| Imagem `cardheros` | 🟢 OK | `src/components/sections/CinematicIntro.tsx` | `/images/hero/cardheros.png` usado. |
-| Sem texto / H1 / CTA | 🟢 OK | `src/components/sections/CinematicIntro.tsx` | Apenas imagem e overlay. |
-| Duração curta | 🟡 PARCIAL | `src/components/sections/CinematicIntro.tsx` | Com 1 slide, fecha em ~2,2s; com múltiplos slides seria 6–10s. |
-| Múltiplas imagens | 🔴 NÃO INICIADO | `src/components/sections/CinematicIntro.tsx` | Array `slides` tem apenas 1 item. |
-| Inatividade 10 min | 🟢 OK | `src/components/sections/CinematicIntro.tsx` | Timer reseta com interação. |
-| `sessionStorage` | 🟢 OK | `src/components/sections/CinematicIntro.tsx` | dismissed por sessão. |
-| `prefers-reduced-motion` | 🟢 OK | `src/components/sections/CinematicIntro.tsx` | Respeitado. |
-| Bloqueio de scroll | 🟢 OK | `src/components/sections/CinematicIntro.tsx` | `overflow: hidden` durante showcase. |
-| Botão “Pular” | 🟢 OK | `src/components/sections/CinematicIntro.tsx` | Presente e funcional. |
+| Item                     | Status     | Arquivo                                      | Observação                                                            |
+| ------------------------ | ---------- | -------------------------------------------- | --------------------------------------------------------------------- |
+| Imagem `cardheros`       | 🟢 OK      | `src/components/sections/CinematicIntro.tsx` | `/images/hero/cardheros.png` usado.                                   |
+| Sem texto / H1 / CTA     | 🟢 OK      | `src/components/sections/CinematicIntro.tsx` | Apenas imagem e overlay.                                              |
+| Duração curta            | 🟢 OK      | `src/components/sections/CinematicIntro.tsx` | Showcase controlado por timer e sessionStorage.                       |
+| Múltiplas imagens        | 🟡 PARCIAL | `src/components/sections/CinematicIntro.tsx` | Array `slides` tem apenas 1 item; estrutura pronta para receber mais. |
+| Inatividade 10 min       | 🟢 OK      | `src/components/sections/CinematicIntro.tsx` | Timer reseta com interação.                                           |
+| `sessionStorage`         | 🟢 OK      | `src/components/sections/CinematicIntro.tsx` | dismissed por sessão.                                                 |
+| `prefers-reduced-motion` | 🟢 OK      | `src/components/sections/CinematicIntro.tsx` | Respeitado.                                                           |
+| Bloqueio de scroll       | 🟢 OK      | `src/components/sections/CinematicIntro.tsx` | `overflow: hidden` durante showcase.                                  |
+| Botão “Pular”            | 🟢 OK      | `src/components/sections/CinematicIntro.tsx` | Presente e funcional.                                                 |
+| Posicionamento fixed     | 🟢 OK      | `src/components/sections/CinematicIntro.tsx` | Não participa do fluxo do documento.                                  |
+| Sem overflow             | 🟢 OK      | `src/components/sections/CinematicIntro.tsx` | Container controla proporção e `object-fit`.                          |
 
 ---
 
@@ -297,6 +297,76 @@ Não foram encontrados erros de compilação ou build.
 | `CandidateForm` | 🔴 NÃO INICIADO | — | Não existe. |
 | `JobApplicationForm` | 🔴 NÃO INICIADO | — | Não existe. |
 | `SupportForm` | 🔴 NÃO INICIADO | — | Não existe. |
+
+---
+
+## Tratamento de Imagens
+
+Nenhuma imagem pode estourar o viewport ou deformar o layout. Isso vale para:
+
+- Cinematic Intro
+- Hero
+- Hero dinâmico
+- Cards de serviços
+- Cards de vagas
+- Timeline
+- Sobre Nós
+- Parceiros
+- Blog
+- Footer, quando houver imagens
+- Mobile
+- Desktop
+
+A imagem deve sempre respeitar o container onde está sendo exibida.
+
+### Regras
+
+1. Nunca permitir overflow horizontal.
+2. Nunca distorcer a proporção original da imagem.
+3. Nunca permitir que a imagem ultrapasse o container.
+4. O container deve controlar a proporção.
+5. Utilizar `object-fit` de acordo com o contexto.
+
+- Para imagens fotográficas em cards: `object-fit: cover`
+- Para imagens institucionais onde todo o conteúdo precisa aparecer: `object-fit: contain`
+- Para a Cinematic Intro: preencher a área disponível sem ultrapassar o viewport, usando `width: 100%`, `height: 100%`, `object-fit: cover` e `object-position` adequado.
+
+### Cinematic Intro
+
+A imagem `cardheros` deve ser adaptada ao viewport.
+
+- Desktop: preencher a área cinematográfica; sem overflow; sem deformação; sem barras inesperadas.
+- Tablet: recalcular proporção; manter enquadramento.
+- Mobile: adaptar o enquadramento; reduzir escala se necessário; garantir que nenhum elemento seja cortado de maneira prejudicial.
+
+Se a proporção da imagem não for adequada para determinado viewport, não esticar a imagem. Utilizar crop controlado com `object-fit: cover` ou uma versão específica do asset.
+
+### Fallback
+
+Se a imagem não carregar, mostrar fallback visual corporativo. O fallback também deve respeitar o container, não gerar overflow, funcionar em light/dark, manter proporção e não possuir texto duplicado.
+
+### QA
+
+Testar imagens em:
+
+- 360px
+- 375px
+- 390px
+- 414px
+- 768px
+- 1024px
+- 1280px
+- 1440px
+
+Nenhuma imagem pode:
+
+- [ ] estourar horizontalmente
+- [ ] criar scrollbar
+- [ ] deformar
+- [ ] sair do container
+- [ ] empurrar conteúdo
+- [ ] quebrar o layout
+- [ ] ficar cortada de maneira inadequada
 
 ---
 
@@ -336,23 +406,23 @@ Não foram encontrados erros de compilação ou build.
 
 ## Matriz de Status
 
-| Requisito                 | Origem              | Estado          | Arquivo(s)                                                                                | Observação                                            |
-| ------------------------- | ------------------- | --------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------- |
-| Identidade oficial        | `00-VISAO-GERAL.md` | 🟡 PARCIAL      | `src/config/company.ts`, `src/config/contacts.ts`                                         | Nome ok; e-mail/domínio/redes antigas.                |
-| Rotas principais          | `00-VISAO-GERAL.md` | 🟢 OK           | `src/App.tsx`                                                                             | Todas presentes.                                      |
-| Home                      | `00-VISAO-GERAL.md` | 🟡 PARCIAL      | `src/pages/Home.tsx`                                                                      | Seções existem, ordem diverge; números sem validação. |
-| HeroSplit                 | `00-VISAO-GERAL.md` | 🟢 OK           | `src/components/sections/HeroSplit.tsx`                                                   | Completo e acessível.                                 |
-| Serviços                  | `00-VISAO-GERAL.md` | 🟢 OK           | `src/services/mock/services.ts`, `src/pages/Servicos.tsx`, `src/pages/ServicoDetalhe.tsx` | Mock e rotas ok.                                      |
-| Vagas                     | `00-VISAO-GERAL.md` | 🟡 PARCIAL      | `src/pages/Vagas.tsx`, `src/pages/VagaDetalhe.tsx`                                        | Filtros incompletos; sem candidatura própria.         |
-| Candidatos                | `00-VISAO-GERAL.md` | 🟡 PARCIAL      | `src/pages/Candidatos.tsx`                                                                | Minimalista.                                          |
-| Empresas                  | `00-VISAO-GERAL.md` | 🟡 PARCIAL      | `src/pages/Empresas.tsx`                                                                  | Falta seção de problema/processo.                     |
-| Formulários reutilizáveis | `00-VISAO-GERAL.md` | 🟡 PARCIAL      | `src/pages/Contato.tsx`, `src/pages/TrabalheConosco.tsx`                                  | Primitivos ok; faltam forms de alto nível.            |
-| Footer                    | `00-VISAO-GERAL.md` | 🟡 PARCIAL      | `src/components/layout/Footer.tsx`                                                        | Rotas fantasma; grupos divergem.                      |
-| Acessibilidade            | `00-VISAO-GERAL.md` | 🟡 PARCIAL      | `src/components/ui/AccessibilityWidget.tsx`                                               | Falta focus trap e escala de cinza.                   |
-| SEO                       | `00-VISAO-GERAL.md` | 🔴 NÃO INICIADO | `src/components/ui/SEO.tsx`                                                               | Componente existe, não é usado.                       |
-| CinematicIntro            | `00-VISAO-GERAL.md` | 🟡 PARCIAL      | `src/components/sections/CinematicIntro.tsx`                                              | Sem texto, sem H1, sem CTA; 1 slide apenas.           |
-| Mobile                    | `00-VISAO-GERAL.md` | 🟢 OK           | Vários                                                                                    | Sem overflow; grids responsivos.                      |
-| Performance / build       | `00-VISAO-GERAL.md` | 🟢 OK           | —                                                                                         | Typecheck e build OK.                                 |
+| Requisito                 | Origem              | Estado          | Arquivo(s)                                                                                | Observação                                                                              |
+| ------------------------- | ------------------- | --------------- | ----------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| Identidade oficial        | `00-VISAO-GERAL.md` | 🟡 PARCIAL      | `src/config/company.ts`, `src/config/contacts.ts`                                         | Nome ok; e-mail/domínio/redes antigas.                                                  |
+| Rotas principais          | `00-VISAO-GERAL.md` | 🟢 OK           | `src/App.tsx`                                                                             | Todas presentes.                                                                        |
+| Home                      | `00-VISAO-GERAL.md` | 🟡 PARCIAL      | `src/pages/Home.tsx`                                                                      | Seções existem, ordem diverge; números sem validação.                                   |
+| HeroSplit                 | `00-VISAO-GERAL.md` | 🟢 OK           | `src/components/sections/HeroSplit.tsx`                                                   | Completo e acessível.                                                                   |
+| Serviços                  | `00-VISAO-GERAL.md` | 🟢 OK           | `src/services/mock/services.ts`, `src/pages/Servicos.tsx`, `src/pages/ServicoDetalhe.tsx` | Mock e rotas ok.                                                                        |
+| Vagas                     | `00-VISAO-GERAL.md` | 🟡 PARCIAL      | `src/pages/Vagas.tsx`, `src/pages/VagaDetalhe.tsx`                                        | Filtros incompletos; sem candidatura própria.                                           |
+| Candidatos                | `00-VISAO-GERAL.md` | 🟡 PARCIAL      | `src/pages/Candidatos.tsx`                                                                | Minimalista.                                                                            |
+| Empresas                  | `00-VISAO-GERAL.md` | 🟡 PARCIAL      | `src/pages/Empresas.tsx`                                                                  | Falta seção de problema/processo.                                                       |
+| Formulários reutilizáveis | `00-VISAO-GERAL.md` | 🟡 PARCIAL      | `src/pages/Contato.tsx`, `src/pages/TrabalheConosco.tsx`                                  | Primitivos ok; faltam forms de alto nível.                                              |
+| Footer                    | `00-VISAO-GERAL.md` | 🟡 PARCIAL      | `src/components/layout/Footer.tsx`                                                        | Rotas fantasma; grupos divergem.                                                        |
+| Acessibilidade            | `00-VISAO-GERAL.md` | 🟡 PARCIAL      | `src/components/ui/AccessibilityWidget.tsx`                                               | Falta focus trap e escala de cinza.                                                     |
+| SEO                       | `00-VISAO-GERAL.md` | 🔴 NÃO INICIADO | `src/components/ui/SEO.tsx`                                                               | Componente existe, não é usado.                                                         |
+| CinematicIntro            | `00-VISAO-GERAL.md` | 🟢 OK           | `src/components/sections/CinematicIntro.tsx`                                              | Implementada como showcase visual sem texto; com inatividade de 10 min e botão “Pular”. |
+| Mobile                    | `00-VISAO-GERAL.md` | 🟢 OK           | Vários                                                                                    | Sem overflow; grids responsivos.                                                        |
+| Performance / build       | `00-VISAO-GERAL.md` | 🟢 OK           | —                                                                                         | Typecheck e build OK.                                                                   |
 
 ---
 
@@ -361,13 +431,13 @@ Não foram encontrados erros de compilação ou build.
 1. **SEO não aplicado** — componente existe, mas nenhuma página o usa.
 2. **Rotas fantasma no Footer** — links quebrados para páginas inexistentes.
 3. **Identidade/contato desatualizados** — domínio e e-mail ainda antigos.
-4. **CinematicIntro com 1 slide** — experiência efetivamente invisível.
-5. **Candidatura sem formulário próprio** — vaga redireciona para Trabalhe Conosco.
-6. **Números da Home sem validação** — dados inventados podem ser publicados.
-7. **Formulários de alto nível ausentes** — repetição de código e baixa reutilização.
-8. **Focus trap ausente na acessibilidade** — documento exige, não está implementado.
-9. **Home com ordem divergente** — não segue a arquitetura recomendada.
-10. **Dados históricos não validados** — fundação, clientes, cidades, contratações.
+4. **Candidatura sem formulário próprio** — vaga redireciona para Trabalhe Conosco.
+5. **Números da Home sem validação** — dados inventados podem ser publicados.
+6. **Formulários de alto nível ausentes** — repetição de código e baixa reutilização.
+7. **Focus trap ausente na acessibilidade** — documento exige, não está implementado.
+8. **Home com ordem divergente** — não segue a arquitetura recomendada.
+9. **Dados históricos não validados** — fundação, clientes, cidades, contratações.
+10. **CinematicIntro com 1 slide** — experiência com apenas 1 imagem; refine para múltiplos slides e ajuste de `object-position` por viewport.
 
 ## 10 Pendências Mais Importantes
 
@@ -376,7 +446,7 @@ Não foram encontrados erros de compilação ou build.
 3. Corrigir rotas fantasma ou removê-las do Footer.
 4. Implementar `CandidaturaForm` vinculado a `/vagas/:slug`.
 5. Validar números da Home com o cliente.
-6. Adicionar mais slides à CinematicIntro ou redefinir escopo.
+6. Adicionar mais slides à CinematicIntro e ajustar `object-position` por viewport.
 7. Criar `ServiceRequestForm`, `CompanyLeadForm`, `SupportForm`.
 8. Implementar focus trap e escala de cinza na acessibilidade.
 9. Reordenar seções da Home conforme documento.
