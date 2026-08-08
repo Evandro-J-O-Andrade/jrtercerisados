@@ -2300,7 +2300,161 @@ Serviços
               │            │            │
               └────────────┼────────────┘
                            │
-                    SaaS FUTURO
+                     SaaS FUTURO
 ```
 
 **Este é o norte do projeto.**
+
+---
+
+# 74. ASSETS E EXPERIÊNCIA CINEMATOGRÁFICA
+
+## Regra de prioridade de assets
+
+Os assets reais fornecidos pelo cliente possuem prioridade sobre placeholders.
+
+Ordem de preferência:
+
+1. imagens reais da empresa;
+2. imagens fornecidas pelo cliente;
+3. imagens do PDF/portfólio autorizado;
+4. placeholders SVG locais.
+
+O fallback existente deve ser utilizado exclusivamente quando não houver asset adequado ou quando ocorrer falha de carregamento.
+
+## Catálogo centralizado
+
+Os assets devem ser relacionados ao conteúdo por meio de uma configuração centralizada.
+
+Exemplo conceitual:
+
+```ts
+{
+  slug: "assessoria-em-rh",
+  title: "Assessoria em RH",
+  image: "/images/services/assessoria-rh.webp",
+  fallback: "/images/fallbacks/service-rh.svg",
+}
+```
+
+O componente visual deve receber os dados. Não deve conhecer caminhos específicos de arquivos.
+
+## CinematicIntro
+
+O CinematicIntro é uma funcionalidade existente e protegida.
+
+Ela não deve ser removida, substituída por texto ou desativada sem autorização.
+
+### Comportamento
+
+```text
+Usuário entra
+   ↓
+CinematicIntro
+   ↓
+imagens reais da J&S
+   ↓
+movimento cinematográfico curto
+   ↓
+transição
+   ↓
+HeroSplit
+   ↓
+conteúdo normal da Home
+```
+
+### Regras
+
+- não colocar texto/H1 comercial dentro da imagem;
+- não duplicar conteúdo entre CinematicIntro e Hero;
+- não permitir overflow horizontal ou vertical;
+- não estourar o viewport;
+- usar `object-fit: cover` com `object-position` ajustado por viewport;
+- respeitar `prefers-reduced-motion`;
+- bloquear scroll apenas durante a apresentação;
+- mostrar apenas na primeira entrada da sessão;
+- permitir reabertura após inatividade configurada;
+- oferecer botão "Pular" acessível;
+- funcionar no mobile sem cortar elementos importantes.
+
+### Relação com o Hero
+
+O CinematicIntro é uma introdução visual.
+
+O HeroSplit continua responsável pelo texto comercial.
+
+```text
+CinematicIntro
+      ↓
+HeroSplit
+      ↓
+texto comercial
++
+imagem relacionada
+      ↓
+demais seções
+```
+
+## Tratamento obrigatório de imagens
+
+Nenhuma imagem pode estourar o viewport ou deformar o layout.
+
+Isso vale para:
+
+- Cinematic Intro;
+- Hero;
+- Hero dinâmico;
+- Cards de serviços;
+- Cards de vagas;
+- Timeline;
+- Sobre Nós;
+- Parceiros;
+- Blog;
+- Footer, quando houver imagens;
+- Mobile;
+- Desktop.
+
+A imagem deve sempre respeitar o container onde está sendo exibida.
+
+### Regras
+
+1. Nunca permitir overflow horizontal.
+2. Nunca distorcer a proporção original da imagem.
+3. Nunca permitir que a imagem ultrapasse o container.
+4. O container deve controlar a proporção.
+5. Utilizar `object-fit` de acordo com o contexto.
+
+- Para imagens fotográficas em cards: `object-fit: cover`
+- Para imagens institucionais onde todo o conteúdo precisa aparecer: `object-fit: contain`
+- Para a Cinematic Intro: preencher a área disponível sem ultrapassar o viewport, usando `width: 100%`, `height: 100%`, `object-fit: cover` e `object-position` adequado.
+
+### Fallback
+
+Se a imagem não carregar, mostrar fallback visual corporativo. O fallback também deve respeitar o container, não gerar overflow, funcionar em light/dark, manter proporção e não possuir texto duplicado.
+
+### QA
+
+Testar imagens em:
+
+- 360px
+- 375px
+- 390px
+- 414px
+- 768px
+- 1024px
+- 1280px
+- 1440px
+
+Nenhuma imagem pode:
+
+- [ ] estourar horizontalmente
+- [ ] criar scrollbar
+- [ ] deformar
+- [ ] sair do container
+- [ ] empurrar conteúdo
+- [ ] quebrar o layout
+- [ ] ficar cortada de maneira inadequada
+
+---
+
+# 75. WORKFLOW DE IMPLEMENTAÇÃO

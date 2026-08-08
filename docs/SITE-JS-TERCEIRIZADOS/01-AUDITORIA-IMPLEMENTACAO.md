@@ -276,13 +276,46 @@ Não foram encontrados erros de compilação ou build.
 
 ## Imagens
 
-| Item                 | Status | Observação                                                                                                  |
-| -------------------- | ------ | ----------------------------------------------------------------------------------------------------------- |
-| Estrutura de pastas  | 🟢 OK  | `public/images/hero`, `services`, `vagas`, `candidatos`, `fallbacks`, `placeholders`, etc.                  |
-| `cardheros.png`      | 🟢 OK  | Presente em `public/images/hero/cardheros.png`.                                                             |
-| Fallbacks SVG        | 🟢 OK  | SVGs inline usados como fallback corporativo.                                                               |
-| Mapeamento assets    | 🟢 OK  | `src/content/assets.ts` e `src/config/images.ts` centralizam paths.                                         |
-| Regras de tratamento | 🟢 OK  | `docs/SITE-JS-TERCEIRIZADOS/02-TRATAMENTO-IMAGENS.md` define regras obrigatórias para todos os componentes. |
+| Item                 | Status     | Observação                                                                                                                            |
+| -------------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| Estrutura de pastas  | 🟢 OK      | `public/images/hero`, `services`, `vagas`, `candidatos`, `fallbacks`, `placeholders`, etc.                                            |
+| `cardheros.png`      | 🟢 OK      | Presente em `public/images/hero/cardheros.png`.                                                                                       |
+| Fallbacks SVG        | 🟢 OK      | SVGs inline usados como fallback corporativo.                                                                                         |
+| Mapeamento assets    | 🟢 OK      | `src/content/assets.ts` e `src/config/images.ts` centralizam paths.                                                                   |
+| Regras de tratamento | 🟢 OK      | `docs/SITE-JS-TERCEIRIZADOS/02-TRATAMENTO-IMAGENS.md` define regras obrigatórias para todos os componentes.                           |
+| Inventário assets    | 🟡 PARCIAL | `imagens_para_mover/` contém 27 arquivos; mapeamento parcial realizado em `docs/SITE-JS-TERCEIRIZADOS/01-AUDITORIA-IMPLEMENTACAO.md`. |
+
+### Inventário de assets em `imagens_para_mover/`
+
+| Asset                                                  | Tipo       | Uso sugerido                   | Status              |
+| ------------------------------------------------------ | ---------- | ------------------------------ | ------------------- |
+| `bannerj&s.png`                                        | banner     | Home / topo                    | pendente mapeamento |
+| `logomarca.png`                                        | logo       | marca                          | pendente mapeamento |
+| `cardzeladoriaemprezas.png`                            | card       | Zeladoria                      | pendente mapeamento |
+| `facilitesjardinagem.webp`                             | card       | Facilities / Jardinagem        | pendente mapeamento |
+| `faxina.webp`                                          | card       | Limpeza                        | pendente mapeamento |
+| `jardinagem.webp`                                      | card       | Jardinagem                     | pendente mapeamento |
+| `limpeza-de-fachada.webp`                              | card       | Limpeza de Fachada             | pendente mapeamento |
+| `limpeza-de-manutencao.webp`                           | card       | Limpeza de Manutenção          | pendente mapeamento |
+| `limpeza-de-vidos.webp`                                | card       | Limpeza de Vidros              | pendente mapeamento |
+| `limpeza-e-higienizacao.webp`                          | card       | Limpeza e Higienização         | pendente mapeamento |
+| `limpeza-pesada.webp`                                  | card       | Limpeza Pesada                 | pendente mapeamento |
+| `limpeza-pos-mudanca.webp`                             | card       | Limpeza Pós-Mudança            | pendente mapeamento |
+| `limpeza-pos-obra.webp`                                | card       | Limpeza Pós-Obra               | pendente mapeamento |
+| `limpeza-pre-mudanca.webp`                             | card       | Limpeza Pré-Mudança            | pendente mapeamento |
+| `mao-de-obra-temporaria-e-efetiva.webp`                | card       | Mão de Obra Temporária/Efetiva | pendente mapeamento |
+| `tercerizacao.webp`                                    | card       | Terceirização                  | pendente mapeamento |
+| `servicos.webp`                                        | card       | Serviços gerais                | pendente mapeamento |
+| `banco-de-talento.jfif`                                | card       | Banco de Talentos              | pendente mapeamento |
+| `cadrempresaspareceiras.png`                           | card       | Empresas Parceiras             | pendente mapeamento |
+| `trabalhe-conosco.webp`                                | card       | Trabalhe Conosco               | pendente mapeamento |
+| `trabalho-free-lance.png`                              | card       | Trabalho Freelance             | pendente mapeamento |
+| `trabalho-tercerizado.png`                             | card       | Trabalho Terceirizado          | pendente mapeamento |
+| `empresa-vector-engenharia-sistemas.webp`              | parceiro   | Vector Engenharia              | pendente mapeamento |
+| `mistral.webp`                                         | parceiro   | Mistral                        | pendente mapeamento |
+| `suporte.webp`                                         | suporte    | Suporte                        | pendente mapeamento |
+| `Code_Generated_Image (6).png`                         | indefinido | necessária validação visual    | pendente mapeamento |
+| `cortar-350-240-2a74d2fdb2bbf879338b8d194148617e.webp` | corte      | possível card                  | pendente mapeamento |
 
 ---
 
@@ -430,34 +463,34 @@ Nenhuma imagem pode:
 
 ## 10 Problemas Mais Importantes
 
-1. **Identidade/contato desatualizados** — domínio e e-mail ainda antigos.
-2. **Rotas fantasma no Footer** — links quebrados para páginas inexistentes.
-3. **Candidatura sem formulário próprio** — vaga redireciona para Trabalhe Conosco.
-4. **Números da Home sem validação** — dados inventados podem ser publicados.
-5. **Formulários de alto nível ausentes** — repetição de código e baixa reutilização.
-6. **Focus trap ausente na acessibilidade** — documento exige, não está implementado.
-7. **Home com ordem divergente** — não segue a arquitetura recomendada.
-8. **Dados históricos não validados** — fundação, clientes, cidades, contratações.
-9. **CinematicIntro com 1 slide** — experiência com apenas 1 imagem; refine para múltiplos slides e ajuste de `object-position` por viewport.
-10. **SEO parcial** — componente aplicado em algumas páginas, mas não em todas.
+1. **Candidatura sem formulário próprio** — vaga redireciona para Trabalhe Conosco.
+2. **Números da Home sem validação** — dados inventados podem ser publicados.
+3. **Formulários de alto nível ausentes** — repetição de código e baixa reutilização.
+4. **Home com ordem divergente** — não segue a arquitetura recomendada.
+5. **Dados históricos não validados** — fundação, clientes, cidades, contratações.
+6. **SEO parcial** — componente aplicado em algumas páginas, mas não em todas.
+7. **Inventário/mapeamento de assets pendente** — `imagens_para_mover/` com 27 arquivos aguardando vinculação a serviços/cards.
+8. **Footer com grupos divergentes** — documento pede `Empresa`, `Oportunidades`, `Negócios`, `Atendimento`, `Legal`; atual: `Empresa`, `Serviços`, `Atendimento`, `Fale Conosco`.
+9. **Widgets mobile** — posicionados em `bottom-32`; pode conflitar em dispositivos com safe-area ou altura reduzida.
+10. **Serviços sem conteúdo real** — estrutura pronta, mas conteúdo do cliente pendente de entrada.
 
 ## 10 Pendências Mais Importantes
 
-1. Aplicar `SEO` em todas as páginas restantes.
-2. Atualizar identidade/contato para `jsterceirizados.com.br`.
-3. Corrigir rotas fantasma ou removê-las do Footer.
-4. Implementar `CandidaturaForm` vinculado a `/vagas/:slug`.
-5. Validar números da Home com o cliente.
-6. Adicionar mais slides à CinematicIntro e ajustar `object-position` por viewport.
-7. Criar `ServiceRequestForm`, `CompanyLeadForm`, `SupportForm`.
-8. Implementar focus trap e escala de cinza na acessibilidade.
-9. Reordenar seções da Home conforme documento.
-10. Validar dados históricos de `mock/company.ts`.
+1. Implementar `CandidaturaForm` vinculado a `/vagas/:slug`.
+2. Validar números da Home com o cliente.
+3. Aplicar `SEO` nas páginas restantes.
+4. Validar dados históricos de `mock/company.ts`.
+5. Reordenar seções da Home conforme documento.
+6. Criar `ServiceRequestForm`, `CompanyLeadForm`, `SupportForm`.
+7. Mapear assets de `imagens_para_mover/` para serviços/cards/Hero.
+8. Revisar grupos do Footer para alinhar com `Empresa`, `Oportunidades`, `Negócios`, `Atendimento`, `Legal`.
+9. Adicionar accordion mobile completo no Footer.
+10. Avaliar posicionamento dos widgets em mobile com safe-area.
 
 ## 10 Melhorias Recomendadas
 
-1. Revisar grupos do Footer para alinhar com `Empresa`, `Oportunidades`, `Negócios`, `Atendimento`, `Legal`.
-2. Adicionar accordion mobile completo no Footer.
+1. Mapear `imagens_para_mover/` para serviços, cards e Hero.
+2. Revisar grupos do Footer para alinhar com documento.
 3. Expandir conteúdo de Candidatos com jornada e dicas.
 4. Expandir conteúdo de Empresas com seção de dor e processo.
 5. Adicionar depoimentos reais na Home.
