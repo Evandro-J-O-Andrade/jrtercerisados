@@ -26,6 +26,7 @@ type AccessibilityState = {
   increasedSpacing: boolean;
   reduceAnimations: boolean;
   focusMode: boolean;
+  grayscale: boolean;
 };
 
 const INITIAL_STATE: AccessibilityState = {
@@ -35,6 +36,7 @@ const INITIAL_STATE: AccessibilityState = {
   increasedSpacing: false,
   reduceAnimations: false,
   focusMode: false,
+  grayscale: false,
 };
 
 export function AccessibilityWidget({
@@ -57,6 +59,7 @@ export function AccessibilityWidget({
     root.classList.toggle('increased-spacing', state.increasedSpacing);
     root.classList.toggle('reduce-animations', state.reduceAnimations);
     root.classList.toggle('focus-mode', state.focusMode);
+    root.classList.toggle('grayscale', state.grayscale);
 
     return () => {
       root.style.fontSize = '';
@@ -66,6 +69,7 @@ export function AccessibilityWidget({
         'increased-spacing',
         'reduce-animations',
         'focus-mode',
+        'grayscale',
       );
     };
   }, [state]);
@@ -89,6 +93,39 @@ export function AccessibilityWidget({
     };
     document.addEventListener('keydown', handleKeyDown);
     return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (!isOpen || !panelRef.current) return;
+
+    const focusableElements = panelRef.current.querySelectorAll(
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
+    );
+    const firstElement = focusableElements[0] as HTMLElement | undefined;
+    const lastElement = focusableElements[focusableElements.length - 1] as
+      HTMLElement | undefined;
+
+    const handleTab = (e: KeyboardEvent) => {
+      if (e.key !== 'Tab') return;
+      if (!focusableElements.length) return;
+
+      if (e.shiftKey) {
+        if (document.activeElement === firstElement) {
+          e.preventDefault();
+          lastElement?.focus();
+        }
+      } else {
+        if (document.activeElement === lastElement) {
+          e.preventDefault();
+          firstElement?.focus();
+        }
+      }
+    };
+
+    document.addEventListener('keydown', handleTab);
+    firstElement?.focus();
+
+    return () => document.removeEventListener('keydown', handleTab);
   }, [isOpen]);
 
   const resetAll = useCallback(() => {
@@ -296,6 +333,13 @@ export function AccessibilityWidget({
                       checked={state.focusMode}
                       onChange={(checked) =>
                         setState((prev) => ({ ...prev, focusMode: checked }))
+                      }
+                    />
+                    <ToggleRow
+                      label="Escala de cinza"
+                      checked={state.grayscale}
+                      onChange={(checked) =>
+                        setState((prev) => ({ ...prev, grayscale: checked }))
                       }
                     />
                   </div>
