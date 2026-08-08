@@ -8,6 +8,7 @@ import { z } from 'zod';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
 import { SafeImage } from '@/components/ui/SafeImage';
+import { SEO } from '@/components/ui/SEO';
 import { useAuth } from '@/contexts/AuthContext';
 import { IMAGES } from '@/config/images';
 import { cn } from '@/utils';
@@ -97,6 +98,20 @@ export default function Login() {
 
   return (
     <div className="relative flex min-h-screen items-center justify-center overflow-hidden">
+      <SEO
+        title="Login — J&S Terceirizados"
+        description="Acesse sua conta na J&S Terceirizados. Área do candidato, empresa ou administrador."
+        keywords={[
+          'login',
+          'acesso',
+          'conta',
+          'J&S Terceirizados',
+          'candidato',
+          'empresa',
+          'administrador',
+        ]}
+        noindex
+      />
       {/* Background image */}
       <SafeImage
         src={IMAGES.hero.login.src}

@@ -9,6 +9,7 @@ import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
 import { Textarea } from '@/components/ui/Textarea';
 import { Section } from '@/components/sections/Section';
+import { SEO } from '@/components/ui/SEO';
 import { Container } from '@/components/common/Container';
 import { mockSubmitCandidate } from '@/services/mock/curriculos';
 import { COMPANY, WHATSAPP_MESSAGES, getWhatsAppUrl } from '@/config';
@@ -152,6 +153,21 @@ export default function TrabalheConosco() {
 
   return (
     <div>
+      <SEO
+        title="Trabalhe Conosco — J&S Terceirizados"
+        description="Cadastre seu currículo na J&S Terceirizados e candidate-se às nossas oportunidades de trabalho."
+        keywords={[
+          'trabalhe conosco',
+          'currículo',
+          'candidatura',
+          'emprego',
+          'trabalho',
+          'J&S Terceirizados',
+          'RH',
+          'recrutamento',
+        ]}
+        type="WebSite"
+      />
       <Section>
         <Container>
           <div className="mb-12 text-center">

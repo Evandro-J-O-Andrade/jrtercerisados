@@ -10,6 +10,7 @@ import {
   Phone,
 } from 'lucide-react';
 import { Section } from '@/components/sections/Section';
+import { SEO } from '@/components/ui/SEO';
 import { Container } from '@/components/common/Container';
 import { Button } from '@/components/ui/Button';
 import { COMPANY, WHATSAPP_MESSAGES, getWhatsAppUrl } from '@/config';
@@ -48,6 +49,21 @@ const steps = [
 export default function ProcessoSeletivo() {
   return (
     <div>
+      <SEO
+        title="Processo Seletivo — J&S Terceirizados"
+        description="Conheça as etapas do nosso processo seletivo: cadastro, candidatura, entrevista e contratação."
+        keywords={[
+          'processo seletivo',
+          'seleção',
+          'entrevista',
+          'candidatura',
+          'J&S Terceirizados',
+          'RH',
+          'emprego',
+          'trabalho',
+        ]}
+        type="WebSite"
+      />
       <Section>
         <Container>
           <motion.div

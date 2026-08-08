@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Link, useParams } from 'react-router-dom';
 import { Button } from '@/components/ui/Button';
 import { Section } from '@/components/sections/Section';
+import { SEO } from '@/components/ui/SEO';
 import { Container } from '@/components/common/Container';
 import { mockGetVagaBySlug } from '@/services/mock/vagas';
 import { ArrowLeft, MapPin, Clock, DollarSign, Briefcase } from 'lucide-react';
@@ -63,6 +64,20 @@ export default function VagaDetalhe() {
 
   return (
     <div className="min-h-screen pt-16 lg:pt-20">
+      <SEO
+        title={`${vaga.title} — J&S Terceirizados`}
+        description={vaga.description}
+        keywords={[
+          vaga.title,
+          'vaga',
+          'emprego',
+          'trabalho',
+          'J&S Terceirizados',
+          'RH',
+          'recrutamento',
+        ]}
+        type="Service"
+      />
       <Section className="pt-20 md:pt-32">
         <Container>
           <motion.div

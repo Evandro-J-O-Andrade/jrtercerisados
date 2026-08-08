@@ -8,6 +8,7 @@ import { z } from 'zod';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
 import { Section } from '@/components/sections/Section';
+import { SEO } from '@/components/ui/SEO';
 import { Container } from '@/components/common/Container';
 import { mockSubmitSupplier } from '@/services/mock/fornecedores';
 import { COMPANY, WHATSAPP_MESSAGES, getWhatsAppUrl } from '@/config';
@@ -92,6 +93,21 @@ export default function Fornecedores() {
 
   return (
     <div>
+      <SEO
+        title="Fornecedores — J&S Terceirizados"
+        description="Cadastro de fornecedores da J&S Terceirizados. Torne-se um parceiro fornecedor de serviços de RH, facilities e terceirização."
+        keywords={[
+          'fornecedores',
+          'J&S Terceirizados',
+          'cadastro',
+          'parceria',
+          'fornecimento',
+          'RH',
+          'terceirização',
+          'facilities',
+        ]}
+        type="Organization"
+      />
       <Section>
         <Container>
           <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-5">

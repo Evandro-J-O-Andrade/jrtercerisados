@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Section } from '@/components/sections/Section';
+import { SEO } from '@/components/ui/SEO';
 import { Container } from '@/components/common/Container';
 import { mockGetServiceBySlug } from '@/services/mock/services';
 import { COMPANY, WHATSAPP_MESSAGES, getWhatsAppUrl } from '@/config';
@@ -71,6 +72,22 @@ export default function ServicoDetalhe() {
 
   return (
     <div>
+      <SEO
+        title={`${service.title} — J&S Terceirizados`}
+        description={service.shortDescription}
+        keywords={[
+          service.title,
+          'serviços',
+          'J&S Terceirizados',
+          'RH',
+          'terceirização',
+          'facilities',
+          'limpeza',
+          'jardinagem',
+          'portaria',
+        ]}
+        type="Service"
+      />
       {/* Premium Hero */}
       <section className="relative flex min-h-[85vh] items-center overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_50%,hsla(215,35%,25%,0.3),transparent_70%)]" />

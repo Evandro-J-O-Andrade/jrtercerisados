@@ -10,6 +10,7 @@ import { Input } from '@/components/ui/Input';
 import { Select } from '@/components/ui/Select';
 import { Textarea } from '@/components/ui/Textarea';
 import { Section } from '@/components/sections/Section';
+import { SEO } from '@/components/ui/SEO';
 import { Container } from '@/components/common/Container';
 import { mockSubmitBudget } from '@/services/mock/clientes';
 import { COMPANY, WHATSAPP_MESSAGES, getWhatsAppUrl } from '@/config';
@@ -97,6 +98,23 @@ export default function Clientes() {
 
   return (
     <div>
+      <SEO
+        title="Clientes — J&S Terceirizados"
+        description="Solicite orçamento de serviços de RH, recrutamento, terceirização e facilities. Atendimento personalizado para sua empresa."
+        keywords={[
+          'clientes',
+          'orçamento',
+          'serviços',
+          'J&S Terceirizados',
+          'RH',
+          'recrutamento',
+          'terceirização',
+          'facilities',
+          'limpeza',
+          'jardinagem',
+        ]}
+        type="Organization"
+      />
       <Section>
         <Container>
           <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-5">

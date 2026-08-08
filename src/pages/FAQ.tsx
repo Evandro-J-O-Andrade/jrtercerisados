@@ -5,6 +5,7 @@ import { ChevronDown, Phone, Mail, Send, Search } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
 import { Section } from '@/components/sections/Section';
+import { SEO } from '@/components/ui/SEO';
 import { Container } from '@/components/common/Container';
 import { COMPANY, WHATSAPP_MESSAGES, getWhatsAppUrl } from '@/config';
 import { staggerReveal, revealUp } from '@/animations/scroll';
@@ -116,6 +117,21 @@ export default function FAQ() {
 
   return (
     <div>
+      <SEO
+        title="FAQ — J&S Terceirizados"
+        description="Perguntas frequentes sobre serviços de RH, recrutamento, terceirização, facilities e processos da J&S Terceirizados."
+        keywords={[
+          'FAQ',
+          'perguntas frequentes',
+          'suporte',
+          'J&S Terceirizados',
+          'RH',
+          'recrutamento',
+          'terceirização',
+          'facilities',
+        ]}
+        type="FAQPage"
+      />
       <Section className="bg-surface-alt">
         <Container>
           <motion.div

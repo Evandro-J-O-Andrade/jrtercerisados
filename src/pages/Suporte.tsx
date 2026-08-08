@@ -25,6 +25,7 @@ import { Input } from '@/components/ui/Input';
 import { Select } from '@/components/ui/Select';
 import { Textarea } from '@/components/ui/Textarea';
 import { Section } from '@/components/sections/Section';
+import { SEO } from '@/components/ui/SEO';
 import { Container } from '@/components/common/Container';
 import { COMPANY, WHATSAPP_MESSAGES, getWhatsAppUrl } from '@/config';
 import { staggerReveal, revealUp } from '@/animations/scroll';
@@ -164,6 +165,22 @@ export default function Suporte() {
 
   return (
     <div>
+      <SEO
+        title="Suporte — J&S Terceirizados"
+        description="Central de atendimento da J&S Terceirizados: WhatsApp, chat online, FAQ e suporte ao cliente."
+        keywords={[
+          'suporte',
+          'atendimento',
+          'FAQ',
+          'WhatsApp',
+          'chat',
+          'J&S Terceirizados',
+          'RH',
+          'terceirização',
+          'facilities',
+        ]}
+        type="WebSite"
+      />
       {/* Hero */}
       <Section className="bg-surface-alt">
         <Container>

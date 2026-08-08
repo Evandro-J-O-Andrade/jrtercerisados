@@ -9,6 +9,7 @@ import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
 import { Select } from '@/components/ui/Select';
 import { Section } from '@/components/sections/Section';
+import { SEO } from '@/components/ui/SEO';
 import { Container } from '@/components/common/Container';
 import { mockSubmitPartner } from '@/services/mock/parceiros';
 import { COMPANY, WHATSAPP_MESSAGES, getWhatsAppUrl } from '@/config';
@@ -94,6 +95,20 @@ export default function Parceiros() {
 
   return (
     <div>
+      <SEO
+        title="Parceiros — J&S Terceirizados"
+        description="Seja um parceiro estratégico da J&S Terceirizados. Amplie sua rede de negócios e cresça junto conosco."
+        keywords={[
+          'parceiros',
+          'J&S Terceirizados',
+          'parceria',
+          'negócios',
+          'RH',
+          'terceirização',
+          'facilities',
+        ]}
+        type="Organization"
+      />
       <Section>
         <Container>
           <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-5">
