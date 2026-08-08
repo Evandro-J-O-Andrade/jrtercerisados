@@ -333,26 +333,6 @@ export function Footer() {
               reservados.
             </span>
           </div>
-          <div className="text-muted-foreground flex flex-wrap justify-center gap-4 text-xs">
-            <Link
-              to="/privacidade"
-              className="hover:text-primary transition-colors"
-            >
-              Privacidade
-            </Link>
-            <Link to="/termos" className="hover:text-primary transition-colors">
-              Termos
-            </Link>
-            <Link to="/lgpd" className="hover:text-primary transition-colors">
-              LGPD
-            </Link>
-            <Link
-              to="/cookies"
-              className="hover:text-primary transition-colors"
-            >
-              Cookies
-            </Link>
-          </div>
           <p className="text-muted-foreground text-xs">
             Desenvolvido por{' '}
             <span className="text-foreground font-medium">
