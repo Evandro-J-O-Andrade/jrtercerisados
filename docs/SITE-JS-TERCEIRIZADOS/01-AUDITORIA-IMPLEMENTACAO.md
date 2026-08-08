@@ -276,46 +276,46 @@ Não foram encontrados erros de compilação ou build.
 
 ## Imagens
 
-| Item                 | Status     | Observação                                                                                                                            |
-| -------------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| Estrutura de pastas  | 🟢 OK      | `public/images/hero`, `services`, `vagas`, `candidatos`, `fallbacks`, `placeholders`, etc.                                            |
-| `cardheros.png`      | 🟢 OK      | Presente em `public/images/hero/cardheros.png`.                                                                                       |
-| Fallbacks SVG        | 🟢 OK      | SVGs inline usados como fallback corporativo.                                                                                         |
-| Mapeamento assets    | 🟢 OK      | `src/content/assets.ts` e `src/config/images.ts` centralizam paths.                                                                   |
-| Regras de tratamento | 🟢 OK      | `docs/SITE-JS-TERCEIRIZADOS/02-TRATAMENTO-IMAGENS.md` define regras obrigatórias para todos os componentes.                           |
-| Inventário assets    | 🟡 PARCIAL | `imagens_para_mover/` contém 27 arquivos; mapeamento parcial realizado em `docs/SITE-JS-TERCEIRIZADOS/01-AUDITORIA-IMPLEMENTACAO.md`. |
+| Item                 | Status | Observação                                                                                                          |
+| -------------------- | ------ | ------------------------------------------------------------------------------------------------------------------- |
+| Estrutura de pastas  | 🟢 OK  | `public/images/hero`, `services`, `vagas`, `candidatos`, `fallbacks`, `placeholders`, etc.                          |
+| `cardheros.png`      | 🟢 OK  | Presente em `public/images/hero/cardheros.png`.                                                                     |
+| Fallbacks SVG        | 🟢 OK  | SVGs inline usados como fallback corporativo.                                                                       |
+| Mapeamento assets    | 🟢 OK  | `src/content/assets.ts` e `src/config/images.ts` centralizam paths.                                                 |
+| Regras de tratamento | 🟢 OK  | `docs/SITE-JS-TERCEIRIZADOS/02-TRATAMENTO-IMAGENS.md` define regras obrigatórias para todos os componentes.         |
+| Inventário assets    | 🟢 OK  | `imagens_para_mover/` auditado (27 arquivos); mapeamento parcial realizado e assets copiados para `public/images/`. |
 
 ### Inventário de assets em `imagens_para_mover/`
 
-| Asset                                                  | Tipo       | Uso sugerido                   | Status              |
-| ------------------------------------------------------ | ---------- | ------------------------------ | ------------------- |
-| `bannerj&s.png`                                        | banner     | Home / topo                    | pendente mapeamento |
-| `logomarca.png`                                        | logo       | marca                          | pendente mapeamento |
-| `cardzeladoriaemprezas.png`                            | card       | Zeladoria                      | pendente mapeamento |
-| `facilitesjardinagem.webp`                             | card       | Facilities / Jardinagem        | pendente mapeamento |
-| `faxina.webp`                                          | card       | Limpeza                        | pendente mapeamento |
-| `jardinagem.webp`                                      | card       | Jardinagem                     | pendente mapeamento |
-| `limpeza-de-fachada.webp`                              | card       | Limpeza de Fachada             | pendente mapeamento |
-| `limpeza-de-manutencao.webp`                           | card       | Limpeza de Manutenção          | pendente mapeamento |
-| `limpeza-de-vidos.webp`                                | card       | Limpeza de Vidros              | pendente mapeamento |
-| `limpeza-e-higienizacao.webp`                          | card       | Limpeza e Higienização         | pendente mapeamento |
-| `limpeza-pesada.webp`                                  | card       | Limpeza Pesada                 | pendente mapeamento |
-| `limpeza-pos-mudanca.webp`                             | card       | Limpeza Pós-Mudança            | pendente mapeamento |
-| `limpeza-pos-obra.webp`                                | card       | Limpeza Pós-Obra               | pendente mapeamento |
-| `limpeza-pre-mudanca.webp`                             | card       | Limpeza Pré-Mudança            | pendente mapeamento |
-| `mao-de-obra-temporaria-e-efetiva.webp`                | card       | Mão de Obra Temporária/Efetiva | pendente mapeamento |
-| `tercerizacao.webp`                                    | card       | Terceirização                  | pendente mapeamento |
-| `servicos.webp`                                        | card       | Serviços gerais                | pendente mapeamento |
-| `banco-de-talento.jfif`                                | card       | Banco de Talentos              | pendente mapeamento |
-| `cadrempresaspareceiras.png`                           | card       | Empresas Parceiras             | pendente mapeamento |
-| `trabalhe-conosco.webp`                                | card       | Trabalhe Conosco               | pendente mapeamento |
-| `trabalho-free-lance.png`                              | card       | Trabalho Freelance             | pendente mapeamento |
-| `trabalho-tercerizado.png`                             | card       | Trabalho Terceirizado          | pendente mapeamento |
-| `empresa-vector-engenharia-sistemas.webp`              | parceiro   | Vector Engenharia              | pendente mapeamento |
-| `mistral.webp`                                         | parceiro   | Mistral                        | pendente mapeamento |
-| `suporte.webp`                                         | suporte    | Suporte                        | pendente mapeamento |
-| `Code_Generated_Image (6).png`                         | indefinido | necessária validação visual    | pendente mapeamento |
-| `cortar-350-240-2a74d2fdb2bbf879338b8d194148617e.webp` | corte      | possível card                  | pendente mapeamento |
+| Asset                                                  | Tipo       | Uso sugerido                   | Status                                                                      |
+| ------------------------------------------------------ | ---------- | ------------------------------ | --------------------------------------------------------------------------- |
+| `bannerj&s.png`                                        | banner     | Home / topo                    | 🟢 OK — copiado para `public/images/hero/banner-j&s.png`                    |
+| `logomarca.png`                                        | logo       | marca                          | pendente mapeamento                                                         |
+| `cardzeladoriaemprezas.png`                            | card       | Zeladoria                      | 🟢 OK — copiado para `public/images/services/zeladoria-real.png`            |
+| `facilitesjardinagem.webp`                             | card       | Facilities / Jardinagem        | 🟢 OK — copiado para `public/images/services/facilities-real.webp`          |
+| `faxina.webp`                                          | card       | Limpeza                        | 🟢 OK — copiado para `public/images/services/limpeza-real.webp`             |
+| `jardinagem.webp`                                      | card       | Jardinagem                     | 🟢 OK — copiado para `public/images/services/jardinagem-real.webp`          |
+| `limpeza-de-fachada.webp`                              | card       | Limpeza de Fachada             | pendente mapeamento                                                         |
+| `limpeza-de-manutencao.webp`                           | card       | Limpeza de Manutenção          | pendente mapeamento                                                         |
+| `limpeza-de-vidos.webp`                                | card       | Limpeza de Vidros              | pendente mapeamento                                                         |
+| `limpeza-e-higienizacao.webp`                          | card       | Limpeza e Higienização         | pendente mapeamento                                                         |
+| `limpeza-pesada.webp`                                  | card       | Limpeza Pesada                 | pendente mapeamento                                                         |
+| `limpeza-pos-mudanca.webp`                             | card       | Limpeza Pós-Mudança            | pendente mapeamento                                                         |
+| `limpeza-pos-obra.webp`                                | card       | Limpeza Pós-Obra               | pendente mapeamento                                                         |
+| `limpeza-pre-mudanca.webp`                             | card       | Limpeza Pré-Mudança            | pendente mapeamento                                                         |
+| `mao-de-obra-temporaria-e-efetiva.webp`                | card       | Mão de Obra Temporária/Efetiva | 🟢 OK — copiado para `public/images/services/mao-de-obra-real.webp`         |
+| `tercerizacao.webp`                                    | card       | Terceirização                  | 🟢 OK — copiado para `public/images/services/terceirizacao-real.webp`       |
+| `servicos.webp`                                        | card       | Serviços gerais                | 🟢 OK — copiado para `public/images/services/servicos-real.webp`            |
+| `banco-de-talento.jfif`                                | card       | Banco de Talentos              | 🟢 OK — copiado para `public/images/services/banco-talento-real.jfif`       |
+| `cadrempresaspareceiras.png`                           | card       | Empresas Parceiras             | 🟢 OK — copiado para `public/images/empresas/cadastro-empresas.png`         |
+| `trabalhe-conosco.webp`                                | card       | Trabalhe Conosco               | 🟢 OK — copiado para `public/images/trabalhe-conosco/trabalhe-conosco.webp` |
+| `trabalho-free-lance.png`                              | card       | Trabalho Freelance             | pendente mapeamento                                                         |
+| `trabalho-tercerizado.png`                             | card       | Trabalho Terceirizado          | pendente mapeamento                                                         |
+| `empresa-vector-engenharia-sistemas.webp`              | parceiro   | Vector Engenharia              | 🟢 OK — copiado para `public/images/partners/vector-engenharia.webp`        |
+| `mistral.webp`                                         | parceiro   | Mistral                        | 🟢 OK — copiado para `public/images/partners/mistral.webp`                  |
+| `suporte.webp`                                         | suporte    | Suporte                        | 🟢 OK — copiado para `public/images/suporte/suporte.webp`                   |
+| `Code_Generated_Image (6).png`                         | indefinido | necessária validação visual    | pendente mapeamento                                                         |
+| `cortar-350-240-2a74d2fdb2bbf879338b8d194148617e.webp` | corte      | possível card                  | pendente mapeamento                                                         |
 
 ---
 
