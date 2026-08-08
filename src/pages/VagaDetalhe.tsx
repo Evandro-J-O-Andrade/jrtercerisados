@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/Button';
 import { Section } from '@/components/sections/Section';
 import { SEO } from '@/components/ui/SEO';
 import { Container } from '@/components/common/Container';
+import { JobApplicationForm } from '@/components/forms/JobApplicationForm';
 import { mockGetVagaBySlug } from '@/services/mock/vagas';
 import { ArrowLeft, MapPin, Clock, DollarSign, Briefcase } from 'lucide-react';
 import type { Vaga } from '@/types/common';
@@ -200,14 +201,7 @@ export default function VagaDetalhe() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.6 }}
             >
-              <Button
-                to="/trabalhe-conosco"
-                variant="primary"
-                size="lg"
-                className="shadow-glow-lg h-14 rounded-[18px] px-8 py-4 text-base"
-              >
-                Candidatar-se agora
-              </Button>
+              <JobApplicationForm jobTitle={vaga.titulo} />
             </motion.div>
           </motion.div>
         </Container>
