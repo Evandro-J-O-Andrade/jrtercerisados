@@ -86,9 +86,11 @@ export interface Service {
   slug: string;
   title: string;
   description: string;
+  shortDescription: string;
   benefits: string[];
   image: string;
   icon: string;
+  category: 'rh' | 'facilities' | 'terceirizacao' | 'candidato';
 }
 
 export interface Vaga {

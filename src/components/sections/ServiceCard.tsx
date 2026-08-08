@@ -1,7 +1,7 @@
 import { type ComponentType } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import type { Service } from '@/types/common';
 import { SERVICE_ICONS } from '@/constants/icons';
 import { SafeImage } from '@/components/ui/SafeImage';
@@ -10,6 +10,13 @@ interface ServiceCardProps {
   service: Service;
   index: number;
 }
+
+const CATEGORY_LABELS: Record<Service['category'], string> = {
+  rh: 'Recursos Humanos',
+  facilities: 'Facilities',
+  terceirizacao: 'Terceirização',
+  candidato: 'Para Candidatos',
+};
 
 export function ServiceCard({ service, index }: ServiceCardProps) {
   const Icon: ComponentType<{ className?: string }> =
@@ -53,22 +60,15 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
 
         {/* Content */}
         <div className="p-6">
-          <h3 className="text-foreground group-hover:text-primary text-xl font-bold transition-colors duration-300">
+          <span className="text-primary text-xs font-semibold tracking-wider uppercase">
+            {CATEGORY_LABELS[service.category]}
+          </span>
+          <h3 className="text-foreground group-hover:text-primary mt-2 text-xl font-bold transition-colors duration-300">
             {service.title}
           </h3>
-          <p className="text-muted-foreground mt-3 line-clamp-3 text-sm leading-relaxed">
-            {service.description}
+          <p className="text-muted-foreground mt-3 text-sm leading-relaxed">
+            {service.shortDescription}
           </p>
-
-          {/* Benefits preview */}
-          <div className="mt-4 space-y-2">
-            {service.benefits.slice(0, 2).map((benefit) => (
-              <div key={benefit} className="flex items-center gap-2 text-sm">
-                <CheckCircle2 className="text-primary h-4 w-4 flex-shrink-0" />
-                <span className="text-muted-foreground">{benefit}</span>
-              </div>
-            ))}
-          </div>
 
           {/* CTA */}
           <div className="text-primary mt-6 flex items-center gap-2 text-sm font-medium transition-transform group-hover:translate-x-1">

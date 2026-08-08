@@ -6,6 +6,8 @@ export const mockServices: Service[] = [
     id: '1',
     slug: 'recrutamento-selecao',
     title: 'Recrutamento e Seleção',
+    shortDescription:
+      'Encontramos os melhores talentos para as posições estratégicas da sua empresa.',
     description:
       'Serviço completo de recrutamento e seleção de profissionais qualificados para sua empresa. Encontramos os melhores talentos para as posições estratégicas da sua organização.',
     benefits: [
@@ -18,11 +20,14 @@ export const mockServices: Service[] = [
     ],
     image: '/images/services/recrutamento.svg',
     icon: 'users',
+    category: 'rh',
   },
   {
     id: '9',
     slug: 'mao-de-obra-temporaria',
     title: 'Mão de Obra Temporária',
+    shortDescription:
+      'Solução rápida e flexível para picos de demanda e projetos específicos.',
     description:
       'Solução rápida e flexível para picos de demanda, substituições e projetos. Conectamos sua empresa a profissionais qualificados para períodos específicos.',
     benefits: [
@@ -35,11 +40,14 @@ export const mockServices: Service[] = [
     ],
     image: '/images/services/temporaria.svg',
     icon: 'clock',
+    category: 'rh',
   },
   {
     id: '11',
     slug: 'mao-de-obra-efetiva',
     title: 'Mão de Obra Efetiva',
+    shortDescription:
+      'Contratação de profissionais permanentes com seleção completa e acompanhamento.',
     description:
       'Contratação de profissionais para posições permanentes com um processo seletivo completo e acompanhamento pós-contratação para garantir a adaptação.',
     benefits: [
@@ -51,11 +59,14 @@ export const mockServices: Service[] = [
     ],
     image: '/images/services/efetiva.svg',
     icon: 'award',
+    category: 'rh',
   },
   {
     id: '2',
     slug: 'banco-de-talentos',
     title: 'Banco de Talentos',
+    shortDescription:
+      'Acesso a currículos qualificados e pré-selecionados para suas vagas.',
     description:
       'Base de currículos qualificados disponíveis para suas vagas. Acesso a profissionais pré-selecionados e prontos para novos desafios.',
     benefits: [
@@ -68,11 +79,14 @@ export const mockServices: Service[] = [
     ],
     image: '/images/services/banco-talentos.svg',
     icon: 'database',
+    category: 'rh',
   },
   {
     id: '12',
     slug: 'assessoria-rh',
     title: 'Assessoria em RH',
+    shortDescription:
+      'Profissional de RH dedicado para processos seletivos, gestão e consultoria estratégica.',
     description:
       'Tenha um profissional de RH dedicado à sua empresa para cuidar de processos seletivos, gestão de pessoas e consultoria estratégica.',
     benefits: [
@@ -84,11 +98,14 @@ export const mockServices: Service[] = [
     ],
     image: '/images/services/assessoria.svg',
     icon: 'briefcase',
+    category: 'rh',
   },
   {
     id: '3',
     slug: 'avaliacao-perfil',
     title: 'Avaliação de Perfil',
+    shortDescription:
+      'Avaliações psicométricas e entrevistas para garantir o candidato ideal.',
     description:
       'Avaliação psicométrica, testes técnicos e entrevistas estruturadas para garantir que o candidato certo esteja no lugar certo.',
     benefits: [
@@ -101,11 +118,14 @@ export const mockServices: Service[] = [
     ],
     image: '/images/services/avaliacao-perfil.svg',
     icon: 'target',
+    category: 'rh',
   },
   {
     id: '4',
     slug: 'hunting',
     title: 'Executive Search (Hunting)',
+    shortDescription:
+      'Busca discreta e direcionada para cargos de alta performance e liderança.',
     description:
       'Busca discreta e direcionada para cargos de alta performance e liderança. Encontramos profissionais que não estão no mercado, mas que são ideais para sua vaga.',
     benefits: [
@@ -118,6 +138,7 @@ export const mockServices: Service[] = [
     ],
     image: '/images/services/hunting.svg',
     icon: 'search',
+    category: 'rh',
   },
 
   // ── Soluções Operacionais (Facilities - Secundário) ─────
@@ -125,6 +146,8 @@ export const mockServices: Service[] = [
     id: '10',
     slug: 'facilities',
     title: 'Facilities',
+    shortDescription:
+      'Serviços operacionais integrados: limpeza, segurança, portaria e zeladoria.',
     description:
       'Como solução complementar, oferecemos terceirização de serviços operacionais: limpeza, segurança, portaria, jardinagem, recepção e zeladoria.',
     benefits: [
@@ -137,6 +160,7 @@ export const mockServices: Service[] = [
     ],
     image: '/images/services/facilities.svg',
     icon: 'building',
+    category: 'facilities',
   },
 
   // ── Terceirização (mantida) ─────────────────────────────
@@ -144,6 +168,8 @@ export const mockServices: Service[] = [
     id: '5',
     slug: 'seguranca-patrimonial',
     title: 'Controle de Acesso e Portaria',
+    shortDescription:
+      'Segurança patrimonial com monitoramento e controle de acesso inteligente.',
     description:
       'Serviço especializado de segurança patrimonial com profissionais treinados, monitoramento 24h e tecnologia de ponta para proteger seu patrimônio com excelência.',
     benefits: [
@@ -156,11 +182,14 @@ export const mockServices: Service[] = [
     ],
     image: '/images/services/seguranca-patrimonial.svg',
     icon: 'shield',
+    category: 'terceirizacao',
   },
   {
     id: '6',
     slug: 'limpeza-conservacao',
     title: 'Limpeza e Conservação',
+    shortDescription:
+      'Limpeza profissional com produtos ecológicos e equipe treinada.',
     description:
       'Serviço de limpeza profissional com equipe treinada, produtos ecológicos e metodologia que garante higiene e conservação do seu ambiente.',
     benefits: [
@@ -173,11 +202,14 @@ export const mockServices: Service[] = [
     ],
     image: '/images/services/limpeza.svg',
     icon: 'sparkles',
+    category: 'facilities',
   },
   {
     id: '8',
     slug: 'zeladoria-manutencao',
     title: 'Zeladoria e Manutenção',
+    shortDescription:
+      'Manutenção preventiva e conservação de instalações para condomínios e empresas.',
     description:
       'Serviço de zeladoria com manutenção preventiva, conservação de instalações e suporte operacional para condomínios e empresas.',
     benefits: [
@@ -190,6 +222,7 @@ export const mockServices: Service[] = [
     ],
     image: '/images/services/zeladoria.svg',
     icon: 'wrench',
+    category: 'facilities',
   },
 
   // ── Para Candidatos ──────────────────────────────────────
@@ -197,6 +230,8 @@ export const mockServices: Service[] = [
     id: '20',
     slug: 'cadastro-curriculo',
     title: 'Cadastro de Currículo',
+    shortDescription:
+      'Cadastre seu currículo gratuitamente e entre no nosso banco de talentos.',
     description:
       'Cadastre seu currículo gratuitamente e entre no nosso banco de talentos. Mantenha seus dados sempre atualizados.',
     benefits: [
@@ -208,11 +243,14 @@ export const mockServices: Service[] = [
     ],
     image: '/images/services/banco-talentos.svg',
     icon: 'users',
+    category: 'candidato',
   },
   {
     id: '21',
     slug: 'busca-vagas',
     title: 'Busca de Vagas',
+    shortDescription:
+      'Encontre oportunidades alinhadas ao seu perfil profissional.',
     description:
       'Encontre oportunidades alinhadas ao seu perfil profissional. Filtre por área, cidade e tipo de contrato.',
     benefits: [
@@ -224,11 +262,14 @@ export const mockServices: Service[] = [
     ],
     image: '/images/services/recrutamento.svg',
     icon: 'search',
+    category: 'candidato',
   },
   {
     id: '22',
     slug: 'alertas-emprego',
     title: 'Alertas de Emprego',
+    shortDescription:
+      'Receba notificações de novas vagas compatíveis com seu perfil.',
     description:
       'Receba notificações de novas vagas compatíveis com seu perfil diretamente pelo WhatsApp.',
     benefits: [
@@ -240,11 +281,14 @@ export const mockServices: Service[] = [
     ],
     image: '/images/services/banco-talentos.svg',
     icon: 'phone',
+    category: 'candidato',
   },
   {
     id: '23',
     slug: 'orientacao-profissional',
     title: 'Orientação Profissional',
+    shortDescription:
+      'Dicas de carreira, CV e preparação para processos seletivos.',
     description:
       'Receba dicas de carreira, CV e preparação para processos seletivos da nossa equipe de RH.',
     benefits: [
@@ -256,11 +300,14 @@ export const mockServices: Service[] = [
     ],
     image: '/images/services/avaliacao-perfil.svg',
     icon: 'award',
+    category: 'candidato',
   },
   {
     id: '24',
     slug: 'atualizacao-curriculo',
     title: 'Atualização de Currículo',
+    shortDescription:
+      'Mantenha seu currículo atualizado e destaque-se para empresas parceiras.',
     description:
       'Mantenha seu currículo sempre atualizado e destaque-se para nossas empresas parceiras.',
     benefits: [
@@ -272,6 +319,7 @@ export const mockServices: Service[] = [
     ],
     image: '/images/services/banco-talentos.svg',
     icon: 'clipboard-check',
+    category: 'candidato',
   },
 ];
 
