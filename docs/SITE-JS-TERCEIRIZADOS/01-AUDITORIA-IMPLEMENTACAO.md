@@ -257,30 +257,32 @@ Não foram encontrados erros de compilação ou build.
 
 ## Cinematic Intro
 
-| Item                     | Status | Arquivo                                      | Observação                                                                           |
-| ------------------------ | ------ | -------------------------------------------- | ------------------------------------------------------------------------------------ |
-| Imagem `cardheros`       | 🟢 OK  | `src/components/sections/CinematicIntro.tsx` | `/images/hero/cardheros.png` usado.                                                  |
-| Sem texto / H1 / CTA     | 🟢 OK  | `src/components/sections/CinematicIntro.tsx` | Apenas imagem e overlay.                                                             |
-| Duração curta            | 🟢 OK  | `src/components/sections/CinematicIntro.tsx` | Showcase controlado por timer e sessionStorage.                                      |
-| Múltiplas imagens        | 🟢 OK  | `src/components/sections/CinematicIntro.tsx` | Array `slides` com 3 itens: `cardheros.png`, `hero-main.webp`, `hero-security.webp`. |
-| Inatividade 10 min       | 🟢 OK  | `src/components/sections/CinematicIntro.tsx` | Timer reseta com interação.                                                          |
-| `sessionStorage`         | 🟢 OK  | `src/components/sections/CinematicIntro.tsx` | dismissed por sessão.                                                                |
-| `prefers-reduced-motion` | 🟢 OK  | `src/components/sections/CinematicIntro.tsx` | Respeitado.                                                                          |
-| Bloqueio de scroll       | 🟢 OK  | `src/components/sections/CinematicIntro.tsx` | `overflow: hidden` durante showcase.                                                 |
-| Botão “Pular”            | 🟢 OK  | `src/components/sections/CinematicIntro.tsx` | Presente e funcional.                                                                |
-| Posicionamento fixed     | 🟢 OK  | `src/components/sections/CinematicIntro.tsx` | Não participa do fluxo do documento.                                                 |
-| Sem overflow             | 🟢 OK  | `src/components/sections/CinematicIntro.tsx` | Container controla proporção e `object-fit`.                                         |
+| Item                       | Status | Arquivo                                      | Observação                                                                                              |
+| -------------------------- | ------ | -------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| Imagem `cardheros`         | 🟢 OK  | `src/components/sections/CinematicIntro.tsx` | `/images/hero/cardheros.png` usado.                                                                     |
+| Sem texto / H1 / CTA       | 🟢 OK  | `src/components/sections/CinematicIntro.tsx` | Apenas imagem e overlay.                                                                                |
+| Duração curta              | 🟢 OK  | `src/components/sections/CinematicIntro.tsx` | Showcase controlado por timer e sessionStorage.                                                         |
+| Múltiplas imagens          | 🟢 OK  | `src/components/sections/CinematicIntro.tsx` | Array `slides` com 3 itens: `cardheros.png`, `hero-main.webp`, `hero-security.webp`.                    |
+| Inatividade 10 min         | 🟢 OK  | `src/components/sections/CinematicIntro.tsx` | Timer reseta com interação.                                                                             |
+| `sessionStorage`           | 🟢 OK  | `src/components/sections/CinematicIntro.tsx` | dismissed por sessão.                                                                                   |
+| `prefers-reduced-motion`   | 🟢 OK  | `src/components/sections/CinematicIntro.tsx` | Respeitado.                                                                                             |
+| Bloqueio de scroll         | 🟢 OK  | `src/components/sections/CinematicIntro.tsx` | `overflow: hidden` durante showcase.                                                                    |
+| Botão “Pular”              | 🟢 OK  | `src/components/sections/CinematicIntro.tsx` | Presente e funcional.                                                                                   |
+| Posicionamento fixed       | 🟢 OK  | `src/components/sections/CinematicIntro.tsx` | Não participa do fluxo do documento.                                                                    |
+| Sem overflow               | 🟢 OK  | `src/components/sections/CinematicIntro.tsx` | Container controla proporção e `object-fit`.                                                            |
+| object-position responsivo | 🟢 OK  | `src/components/sections/CinematicIntro.tsx` | Ajusta `objectPosition` por breakpoint: desktop `center 35%`, tablet `center 40%`, mobile `60% center`. |
 
 ---
 
 ## Imagens
 
-| Item                | Status | Observação                                                                                 |
-| ------------------- | ------ | ------------------------------------------------------------------------------------------ |
-| Estrutura de pastas | 🟢 OK  | `public/images/hero`, `services`, `vagas`, `candidatos`, `fallbacks`, `placeholders`, etc. |
-| `cardheros.png`     | 🟢 OK  | Presente em `public/images/hero/cardheros.png`.                                            |
-| Fallbacks SVG       | 🟢 OK  | SVGs inline usados como fallback corporativo.                                              |
-| Mapeamento assets   | 🟢 OK  | `src/content/assets.ts` e `src/config/images.ts` centralizam paths.                        |
+| Item                 | Status | Observação                                                                                                  |
+| -------------------- | ------ | ----------------------------------------------------------------------------------------------------------- |
+| Estrutura de pastas  | 🟢 OK  | `public/images/hero`, `services`, `vagas`, `candidatos`, `fallbacks`, `placeholders`, etc.                  |
+| `cardheros.png`      | 🟢 OK  | Presente em `public/images/hero/cardheros.png`.                                                             |
+| Fallbacks SVG        | 🟢 OK  | SVGs inline usados como fallback corporativo.                                                               |
+| Mapeamento assets    | 🟢 OK  | `src/content/assets.ts` e `src/config/images.ts` centralizam paths.                                         |
+| Regras de tratamento | 🟢 OK  | `docs/SITE-JS-TERCEIRIZADOS/02-TRATAMENTO-IMAGENS.md` define regras obrigatórias para todos os componentes. |
 
 ---
 
