@@ -1,4 +1,5 @@
 import type { Service } from '@/types/common';
+import { IMAGES } from '@/config/images';
 
 export const mockServices: Service[] = [
   // ── Para Empresas (Recursos Humanos) ───────────────────
@@ -18,7 +19,8 @@ export const mockServices: Service[] = [
       'Garantia de contratação',
       'Suporte até a contratação',
     ],
-    image: '/images/services/recrutamento-alt.jfif',
+    image:
+      IMAGES.services.recrutamento ?? '/images/services/recrutamento-alt.jfif',
     icon: 'users',
     category: 'rh',
   },
@@ -38,7 +40,7 @@ export const mockServices: Service[] = [
       'Compliance total com a Lei 6.019/74',
       'Gestão completa incluída',
     ],
-    image: '/images/services/temporaria.svg',
+    image: IMAGES.services.maoDeObraReal ?? '/images/services/temporaria.svg',
     icon: 'clock',
     category: 'rh',
   },
@@ -57,7 +59,7 @@ export const mockServices: Service[] = [
       'Redução de turnover',
       'Alinhamento com a cultura da empresa',
     ],
-    image: '/images/services/efetiva.svg',
+    image: IMAGES.services.maoDeObraReal ?? '/images/services/efetiva.svg',
     icon: 'award',
     category: 'rh',
   },
@@ -77,7 +79,9 @@ export const mockServices: Service[] = [
       'Agilidade no recrutamento',
       'Redução de custos',
     ],
-    image: '/images/services/banco-talentos.svg',
+    image:
+      IMAGES.services.bancoTalentosReal ??
+      '/images/services/banco-talentos.svg',
     icon: 'database',
     category: 'rh',
   },
@@ -158,7 +162,8 @@ export const mockServices: Service[] = [
       'SLA e KPIs de qualidade',
       'Foco no seu core business',
     ],
-    image: '/images/services/facilities-alt.jfif',
+    image:
+      IMAGES.services.facilitiesReal ?? '/images/services/facilities-alt.jfif',
     icon: 'building',
     category: 'facilities',
   },
@@ -200,7 +205,8 @@ export const mockServices: Service[] = [
       'Controle de qualidade',
       'Relatórios de limpeza',
     ],
-    image: '/images/services/limpeza-escritorio.jfif',
+    image:
+      IMAGES.services.limpezaReal ?? '/images/services/limpeza-escritorio.jfif',
     icon: 'sparkles',
     category: 'facilities',
   },
@@ -220,7 +226,7 @@ export const mockServices: Service[] = [
       'Gestão de áreas comuns',
       'Inspeções regulares',
     ],
-    image: '/images/services/zeladoria.svg',
+    image: IMAGES.services.zeladoriaReal ?? '/images/services/zeladoria.svg',
     icon: 'wrench',
     category: 'facilities',
   },

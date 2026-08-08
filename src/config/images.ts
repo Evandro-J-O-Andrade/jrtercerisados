@@ -67,6 +67,27 @@ export const IMAGES = {
     'assessoria-rh': '/images/services/assessoria-rh.png',
     'solucao-rh': '/images/services/solucao-rh.jfif',
     'time-rh': '/images/team/time-rh.jfif',
+    facilitiesReal: '/images/services/facilities-real.webp',
+    limpezaReal: '/images/services/limpeza-real.webp',
+    jardinagemReal: '/images/services/jardinagem-real.webp',
+    maoDeObraReal: '/images/services/mao-de-obra-real.webp',
+    terceirizacaoReal: '/images/services/terceirizacao-real.webp',
+    servicosReal: '/images/services/servicos-real.webp',
+    zeladoriaReal: '/images/services/zeladoria-real.png',
+    bancoTalentosReal: '/images/services/banco-talento-real.jfif',
+  },
+  partners: {
+    vectorEngenharia: '/images/partners/vector-engenharia.webp',
+    mistral: '/images/partners/mistral.webp',
+  },
+  empresas: {
+    cadastro: '/images/empresas/cadastro-empresas.png',
+  },
+  suporte: {
+    hero: '/images/suporte/suporte.webp',
+  },
+  trabalheConosco: {
+    hero: '/images/trabalhe-conosco/trabalhe-conosco.webp',
   },
   backgrounds: {
     hero: '/images/backgrounds/waves.svg',
